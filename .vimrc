@@ -4,6 +4,9 @@ set shortmess=I
 "Turn syntax highlighting on
 syntax on
 
+"Turn indentation on
+filetype indent on
+
 "Turn word wrap off
 set nowrap
 
