@@ -13,31 +13,31 @@ Warning: ~/.vimrc and ~/.vim will be renamed to ~/.vimrc.old and ~/.vim.old
 
 Automatically close some characters like ", ', [ and (.
 
-http://www.org/scripts/script.php?script_id=2009
+http://www.vim.org/scripts/script.php?script_id=2009
 
 === CycleColor
 
 Press F4 to switch to the next colour, and F3 to switch to the previous colour.
 
-http://www.org/scripts/script.php?script_id=1457
+http://www.vim.org/scripts/script.php?script_id=1457
 
 === NERDTree
 
 Show a list of files in the current directory. Press \n to toggle the NERDTree.
 
-http://www.org/scripts/script.php?script_id=1658
+http://www.vim.org/scripts/script.php?script_id=1658
 
 === NERDCommenter
 
 Press CMD+/ to comment the entire line.
 
-http://www.org/scripts/script.php?script_id=1218
+http://www.vim.org/scripts/script.php?script_id=1218
 
 === SuperTab
 
 Press TAB to autocomplete the current word
 
-http://www.org/scripts/script.php?script_id=182
+http://www.vim.org/scripts/script.php?script_id=182
 
 == Colors
 
