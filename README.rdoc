@@ -41,8 +41,6 @@ http://www.vim.org/scripts/script.php?script_id=182
 
 == Colors
 
-The following colours are installed:
-
 adaryn
 adrian
 aiseered
