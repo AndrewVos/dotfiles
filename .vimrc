@@ -19,9 +19,6 @@ set tabstop=2
 "The number of spaces inserted for a tab
 set shiftwidth=2
 
-"Full screen takes up entire screen
-set fuoptions=maxhorz,maxvert
-
 "Turn on line numbers
 set number
 
@@ -57,3 +54,8 @@ map <Leader>n :NERDTreeToggle<CR>
 
 "Command-/ to toggle comments
 map <D-/> <plug>NERDCommenterToggle<CR>
+
+if has("gui")
+  "Full screen takes up entire screen
+  set fuoptions=maxhorz,maxvert
+endif
