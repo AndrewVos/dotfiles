@@ -1,3 +1,6 @@
+"Use 256 colour mode
+set t_Co=256
+
 "Don't show the vim intro text
 set shortmess=I
 
