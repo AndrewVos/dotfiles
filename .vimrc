@@ -49,6 +49,9 @@ colorscheme mustang
 "colorscheme railscasts
 "colorscheme wombat256
 
+"Minimalistic status line
+set statusline=%t
+
 "Hide the toolbar
 set guioptions-=T
 
