@@ -1,19 +1,13 @@
-= vimrc
+= vimfiles
 
 == Installation
 
-  git clone git@github.com:AndrewVos/vimrc.git
+  git clone git@github.com:AndrewVos/vimfiles.git
   sh install.sh
 
 Warning: ~/.vimrc and ~/.vim will be renamed to ~/.vimrc.old and ~/.vim.old
 
 == Plugins
-
-=== AutoClose
-
-Automatically close some characters like ", ', [ and (.
-
-http://www.vim.org/scripts/script.php?script_id=2009
 
 ===BufExplorer
 
