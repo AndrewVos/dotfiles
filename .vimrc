@@ -4,6 +4,9 @@ set t_Co=256
 "Don't show the vim intro text
 set shortmess=I
 
+"Needed for coffeescript plugin to work
+call pathogen#runtime_append_all_bundles()
+
 "Turn syntax highlighting on
 syntax on
 
