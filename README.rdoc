@@ -2,8 +2,8 @@
 
 == Installation
 
-  git clone git@github.com:AndrewVos/vimfiles.git
-  sh install.sh
+  git clone git://github.com/AndrewVos/vimfiles.git
+  sh install-vimfiles
 
 Warning: ~/.vimrc and ~/.vim will be renamed to ~/.vimrc.old and ~/.vim.old
 
