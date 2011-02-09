@@ -68,3 +68,6 @@ if has("gui")
   "Full screen takes up entire screen
   set fuoptions=maxhorz,maxvert
 endif
+
+" Map <Leader>t to write the current file and run rspec
+map <Leader>t :w\|!rspec spec<cr>
