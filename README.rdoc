@@ -3,7 +3,8 @@
 == Installation
 
   git clone git://github.com/AndrewVos/vimfiles.git
-  sh install-vimfiles
+  ln -s ~/Dropbox/Projects/vimfiles/.vimrc .vimrc
+  ln -s ~/Dropbox/Projects/vimfiles/.vim .vim
 
 Warning: ~/.vimrc and ~/.vim will be renamed to ~/.vimrc.old and ~/.vim.old
 
