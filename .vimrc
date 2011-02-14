@@ -63,6 +63,3 @@ map <Leader>n :NERDTreeToggle<CR>
 
 "Command-/ to toggle comments
 map <D-/> <plug>NERDCommenterToggle<CR>
-
-" Map <Leader>t to write the current file and run rspec
-map <Leader>t :w\|!rspec spec<cr>
