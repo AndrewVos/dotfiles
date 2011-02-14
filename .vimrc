@@ -58,7 +58,7 @@ set statusline=%t
 "Hide the toolbar
 set guioptions-=T
 
-"Map NERDTree to \n
+"Map NERDTree to <Leader>n
 map <Leader>n :NERDTreeToggle<CR>
 
 "Command-/ to toggle comments
