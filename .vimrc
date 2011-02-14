@@ -1,6 +1,9 @@
 "Use 256 colour mode
 set t_Co=256
 
+"Maps space to the leader key
+map <Space> <Leader>
+
 "Don't show the vim intro text
 set shortmess=I
 
