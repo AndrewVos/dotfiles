@@ -1,9 +1,9 @@
 " ============================================================================
 " File:        NERD_commenter.vim
 " Description: vim global plugin that provides easy code commenting
-" Maintainer:  Martin Grenfell <martin.grenfell at gmail dot com>
-" Version:     2.3.0
-" Last Change: 08th December, 2010
+" Maintainer:  Martin Grenfell <martin_grenfell at msn dot com>
+" Version:     2.2.2
+" Last Change: 09th October, 2010
 " License:     This program is free software. It comes without any warranty,
 "              to the extent permitted by applicable law. You can redistribute
 "              it and/or modify it under the terms of the Do What The Fuck You
@@ -1001,10 +1001,6 @@ function! NERDComment(isVisual, type) range
     let oldIgnoreCase = &ignorecase
     set noignorecase
 
-    if !exists("g:did_load_ftplugin") || g:did_load_ftplugin != 1
-        call s:NerdEcho("filetype plugins should be enabled. See :help NERDComInstallation and :help :filetype-plugin-on", 0)
-    endif
-
     if a:isVisual
         let firstLine = line("'<")
         let lastLine = line("'>")
@@ -1055,7 +1051,7 @@ function! NERDComment(isVisual, type) range
         if s:IsInSexyComment(firstLine) || s:IsCommentedFromStartOfLine(s:Left(), theLine) || s:IsCommentedFromStartOfLine(s:Left({'alt': 1}), theLine)
             call s:UncommentLines(firstLine, lastLine)
         else
-            call s:CommentLinesToggle(forceNested, firstLine, lastLine)
+            call s:CommentLines(forceNested, "left", firstLine, lastLine)
         endif
 
     elseif a:type == 'minimal'
@@ -1473,7 +1469,7 @@ function s:AddLeftDelimAligned(delim, theLine, alignIndx)
         let theLine = repeat(' ', a:alignIndx - strlen(theLine))
     endif
 
-    return strpart(theLine, 0, a:alignIndx) . a:delim . strpart(theLine, a:alignIndx)
+    return strpart(theLine, 0, a:alignIndx) . a:delim . " " . strpart(theLine, a:alignIndx)
 endfunction
 
 " Function: s:AddRightDelim(delim, theLine) {{{2
@@ -2404,10 +2400,10 @@ endfunction
 function s:NerdEcho(msg, typeOfMsg)
     if a:typeOfMsg == 0
         echohl WarningMsg
-        echom 'NERDCommenter:' . a:msg
+        echo 'NERDCommenter:' . a:msg
         echohl None
     elseif a:typeOfMsg == 1
-        echom 'NERDCommenter:' . a:msg
+        echo 'NERDCommenter:' . a:msg
     endif
 endfunction
 

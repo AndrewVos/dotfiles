@@ -13,6 +13,9 @@ syntax on
 "Turn indentation on
 filetype indent on
 
+"Enable filetype plugins
+filetype plugin on
+
 "Turn word wrap off
 set nowrap
 
@@ -60,6 +63,3 @@ set guioptions-=T
 
 "Map NERDTree to <Leader>n
 map <Leader>n :NERDTreeToggle<CR>
-
-"Command-/ to toggle comments
-map <D-/> <plug>NERDCommenterToggle<CR>
