@@ -58,6 +58,9 @@ colorscheme mustang
 "colorscheme railscasts
 "colorscheme wombat256
 
+set background=dark
+colorscheme solarized
+
 "Minimalistic status line
 set statusline=%t
 
