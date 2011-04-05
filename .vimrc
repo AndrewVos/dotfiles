@@ -50,7 +50,7 @@ set completeopt=preview
 set guifont=Monaco:h16
 
 "Set color scheme
-colorscheme mustang
+"colorscheme mustang
 "colorscheme candycode
 "colorscheme neon
 "colorscheme pyte
