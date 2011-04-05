@@ -1,5 +1,5 @@
 "Use 256 colour mode
-set t_Co=256
+"set t_Co=256
 
 "Maps space to the leader key
 map <Space> <Leader>
@@ -59,6 +59,7 @@ set guifont=Monaco:h16
 "colorscheme wombat256
 
 set background=dark
+let g:solarized_termcolors=16
 colorscheme solarized
 
 "Minimalistic status line
