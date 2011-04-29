@@ -13,6 +13,9 @@ call pathogen#runtime_append_all_bundles()
 "Turn syntax highlighting on
 syntax on
 
+"Turn on syntax highlighting for Arduino .pde c files
+autocmd BufRead *.pde set filetype=c
+
 "Turn indentation on
 filetype indent on
 
