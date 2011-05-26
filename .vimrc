@@ -47,7 +47,7 @@ set ignorecase
 set smartcase
 
 "Hide the completion menu
-set completeopt=preview
+"set completeopt=preview
 
 "Set font
 set guifont=Monaco:h16
