@@ -6,6 +6,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'vim-scripts/EasyMotion'
+Bundle 'ervandew/supertab'
 
 "Maps space to the leader key
 map <Space> <Leader>
