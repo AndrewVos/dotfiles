@@ -13,6 +13,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/CycleColor'
 Bundle 'corntrace/bufexplorer'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
 
 "Maps space to the leader key
 map <Space> <Leader>
