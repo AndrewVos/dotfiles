@@ -7,6 +7,7 @@ Bundle 'gmarik/vundle'
 
 Bundle 'vim-scripts/EasyMotion'
 Bundle 'ervandew/supertab'
+Bundle 'plasticboy/vim-markdown'
 
 "Maps space to the leader key
 map <Space> <Leader>
