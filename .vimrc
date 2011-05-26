@@ -9,6 +9,7 @@ Bundle 'vim-scripts/EasyMotion'
 Bundle 'ervandew/supertab'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-cucumber'
+Bundle 'kchmck/vim-coffee-script'
 
 "Maps space to the leader key
 map <Space> <Leader>
