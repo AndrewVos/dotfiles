@@ -11,6 +11,7 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-cucumber'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/CycleColor'
+Bundle 'corntrace/bufexplorer'
 
 "Maps space to the leader key
 map <Space> <Leader>
