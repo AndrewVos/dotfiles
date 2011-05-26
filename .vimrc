@@ -1,6 +1,3 @@
-"Use 256 colour mode
-"set t_Co=256
-
 "Maps space to the leader key
 map <Space> <Leader>
 
