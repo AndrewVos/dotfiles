@@ -5,6 +5,8 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
+Bundle 'vim-scripts/EasyMotion'
+
 "Maps space to the leader key
 map <Space> <Leader>
 
