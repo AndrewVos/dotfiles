@@ -1,3 +1,10 @@
+"""""""""""""""""""""""""""""""""""""""
+" Use Vundle for plugin management
+"""""""""""""""""""""""""""""""""""""""
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
 "Maps space to the leader key
 map <Space> <Leader>
 
