@@ -14,6 +14,8 @@ Bundle 'vim-scripts/CycleColor'
 Bundle 'corntrace/bufexplorer'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
+Bundle 'L9'
+Bundle 'FuzzyFinder'
 
 "Maps space to the leader key
 map <Space> <Leader>
