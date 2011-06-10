@@ -16,6 +16,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
+Bundle 'kogent/vim-puppet'
 
 "Maps space to the leader key
 map <Space> <Leader>
