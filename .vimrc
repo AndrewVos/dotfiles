@@ -35,6 +35,9 @@ filetype indent on
 "Enable filetype plugins
 filetype plugin on
 
+"Disable folding because it is evil
+set nofoldenable
+
 "Turn word wrap off
 set nowrap
 
