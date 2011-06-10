@@ -78,7 +78,7 @@ set guifont=Monaco:h16
 "colorscheme railscasts
 "colorscheme wombat256
 
-set background=light
+set background=dark
 colorscheme solarized
 
 "Minimalistic status line
