@@ -5,6 +5,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-scripts/EasyMotion'
 Bundle 'ervandew/supertab'
 Bundle 'plasticboy/vim-markdown'
