@@ -18,6 +18,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'kogent/vim-puppet'
+Bundle 'vim-scripts/htmlspecialchars'
 
 "Maps space to the leader key
 map <Space> <Leader>
