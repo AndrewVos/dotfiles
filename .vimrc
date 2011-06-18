@@ -11,7 +11,6 @@ Bundle 'ervandew/supertab'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-cucumber'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'vim-scripts/CycleColor'
 Bundle 'corntrace/bufexplorer'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
@@ -19,6 +18,7 @@ Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'kogent/vim-puppet'
 Bundle 'vim-scripts/htmlspecialchars'
+Bundle 'vim-scripts/draw.vim'
 
 "Maps space to the leader key
 map <Space> <Leader>
@@ -120,4 +120,4 @@ endfunction
 
 :command Light call Light()
 :command Dark call Dark()
-call Light()
+call Dark()

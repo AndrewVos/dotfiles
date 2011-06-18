@@ -16,12 +16,6 @@ Shows a list of buffers when you press \be
 
 http://www.vim.org/scripts/script.php?script_id=42
 
-=== CycleColor
-
-Press F4 to switch to the next colour, and F3 to switch to the previous colour.
-
-http://www.vim.org/scripts/script.php?script_id=1457
-
 === NERDTree
 
 Show a list of files in the current directory. Press \n to toggle the NERDTree.
