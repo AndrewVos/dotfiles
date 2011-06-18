@@ -65,20 +65,8 @@ set incsearch
 set ignorecase
 set smartcase
 
-"Hide the completion menu
-"set completeopt=preview
-
 "Set font
 set guifont=Monaco:h16
-
-"Set color scheme
-"colorscheme mustang
-"colorscheme candycode
-"colorscheme neon
-"colorscheme pyte
-"colorscheme jellybeans+
-"colorscheme railscasts
-"colorscheme wombat256
 
 "Minimalistic status line
 set statusline=%t
@@ -89,7 +77,7 @@ set guioptions-=T
 "Map NERDTree to <Leader>n
 map <Leader>n :NERDTreeToggle<CR>
 
-" disable arrow keys
+"disable arrow keys
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
@@ -99,7 +87,7 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
-" Custom functions to switch between solarized light and dark colour schemes
+"Custom functions to switch between solarized light and dark colour schemes
 function! Light()
   call SetTerminalColourScheme("Solarized Light ansi")
   set background=light
