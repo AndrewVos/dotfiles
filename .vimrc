@@ -88,25 +88,28 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
-"Custom functions to switch between solarized light and dark colour schemes
-function! Light()
-  call SetTerminalColourScheme("Solarized Light ansi")
-  set background=light
-  :colorscheme solarized
-endfunction
+if !exists("g:SolarizedSwitcher")
+  let g:SolarizedSwitcher = 1
+  "Custom functions to switch between solarized light and dark colour schemes
+  function! Light()
+    call SetTerminalColourScheme("Solarized Light ansi")
+    set background=light
+    :colorscheme solarized
+  endfunction
 
-function! Dark()
-  call SetTerminalColourScheme("Solarized Dark ansi")
-  set background=dark
-  :colorscheme solarized
-endfunction
+  function! Dark()
+    call SetTerminalColourScheme("Solarized Dark ansi")
+    set background=dark
+    :colorscheme solarized
+  endfunction
 
-function! SetTerminalColourScheme(colourScheme)
-  let osaScriptCommand = 'osascript -e "tell application \"Terminal.app\" to set current settings of front window to settings set \"{COLOURS}\""'
-  let scriptCommand = substitute(osaScriptCommand, "{COLOURS}", a:colourScheme, "")
-  call system(scriptCommand)
-endfunction
+  function! SetTerminalColourScheme(colourScheme)
+    let osaScriptCommand = 'osascript -e "tell application \"Terminal.app\" to set current settings of front window to settings set \"{COLOURS}\""'
+    let scriptCommand = substitute(osaScriptCommand, "{COLOURS}", a:colourScheme, "")
+    call system(scriptCommand)
+  endfunction
 
-:command Light call Light()
-:command Dark call Dark()
-call Dark()
+  :command Light call Light()
+  :command Dark call Dark()
+  call Dark()
+endif
