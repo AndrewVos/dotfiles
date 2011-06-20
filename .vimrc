@@ -19,7 +19,11 @@ Bundle 'FuzzyFinder'
 Bundle 'kogent/vim-puppet'
 Bundle 'vim-scripts/htmlspecialchars'
 Bundle 'vim-scripts/draw.vim'
-Bundle 'AndrewVos/autoresize.vim'
+
+set winwidth=84
+set winheight=5
+set winminheight=5
+set winheight=999
 
 "Maps space to the leader key
 map <Space> <Leader>
