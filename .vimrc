@@ -26,6 +26,9 @@ set winheight=999
 "Maps space to the leader key
 map <Space> <Leader>
 
+"FuzzyFinder
+map <Leader>f :FufFile<cr>
+
 "Don't show the vim intro text
 set shortmess=I
 
