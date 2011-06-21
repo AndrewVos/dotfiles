@@ -77,9 +77,6 @@ set statusline=%t
 "Hide the toolbar
 set guioptions-=T
 
-"Map NERDTree to <Leader>n
-map <Leader>n :NERDTreeToggle<CR>
-
 "disable arrow keys
 map <up> <nop>
 map <down> <nop>
