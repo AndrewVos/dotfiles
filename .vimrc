@@ -17,6 +17,7 @@ Bundle 'FuzzyFinder'
 Bundle 'kogent/vim-puppet'
 Bundle 'vim-scripts/htmlspecialchars'
 Bundle 'vim-scripts/draw.vim'
+Bundle 'mattn/gist-vim'
 
 set winwidth=84
 set winheight=5
