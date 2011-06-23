@@ -17,7 +17,11 @@ Bundle 'FuzzyFinder'
 Bundle 'kogent/vim-puppet'
 Bundle 'vim-scripts/htmlspecialchars'
 Bundle 'vim-scripts/draw.vim'
-Bundle 'mattn/gist-vim'
+Bundle 'vim-scripts/Gist.vim'
+
+"Github settings
+let g:github_user = $GITHUB_USER
+let g:github_token = $GITHUB_TOKEN
 
 set winwidth=84
 set winheight=5
