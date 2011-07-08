@@ -24,6 +24,10 @@ Bundle 'vim-scripts/Gist.vim'
 let g:github_user = $GITHUB_USER
 let g:github_token = $GITHUB_TOKEN
 
+"Disable ft-plugin-ruby because it causes vim to load up slowly when opening
+"ruby files
+autocmd filetype ruby let b:did_ftplugin = 1
+
 set winwidth=84
 set winheight=5
 set winminheight=5
