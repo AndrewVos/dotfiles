@@ -44,6 +44,9 @@ syntax on
 "Turn on syntax highlighting for Arduino .pde c files
 autocmd BufRead *.pde set filetype=c
 
+"Stop vim from searching for insert completion words in all files referenced
+set complete-=i
+
 "Turn indentation on
 filetype indent on
 
