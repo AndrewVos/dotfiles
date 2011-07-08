@@ -28,6 +28,7 @@ let g:github_token = $GITHUB_TOKEN
 "ruby files
 autocmd filetype ruby let b:did_ftplugin = 1
 
+"Automatically size windows to make the active window larger
 set winwidth=84
 set winheight=5
 set winminheight=5
