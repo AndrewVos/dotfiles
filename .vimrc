@@ -88,8 +88,11 @@ set smartcase
 "Set font
 set guifont=Monaco:h16
 
-"Minimalistic status line
-set statusline=%t
+"Always show the status line
+set laststatus=2
+
+"Set the status line to something useful
+set statusline=%f\ %=L:%l/%L\ (%p%%)
 
 "Hide the toolbar
 set guioptions-=T
