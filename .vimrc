@@ -64,6 +64,9 @@ set nofoldenable
 "Turn word wrap off
 set nowrap
 
+"Scroll with more context
+set scrolloff=10
+
 "Convert tabs to spaces
 set expandtab
 
