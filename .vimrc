@@ -20,6 +20,10 @@ Bundle 'vim-scripts/htmlspecialchars'
 Bundle 'vim-scripts/draw.vim'
 Bundle 'vim-scripts/Gist.vim'
 
+if $COLORTERM == "gnome-terminal"
+  let g:solarized_termcolors=256
+endif
+
 "Github settings
 let g:github_user = $GITHUB_USER
 let g:github_token = $GITHUB_TOKEN
