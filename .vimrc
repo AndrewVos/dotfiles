@@ -36,10 +36,6 @@ let g:github_token = $GITHUB_TOKEN
 set background=dark
 :colorscheme solarized
 
-"Disable ft-plugin-ruby because it causes vim to load up slowly when opening
-"ruby files
-autocmd filetype ruby let b:did_ftplugin = 1
-
 "Automatically size windows to make the active window larger
 set winwidth=84
 set winheight=5
