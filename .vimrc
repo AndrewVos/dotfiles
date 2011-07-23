@@ -32,6 +32,10 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 let g:github_user = $GITHUB_USER
 let g:github_token = $GITHUB_TOKEN
 
+"set color scheme
+set background=dark
+:colorscheme solarized
+
 "Disable ft-plugin-ruby because it causes vim to load up slowly when opening
 "ruby files
 autocmd filetype ruby let b:did_ftplugin = 1
@@ -117,29 +121,3 @@ imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
-
-if !exists("g:SolarizedSwitcher")
-  let g:SolarizedSwitcher = 1
-  "Custom functions to switch between solarized light and dark colour schemes
-  function! Light()
-    call SetTerminalColourScheme("Solarized Light ansi")
-    set background=light
-    :colorscheme solarized
-  endfunction
-
-  function! Dark()
-    call SetTerminalColourScheme("Solarized Dark ansi")
-    set background=dark
-    :colorscheme solarized
-  endfunction
-
-  function! SetTerminalColourScheme(colourScheme)
-    let osaScriptCommand = 'osascript -e "tell application \"Terminal.app\" to set current settings of front window to settings set \"{COLOURS}\""'
-    let scriptCommand = substitute(osaScriptCommand, "{COLOURS}", a:colourScheme, "")
-    call system(scriptCommand)
-  endfunction
-
-  :command Light call Light()
-  :command Dark call Dark()
-  call Dark()
-endif
