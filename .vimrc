@@ -75,6 +75,9 @@ set nowrap
 "Scroll with more context
 set scrolloff=10
 
+"Allow backspace to delete end of line, indent and start of line characters
+set backspace=indent,eol,start
+
 "Convert tabs to spaces
 set expandtab
 
