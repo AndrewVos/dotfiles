@@ -24,6 +24,10 @@ if $COLORTERM == "gnome-terminal"
   let g:solarized_termcolors=256
 endif
 
+"Make sure VIM can change the cursor in insert mode when using iTerm2
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
 "Github settings
 let g:github_user = $GITHUB_USER
 let g:github_token = $GITHUB_TOKEN
