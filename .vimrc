@@ -14,8 +14,6 @@ Bundle 'tpope/vim-cucumber'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'corntrace/bufexplorer'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'L9'
-Bundle 'FuzzyFinder'
 Bundle 'vim-scripts/htmlspecialchars'
 Bundle 'vim-scripts/draw.vim'
 Bundle 'vim-scripts/Gist.vim'
@@ -45,9 +43,6 @@ set winheight=999
 
 "Maps space to the leader key
 map <Space> <Leader>
-
-"FuzzyFinder
-map <Leader>f :FufFile<cr>
 
 "Don't show the vim intro text
 set shortmess=I
