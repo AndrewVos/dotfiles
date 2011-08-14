@@ -41,9 +41,6 @@ set winheight=5
 set winminheight=5
 set winheight=999
 
-"Maps space to the leader key
-map <Space> <Leader>
-
 "Don't show the vim intro text
 set shortmess=I
 
