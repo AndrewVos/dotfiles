@@ -1,6 +1,7 @@
 """""""""""""""""""""""""""""""""""""""
 " Use Vundle for plugin management
 """""""""""""""""""""""""""""""""""""""
+set nocompatible
 filetype on
 filetype off
 set rtp+=~/.vim/bundle/vundle/
