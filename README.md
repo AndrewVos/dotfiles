@@ -8,6 +8,6 @@ git clone git://github.com/AndrewVos/vimfiles.git
 cd vimfiles
 git submodule init
 git submodule update
-ruby install.rb
+rake
 vim -c :BundleInstall -c :q
 ```
