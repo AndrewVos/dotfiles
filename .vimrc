@@ -19,6 +19,7 @@ Bundle 'vim-scripts/htmlspecialchars'
 Bundle 'vim-scripts/draw.vim'
 Bundle 'vim-scripts/Gist.vim'
 Bundle 'wincent/Command-T'
+Bundle 'tpope/vim-surround'
 
 if $COLORTERM == "gnome-terminal"
   let g:solarized_termcolors=256
