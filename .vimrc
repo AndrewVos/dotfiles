@@ -18,6 +18,7 @@ Bundle 'vim-scripts/Gist.vim'
 Bundle 'wincent/Command-T'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-commentary'
 
 if $COLORTERM == "gnome-terminal"
   let g:solarized_termcolors=256
