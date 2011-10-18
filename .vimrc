@@ -54,6 +54,9 @@ autocmd BufRead *.pde set filetype=c
 "Stop vim from searching for insert completion words in all files referenced
 set complete-=i
 
+"Make sure undo history is kept for files in buffer.
+set hidden
+
 "Turn indentation on
 filetype indent on
 
