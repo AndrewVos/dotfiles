@@ -96,9 +96,6 @@ set incsearch
 set ignorecase
 set smartcase
 
-"Set font
-set guifont=Monaco:h16
-
 "Always show the status line
 set laststatus=2
 
