@@ -100,7 +100,7 @@ set smartcase
 set laststatus=2
 
 "Set the status line to something useful
-set statusline=%f\ %=L:%l/%L\ (%p%%)
+set statusline=%f\ %=L:%l/%L\ %c\ (%p%%)
 
 "Hide the toolbar
 set guioptions-=T
