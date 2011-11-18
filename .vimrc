@@ -122,3 +122,6 @@ nmap <F2> :.w !pbcopy<CR><CR>
 vmap <F2> :w !pbcopy<CR><CR>
 
 nmap <leader>t :CommandTFlush<cr>\|:CommandT<cr>
+
+map <enter> :wa\|!rspec spec --colour<cr>
+map <enter><enter> :wa\|!bundle exec cucumber<cr>
