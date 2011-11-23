@@ -115,3 +115,11 @@ nmap <leader>t :CommandTFlush<cr>\|:CommandT<cr>
 
 map <enter> :wa\|!rspec spec --colour<cr>
 map <enter><enter> :wa\|!bundle exec cucumber<cr>
+
+"If there's a .vimlocal file automatically source it
+function! SourceVimLocal()
+  if filereadable(".vimlocal")
+    source .vimlocal
+  endif
+endfunction
+call SourceVimLocal()
