@@ -105,16 +105,6 @@ set statusline=%f\ %=L:%l/%L\ %c\ (%p%%)
 "Hide the toolbar
 set guioptions-=T
 
-"disable arrow keys
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
-
 "Copy and paste to the system clipboard with F1 and F2
 nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
