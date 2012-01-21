@@ -120,3 +120,6 @@ function! SourceVimLocal()
   endif
 endfunction
 call SourceVimLocal()
+
+"Allow piping of markdown files to the browser
+au BufEnter,BufNew *.md map <enter> :wa\|!rdiscount % \| bcat<cr>
