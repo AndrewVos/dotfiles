@@ -19,6 +19,7 @@ Bundle 'thesamet/Command-T'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-endwise'
 
 if $COLORTERM == "gnome-terminal"
   let g:solarized_termcolors=256
