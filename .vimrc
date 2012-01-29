@@ -35,7 +35,9 @@ let g:github_token = $GITHUB_TOKEN
 
 "set color scheme
 set background=dark
-:silent :colorscheme solarized
+:try
+  :colorscheme solarized
+:endtry
 
 "Automatically size windows to make the active window larger
 set winwidth=84
