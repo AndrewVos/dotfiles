@@ -15,7 +15,7 @@ Bundle 'tpope/vim-cucumber'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/draw.vim'
 Bundle 'vim-scripts/Gist.vim'
-Bundle 'thesamet/Command-T'
+Bundle 'wincent/Command-T'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-commentary'
@@ -117,6 +117,9 @@ nmap <F2> :.w !pbcopy<CR><CR>
 vmap <F2> :w !pbcopy<CR><CR>
 
 nmap <leader>t :CommandTFlush<cr>\|:CommandT<cr>
+
+"Allow Command-T horizontal splits using CTRL+x
+map <C-x> <C-s>
 
 "If there's a .vimlocal file automatically source it
 function! SourceVimLocal()
