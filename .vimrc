@@ -9,6 +9,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'tomasr/molokai'
+
 Bundle 'ervandew/supertab'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-cucumber'
@@ -44,8 +46,8 @@ let g:github_user = $GITHUB_USER
 let g:github_token = $GITHUB_TOKEN
 
 "set color scheme
-set background=dark
-:silent! :colorscheme solarized
+set background=light
+:silent! :colorscheme molokai
 
 "Automatically size windows to make the active window larger
 set winwidth=84
