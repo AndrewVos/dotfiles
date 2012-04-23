@@ -9,6 +9,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'tpope/vim-vividchalk'
+
 Bundle 'ervandew/supertab'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-cucumber'
