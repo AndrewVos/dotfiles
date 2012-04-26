@@ -23,6 +23,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-endwise'
 Bundle 'mileszs/ack.vim'
+Bundle 'benmills/vimux'
 
 if $COLORTERM == "gnome-terminal"
   let g:solarized_termcolors=256
