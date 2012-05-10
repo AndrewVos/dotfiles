@@ -33,9 +33,6 @@ endif
 let &t_SI = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-"Run commands inside a shell so that rvm is sourced
-set shell=/bin/sh
-
 " Jump to last cursor position unless it's invalid or in an event handler
 autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
