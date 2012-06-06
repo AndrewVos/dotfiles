@@ -17,7 +17,6 @@ Bundle 'tpope/vim-cucumber'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/draw.vim'
 Bundle 'vim-scripts/Gist.vim'
-Bundle 'wincent/Command-T'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-commentary'
@@ -33,6 +32,9 @@ endif
 "Make sure VIM can change the cursor in insert mode when using iTerm2
 let &t_SI = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+"Launch ctrl+p with \t
+map <leader>t <C-p>
 
 " Jump to last cursor position unless it's invalid or in an event handler
 autocmd BufReadPost *
@@ -129,8 +131,6 @@ nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 nmap <F2> :.w !pbcopy<CR><CR>
 vmap <F2> :w !pbcopy<CR><CR>
-
-nmap <leader>t :CommandTFlush<cr>\|:CommandT<cr>
 
 "Allow Command-T horizontal splits using CTRL+x
 map <C-x> <C-s>
