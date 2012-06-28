@@ -147,5 +147,5 @@ call SourceVimLocal()
 "Allow piping of markdown files to the browser
 au BufEnter,BufNew *.md map <enter> :wa\|!rdiscount % \| bcat<cr>
 
-" Clear the search buffer when hitting return
-:nnoremap <CR> :nohlsearch<cr>
+" Clear the search buffer
+:nnoremap § :nohlsearch<cr>
