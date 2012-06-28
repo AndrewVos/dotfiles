@@ -25,6 +25,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'mileszs/ack.vim'
 Bundle 'benmills/vimux'
 Bundle 'kien/ctrlp.vim'
+Bundle 'Lokaltog/vim-powerline'
 
 if $COLORTERM == "gnome-terminal"
   let g:solarized_termcolors=256
@@ -149,3 +150,6 @@ au BufEnter,BufNew *.md map <enter> :wa\|!rdiscount % \| bcat<cr>
 
 " Clear the search buffer
 :nnoremap § :nohlsearch<cr>
+
+" Show fancy powerline symbols
+let g:Powerline_symbols = 'fancy'
