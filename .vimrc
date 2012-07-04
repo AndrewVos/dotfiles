@@ -52,12 +52,6 @@ let g:github_token = $GITHUB_TOKEN
 set background=dark
 :silent! :colorscheme solarized
 
-"Automatically size windows to make the active window larger
-set winwidth=84
-set winheight=5
-set winminheight=5
-set winheight=999
-
 "Don't show the vim intro text
 set shortmess=I
 
