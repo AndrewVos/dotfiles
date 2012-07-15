@@ -147,3 +147,7 @@ au BufEnter,BufNew *.md map <enter> :wa\|!rdiscount % \| bcat<cr>
 
 " Show fancy powerline symbols
 let g:Powerline_symbols = 'fancy'
+
+"Get rid of the delay when pressing O (for example)
+"http://stackoverflow.com/questions/2158516/vim-delay-before-o-opens-a-new-line
+:set timeout timeoutlen=1000 ttimeoutlen=100
