@@ -128,9 +128,6 @@ imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 nmap <F2> :.w !pbcopy<CR><CR>
 vmap <F2> :w !pbcopy<CR><CR>
 
-"Allow Command-T horizontal splits using CTRL+x
-map <C-x> <C-s>
-
 "If there's a .vimlocal file automatically source it
 function! SourceVimLocal()
   if filereadable(".vimlocal")
