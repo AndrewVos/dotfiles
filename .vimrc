@@ -12,7 +12,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'tomasr/molokai'
 
 Bundle 'ervandew/supertab'
-Bundle 'plasticboy/vim-markdown'
+Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-cucumber'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/draw.vim'
