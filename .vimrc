@@ -38,6 +38,8 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 "Launch ctrl+p with \t
 map <leader>t <C-p>
 
+let g:ctrlp_max_height = 30
+
 " Jump to last cursor position unless it's invalid or in an event handler
 autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
