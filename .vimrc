@@ -139,7 +139,7 @@ endfunction
 call SourceVimLocal()
 
 "Allow piping of markdown files to the browser
-au BufEnter,BufNew *.md map <enter> :wa\|!rdiscount % \| bcat<cr>
+au BufEnter,BufNew *.md map <enter> :wa\|!rbfu rdiscount % \| bcat<cr>
 
 " Clear the search buffer
 :nnoremap § :nohlsearch<cr>
