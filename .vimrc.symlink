@@ -1,58 +1,25 @@
-"""""""""""""""""""""""""""""""""""""""
-" Use Vundle for plugin management
-"""""""""""""""""""""""""""""""""""""""
-set nocompatible
-filetype on
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
-
-Bundle 'altercation/vim-colors-solarized'
-
+source $HOME/.vimrc.vundle
+source $HOME/.vimrc.colorschemes
+source $HOME/.vimrc.git
+source $HOME/.vimrc.tags
+source $HOME/.vimrc.navigation
+source $HOME/.vimrc.languages.markdown
+source $HOME/.vimrc.languages.cucumber
+source $HOME/.vimrc.languages.coffee-script
 Bundle 'ervandew/supertab'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-cucumber'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/draw.vim'
-Bundle 'mattn/webapi-vim'
-Bundle 'vim-scripts/Gist.vim'
 Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-endwise'
 Bundle 'mileszs/ack.vim'
 Bundle 'benmills/vimux'
-Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-powerline'
-
-" TAGS -------------------------
-Bundle 'majutsushi/tagbar'
-Bundle 'xolox/vim-easytags'
-
-"Open Tagbar when pressing <leader>b and automatically close it after
-"selecting something
-:map <leader>b :TagbarOpenAutoClose<cr>
-" TAGS -------------------------
-
-"Launch ctrl+p with \t
-map <leader>t <C-p>
-
-let g:ctrlp_max_height = 30
 
 " Jump to last cursor position unless it's invalid or in an event handler
 autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
   \   exe "normal g`\"" |
   \ endif
-
-"Github settings
-let g:github_user = $GITHUB_USER
-let g:github_token = $GITHUB_TOKEN
-
-"set color scheme
-set background=dark
-:silent! :colorscheme solarized
 
 "Don't show the vim intro text
 set shortmess=I
@@ -138,9 +105,6 @@ function! SourceVimLocal()
 endfunction
 call SourceVimLocal()
 
-"Allow piping of markdown files to the browser
-au BufEnter,BufNew *.md map <enter> :wa\|!rbfu rdiscount % \| bcat<cr>
-
 " Clear the search buffer
 :nnoremap § :nohlsearch<cr>
 
@@ -150,6 +114,3 @@ let g:Powerline_symbols = 'fancy'
 "Get rid of the delay when pressing O (for example)
 "http://stackoverflow.com/questions/2158516/vim-delay-before-o-opens-a-new-line
 :set timeout timeoutlen=1000 ttimeoutlen=100
-
-"Stop CTRL+P from changing directory paths automatically
-let g:ctrlp_working_path_mode = 0

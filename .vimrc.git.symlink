@@ -1,0 +1,7 @@
+Bundle 'mattn/webapi-vim'
+Bundle 'vim-scripts/Gist.vim'
+Bundle 'tpope/vim-fugitive'
+
+"Github settings
+let g:github_user = $GITHUB_USER
+let g:github_token = $GITHUB_TOKEN

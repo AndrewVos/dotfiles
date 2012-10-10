@@ -1,0 +1,4 @@
+Bundle 'altercation/vim-colors-solarized'
+
+set background=dark
+:silent! :colorscheme solarized

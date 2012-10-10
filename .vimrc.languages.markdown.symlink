@@ -1,0 +1,4 @@
+Bundle 'tpope/vim-markdown'
+
+"Allow piping of markdown files to the browser
+au BufEnter,BufNew *.md map <enter> :wa\|!rbfu rdiscount % \| bcat<cr>
