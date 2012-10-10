@@ -2,15 +2,25 @@ desc "installs vimfiles"
 task :default => [:setup_symlinks, :clone_vundle, :bundle_install]
 
 task :setup_symlinks do
-  ['.vimrc', '.vim'].each do |path|
-    old = File.expand_path("./#{path}")
-    new = File.expand_path("~/#{path}")
-    File.symlink old, new
+  Dir.glob(".*.symlink").each do |linkable|
+    target = File.expand_path(File.join("~", linkable.gsub(".symlink", "")))
+
+    if File.exist?(target) || File.symlink?(target)
+      puts "File already exists: #{target}, overwrite? [y]es, [n]o"
+      response = STDIN.gets.chomp.downcase
+      next if response == "n"
+      if response == "y"
+        puts "Overwriting #{target}"
+        FileUtils.rm_rf target
+      end
+    end
+
+    File.symlink File.expand_path(linkable), target
   end
 end
 
 task :clone_vundle do
-  sh "git clone http://github.com/gmarik/vundle.git .vim/bundle/vundle"
+  sh "git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle"
 end
 
 task :bundle_install do
