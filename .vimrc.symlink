@@ -36,10 +36,6 @@ Bundle 'xolox/vim-easytags'
 :map <leader>b :TagbarOpenAutoClose<cr>
 " TAGS -------------------------
 
-if $COLORTERM == "gnome-terminal"
-  let g:solarized_termcolors=256
-endif
-
 "Launch ctrl+p with \t
 map <leader>t <C-p>
 
