@@ -27,6 +27,15 @@ Bundle 'benmills/vimux'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-powerline'
 
+" TAGS -------------------------
+Bundle 'majutsushi/tagbar'
+Bundle 'xolox/vim-easytags'
+
+"Open Tagbar when pressing <leader>b and automatically close it after
+"selecting something
+:map <leader>b :TagbarOpenAutoClose<cr>
+" TAGS -------------------------
+
 if $COLORTERM == "gnome-terminal"
   let g:solarized_termcolors=256
 endif
