@@ -9,7 +9,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'tomasr/molokai'
 
 Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-markdown'
