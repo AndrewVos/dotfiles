@@ -20,7 +20,10 @@ task :setup_symlinks do
 end
 
 task :clone_vundle do
-  sh "git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle"
+  vundle_path = File.expand_path("~/.vim/bundle/vundle")
+  unless Dir.exist?(vundle_path)
+    sh "git clone http://github.com/gmarik/vundle.git #{vundle_path}"
+  end
 end
 
 task :bundle_install do
