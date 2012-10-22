@@ -3,9 +3,11 @@ source $HOME/.vimrc.colorschemes
 source $HOME/.vimrc.git
 source $HOME/.vimrc.tags
 source $HOME/.vimrc.navigation
+source $HOME/.vimrc.vimlocal
 source $HOME/.vimrc.languages.markdown
 source $HOME/.vimrc.languages.cucumber
 source $HOME/.vimrc.languages.coffee-script
+
 Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/draw.vim'
 Bundle 'tpope/vim-surround'
@@ -96,14 +98,6 @@ nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 nmap <F2> :.w !pbcopy<CR><CR>
 vmap <F2> :w !pbcopy<CR><CR>
-
-"If there's a .vimlocal file automatically source it
-function! SourceVimLocal()
-  if filereadable(".vimlocal")
-    source .vimlocal
-  endif
-endfunction
-call SourceVimLocal()
 
 " Clear the search buffer
 :nnoremap § :nohlsearch<cr>
