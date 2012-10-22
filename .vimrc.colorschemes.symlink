@@ -1,4 +1,23 @@
-Bundle 'altercation/vim-colors-solarized'
+set t_Co=256
 
-set background=dark
-:silent! :colorscheme solarized
+" Solarized ----------------------------------
+" Bundle 'altercation/vim-colors-solarized'
+" set background=dark
+" :silent! :colorscheme solarized
+" Solarized ----------------------------------
+
+" Tomorrow -----------------------------------
+" Bundle 'chriskempson/vim-tomorrow-theme'
+" colorscheme Tomorrow-night
+" Tomorrow -----------------------------------
+
+" bclear -------------------------------------
+Bundle 'godlygeek/csapprox'
+Bundle 'vim-scripts/bclear'
+colorscheme bclear
+" bclear -------------------------------------
+
+" base16 -------------------------------------
+" Bundle 'chriskempson/base16-vim'
+" colorscheme base16-tomorrow
+" base16 -------------------------------------
