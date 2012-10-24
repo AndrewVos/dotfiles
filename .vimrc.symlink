@@ -196,10 +196,3 @@ autocmd BufRead *.pde set filetype=c
   set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
   set writebackup
 " }}}
-
-"Copy and paste to the system clipboard with F1 and F2
-nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-nmap <F2> :.w !pbcopy<CR><CR>
-vmap <F2> :w !pbcopy<CR><CR>
-
