@@ -1,1 +1,0 @@
-Bundle 'tpope/vim-cucumber'

@@ -1,12 +1,37 @@
-source $HOME/.vimrc.vundle
-source $HOME/.vimrc.colorschemes
-source $HOME/.vimrc.git
-source $HOME/.vimrc.tags
-source $HOME/.vimrc.navigation
-source $HOME/.vimrc.vimlocal
-source $HOME/.vimrc.languages.markdown
-source $HOME/.vimrc.languages.cucumber
-source $HOME/.vimrc.languages.coffee-script
+" vundle {{{
+  set nocompatible
+  filetype on
+  filetype off
+  set rtp+=~/.vim/bundle/vundle/
+  call vundle#rc()
+  Bundle 'gmarik/vundle'
+" }}}
+
+" color {{{
+  set t_Co=256
+
+  " Solarized ----------------------------------
+  " Bundle 'altercation/vim-colors-solarized'
+  " set background=dark
+  " :silent! :colorscheme solarized
+  " Solarized ----------------------------------
+
+  " Tomorrow -----------------------------------
+  " Bundle 'chriskempson/vim-tomorrow-theme'
+  " colorscheme Tomorrow-night
+  " Tomorrow -----------------------------------
+
+  " bclear -------------------------------------
+  Bundle 'godlygeek/csapprox'
+  Bundle 'vim-scripts/bclear'
+  colorscheme bclear
+  " bclear -------------------------------------
+
+  " base16 -------------------------------------
+  " Bundle 'chriskempson/base16-vim'
+  " colorscheme base16-tomorrow
+  " base16 -------------------------------------
+" }}}
 
 Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/draw.vim'
@@ -17,81 +42,160 @@ Bundle 'mileszs/ack.vim'
 Bundle 'benmills/vimux'
 Bundle 'Lokaltog/vim-powerline'
 
-" Jump to last cursor position unless it's invalid or in an event handler
-autocmd BufReadPost *
-  \ if line("'\"") > 0 && line("'\"") <= line("$") |
-  \   exe "normal g`\"" |
-  \ endif
+" .vimlocal {{{
+  "If there's a .vimlocal file automatically source it
+  function! SourceVimLocal()
+    if filereadable(".vimlocal")
+      source .vimlocal
+    endif
+  endfunction
+  call SourceVimLocal()
+" }}}
 
-"Don't show the vim intro text
-set shortmess=I
+" coffee-script {{{
+  Bundle 'kchmck/vim-coffee-script'
+" }}}
 
-"Turn syntax highlighting on
-syntax on
+" git {{{
+  Bundle 'mattn/webapi-vim'
+  Bundle 'vim-scripts/Gist.vim'
+  Bundle 'tpope/vim-fugitive'
+  let g:github_user = $GITHUB_USER
+  let g:github_token = $GITHUB_TOKEN
+" }}}
+
+" markdown {{{
+  Bundle 'tpope/vim-markdown'
+
+  "Allow piping of markdown files to the browser
+  au BufEnter,BufNew *.md map <enter> :wa\|!rbfu rdiscount % \| bcat<cr>
+" }}}
+
+" cucumber {{{
+  Bundle 'tpope/vim-cucumber'
+" }}}
+
+" tags {{{
+  Bundle 'majutsushi/tagbar'
+  Bundle 'xolox/vim-easytags'
+
+  "Open Tagbar when pressing <leader>b and automatically close it after
+  "selecting something
+  :map <leader>b :TagbarOpenAutoClose<cr>
+" }}}
+
+" Jump to last cursor position {{{
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+" }}}
+
+" ctrl+p {{{
+  Bundle 'kien/ctrlp.vim'
+
+  "Launch with <leader>t
+  map <leader>t <C-p>
+
+  "Make it a bit bigger
+  let g:ctrlp_max_height = 30
+
+  "Stop CTRL+P from changing directory paths automatically
+  let g:ctrlp_working_path_mode = 0
+
+  "Show hidden files
+  let g:ctrlp_show_hidden = 1
+
+  "Ignore git, subversion and mercurial directories
+  set wildignore+=*/.git/*,*/.hg/*,*/.svn/* 
+" }}}
+
+" looks {{{
+  "Don't show the vim intro text
+  set shortmess=I
+
+  "Turn syntax highlighting on
+  syntax on
+
+  "Turn on line numbers
+  set number
+
+  "Highlight tailing whitespace
+  set list listchars=tab:\ \ ,trail:·
+
+  "Highlight search
+  set hlsearch
+  set incsearch
+  set ignorecase
+  set smartcase
+
+  "Always show the status line
+  set laststatus=2
+
+  "Set the status line to something useful
+  set statusline=%f\ %=L:%l/%L\ %c\ (%p%%)
+
+  "Hide the toolbar
+  set guioptions-=T
+
+  " Show fancy powerline symbols
+  let g:Powerline_symbols = 'fancy'
+" }}}
+
+" editing {{{
+  "Stop vim from searching for insert completion words in all files referenced
+  set complete-=i
+
+  "Make sure undo history is kept for files in buffer.
+  set hidden
+
+  "Turn indentation on
+  filetype indent on
+
+  "Enable filetype plugins
+  filetype plugin on
+
+  "Disable folding because it is evil
+  set nofoldenable
+
+  "Turn word wrap off
+  set nowrap
+
+  "Scroll with more context
+  set scrolloff=10
+
+  "Allow backspace to delete end of line, indent and start of line characters
+  set backspace=indent,eol,start
+
+  "Convert tabs to spaces
+  set expandtab
+
+  "Set tab size
+  set tabstop=2
+
+  "The number of spaces inserted for a tab
+  set shiftwidth=2
+" }}}
 
 "Turn on syntax highlighting for Arduino .pde c files
 autocmd BufRead *.pde set filetype=c
 
-"Stop vim from searching for insert completion words in all files referenced
-set complete-=i
 
-"Make sure undo history is kept for files in buffer.
-set hidden
+" mappings {{{
+  " Clear the search buffer
+  :nnoremap § :nohlsearch<cr>
 
-"Turn indentation on
-filetype indent on
+  " Run last tmux command with \r
+  :map <leader>r :wa\|:RunLastVimTmuxCommand<cr>
+" }}}
 
-"Enable filetype plugins
-filetype plugin on
-
-"Disable folding because it is evil
-set nofoldenable
-
-"Turn word wrap off
-set nowrap
-
-"Scroll with more context
-set scrolloff=10
-
-"Allow backspace to delete end of line, indent and start of line characters
-set backspace=indent,eol,start
-
-"Convert tabs to spaces
-set expandtab
-
-"Set tab size
-set tabstop=2
-
-"The number of spaces inserted for a tab
-set shiftwidth=2
-
-"Turn on line numbers
-set number
-
-"Highlight tailing whitespace
-set list listchars=tab:\ \ ,trail:·
-
-"Highlight search
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-
-"Always show the status line
-set laststatus=2
-
-"Set the status line to something useful
-set statusline=%f\ %=L:%l/%L\ %c\ (%p%%)
-
-"Hide the toolbar
-set guioptions-=T
-
-" backup to ~/.tmp
-set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set backupskip=/tmp/*,/private/tmp/* 
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set writebackup
+" backup to ~/.tmp {{{
+  set backup
+  set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+  set backupskip=/tmp/*,/private/tmp/* 
+  set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+  set writebackup
+" }}}
 
 "Copy and paste to the system clipboard with F1 and F2
 nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
@@ -99,10 +203,3 @@ imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 nmap <F2> :.w !pbcopy<CR><CR>
 vmap <F2> :w !pbcopy<CR><CR>
 
-" Clear the search buffer
-:nnoremap § :nohlsearch<cr>
-
-" Show fancy powerline symbols
-let g:Powerline_symbols = 'fancy'
-
-:map <leader>r :wa\|:RunLastVimTmuxCommand<cr>

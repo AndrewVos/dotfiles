@@ -1,6 +1,0 @@
-Bundle 'majutsushi/tagbar'
-Bundle 'xolox/vim-easytags'
-
-"Open Tagbar when pressing <leader>b and automatically close it after
-"selecting something
-:map <leader>b :TagbarOpenAutoClose<cr>
