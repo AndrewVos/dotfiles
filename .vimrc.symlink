@@ -39,8 +39,12 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-endwise'
 Bundle 'mileszs/ack.vim'
-Bundle 'benmills/vimux'
 Bundle 'Lokaltog/vim-powerline'
+
+" vimux {{{
+  Bundle 'benmills/vimux'
+  let g:VimuxHeight = "40"
+" }}}
 
 " .vimlocal {{{
   "If there's a .vimlocal file automatically source it
