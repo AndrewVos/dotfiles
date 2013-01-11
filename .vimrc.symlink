@@ -37,9 +37,14 @@ Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/draw.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-commentary'
-Bundle 'mileszs/ack.vim'
 Bundle 'Lokaltog/vim-powerline'
 
+" search {{{
+  Bundle 'mileszs/ack.vim'
+  " use the_silver_searcher instead of ack
+  let g:ackprg = 'ag --nogroup --nocolor --column'
+" }}}
+"
 " vimux {{{
   Bundle 'benmills/vimux'
   let g:VimuxHeight = "40"
