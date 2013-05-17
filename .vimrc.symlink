@@ -17,14 +17,14 @@
   " Solarized ----------------------------------
 
   " Tomorrow -----------------------------------
-  " Bundle 'chriskempson/vim-tomorrow-theme'
-  " colorscheme Tomorrow-night
+  Bundle 'chriskempson/vim-tomorrow-theme'
+  colorscheme Tomorrow-night
   " Tomorrow -----------------------------------
 
   " bclear -------------------------------------
-  Bundle 'godlygeek/csapprox'
-  Bundle 'vim-scripts/bclear'
-  colorscheme bclear
+  " Bundle 'godlygeek/csapprox'
+  " Bundle 'vim-scripts/bclear'
+  " colorscheme bclear
   " bclear -------------------------------------
 
   " base16 -------------------------------------
@@ -38,6 +38,8 @@ Bundle 'vim-scripts/draw.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-commentary'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'scrooloose/syntastic'
+Bundle 'vim-scripts/renamer.vim'
 
 " search {{{
   Bundle 'mileszs/ack.vim'
@@ -104,6 +106,9 @@ Bundle 'Lokaltog/vim-powerline'
 
   "Launch with <leader>t
   map <leader>t <C-p>
+
+  "Show open buffers with <leader>y
+  map <leader>y :CtrlPBuffer<cr>
 
   "Make it a bit bigger
   let g:ctrlp_max_height = 30
