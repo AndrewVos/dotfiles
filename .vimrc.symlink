@@ -87,6 +87,7 @@ Bundle 'vim-scripts/renamer.vim'
 
 " tags {{{
   Bundle 'majutsushi/tagbar'
+  Bundle 'xolox/vim-misc'
   Bundle 'xolox/vim-easytags'
 
   "Open Tagbar when pressing <leader>b and automatically close it after
