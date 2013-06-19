@@ -210,3 +210,14 @@ autocmd BufRead *.pde set filetype=c
   set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
   set writebackup
 " }}}
+
+" show a crosshair for the current character {{{
+hi CursorLine cterm=none ctermbg=darkgrey
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorcolumn
+  au WinLeave * setlocal nocursorline
+  au WinLeave * setlocal nocursorcolumn
+augroup END
+" }}}
