@@ -41,12 +41,6 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/syntastic'
 Bundle 'vim-scripts/renamer.vim'
 
-" search {{{
-  Bundle 'mileszs/ack.vim'
-  " use the_silver_searcher instead of ack
-  let g:ackprg = 'ag --nogroup --nocolor --column'
-" }}}
-"
 " vimux {{{
   Bundle 'benmills/vimux'
   let g:VimuxHeight = "40"
@@ -102,26 +96,34 @@ Bundle 'vim-scripts/renamer.vim'
     \ endif
 " }}}
 
-" ctrl+p {{{
-  Bundle 'kien/ctrlp.vim'
+" unite {{{
+  Bundle 'Shougo/vimproc.vim'
+  Bundle 'Shougo/unite.vim'
+  " Always start insert mode
+	let g:unite_enable_start_insert = 1
+  " Search settings
+  call unite#filters#matcher_default#use(['matcher_fuzzy'])
+  call unite#filters#sorter_default#use(['sorter_rank'])
+  call unite#set_profile('files', 'smartcase', 1)
+  " Open files
+  nnoremap <C-p> :Unite file_rec/async<cr>
+  " Open buffers
+  nnoremap <C-b> :Unite buffer<cr>
+  " Search like ack
+  nnoremap <Leader>f :Unite grep:. -no-quit -no-start-insert<cr>
+  " Yank history
+  nnoremap <Leader>y :Unite history/yank<cr>
 
-  "Launch with <leader>t
-  map <leader>t <C-p>
-
-  "Show open buffers with <leader>y
-  map <leader>y :CtrlPBuffer<cr>
-
-  "Make it a bit bigger
-  let g:ctrlp_max_height = 30
-
-  "Stop CTRL+P from changing directory paths automatically
-  let g:ctrlp_working_path_mode = 0
-
-  "Show hidden files
-  let g:ctrlp_show_hidden = 1
-
-  "Ignore git, subversion and mercurial directories
-  set wildignore+=*/.git/*,*/.hg/*,*/.svn/* 
+  " Use either The Silver Search or Ack
+  if executable('ag')
+    let g:unite_source_grep_command='ag'
+    let g:unite_source_grep_default_opts='--nocolor --nogroup --hidden'
+    let g:unite_source_grep_recursive_opt=''
+  elseif executable('ack')
+    let g:unite_source_grep_command='ack'
+    let g:unite_source_grep_default_opts='--no-heading --no-color -a'
+    let g:unite_source_grep_recursive_opt=''
+  endif
 " }}}
 
 " looks {{{

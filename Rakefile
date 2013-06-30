@@ -1,5 +1,5 @@
 desc "installs vimfiles"
-task :default => [:setup_symlinks, :clone_vundle, :bundle_install]
+task :default => [:setup_symlinks, :clone_vundle, :bundle_install, :make_vimproc]
 
 task :setup_symlinks do
   Dir.glob(".*.symlink").each do |linkable|
@@ -28,4 +28,10 @@ end
 
 task :bundle_install do
   sh "vim -c :BundleInstall -c :q -c :q"
+end
+
+task :make_vimproc do
+  Dir.chdir ".vim.symlink/bundle/vimproc.vim" do
+    sh "make -f make_mac.mak"
+  end
 end
