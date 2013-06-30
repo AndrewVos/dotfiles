@@ -41,6 +41,11 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/syntastic'
 Bundle 'vim-scripts/renamer.vim'
 
+" dash {{{
+  Bundle 'rizzatti/funcoo.vim'
+  Bundle 'rizzatti/dash.vim'
+" }}}
+
 " vimux {{{
   Bundle 'benmills/vimux'
   let g:VimuxHeight = "40"
