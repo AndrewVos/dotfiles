@@ -115,7 +115,7 @@ Bundle 'vim-scripts/renamer.vim'
   " Open buffers
   nnoremap <C-b> :Unite buffer<cr>
   " Search like ack
-  nnoremap <Leader>f :Unite grep:. -no-quit -no-start-insert<cr>
+  nnoremap <Leader>f :Unite grep:. -no-quit -no-empty -no-start-insert<cr>
   " Yank history
   nnoremap <Leader>y :Unite history/yank<cr>
 
