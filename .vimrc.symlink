@@ -37,7 +37,12 @@ Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/draw.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-commentary'
-Bundle 'Lokaltog/vim-powerline'
+
+let g:airline_powerline_fonts=1
+let g:airline_enable_syntastic=1
+let g:airline_theme='light'
+Bundle 'bling/vim-airline'
+
 Bundle 'scrooloose/syntastic'
 Bundle 'vim-scripts/renamer.vim'
 
@@ -158,9 +163,6 @@ Bundle 'vim-scripts/renamer.vim'
 
   "Hide the toolbar
   set guioptions-=T
-
-  " Show fancy powerline symbols
-  let g:Powerline_symbols = 'fancy'
 " }}}
 
 " editing {{{
