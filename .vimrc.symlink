@@ -1,3 +1,5 @@
+set shell=/bin/zsh
+
 " vundle {{{
   set nocompatible
   filetype on
