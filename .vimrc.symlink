@@ -38,13 +38,24 @@ Bundle 'vim-scripts/draw.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-commentary'
 
-let g:airline_powerline_fonts=1
+" {{{ Go
+  Bundle 'fsouza/go.vim'
+" }}}
+
 let g:airline_enable_syntastic=1
 let g:airline_theme='light'
+let g:airline_fugitive_prefix = '⭠ '
+
 Bundle 'bling/vim-airline'
 
 Bundle 'scrooloose/syntastic'
 Bundle 'vim-scripts/renamer.vim'
+
+" yankstack {{{
+  let g:yankstack_map_keys = 0
+  Bundle 'maxbrunsfeld/vim-yankstack'
+  :map <C-n> <Plug>yankstack_substitute_older_paste
+" }}}
 
 " dash {{{
   Bundle 'rizzatti/funcoo.vim'
