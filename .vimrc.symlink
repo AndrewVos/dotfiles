@@ -65,6 +65,9 @@ Bundle 'vim-scripts/renamer.vim'
 " vimux {{{
   Bundle 'benmills/vimux'
   let g:VimuxHeight = "40"
+  nmap <Leader>c :wa\|:VimuxPromptCommand<CR>
+  nmap <Leader>r :wa\|:VimuxRunLastCommand<CR>
+  nmap <Leader>R :VimuxInterruptRunner<CR>
 " }}}
 
 " .vimlocal {{{
@@ -225,9 +228,6 @@ autocmd BufRead *.pde set filetype=c
 " mappings {{{
   " Clear the search buffer
   :nnoremap § :nohlsearch<cr>
-
-  " Run last tmux command with \r
-  :map <leader>r :wa\|:RunLastVimTmuxCommand<cr>
 " }}}
 
 " backup to ~/.tmp {{{
