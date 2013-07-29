@@ -142,8 +142,10 @@ Bundle 'vim-scripts/renamer.vim'
   command Routes :e config/routes.rb
   command Models :Unite file_rec/async:app/models
   command Views :Unite file_rec/async:app/views
+  command Controllers :Unite file_rec/async:app/controllers
   command Features :Unite file_rec/async:features
   command Steps :Unite file_rec/async:features/step_definitions
+  command Specs :Unite file_rec/async:spec
 
   " Use either The Silver Search or Ack
   if executable('ag')
