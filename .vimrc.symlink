@@ -22,11 +22,12 @@ Bundle 'tpope/vim-commentary'
   Bundle 'fsouza/go.vim'
 " }}}
 
-let g:airline_enable_syntastic=1
-let g:airline_theme='light'
-let g:airline_fugitive_prefix = '⭠ '
-
-Bundle 'bling/vim-airline'
+" {{{ vim-airline
+  let g:airline_enable_syntastic=1
+  let g:airline_theme='light'
+  let g:airline_fugitive_prefix = '⭠ '
+  Bundle 'bling/vim-airline'
+" }}}
 
 Bundle 'scrooloose/syntastic'
 Bundle 'vim-scripts/renamer.vim'
