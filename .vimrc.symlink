@@ -19,7 +19,10 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-commentary'
 
 " {{{ Go
-  Bundle 'fsouza/go.vim'
+  Bundle 'uggedal/go-vim'
+  Bundle 'Blackrush/vim-gocode'
+  Bundle 'dgryski/vim-godef'
+  autocmd BufWritePre *.go Fmt
 " }}}
 
 " {{{ vim-airline
