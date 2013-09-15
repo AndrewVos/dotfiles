@@ -20,9 +20,13 @@ Bundle 'tpope/vim-commentary'
 
 " {{{ Go
   Bundle 'uggedal/go-vim'
-  Bundle 'Blackrush/vim-gocode'
   Bundle 'dgryski/vim-godef'
   autocmd BufWritePre *.go Fmt
+
+  " gocode
+  Bundle 'Blackrush/vim-gocode'
+  let g:SuperTabDefaultCompletionType = "context"
+  set completeopt-=preview
 " }}}
 
 " {{{ vim-airline
