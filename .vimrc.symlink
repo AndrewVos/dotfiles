@@ -212,6 +212,9 @@ Bundle 'vim-scripts/renamer.vim'
 
   "The number of spaces inserted for a tab
   set shiftwidth=2
+
+  "Use the system clipboard by default
+  set clipboard=unnamed
 " }}}
 
 "Turn on syntax highlighting for Arduino .pde c files
