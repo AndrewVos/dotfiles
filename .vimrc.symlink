@@ -17,6 +17,7 @@ Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/draw.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-commentary'
+Bundle 'jamessan/vim-gnupg'
 
 " {{{ Go
   Bundle 'uggedal/go-vim'
