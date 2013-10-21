@@ -10,7 +10,6 @@ set shell=/bin/zsh
 " }}}
 
 Bundle 'ervandew/supertab'
-Bundle 'vim-scripts/draw.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-commentary'
 Bundle 'jamessan/vim-gnupg'
@@ -29,7 +28,6 @@ Bundle 'jamessan/vim-gnupg'
 " {{{ vim-airline
   let g:airline_enable_syntastic=1
   let g:airline_theme='light'
-  let g:airline_fugitive_prefix = '⭠ '
   Bundle 'bling/vim-airline'
 " }}}
 
@@ -40,29 +38,6 @@ Bundle 'vim-scripts/renamer.vim'
   let g:yankstack_map_keys = 0
   Bundle 'maxbrunsfeld/vim-yankstack'
   :map <C-n> <Plug>yankstack_substitute_older_paste
-" }}}
-
-" dash {{{
-  Bundle 'rizzatti/funcoo.vim'
-  Bundle 'rizzatti/dash.vim'
-" }}}
-
-" vimux {{{
-  Bundle 'benmills/vimux'
-  let g:VimuxHeight = "40"
-  nmap <Leader>c :wa\|:VimuxPromptCommand<CR>
-  nmap <Leader>r :wa\|:VimuxRunLastCommand<CR>
-  nmap <Leader>R :VimuxInterruptRunner<CR>
-" }}}
-
-" .vimlocal {{{
-  "If there's a .vimlocal file automatically source it
-  function! SourceVimLocal()
-    if filereadable(".vimlocal")
-      source .vimlocal
-    endif
-  endfunction
-  call SourceVimLocal()
 " }}}
 
 " coffee-script {{{
@@ -79,9 +54,6 @@ Bundle 'vim-scripts/renamer.vim'
 
 " markdown {{{
   Bundle 'tpope/vim-markdown'
-
-  "Allow piping of markdown files to the browser
-  au BufEnter,BufNew *.md map <enter> :wa\|!rbfu rdiscount % \| bcat<cr>
 " }}}
 
 " cucumber {{{
@@ -233,12 +205,6 @@ Bundle 'vim-scripts/renamer.vim'
 
 "Turn on syntax highlighting for Arduino .pde c files
 autocmd BufRead *.pde set filetype=c
-
-
-" mappings {{{
-  " Clear the search buffer
-  :nnoremap § :nohlsearch<cr>
-" }}}
 
 " backup to ~/.tmp {{{
   set backup
