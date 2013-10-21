@@ -121,11 +121,12 @@ Bundle 'vim-scripts/renamer.vim'
   call unite#filters#sorter_default#use(['sorter_rank'])
   call unite#set_profile('files', 'smartcase', 1)
   " Open files
-  nnoremap <C-p> :Unite file_rec/async<cr>
+  " nnoremap <C-p> :Unite file_rec/async<cr>
+  nnoremap <C-P> :<C-u>Unite  -buffer-name=files   -start-insert buffer file_rec/async:!<cr>
   " Open buffers
   nnoremap <C-b> :Unite buffer<cr>
   " Search like ack
-  nnoremap <Leader>f :Unite grep:. -no-quit -no-empty -no-start-insert<cr>
+  nnoremap <Leader>f :Unite grep:. -no-empty -no-start-insert<cr>
   " Yank history
   nnoremap <Leader>y :Unite history/yank<cr>
 
