@@ -9,10 +9,6 @@ set shell=/bin/zsh
   Bundle 'gmarik/vundle'
 " }}}
 
-" color {{{
-  set t_Co=256
-" }}}
-
 Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/draw.vim'
 Bundle 'tpope/vim-surround'
