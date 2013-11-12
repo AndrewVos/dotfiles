@@ -25,12 +25,6 @@ Bundle 'jamessan/vim-gnupg'
   set completeopt-=preview
 " }}}
 
-" {{{ vim-airline
-  let g:airline_enable_syntastic=1
-  let g:airline_theme='tomorrow'
-  Bundle 'bling/vim-airline'
-" }}}
-
 Bundle 'scrooloose/syntastic'
 Bundle 'vim-scripts/renamer.vim'
 
