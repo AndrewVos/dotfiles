@@ -25,9 +25,6 @@ set shell=/bin/zsh
   set ignorecase
   set smartcase
 
-  "Always show the status line
-  set laststatus=2
-
   "Stop vim from searching for insert completion words in all files referenced
   set complete-=i
 
