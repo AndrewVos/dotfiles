@@ -26,7 +26,6 @@ Bundle 'jamessan/vim-gnupg'
 " }}}
 
 Bundle 'scrooloose/syntastic'
-Bundle 'vim-scripts/renamer.vim'
 
 " coffee-script {{{
   Bundle 'kchmck/vim-coffee-script'
@@ -93,14 +92,6 @@ Bundle 'vim-scripts/renamer.vim'
   endfunction
 " }}}
 
-" snippets {{{
-  let g:snipMate = {}
-  let g:snipMate['snippet_dirs'] = ["~/.vim-snippets"]
-  Bundle "MarcWeber/vim-addon-mw-utils"
-  Bundle "tomtom/tlib_vim"
-  Bundle "garbas/vim-snipmate"
-" }}}
-
 " looks {{{
   "Don't show the vim intro text
   set shortmess=I
@@ -161,9 +152,6 @@ Bundle 'vim-scripts/renamer.vim'
   "Use the system clipboard by default
   set clipboard=unnamed
 " }}}
-
-"Turn on syntax highlighting for Arduino .pde c files
-autocmd BufRead *.pde set filetype=c
 
 " backup to ~/.tmp {{{
   set backup
