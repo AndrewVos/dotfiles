@@ -16,9 +16,6 @@ set shell=/bin/zsh
   "Turn syntax highlighting on
   syntax on
 
-  "Turn on line numbers
-  set number
-
   "Highlight tailing whitespace
   set list listchars=tab:\ \ ,trail:·
 
