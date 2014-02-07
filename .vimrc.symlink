@@ -54,9 +54,6 @@ set shell=/bin/zsh
 
   "The number of spaces inserted for a tab
   set shiftwidth=2
-
-  "Use the system clipboard by default
-  set clipboard=unnamed
 " }}}
 
 " backup to ~/.tmp {{{
