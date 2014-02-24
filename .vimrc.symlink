@@ -77,6 +77,11 @@ Bundle 'vim-scripts/Gist.vim'
   endfunction
 " }}}
 
+" javascript {{{
+  autocmd filetype javascript setlocal expandtab autoindent tabstop=2 shiftwidth=2 softtabstop=2
+  autocmd filetype javascript setlocal list listchars=tab:»·,trail:·
+" }}}
+
 " ruby {{{
   autocmd filetype ruby setlocal expandtab autoindent tabstop=2 shiftwidth=2 softtabstop=2
   autocmd filetype ruby setlocal list listchars=tab:»·,trail:·
