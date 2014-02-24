@@ -102,3 +102,17 @@ Bundle 'vim-scripts/Gist.vim'
   set completeopt=longest,menuone
   highlight Search ctermfg=black ctermbg=blue
 " }}}
+
+" mappings {{{
+  function! SetupMapping()
+    let g:mapping = input('Command: ')
+  endfunction
+  function! ExecuteMapping()
+    if exists("g:mapping")
+      execute ":wa"
+      execute "!" . g:mapping
+    endif
+  endfunction
+  map <leader>c :call SetupMapping()<cr>
+  map <leader>r :call ExecuteMapping()<cr>
+" }}}
