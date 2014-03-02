@@ -31,6 +31,7 @@ Bundle 'scrooloose/syntastic'
 "webapi-vim is needed for Gist.vim
 Bundle 'mattn/webapi-vim'
 Bundle 'vim-scripts/Gist.vim'
+Bundle 'rking/ag.vim'
 
 " Syntastic {{{
   let g:syntastic_always_populate_loc_list=1
@@ -47,35 +48,6 @@ Bundle 'vim-scripts/Gist.vim'
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
-" }}}
-
-" unite {{{
-  Bundle 'Shougo/vimproc.vim'
-  Bundle 'Shougo/unite.vim'
-  " Always start in insert mode
-  let g:unite_enable_start_insert = 1
-  " Search settings
-  call unite#filters#matcher_default#use(['matcher_fuzzy'])
-  call unite#filters#sorter_default#use(['sorter_rank'])
-  call unite#set_profile('files', 'smartcase', 1)
-  " Open files
-  nnoremap <C-P> :<C-u>Unite  -buffer-name=files   -start-insert buffer file_rec/async:!<cr>
-  " Search like ack
-  map <Leader>s :Unite grep:. -no-empty -no-start-insert<cr>
-
-  " Use Ack
-  let g:unite_source_grep_command='ack-grep'
-  let g:unite_source_grep_default_opts='--no-heading --no-color'
-  let g:unite_source_grep_recursive_opt=''
-
-  autocmd FileType unite call s:unite_settings()
-  function! s:unite_settings()
-    let b:SuperTabDisabled=1
-    imap <silent><buffer><expr> <C-x> unite#do_action('split')
-    imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
-
-    nmap <buffer> <ESC> <Plug>(unite_exit)
-  endfunction
 " }}}
 
 " all {{{
