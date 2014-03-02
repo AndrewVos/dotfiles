@@ -62,7 +62,7 @@ Bundle 'rking/ag.vim'
 " }}}
 
 " vim {{{
-  set shortmess=I
+  set shortmess=ITt
   set hlsearch
   set ignorecase
   set smartcase
