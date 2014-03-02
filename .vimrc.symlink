@@ -53,7 +53,7 @@ Bundle 'vim-scripts/Gist.vim'
   Bundle 'Shougo/vimproc.vim'
   Bundle 'Shougo/unite.vim'
   " Always start in insert mode
-	let g:unite_enable_start_insert = 1
+  let g:unite_enable_start_insert = 1
   " Search settings
   call unite#filters#matcher_default#use(['matcher_fuzzy'])
   call unite#filters#sorter_default#use(['sorter_rank'])
@@ -78,19 +78,15 @@ Bundle 'vim-scripts/Gist.vim'
   endfunction
 " }}}
 
-" javascript {{{
-  autocmd filetype javascript setlocal expandtab autoindent tabstop=2 shiftwidth=2 softtabstop=2
-  autocmd filetype javascript setlocal list listchars=tab:»·,trail:·
-" }}}
-
-" ruby {{{
-  autocmd filetype ruby setlocal expandtab autoindent tabstop=2 shiftwidth=2 softtabstop=2
-  autocmd filetype ruby setlocal list listchars=tab:»·,trail:·
+" all {{{
+  set expandtab autoindent tabstop=2 shiftwidth=2 softtabstop=2
+  set list listchars=tab:->,trail:·
 " }}}
 
 " {{{ Go
   autocmd BufWritePre *.go Fmt
   autocmd filetype go setlocal noexpandtab tabstop=2 shiftwidth=2
+  autocmd filetype go setlocal list listchars=tab:\ \ ,trail:·
 " }}}
 
 " vim {{{
