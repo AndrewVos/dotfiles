@@ -33,15 +33,15 @@ Bundle 'scrooloose/syntastic'
 Bundle 'mattn/webapi-vim'
 Bundle 'vim-scripts/Gist.vim'
 Bundle 'rking/ag.vim'
+Bundle 'terryma/vim-expand-region'
+
+" vim-expand-region {{{
+  vmap v <Plug>(expand_region_expand)
+  vmap <C-v> <Plug>(expand_region_shrink)
+" }}}
 
 " Syntastic {{{
   let g:syntastic_always_populate_loc_list=1
-" }}}
-
-" tags {{{
-  Bundle 'xolox/vim-misc'
-  Bundle 'xolox/vim-easytags'
-  let g:easytags_dynamic_files = 1
 " }}}
 
 " Jump to last cursor position {{{
