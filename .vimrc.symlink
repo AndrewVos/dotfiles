@@ -16,6 +16,7 @@ set shell=/bin/zsh
   set writebackup
 " }}}
 
+Bundle 'tpope/vim-sleuth'
 Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-surround'
@@ -49,17 +50,6 @@ Bundle 'terryma/vim-expand-region'
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
-" }}}
-
-" all {{{
-  set expandtab autoindent tabstop=2 shiftwidth=2 softtabstop=2
-  set list listchars=tab:->,trail:·
-" }}}
-
-" {{{ Go
-  autocmd BufWritePre *.go Fmt
-  autocmd filetype go setlocal noexpandtab tabstop=2 shiftwidth=2
-  autocmd filetype go setlocal list listchars=tab:\ \ ,trail:·
 " }}}
 
 " vim {{{
