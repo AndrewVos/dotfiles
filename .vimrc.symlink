@@ -73,6 +73,10 @@ Bundle 'terryma/vim-expand-region'
   highlight Search ctermfg=black ctermbg=blue
 " }}}
 
+" format json {{{
+  map <leader>j :%!python -m json.tool<cr>
+" }}}
+
 " mappings {{{
   function! SetupMapping()
     let g:mapping = input('Command: ')
