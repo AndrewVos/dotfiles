@@ -46,10 +46,13 @@ Bundle 'terryma/vim-expand-region'
 " }}}
 
 " Jump to last cursor position {{{
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
+  augroup go_to_last_cursor_position
+    autocmd!
+    autocmd BufReadPost *
+      \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      \   exe "normal g`\"" |
+      \ endif
+  augroup END
 " }}}
 
 " vim {{{
