@@ -63,6 +63,7 @@ Bundle 'terryma/vim-expand-region'
   set hidden
   set omnifunc=syntaxcomplete#Complete
   set completeopt=longest,menuone
+  set autowrite
   highlight Search ctermfg=black ctermbg=blue
 " }}}
 
