@@ -77,7 +77,6 @@ Bundle 'terryma/vim-expand-region'
   endfunction
   function! ExecuteMapping()
     if exists("g:mapping")
-      execute ":wa"
       execute "!" . g:mapping
     endif
   endfunction
