@@ -68,7 +68,7 @@ Bundle 'terryma/vim-expand-region'
 " }}}
 
 " format json {{{
-  map <leader>j :%!python -m json.tool<cr>
+  noremap <leader>j :%!python -m json.tool<cr>
 " }}}
 
 " mappings {{{
