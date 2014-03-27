@@ -80,6 +80,6 @@ Bundle 'terryma/vim-expand-region'
       execute "!" . g:mapping
     endif
   endfunction
-  map <leader>c :call SetupMapping()<cr>
-  map <leader>r :call ExecuteMapping()<cr>
+  noremap <leader>c :call SetupMapping()<cr>
+  noremap <leader>r :call ExecuteMapping()<cr>
 " }}}
