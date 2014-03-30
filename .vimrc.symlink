@@ -47,7 +47,7 @@ Bundle 'AndrewVos/vim-aaa'
 " }}}
 
 " aaa {{{
-  noremap <C-a> :Alternate<cr>
+  command A :Alternate
 " }}}
 
 " Jump to last cursor position {{{
