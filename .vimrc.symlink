@@ -35,6 +35,7 @@ Bundle 'mattn/webapi-vim'
 Bundle 'vim-scripts/Gist.vim'
 Bundle 'rking/ag.vim'
 Bundle 'terryma/vim-expand-region'
+Bundle 'AndrewVos/vim-aaa'
 
 " vim-expand-region {{{
   vnoremap v <Plug>(expand_region_expand)
@@ -43,6 +44,10 @@ Bundle 'terryma/vim-expand-region'
 
 " Syntastic {{{
   let g:syntastic_always_populate_loc_list=1
+" }}}
+
+" aaa {{{
+  noremap <C-a> :Alternate<cr>
 " }}}
 
 " Jump to last cursor position {{{
