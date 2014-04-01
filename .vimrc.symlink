@@ -27,8 +27,8 @@ Bundle 'tpope/vim-vinegar'
 Bundle 'pangloss/vim-javascript'
 Bundle 'jamessan/vim-gnupg'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'dgryski/vim-godef'
-Bundle 'Blackrush/vim-gocode'
+" Bundle 'dgryski/vim-godef'
+" Bundle 'Blackrush/vim-gocode'
 Bundle 'scrooloose/syntastic'
 "webapi-vim is needed for Gist.vim
 Bundle 'mattn/webapi-vim'
@@ -36,6 +36,7 @@ Bundle 'vim-scripts/Gist.vim'
 Bundle 'rking/ag.vim'
 Bundle 'terryma/vim-expand-region'
 Bundle 'AndrewVos/vim-aaa'
+Bundle 'fatih/vim-go'
 
 " vim-expand-region {{{
   vnoremap v <Plug>(expand_region_expand)
