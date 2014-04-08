@@ -28,8 +28,6 @@ Bundle 'tpope/vim-jdaddy'
 Bundle 'pangloss/vim-javascript'
 Bundle 'jamessan/vim-gnupg'
 Bundle 'kchmck/vim-coffee-script'
-" Bundle 'dgryski/vim-godef'
-" Bundle 'Blackrush/vim-gocode'
 Bundle 'scrooloose/syntastic'
 "webapi-vim is needed for Gist.vim
 Bundle 'mattn/webapi-vim'
