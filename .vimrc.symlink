@@ -36,6 +36,7 @@ Bundle 'rking/ag.vim'
 Bundle 'terryma/vim-expand-region'
 Bundle 'AndrewVos/vim-aaa'
 Bundle 'fatih/vim-go'
+Bundle 'AndrewRadev/splitjoin.vim'
 
 " vim-expand-region {{{
   vnoremap v <Plug>(expand_region_expand)
