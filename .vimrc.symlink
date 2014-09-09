@@ -3,9 +3,9 @@ set shell=/bin/zsh
 " vundle {{{
   set nocompatible
   filetype off
-  set rtp+=~/.vim/bundle/vundle/
-  call vundle#rc()
-  Bundle 'gmarik/vundle'
+  set rtp+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
+  Plugin 'gmarik/Vundle.vim'
 " }}}
 
 " backup to ~/.tmp {{{
@@ -16,28 +16,28 @@ set shell=/bin/zsh
   set writebackup
 " }}}
 
-Bundle 'tpope/vim-sleuth'
-Bundle 'tpope/vim-sensible'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-vinegar'
-Bundle 'tpope/vim-jdaddy'
-Bundle 'pangloss/vim-javascript'
-Bundle 'jamessan/vim-gnupg'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'scrooloose/syntastic'
+Plugin 'tpope/vim-sleuth'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-cucumber'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-jdaddy'
+Plugin 'pangloss/vim-javascript'
+Plugin 'jamessan/vim-gnupg'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'scrooloose/syntastic'
 "webapi-vim is needed for Gist.vim
-Bundle 'mattn/webapi-vim'
-Bundle 'vim-scripts/Gist.vim'
-Bundle 'rking/ag.vim'
-Bundle 'terryma/vim-expand-region'
-Bundle 'AndrewVos/vim-aaa'
-Bundle 'fatih/vim-go'
-Bundle 'AndrewVos/dodo'
-Bundle 'AndrewRadev/splitjoin.vim'
+Plugin 'mattn/webapi-vim'
+Plugin 'vim-scripts/Gist.vim'
+Plugin 'rking/ag.vim'
+Plugin 'terryma/vim-expand-region'
+Plugin 'AndrewVos/vim-aaa'
+Plugin 'fatih/vim-go'
+Plugin 'AndrewVos/dodo'
+Plugin 'AndrewRadev/splitjoin.vim'
 
 " vim-expand-region {{{
   vnoremap v <Plug>(expand_region_expand)
@@ -89,4 +89,9 @@ Bundle 'AndrewRadev/splitjoin.vim'
   endfunction
   noremap <leader>c :call SetupMapping()<cr>
   noremap <leader>r :call ExecuteMapping()<cr>
+" }}}
+
+" vundle {{{
+call vundle#end()
+filetype plugin indent on
 " }}}
