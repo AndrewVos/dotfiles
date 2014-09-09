@@ -49,10 +49,6 @@ Plugin 'airblade/vim-gitgutter'
   let g:syntastic_always_populate_loc_list=1
 " }}}
 
-" aaa {{{
-  command A :Alternate
-" }}}
-
 " Jump to last cursor position {{{
   augroup go_to_last_cursor_position
     autocmd!
