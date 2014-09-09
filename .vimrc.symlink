@@ -39,6 +39,7 @@ Plugin 'fatih/vim-go'
 Plugin 'AndrewVos/dodo'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'ekalinin/Dockerfile.vim'
 
 " vim-expand-region {{{
   vnoremap v <Plug>(expand_region_expand)
