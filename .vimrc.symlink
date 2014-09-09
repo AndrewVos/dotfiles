@@ -38,6 +38,7 @@ Plugin 'AndrewVos/vim-aaa'
 Plugin 'fatih/vim-go'
 Plugin 'AndrewVos/dodo'
 Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'airblade/vim-gitgutter'
 
 " vim-expand-region {{{
   vnoremap v <Plug>(expand_region_expand)
@@ -72,6 +73,15 @@ Plugin 'AndrewRadev/splitjoin.vim'
   set completeopt=longest,menuone
   set autowrite
   highlight Search ctermfg=black ctermbg=blue
+" }}}
+
+" gitgutter {{{
+  highlight SignColumn ctermbg=black
+
+  highlight GitGutterAdd ctermbg=black ctermfg=green
+  highlight GitGutterChange ctermbg=black ctermfg=yellow
+  highlight GitGutterDelete ctermbg=black ctermfg=red
+  " highlight GitGutterChangeDelete " a changed line followed by at least one removed line
 " }}}
 
 " format json {{{
