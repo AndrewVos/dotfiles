@@ -33,18 +33,12 @@ Plugin 'scrooloose/syntastic'
 Plugin 'mattn/webapi-vim'
 Plugin 'vim-scripts/Gist.vim'
 Plugin 'rking/ag.vim'
-Plugin 'terryma/vim-expand-region'
 Plugin 'AndrewVos/vim-aaa'
 Plugin 'fatih/vim-go'
 Plugin 'AndrewVos/dodo'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ekalinin/Dockerfile.vim'
-
-" vim-expand-region {{{
-  vnoremap v <Plug>(expand_region_expand)
-  vnoremap <C-v> <Plug>(expand_region_shrink)
-" }}}
 
 " Syntastic {{{
   let g:syntastic_always_populate_loc_list=1
