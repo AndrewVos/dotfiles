@@ -11,7 +11,7 @@ cd vimfiles
 ## Updating plugins
 
 ```
-./plugins.sh
+./plugins.sh update
 ```
 
 ## Try it out in docker
