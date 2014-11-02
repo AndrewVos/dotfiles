@@ -1,12 +1,9 @@
 set shell=/bin/zsh
 
-" vundle {{{
-  set nocompatible
-  filetype off
-  set rtp+=~/.vim/bundle/Vundle.vim
-  call vundle#begin()
-  Plugin 'gmarik/Vundle.vim'
-" }}}
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
 
 " backup to ~/.tmp {{{
   set backup
@@ -15,30 +12,6 @@ set shell=/bin/zsh
   set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
   set writebackup
 " }}}
-
-Plugin 'tpope/vim-sleuth'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-cucumber'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-vinegar'
-Plugin 'tpope/vim-jdaddy'
-Plugin 'pangloss/vim-javascript'
-Plugin 'jamessan/vim-gnupg'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'scrooloose/syntastic'
-"webapi-vim is needed for Gist.vim
-Plugin 'mattn/webapi-vim'
-Plugin 'vim-scripts/Gist.vim'
-Plugin 'rking/ag.vim'
-Plugin 'AndrewVos/vim-aaa'
-Plugin 'fatih/vim-go'
-Plugin 'AndrewVos/dodo'
-Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'ekalinin/Dockerfile.vim'
 
 " Syntastic {{{
   let g:syntastic_always_populate_loc_list=1
@@ -92,10 +65,6 @@ Plugin 'ekalinin/Dockerfile.vim'
   noremap <leader>r :call ExecuteMapping()<cr>
 " }}}
 
-" vundle {{{
-call vundle#end()
-filetype plugin indent on
-" }}}
 if !empty(glob(".git"))
   function! GitLsFiles(A,L,P)
     let pattern = a:A
