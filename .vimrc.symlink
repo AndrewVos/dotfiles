@@ -96,3 +96,14 @@ Plugin 'ekalinin/Dockerfile.vim'
 call vundle#end()
 filetype plugin indent on
 " }}}
+if !empty(glob(".git"))
+  function! GitLsFiles(A,L,P)
+    let pattern = a:A
+    if len(pattern) > 0
+      return split(system("git ls-files --cached --modified --others \| grep " . pattern), "\n")
+    else
+      return split(system("git ls-files --cached --modified --others"), "\n")
+    endif
+  endfunction
+  command! -complete=customlist,GitLsFiles -nargs=1 Z :edit <args>
+endif
