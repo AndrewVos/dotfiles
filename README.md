@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-git clone git://github.com/AndrewVos/vimfiles.git
+git clone https://github.com/AndrewVos/vimfiles
 cd vimfiles
 ./install.sh
 ```
@@ -12,4 +12,11 @@ cd vimfiles
 
 ```
 ./plugins.sh
+```
+
+## Try it out in docker
+
+```
+docker pull andrewvos/vimfiles
+docker run -it -v `pwd`:/src andrewvos/vimfiles
 ```
