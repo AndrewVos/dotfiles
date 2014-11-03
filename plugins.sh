@@ -22,8 +22,7 @@ fatih/vim-go
 AndrewVos/dodo
 AndrewRadev/splitjoin.vim
 airblade/vim-gitgutter
-ekalinin/Dockerfile.vim
-mhinz/vim-startify"
+ekalinin/Dockerfile.vim"
 
 UPDATE=$1
 
