@@ -30,7 +30,6 @@ filetype plugin indent on
 " vim {{{
   set shortmess=ITt
   set hlsearch
-  set ignorecase
   set smartcase
   set hidden
   set omnifunc=syntaxcomplete#Complete
