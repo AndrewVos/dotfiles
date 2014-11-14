@@ -22,7 +22,8 @@ fatih/vim-go
 AndrewVos/dodo
 AndrewRadev/splitjoin.vim
 airblade/vim-gitgutter
-ekalinin/Dockerfile.vim"
+ekalinin/Dockerfile.vim
+zhaocai/GoldenView.Vim"
 
 UPDATE=$1
 
