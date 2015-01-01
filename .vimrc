@@ -33,7 +33,7 @@ filetype plugin indent on
   set smartcase
   set hidden
   set omnifunc=syntaxcomplete#Complete
-  set completeopt=longest,menuone
+  set completeopt=longest,menu
   set autowrite
   highlight Search ctermfg=black ctermbg=blue
 " }}}
