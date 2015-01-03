@@ -6,7 +6,6 @@ tpope/vim-sensible
 tpope/vim-unimpaired
 tpope/vim-surround
 tpope/vim-commentary
-tpope/vim-cucumber
 tpope/vim-fugitive
 tpope/vim-vinegar
 tpope/vim-jdaddy
