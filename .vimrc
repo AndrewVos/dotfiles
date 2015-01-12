@@ -47,6 +47,13 @@ filetype plugin indent on
   " highlight GitGutterChangeDelete " a changed line followed by at least one removed line
 " }}}
 
+" rainbow parentheses {{{
+  au VimEnter * RainbowParenthesesToggle
+  au Syntax * RainbowParenthesesLoadRound
+  au Syntax * RainbowParenthesesLoadSquare
+  au Syntax * RainbowParenthesesLoadBraces
+" }}}
+
 " format json {{{
   noremap <leader>j :%!python -m json.tool<cr>
 " }}}

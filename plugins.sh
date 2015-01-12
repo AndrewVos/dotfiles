@@ -22,6 +22,8 @@ AndrewVos/dodo
 AndrewRadev/splitjoin.vim
 airblade/vim-gitgutter
 ekalinin/Dockerfile.vim
+gcmt/wildfire.vim
+kien/rainbow_parentheses.vim
 "
 
 UPDATE=$1
