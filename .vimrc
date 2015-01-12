@@ -27,6 +27,11 @@ filetype plugin indent on
   augroup END
 " }}}
 
+" golang {{{
+" Does that auto import stuff
+  let g:go_fmt_command = "goimports"
+" }}}
+
 " vim {{{
   set shortmess=ITt
   set hlsearch
