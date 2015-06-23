@@ -47,11 +47,13 @@ colorscheme tomorrow-night
 
 " mappings {{{
   function! SetupMapping()
-    let g:mapping = input('Command: ')
+    let g:mapping = input("Command: ", "", "shellcmd")
   endfunction
   function! ExecuteMapping()
     if exists("g:mapping")
       execute "!" . g:mapping
+    else
+      call SetupMapping()
     endif
   endfunction
   noremap <leader>c :call SetupMapping()<cr>
