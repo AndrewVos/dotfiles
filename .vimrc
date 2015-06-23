@@ -6,7 +6,7 @@ filetype plugin indent on
 if $COLORTERM == 'gnome-terminal'
   set t_Co=256
 endif
-colorscheme tomorrow-night
+colorscheme Tomorrow-Night
 
 " backup to ~/.tmp {{{
   set backup

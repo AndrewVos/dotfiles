@@ -30,7 +30,7 @@ reedes/vim-wordy
 dietsche/vim-lastplace
 stefandtw/quickfix-reflector.vim
 AndrewVos/vim-git-opener
-squarefrog/tomorrow-night.vim
+chriskempson/vim-tomorrow-theme
 "
 
 function install() {
