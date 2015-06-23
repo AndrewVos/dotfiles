@@ -25,7 +25,6 @@ AndrewVos/dodo
 AndrewRadev/splitjoin.vim
 airblade/vim-gitgutter
 ekalinin/Dockerfile.vim
-kien/rainbow_parentheses.vim
 sjl/gundo.vim
 tpope/vim-rails
 reedes/vim-wordy
