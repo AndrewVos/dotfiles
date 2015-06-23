@@ -29,6 +29,7 @@ sjl/gundo.vim
 tpope/vim-rails
 reedes/vim-wordy
 dietsche/vim-lastplace
+stefandtw/quickfix-reflector.vim
 "
 
 function install() {
