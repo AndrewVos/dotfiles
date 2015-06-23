@@ -30,6 +30,7 @@ tpope/vim-rails
 reedes/vim-wordy
 dietsche/vim-lastplace
 stefandtw/quickfix-reflector.vim
+AndrewVos/vim-git-opener
 "
 
 function install() {
