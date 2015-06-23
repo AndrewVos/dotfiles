@@ -3,6 +3,9 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+set t_Co=256
+colorscheme tomorrow-night
+
 " backup to ~/.tmp {{{
   set backup
   set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -32,12 +35,10 @@ filetype plugin indent on
 " }}}
 
 " gitgutter {{{
-  highlight SignColumn ctermbg=black
-
-  highlight GitGutterAdd ctermbg=black ctermfg=green
-  highlight GitGutterChange ctermbg=black ctermfg=yellow
-  highlight GitGutterDelete ctermbg=black ctermfg=red
-  " highlight GitGutterChangeDelete " a changed line followed by at least one removed line
+  highlight GitGutterAdd ctermfg=green
+  highlight GitGutterChange ctermfg=yellow
+  highlight GitGutterDelete ctermfg=red
+  highlight GitGutterChangeDelete ctermfg=red
 " }}}
 
 " format json {{{

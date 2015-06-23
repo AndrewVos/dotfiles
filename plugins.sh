@@ -18,7 +18,6 @@ kchmck/vim-coffee-script
 scrooloose/syntastic
 mattn/webapi-vim
 vim-scripts/Gist.vim
-rking/ag.vim
 AndrewVos/vim-aaa
 fatih/vim-go
 AndrewVos/dodo
@@ -31,6 +30,7 @@ reedes/vim-wordy
 dietsche/vim-lastplace
 stefandtw/quickfix-reflector.vim
 AndrewVos/vim-git-opener
+squarefrog/tomorrow-night.vim
 "
 
 function install() {
