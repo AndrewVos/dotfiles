@@ -17,16 +17,6 @@ filetype plugin indent on
   let g:syntastic_always_populate_loc_list=1
 " }}}
 
-" Jump to last cursor position {{{
-  augroup go_to_last_cursor_position
-    autocmd!
-    autocmd BufReadPost *
-      \ if line("'\"") > 0 && line("'\"") <= line("$") |
-      \   exe "normal g`\"" |
-      \ endif
-  augroup END
-" }}}
-
 " golang {{{
 " Does that auto import stuff
   let g:go_fmt_command = "goimports"
@@ -50,13 +40,6 @@ filetype plugin indent on
   highlight GitGutterChange ctermbg=black ctermfg=yellow
   highlight GitGutterDelete ctermbg=black ctermfg=red
   " highlight GitGutterChangeDelete " a changed line followed by at least one removed line
-" }}}
-
-" rainbow parentheses {{{
-  au VimEnter * RainbowParenthesesToggle
-  au Syntax * RainbowParenthesesLoadRound
-  au Syntax * RainbowParenthesesLoadSquare
-  au Syntax * RainbowParenthesesLoadBraces
 " }}}
 
 " format json {{{

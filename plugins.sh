@@ -1,4 +1,7 @@
-#!/bin/bash -e
+#!/bin/bash
+
+set -u
+set -e
 
 plugins="tpope/vim-pathogen
 tpope/vim-sleuth
@@ -22,33 +25,62 @@ AndrewVos/dodo
 AndrewRadev/splitjoin.vim
 airblade/vim-gitgutter
 ekalinin/Dockerfile.vim
-gcmt/wildfire.vim
 kien/rainbow_parentheses.vim
+sjl/gundo.vim
+tpope/vim-rails
+reedes/vim-wordy
+dietsche/vim-lastplace
 "
 
-UPDATE=$1
+function install() {
+  for plugin in $plugins; do
+    dir=~/.vim/bundle/$(echo $plugin | cut -d "/" -f 2)
 
-if [ "$UPDATE" != "--update" ]; then
-  echo "Only installing plugins if they don't exist. Use --update to update all plugins."
-  echo
-fi
-
-for plugin in $plugins; do
-  dir=~/.vim/bundle/$(echo $plugin | cut -d "/" -f 2)
-
-  if [ ! -d "$dir" ]; then
-    echo [install] $plugin...
-    git clone -q https://github.com/$plugin $dir
-  else
-    if [ "$UPDATE" = "--update" ]; then
-      echo [update] $plugin...
-      cd $dir
-      git pull -q
+    if [ ! -d "$dir" ]; then
+      echo [install] $plugin...
+      git clone -q https://github.com/$plugin $dir
     else
-      echo [ignore] $plugin...
+      if [ "$UPDATE" = "yes" ]; then
+        echo [update] $plugin...
+        cd $dir
+        git pull -q
+      fi
     fi
-  fi
-done
+  done
+}
+
+function delete() {
+  for plugin_directory in $(ls -d ~/.vim/bundle/*/); do
+    should_be_installed="no"
+    for plugin in $plugins; do
+      expected_plugin_directory=~/.vim/bundle/$(echo $plugin | cut -d "/" -f 2)/
+      if [ "$plugin_directory" == "$expected_plugin_directory" ]; then
+        should_be_installed="yes"
+        break
+      fi
+    done
+    if [ $should_be_installed == "no" ]; then
+      echo "[delete] $plugin_directory"
+      rm -rfI "$plugin_directory"
+    fi
+  done
+}
+
+UPDATE="no"
+if [[ "$@" == *"--update"* ]]; then
+  echo "Updating all plugins..."
+  UPDATE="yes"
+else
+  echo "Installing all plugins..."
+fi
+install
+
+DELETE="no"
+if [[ "$@" == *"--delete"* ]]; then
+  echo "Deleting old plugins..."
+  delete
+  DELETE="yes"
+fi
 
 echo
 echo Updating helptags...
