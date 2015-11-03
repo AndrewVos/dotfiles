@@ -34,6 +34,7 @@ colorscheme Tomorrow-Night
   set completeopt=longest,menu
   set autowrite
   highlight Search ctermfg=black ctermbg=blue
+  set colorcolumn=80
 " }}}
 
 " gitgutter {{{
