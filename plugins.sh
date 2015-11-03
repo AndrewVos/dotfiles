@@ -49,12 +49,18 @@ function install() {
     if [ ! -d "$dir" ]; then
       echo [install] $plugin...
       git clone -q https://github.com/$plugin $dir
-    else
-      if [ "$UPDATE" = "yes" ]; then
-        echo [update] $plugin...
-        cd $dir
-        git pull -q
-      fi
+    fi
+  done
+}
+
+function update() {
+  for plugin in $plugins; do
+    dir=~/.vim/bundle/$(echo $plugin | cut -d "/" -f 2)
+
+    if [ -d "$dir" ]; then
+      echo [update] $plugin...
+      cd $dir
+      git pull -q
     fi
   done
 }
@@ -76,22 +82,21 @@ function delete() {
   done
 }
 
-UPDATE="no"
-if [[ "$@" == *"--update"* ]]; then
-  echo "Updating all plugins..."
-  UPDATE="yes"
-else
-  echo "Installing all plugins..."
+if [ $# -eq 0 ]; then
+  echo "Usage: $0 [--install|--update|--delete]";
+  exit 1;
 fi
-install
 
-DELETE="no"
-if [[ "$@" == *"--delete"* ]]; then
+if [[ "$@" == *"--install"* ]]; then
+  echo "Installing all plugins..."
+  install
+elif [[ "$@" == *"--update"* ]]; then
+  echo "Updating all plugins..."
+  update
+elif [[ "$@" == *"--delete"* ]]; then
   echo "Deleting old plugins..."
   delete
-  DELETE="yes"
 fi
 
-echo
 echo Updating helptags...
 vim -c :Helptags -c :q -c :q
