@@ -5,12 +5,28 @@ set -e
 
 PLUGINS=$(cat plugins.txt)
 
+normal=""
+light_red=""
+light_green=""
+light_blue=""
+
+if [ -t 1 ]; then
+    ncolors=$(tput colors)
+
+    if test -n "$ncolors" && test $ncolors -ge 8; then
+        normal="$(tput sgr0)"
+        light_red="$(tput bold; tput setaf 1)"
+        light_green="$(tput bold; tput setaf 2)"
+        light_blue="$(tput bold; tput setaf 4)"
+    fi
+fi
+
 function install() {
   for plugin in $PLUGINS; do
     dir=~/.vim/bundle/$(echo $plugin | cut -d "/" -f 2)
 
     if [ ! -d "$dir" ]; then
-      echo [install] $plugin...
+      echo "${light_green}[install]${normal} $plugin"
       git clone -q https://github.com/$plugin $dir
     fi
   done
@@ -21,7 +37,7 @@ function update() {
     dir=~/.vim/bundle/$(echo $plugin | cut -d "/" -f 2)
 
     if [ -d "$dir" ]; then
-      echo [update] $plugin...
+      echo "${light_blue}[update]${normal} $plugin"
       cd $dir
       git pull -q
     fi
@@ -39,7 +55,7 @@ function delete() {
       fi
     done
     if [ $should_be_installed == "no" ]; then
-      echo "[delete] $plugin_directory"
+      echo "${light_red}[delete]${normal} $plugin_directory"
       rm -rfI "$plugin_directory"
     fi
   done
