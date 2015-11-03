@@ -29,8 +29,17 @@ tpope/vim-rails
 reedes/vim-wordy
 dietsche/vim-lastplace
 stefandtw/quickfix-reflector.vim
-AndrewVos/vim-git-opener
+AndrewVos/vim-git-navigator
 chriskempson/vim-tomorrow-theme
+godlygeek/tabular
+ntpeters/vim-better-whitespace
+junegunn/fzf
+tpope/vim-eunuch
+gorodinskiy/vim-coloresque
+tpope/vim-abolish
+int3/vim-extradite
+tpope/vim-obsession
+vim-ruby/vim-ruby
 "
 
 function install() {
