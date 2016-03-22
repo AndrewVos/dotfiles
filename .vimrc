@@ -20,8 +20,13 @@ colorscheme Tomorrow-Night
   let g:syntastic_always_populate_loc_list=1
 " }}}
 
+" vim-gnupg {{{
+  " Use gpg2, because it stores symmetric passphrases in gpg-agent.
+  let g:GPGExecutable="gpg2"
+" }}}
+
 " golang {{{
-" Does that auto import stuff
+  " Does that auto import stuff
   let g:go_fmt_command = "goimports"
 " }}}
 
