@@ -61,18 +61,25 @@ function delete() {
   done
 }
 
-if [ $# -eq 0 ]; then
+function usage() {
   echo "Usage: $0 [--install|--update|--delete]";
   exit 1;
-fi
+}
+
+function update-help-tags() {
+  vim -c :Helptags -c :q -c :q
+}
 
 if [[ "$@" == *"--install"* ]]; then
   install
+  update-help-tags
 elif [[ "$@" == *"--update"* ]]; then
   update
+  update-help-tags
 elif [[ "$@" == *"--delete"* ]]; then
   delete
+  update-help-tags
+else
+  usage
 fi
 
-echo Updating helptags...
-vim -c :Helptags -c :q -c :q
