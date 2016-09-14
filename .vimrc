@@ -58,26 +58,34 @@ colorscheme Tomorrow-Night
   au FileType ruby let b:argwrap_tail_comma=1
 " }}}
 
-" function! Focus()
-"   let g:focusedFile=expand("%")
-"   echo "Focusing " . g:focusedFile
-" endfunction
-" function! Unfocus()
-"   if exists('g:focusedFile')
-"     echo "Unfocusing ".g:focusedFile
-"     unlet g:focusedFile
-"   else
-"     echo "There wasn't anything focused?"
-"   endif
-" endfunction
-" function! Run()
-"   if exists('g:focusedFile')
-"     exec ':Rrunner ' . g:focusedFile
-"   else
-"     exec ':Rrunner spec'
-"   endif
-" endfunction
-" command! Focus call Focus()
-" command! Unfocus call Unfocus()
-" command! Run call Run()
-" nnoremap <leader>r :wa\|:Run<cr>
+function! BackgroundCommandClose(channel)
+  execute "cfile! " . g:backgroundCommandOutput
+  copen
+  unlet g:backgroundCommandOutput
+
+  let job = ch_getjob(a:channel)
+  let info = job_info(job)
+  if info['exitval'] > 0
+    echohl Error
+    echo 'FAIL'
+  else
+    echo 'PASS'
+  endif
+  echohl None
+endfunction
+
+function! RunBackgroundCommand(command)
+  if v:version < 800
+    echoerr 'RunBackgroundCommand requires VIM version 8 or higher'
+    return
+  endif
+
+  if exists('g:backgroundCommandOutput')
+    echo 'Already running task in background'
+  else
+    echo 'Running task in background'
+    let g:backgroundCommandOutput = tempname()
+    call job_start(a:command, {'close_cb': 'BackgroundCommandClose', 'out_io': 'file', 'out_name': g:backgroundCommandOutput})
+  endif
+endfunction
+command! -nargs=+ -complete=shellcmd RunBackgroundCommand call RunBackgroundCommand(<q-args>)
