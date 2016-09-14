@@ -52,3 +52,8 @@ colorscheme Tomorrow-Night
 " format json {{{
   noremap <leader>j :%!python -m json.tool<cr>
 " }}}
+
+" vim-argwrap {{{
+  nnoremap gS :ArgWrap<cr>
+  au FileType ruby let b:argwrap_tail_comma=1
+" }}}
