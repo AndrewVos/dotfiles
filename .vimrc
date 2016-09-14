@@ -57,3 +57,27 @@ colorscheme Tomorrow-Night
   nnoremap gS :ArgWrap<cr>
   au FileType ruby let b:argwrap_tail_comma=1
 " }}}
+
+" function! Focus()
+"   let g:focusedFile=expand("%")
+"   echo "Focusing " . g:focusedFile
+" endfunction
+" function! Unfocus()
+"   if exists('g:focusedFile')
+"     echo "Unfocusing ".g:focusedFile
+"     unlet g:focusedFile
+"   else
+"     echo "There wasn't anything focused?"
+"   endif
+" endfunction
+" function! Run()
+"   if exists('g:focusedFile')
+"     exec ':Rrunner ' . g:focusedFile
+"   else
+"     exec ':Rrunner spec'
+"   endif
+" endfunction
+" command! Focus call Focus()
+" command! Unfocus call Unfocus()
+" command! Run call Run()
+" nnoremap <leader>r :wa\|:Run<cr>
