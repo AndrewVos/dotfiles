@@ -58,6 +58,10 @@ colorscheme Tomorrow-Night
   au FileType ruby let b:argwrap_tail_comma=1
 " }}}
 
+" set *.es6 to filetype javascript {{{
+  au BufRead,BufNewFile *.es6 set filetype=javascript
+" }}}
+
 function! BackgroundCommandClose(channel)
   execute "cfile! " . g:backgroundCommandOutput
   copen
