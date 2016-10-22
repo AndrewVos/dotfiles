@@ -3,9 +3,6 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-if $COLORTERM == 'gnome-terminal'
-  set t_Co=256
-endif
 colorscheme Tomorrow-Night
 
 " backup to ~/.tmp {{{
