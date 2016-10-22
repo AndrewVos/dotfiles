@@ -74,9 +74,9 @@ function! BackgroundCommandClose(channel)
   echohl None
 endfunction
 
-function! RunBackgroundCommand(command)
+function! RunCommandInBackground(command)
   if v:version < 800
-    echoerr 'RunBackgroundCommand requires VIM version 8 or higher'
+    echoerr 'RunCommandInBackground requires VIM version 8 or higher'
     return
   endif
 
@@ -88,4 +88,10 @@ function! RunBackgroundCommand(command)
     call job_start(a:command, {'close_cb': 'BackgroundCommandClose', 'out_io': 'file', 'out_name': g:backgroundCommandOutput})
   endif
 endfunction
-command! -nargs=+ -complete=shellcmd RunBackgroundCommand call RunBackgroundCommand(<q-args>)
+command! -nargs=+ -complete=shellcmd RunCommandInBackground call RunCommandInBackground(<q-args>)
+
+function! RunCommand(command)
+  :cexpr system(a:command)
+  copen
+endfunction
+command! -nargs=+ -complete=shellcmd RunCommand call RunCommand(<q-args>)
