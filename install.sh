@@ -12,4 +12,4 @@ for file in .vim .vimrc; do
  fi
 done
 
-./plugins.sh
+./plugins.sh --install
