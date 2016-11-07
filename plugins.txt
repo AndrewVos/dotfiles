@@ -10,7 +10,6 @@ tpope/vim-jdaddy
 pangloss/vim-javascript
 jamessan/vim-gnupg
 kchmck/vim-coffee-script
-scrooloose/syntastic
 mattn/webapi-vim
 vim-scripts/Gist.vim
 AndrewVos/vim-aaa
@@ -37,3 +36,4 @@ tpope/vim-obsession
 vim-ruby/vim-ruby
 tpope/vim-speeddating
 tpope/vim-cucumber
+w0rp/ale

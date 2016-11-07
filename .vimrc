@@ -13,11 +13,6 @@ colorscheme Tomorrow-Night
   set writebackup
 " }}}
 
-" Syntastic {{{
-  let g:syntastic_always_populate_loc_list=1
-  let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-" }}}
-
 " vim-gnupg {{{
   " Use gpg2, because it stores symmetric passphrases in gpg-agent.
   let g:GPGExecutable="gpg2"
