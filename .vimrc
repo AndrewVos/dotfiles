@@ -90,3 +90,19 @@ function! RunCommand(command)
   copen
 endfunction
 command! -nargs=+ -complete=shellcmd RunCommand call RunCommand(<q-args>)
+
+function! RunAllTests()
+  compiler rspec
+  make
+endfunction
+function! RunTests()
+  if expand('%') =~ "_spec.rb"
+    let g:testFile = expand('%')
+  endif
+  if exists('g:testFile')
+    compiler rspec
+    execute "make " . g:testFile
+  endif
+endfunction
+noremap tf :call RunTests()<cr>
+noremap tt :call RunAllTests()<cr>
