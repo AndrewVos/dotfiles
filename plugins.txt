@@ -37,3 +37,4 @@ vim-ruby/vim-ruby
 tpope/vim-speeddating
 tpope/vim-cucumber
 w0rp/ale
+AndrewVos/vim-serene-theme
