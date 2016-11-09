@@ -18,7 +18,6 @@ AndrewVos/dodo
 FooSoft/vim-argwrap
 airblade/vim-gitgutter
 ekalinin/Dockerfile.vim
-tpope/vim-rails
 dietsche/vim-lastplace
 stefandtw/quickfix-reflector.vim
 AndrewVos/vim-git-navigator
