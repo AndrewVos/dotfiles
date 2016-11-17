@@ -28,7 +28,6 @@ colorscheme Tomorrow-Night
   set hlsearch
   set smartcase
   set hidden
-  set omnifunc=syntaxcomplete#Complete
   set autowrite
   highlight Search ctermfg=black ctermbg=blue
 " }}}
