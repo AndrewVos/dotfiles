@@ -33,6 +33,8 @@ colorscheme Tomorrow-Night
 " }}}
 
 " gitgutter {{{
+  let g:gitgutter_sign_removed = '×'
+  let g:gitgutter_sign_column_always = 1
   highlight GitGutterAdd ctermfg=green
   highlight GitGutterChange ctermfg=yellow
   highlight GitGutterDelete ctermfg=red
