@@ -54,44 +54,6 @@ colorscheme Tomorrow-Night
   au BufRead,BufNewFile *.es6 set filetype=javascript
 " }}}
 
-function! BackgroundCommandClose(channel)
-  execute "cfile! " . g:backgroundCommandOutput
-  copen
-  unlet g:backgroundCommandOutput
-
-  let job = ch_getjob(a:channel)
-  let info = job_info(job)
-  if info['exitval'] > 0
-    echohl Error
-    echo 'FAIL'
-  else
-    echo 'PASS'
-  endif
-  echohl None
-endfunction
-
-function! RunCommandInBackground(command)
-  if v:version < 800
-    echoerr 'RunCommandInBackground requires VIM version 8 or higher'
-    return
-  endif
-
-  if exists('g:backgroundCommandOutput')
-    echo 'Already running task in background'
-  else
-    echo 'Running task in background'
-    let g:backgroundCommandOutput = tempname()
-    call job_start(a:command, {'close_cb': 'BackgroundCommandClose', 'out_io': 'file', 'out_name': g:backgroundCommandOutput})
-  endif
-endfunction
-command! -nargs=+ -complete=shellcmd RunCommandInBackground call RunCommandInBackground(<q-args>)
-
-function! RunCommand(command)
-  :cexpr system(a:command)
-  copen
-endfunction
-command! -nargs=+ -complete=shellcmd RunCommand call RunCommand(<q-args>)
-
 function! RunAllTests()
   compiler rspec
   make
