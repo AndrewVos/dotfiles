@@ -40,6 +40,7 @@ function update() {
       echo "${light_blue}[update]${normal} $plugin"
       cd $dir
       git pull -q
+      git log --oneline ORIG_HEAD..HEAD
     fi
   done
 }
