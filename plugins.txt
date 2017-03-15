@@ -34,3 +34,4 @@ tpope/vim-cucumber
 w0rp/ale
 arrufat/vala.vim
 junegunn/vim-easy-align
+Chiel92/vim-autoformat
