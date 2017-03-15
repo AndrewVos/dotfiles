@@ -57,6 +57,18 @@ colorscheme Tomorrow-Night
   au BufRead,BufNewFile *.es6 set filetype=javascript
 " }}}
 
+" html {{{
+  " Before:
+  " <p>
+  " Text
+  " </p>
+  " After:
+  " <p>
+  "   Text
+  " </p>
+  let g:html_indent_inctags = "p"
+" }}}
+
 function! RunAllTests()
   compiler rspec
   make
