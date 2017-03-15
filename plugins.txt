@@ -22,9 +22,7 @@ dietsche/vim-lastplace
 stefandtw/quickfix-reflector.vim
 AndrewVos/vim-git-navigator
 chriskempson/vim-tomorrow-theme
-godlygeek/tabular
 ntpeters/vim-better-whitespace
-junegunn/fzf
 tpope/vim-eunuch
 gorodinskiy/vim-coloresque
 tpope/vim-abolish
