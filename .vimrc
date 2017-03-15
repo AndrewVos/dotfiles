@@ -71,7 +71,8 @@ colorscheme Tomorrow-Night
 
 function! RunAllTests()
   compiler rspec
-  make
+  setlocal makeprg=bundle\ exec\ rspec
+  make!
 endfunction
 function! RunTests()
   if expand('%') =~ "_spec.rb"
@@ -79,8 +80,20 @@ function! RunTests()
   endif
   if exists('g:testFile')
     compiler rspec
-    execute "make " . g:testFile
+    setlocal makeprg=bundle\ exec\ rspec\ --fail-fast
+    execute "make! " . g:testFile
+  endif
+endfunction
+function! RunSingleTest()
+  if expand('%') =~ "_spec.rb"
+    let g:singleTestFile = expand('%') . ':' . line('.')
+  endif
+  if exists('g:singleTestFile')
+    compiler rspec
+    setlocal makeprg=bundle\ exec\ rspec\ --fail-fast
+    execute "make! " . g:singleTestFile
   endif
 endfunction
 noremap tf :call RunTests()<cr>
 noremap tt :call RunAllTests()<cr>
+noremap tF :call RunSingleTest()<cr>
