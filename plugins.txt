@@ -26,7 +26,6 @@ ntpeters/vim-better-whitespace
 tpope/vim-eunuch
 tpope/vim-abolish
 int3/vim-extradite
-tpope/vim-obsession
 vim-ruby/vim-ruby
 tpope/vim-speeddating
 tpope/vim-cucumber
