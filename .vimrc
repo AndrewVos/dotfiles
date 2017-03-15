@@ -33,6 +33,9 @@ colorscheme Tomorrow-Night
 " }}}
 
 " gitgutter {{{
+  " Async support breaks vim rendering when you use :make with
+  " unsaved changes, and autowrite enabled.
+  let g:gitgutter_async=0
   let g:gitgutter_sign_removed = '×'
   let g:gitgutter_sign_column_always = 1
   highlight GitGutterAdd ctermfg=green
