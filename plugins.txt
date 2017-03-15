@@ -24,7 +24,6 @@ AndrewVos/vim-git-navigator
 chriskempson/vim-tomorrow-theme
 ntpeters/vim-better-whitespace
 tpope/vim-eunuch
-gorodinskiy/vim-coloresque
 tpope/vim-abolish
 int3/vim-extradite
 tpope/vim-obsession
@@ -36,3 +35,5 @@ arrufat/vala.vim
 junegunn/vim-easy-align
 Chiel92/vim-autoformat
 terryma/vim-multiple-cursors
+nathanaelkane/vim-indent-guides
+ap/vim-css-color
