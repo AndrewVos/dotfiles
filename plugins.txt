@@ -34,5 +34,4 @@ arrufat/vala.vim
 junegunn/vim-easy-align
 Chiel92/vim-autoformat
 terryma/vim-multiple-cursors
-nathanaelkane/vim-indent-guides
 ap/vim-css-color
