@@ -23,7 +23,7 @@ fi
 
 function install() {
   for plugin in $PLUGINS; do
-    dir=~/.vim/bundle/$(echo $plugin | cut -d "/" -f 2)
+    dir=.vim/bundle/$(echo $plugin | cut -d "/" -f 2)
 
     if [ ! -d "$dir" ]; then
       echo "${light_green}[install]${normal} $plugin"
@@ -34,53 +34,61 @@ function install() {
 
 function update() {
   for plugin in $PLUGINS; do
-    dir=~/.vim/bundle/$(echo $plugin | cut -d "/" -f 2)
-
+    dir=.vim/bundle/$(echo $plugin | cut -d "/" -f 2)
     if [ -d "$dir" ]; then
       echo "${light_blue}[update]${normal} $plugin"
       cd $dir
       git pull -q
       git log --oneline ORIG_HEAD..HEAD
+      cd - > /dev/null
     fi
   done
 }
 
 function delete() {
-  for plugin_directory in $(ls -d ~/.vim/bundle/*/); do
+  for plugin_directory in $(ls -d .vim/bundle/*); do
     should_be_installed="no"
     for plugin in $PLUGINS; do
-      expected_plugin_directory=~/.vim/bundle/$(echo $plugin | cut -d "/" -f 2)/
+      expected_plugin_directory=.vim/bundle/$(echo $plugin | cut -d "/" -f 2)
       if [ "$plugin_directory" == "$expected_plugin_directory" ]; then
         should_be_installed="yes"
         break
       fi
     done
+
     if [ $should_be_installed == "no" ]; then
       echo "${light_red}[delete]${normal} $plugin_directory"
-      rm -rfI "$plugin_directory"
+      prompt_to_delete_directory $plugin_directory
     fi
   done
 }
 
-function usage() {
-  echo "Usage: $0 [--install|--update|--delete]";
-  exit 1;
+function prompt_to_delete_directory() {
+  DIRECTORY="$1"
+  echo -n "rm -rf \"$DIRECTORY\" (y/n)? "
+  old_stty_cfg=$(stty -g)
+  stty raw -echo
+  answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
+  stty $old_stty_cfg
+  echo
+
+  if echo "$answer" | grep -iq "^y" ;then
+    rm -rf "$DIRECTORY"
+  fi
 }
 
 function update-help-tags() {
   vim -c :Helptags -c :q -c :q
 }
 
-if [[ "$@" == *"--install"* ]]; then
-  install
-  update-help-tags
-elif [[ "$@" == *"--update"* ]]; then
-  update
-  update-help-tags
-elif [[ "$@" == *"--delete"* ]]; then
-  delete
-  update-help-tags
-else
-  usage
+if [[ "$@" == *"--help"* ]]; then
+  echo "Usage: $0 [--update]";
+  exit 0
 fi
 
+install
+delete
+if [[ "$@" == *"--update"* ]]; then
+  update
+fi
+update-help-tags
