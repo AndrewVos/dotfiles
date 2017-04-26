@@ -13,6 +13,7 @@ kchmck/vim-coffee-script
 mattn/webapi-vim
 vim-scripts/Gist.vim
 AndrewVos/vim-aaa
+AndrewVos/vim-ring
 fatih/vim-go
 AndrewVos/dodo
 FooSoft/vim-argwrap
