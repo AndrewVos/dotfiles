@@ -45,6 +45,8 @@ colorscheme Tomorrow-Night
   highlight GitGutterChange ctermfg=yellow
   highlight GitGutterDelete ctermfg=red
   highlight GitGutterChangeDelete ctermfg=red
+
+  command! -nargs=0 Revert :GitGutterRevertHunk
 " }}}
 
 " format json {{{
