@@ -32,6 +32,7 @@ colorscheme Tomorrow-Night
   highlight Search ctermfg=black ctermbg=blue
   set cursorcolumn
   set cursorline
+  set nofoldenable
 " }}}
 
 " gitgutter {{{
