@@ -15,7 +15,6 @@ vim-scripts/Gist.vim
 AndrewVos/vim-aaa
 AndrewVos/vim-ring
 fatih/vim-go
-AndrewVos/dodo
 FooSoft/vim-argwrap
 airblade/vim-gitgutter
 ekalinin/Dockerfile.vim
