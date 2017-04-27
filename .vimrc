@@ -74,31 +74,43 @@ colorscheme Tomorrow-Night
   let g:html_indent_inctags = "p"
 " }}}
 
-function! RunAllTests()
-  compiler rspec
-  setlocal makeprg=bundle\ exec\ rspec
-  make!
-endfunction
-function! RunTests()
-  if expand('%') =~ "_spec.rb"
-    let g:testFile = expand('%')
-  endif
-  if exists('g:testFile')
+" ale {{{
+  let g:ale_lint_on_save = 0
+  let g:ale_lint_on_text_changed = 0
+  let g:ale_lint_on_enter = 0
+  command! -nargs=0 Ale :ALELint
+" }}}
+
+" rspec {{{
+  function! RunAllTests()
     compiler rspec
-    setlocal makeprg=bundle\ exec\ rspec\ --fail-fast
-    execute "make! " . g:testFile
-  endif
-endfunction
-function! RunSingleTest()
-  if expand('%') =~ "_spec.rb"
-    let g:singleTestFile = expand('%') . ':' . line('.')
-  endif
-  if exists('g:singleTestFile')
-    compiler rspec
-    setlocal makeprg=bundle\ exec\ rspec\ --fail-fast
-    execute "make! " . g:singleTestFile
-  endif
-endfunction
-noremap tf :call RunTests()<cr>
-noremap tt :call RunAllTests()<cr>
-noremap tF :call RunSingleTest()<cr>
+    setlocal makeprg=bundle\ exec\ rspec
+    make!
+  endfunction
+  function! RunTests()
+    if expand('%') =~ "_spec.rb"
+      let g:testFile = expand('%')
+    endif
+    if exists('g:testFile')
+      compiler rspec
+      setlocal makeprg=bundle\ exec\ rspec\ --fail-fast
+      execute "make! " . g:testFile
+    endif
+  endfunction
+  function! RunSingleTest()
+    if exists('g:singleTestFile')
+      compiler rspec
+      setlocal makeprg=bundle\ exec\ rspec\ --fail-fast
+      execute "make! " . g:singleTestFile
+    endif
+  endfunction
+  function! FocusTest()
+    if expand('%') =~ "_spec.rb"
+      let g:singleTestFile = expand('%') . ':' . line('.')
+    endif
+  endfunction
+  noremap tf :call RunTests()<cr>
+  noremap tt :call RunAllTests()<cr>
+  command! -nargs=0 FocusTest call FocusTest()
+  noremap tF :call RunSingleTest()<cr>
+" }}}
