@@ -38,7 +38,8 @@ colorscheme Tomorrow-Night
   " unsaved changes, and autowrite enabled.
   let g:gitgutter_async=0
   let g:gitgutter_sign_removed = '×'
-  let g:gitgutter_sign_column_always = 1
+  set signcolumn=yes
+
   highlight GitGutterAdd ctermfg=green
   highlight GitGutterChange ctermfg=yellow
   highlight GitGutterDelete ctermfg=red
