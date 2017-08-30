@@ -30,8 +30,6 @@ colorscheme Tomorrow-Night
   set hidden
   set autowrite
   highlight Search ctermfg=black ctermbg=blue
-  set cursorcolumn
-  set cursorline
   set nofoldenable
 " }}}
 
