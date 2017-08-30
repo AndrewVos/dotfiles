@@ -35,3 +35,6 @@ junegunn/vim-easy-align
 Chiel92/vim-autoformat
 terryma/vim-multiple-cursors
 ap/vim-css-color
+elixir-lang/vim-elixir
+tpope/vim-rhubarb
+kopischke/vim-fetch
