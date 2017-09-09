@@ -1,14 +1,18 @@
-# function bootstrap-box () {
-#   local BOX_PATH="/usr/local/share/box/box.sh"
-#   if [ ! -f "$BOX_PATH" ]; then
-#     sudo mkdir -p `dirname "$BOX_PATH"`
-#     sudo wget -O "$BOX_PATH" https://raw.githubusercontent.com/AndrewVos/box/master/box.sh
-#     sudo chmod +x "$BOX_PATH"
-#   fi
-#   source "$BOX_PATH"
-# }
-# bootstrap-box
-source box.sh
+function bootstrap-box () {
+  local BOX_PATH="/usr/local/share/box/box.sh"
+  if [ ! -f "$BOX_PATH" ]; then
+    sudo mkdir -p `dirname "$BOX_PATH"`
+    sudo wget -O "$BOX_PATH" https://raw.githubusercontent.com/AndrewVos/box/master/box.sh
+    sudo chmod +x "$BOX_PATH"
+  fi
+  source "$BOX_PATH"
+}
+
+if [[ -f "$HOME/code/box/box.sh" ]]; then
+  source "$HOME/code/box/box.sh"
+else
+  bootstrap-box
+fi
 
 function install-vim () {
   sudo apt install xorg-dev ncurses-dev
