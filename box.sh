@@ -80,11 +80,7 @@ function install-ruby-2-3-0 () {
 }
 satisfy file "ruby-2.3.0" "$HOME/.rubies/ruby-2.3.0/bin/ruby"
 
-function install-slack () {
-  wget https://downloads.slack-edge.com/linux_releases/slack-desktop-2.7.1-amd64.deb
-  sudo dpkg -i slack-desktop-2.7.1-amd64.deb
-}
-satisfy executable "slack"
+satisfy deb "slack-desktop" "https://downloads.slack-edge.com/linux_releases/slack-desktop-2.7.1-amd64.deb"
 
 satisfy apt "docker.io"
 
@@ -150,8 +146,4 @@ satisfy apt "peek"
 # Screenshot with CMD+SHIFT+s
 satisfy dconf "/org/gnome/settings-daemon/plugins/media-keys/area-screenshot-clip" "<Shift><Super>s"
 
-function install-webtorrent-desktop () {
-  wget -O webtorrent.deb "https://github.com/webtorrent/webtorrent-desktop/releases/download/v0.18.0/webtorrent-desktop_0.18.0-1_amd64.deb"
-  sudo dpkg -i webtorrent.deb
-}
-satisfy executable "webtorrent-desktop"
+satisfy deb "webtorrent-desktop" "https://github.com/webtorrent/webtorrent-desktop/releases/download/v0.18.0/webtorrent-desktop_0.18.0-1_amd64.deb"
