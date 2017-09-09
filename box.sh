@@ -149,3 +149,9 @@ satisfy apt "peek"
 
 # Screenshot with CMD+SHIFT+s
 satisfy dconf "/org/gnome/settings-daemon/plugins/media-keys/area-screenshot-clip" "<Shift><Super>s"
+
+function install-webtorrent-desktop () {
+  wget -O webtorrent.deb "https://github.com/webtorrent/webtorrent-desktop/releases/download/v0.18.0/webtorrent-desktop_0.18.0-1_amd64.deb"
+  sudo dpkg -i webtorrent.deb
+}
+satisfy executable "webtorrent-desktop"
