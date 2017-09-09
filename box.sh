@@ -39,9 +39,9 @@ satisfy golang "go1.9"
 satisfy go-package "github.com/AndrewVos/pwompt"
 
 satisfy github "https://github.com/AndrewVos/vimfiles" "$HOME/vimfiles"
-if did-install; then
-  cd $HOME/vimfiles && ./install.sh
-fi
+satisfy symlink "$HOME/vimfiles/.vimrc" "$HOME/.vimrc"
+satisfy symlink "$HOME/vimfiles/.vim" "$HOME/.vim"
+(cd $HOME/vimfiles && ./plugins.sh)
 
 DOTFILES_PATH="$HOME/dotfiles"
 satisfy github "https://github.com/AndrewVos/dotfiles" "$DOTFILES_PATH"
@@ -123,7 +123,6 @@ satisfy apt "libpq-dev"
 
 # HC
 satisfy apt "libicu-dev"
-
 
 # VPN
 satisfy apt "openvpn"
