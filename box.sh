@@ -146,3 +146,6 @@ satisfy apt "spotify-client"
 
 satisfy apt-ppa "ppa:peek-developers/stable"
 satisfy apt "peek"
+
+# Screenshot with CMD+SHIFT+s
+satisfy dconf "/org/gnome/settings-daemon/plugins/media-keys/area-screenshot-clip" "<Shift><Super>s"
