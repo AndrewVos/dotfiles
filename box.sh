@@ -104,6 +104,7 @@ if must-install apt "yarn"; then
   sudo apt-get update
 fi
 satisfy apt "yarn"
+satisfy file-line ~/.bashrc 'Add yarn binaries to path' 'export PATH=$PATH:~/.yarn/bin'
 
 function install-discord () {
   wget -O discord.deb 'https://discordapp.com/api/download?platform=linux&format=deb'
