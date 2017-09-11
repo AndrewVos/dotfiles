@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+
+if mountpoint -q /media/$USER/backups
+then
+  rsync --info del,stats -a --delete ~/.ssh ~/backups ~/code ~/Documents ~/Pictures /media/$USER/backups
+else
+   echo "Backup device not mounted!"
+fi

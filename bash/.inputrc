@@ -1,0 +1,6 @@
+$include /etc/inputrc
+
+# tab forwards through completions
+TAB: menu-complete
+# and backwards
+"\e[Z": "\e-1\C-i"

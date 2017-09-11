@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+set -x
+
+# sudo apt-get install wmctrl
+
+wmctrl -r ' - Chromium' -t 1
+wmctrl -r 'Slack - ' -t 2
+
+wmctrl -F -r 'Mail' -t 3
+wmctrl -F -r 'maya-calendar' -t 4
+wmctrl -F -r 'Zeal' -t 5

@@ -1,0 +1,5 @@
+altscreen on
+
+escape ^Bb
+
+hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG}'

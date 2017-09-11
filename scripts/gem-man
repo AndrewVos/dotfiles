@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+if name = ARGV.first
+  path = `gem which #{name}`
+  readme = Dir.glob(File.join(File.dirname(path), "../", "README.{md,markdown}")).first
+  fail "Failed to find readme for gem '#{name}'" unless File.exist?(readme)
+  puts File.read(readme)
+else
+  puts "Usage: gem-man gem_name"
+end

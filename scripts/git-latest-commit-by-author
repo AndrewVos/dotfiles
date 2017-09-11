@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+# Lists the latest commit by every author in the project.
+authors="$(git log |grep --null -o "<[^<>]*>" | sort -u)"
+for i in $authors; do
+  regex="<(.*)>"
+  [[ $i =~ $regex ]]
+  author="${BASH_REMATCH[1]}"
+  last_commit=$(git log -n 1 --author="$author")
+  echo $last_commit
+done
