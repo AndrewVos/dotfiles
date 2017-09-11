@@ -159,3 +159,15 @@ satisfy apt "peek"
 satisfy dconf "/org/gnome/settings-daemon/plugins/media-keys/area-screenshot-clip" "<Shift><Super>s"
 
 satisfy deb "webtorrent-desktop" "https://github.com/webtorrent/webtorrent-desktop/releases/download/v0.18.0/webtorrent-desktop_0.18.0-1_amd64.deb"
+
+# tarsnap
+function install-tarsnap () {
+  wget -O tarsnap.tgz https://www.tarsnap.com/download/tarsnap-autoconf-1.0.39.tgz
+  tar -zxvf tarsnap.tgz
+  cd tarsnap-autoconf-1.0.39
+  ./configure
+  make all
+  sudo make install
+}
+satisfy apt "e2fslibs-dev"
+satisfy executable "tarsnap"
