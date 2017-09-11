@@ -14,6 +14,22 @@ else
   bootstrap-box
 fi
 
+satisfy apt "git"
+
+DOTFILES_PATH="$HOME/dotfiles"
+satisfy github "https://github.com/AndrewVos/dotfiles" "$DOTFILES_PATH"
+satisfy symlink "$DOTFILES_PATH/bash/.inputrc"        "$HOME/.inputrc"
+satisfy symlink "$DOTFILES_PATH/git/.git-template"    "$HOME/.git-template"
+satisfy symlink "$DOTFILES_PATH/git/.gitconfig"       "$HOME/.gitconfig"
+satisfy symlink "$DOTFILES_PATH/git/.gitignore"       "$HOME/.gitignore"
+satisfy symlink "$DOTFILES_PATH/screen/.screenrc"     "$HOME/.screenrc"
+satisfy symlink "$DOTFILES_PATH/ssh/.ssh/config"      "$HOME/.ssh/config"
+satisfy symlink "$DOTFILES_PATH/tarsnap/.tarsnaprc"   "$HOME/.tarsnaprc"
+
+satisfy file-line "Add dotfiles/scripts to PATH" ~/.bashrc 'export PATH=$PATH:~/dotfiles/scripts'
+satisfy file-line "Setup ssh-agent" ~/.bashrc 'source $HOME/dotfiles/bash/ssh-agent.sh'
+satisfy file-line "Setup gpg-agent" ~/.bashrc 'source $HOME/dotfiles/bash/gpg-agent.sh'
+
 function install-vim () {
   sudo apt install xorg-dev ncurses-dev
 
@@ -24,11 +40,12 @@ function install-vim () {
   sudo make install
 }
 satisfy executable "vim"
+satisfy file-line "Make vim the default EDITOR" ~/.bashrc 'export EDITOR=vim'
 
 satisfy apt "exuberant-ctags"
 
-satisfy apt "git"
 satisfy apt "nim"
+satisfy file-line "Add nim bin to PATH" ~/.bashrc 'export PATH="/home/andrew/Nim/bin:$PATH"'
 
 function install-hub () {
   wget -O hub.tgz "https://github.com/github/hub/releases/download/v2.3.0-pre10/hub-linux-amd64-2.3.0-pre10.tgz"
@@ -45,25 +62,29 @@ fi
 satisfy apt "enpass"
 
 satisfy golang "go1.9"
-satisfy go-package "github.com/AndrewVos/pwompt"
+satisfy file-line "Add go binaries to PATH" ~/.bashrc 'export PATH="$PATH:/usr/local/go/bin"'
+satisfy file-line "Export GOPATH" ~/.bashrc 'export GOPATH="$HOME/gopath"'
+satisfy file-line "Add go package binaries to PATH" ~/.bashrc 'export PATH="$GOPATH/bin:$PATH"'
+
+satisfy file-line "Use custom PS1" ~/.bashrc "source $HOME/dotfiles/bash/ps1.sh"
+
+# aliases
+satisfy file-line "Alias g to git" ~/.bashrc "alias g=git"
+satisfy file-line "Setup g to use git completions" ~/.bashrc "complete -o default -o nospace -F _git g"
+satisfy file-line "Source git completions" ~/.bashrc "source /usr/share/bash-completion/completions/git"
+satisfy file-line "Alias b" ~/.bashrc "alias b='bundle exec'"
+satisfy file-line "Alias ber" ~/.bashrc "alias ber='bundle exec rspec spec --color'"
+satisfy file-line "Alias bec" ~/.bashrc "alias bec='bundle exec cucumber --color'"
+satisfy file-line "Alias irb to pry" ~/.bashrc "alias irb=pry"
+satisfy file-line "Alias ls to show color" ~/.bashrc "alias ls='ls -1 -G --color=auto'"
+satisfy file-line "Alias ll" ~/.bashrc "alias ll='ls -ahlF --color=auto'"
+
+satisfy file-line "Store a long bash history" ~/.bashrc "HISTSIZE=100000; HISTFILESIZE=2000000"
 
 satisfy github "https://github.com/AndrewVos/vimfiles" "$HOME/vimfiles"
 satisfy symlink "$HOME/vimfiles/.vimrc" "$HOME/.vimrc"
 satisfy symlink "$HOME/vimfiles/.vim" "$HOME/.vim"
 (cd $HOME/vimfiles && ./plugins.sh)
-
-DOTFILES_PATH="$HOME/dotfiles"
-satisfy github "https://github.com/AndrewVos/dotfiles" "$DOTFILES_PATH"
-satisfy symlink "$DOTFILES_PATH/bash/.bash_profile.symlink"   "$HOME/.bash_profile"
-satisfy symlink "$DOTFILES_PATH/bash/.bashrc.symlink"         "$HOME/.bashrc"
-satisfy symlink "$DOTFILES_PATH/bash/.inputrc.symlink"        "$HOME/.inputrc"
-satisfy symlink "$DOTFILES_PATH/git/.git-template.symlink"    "$HOME/.git-template"
-satisfy symlink "$DOTFILES_PATH/git/.gitconfig.symlink"       "$HOME/.gitconfig"
-satisfy symlink "$DOTFILES_PATH/git/.gitignore.symlink"       "$HOME/.gitignore"
-satisfy symlink "$DOTFILES_PATH/screen/.screenrc.symlink"     "$HOME/.screenrc"
-satisfy symlink "$DOTFILES_PATH/ssh/.ssh/config.symlink"      "$HOME/.ssh/config"
-satisfy symlink "$DOTFILES_PATH/tarsnap/.tarsnap.key.symlink" "$HOME/.tarsnap.key"
-satisfy symlink "$DOTFILES_PATH/tarsnap/.tarsnaprc.symlink"   "$HOME/.tarsnaprc"
 
 function install-chruby () {
   wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
@@ -75,6 +96,8 @@ function install-chruby () {
   set -u
 }
 satisfy file "chruby" "/usr/local/share/chruby/chruby.sh"
+satisfy file-line "Source chruby" ~/.bashrc "source /usr/local/share/chruby/chruby.sh"
+satisfy file-line "Source chruby-auto" ~/.bashrc "source /usr/local/share/chruby/auto.sh"
 
 function install-ruby-install () {
   wget -O ruby-install-0.6.1.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.1.tar.gz
@@ -99,6 +122,7 @@ if must-install apt "nodejs"; then
   sudo apt-get update
 fi
 satisfy apt "nodejs"
+satisfy file-line "Add node_modules bin to PATH" ~/.bashrc 'export PATH="$PATH:node_modules/.bin"'
 
 function install-npm () {
   npm install -g npm
@@ -113,7 +137,7 @@ if must-install apt "yarn"; then
   sudo apt-get update
 fi
 satisfy apt "yarn"
-satisfy file-line 'Add yarn binaries to PATH in .bashrc' ~/.bashrc 'export PATH=$PATH:~/.yarn/bin'
+satisfy file-line 'Add yarn binaries to PATH' ~/.bashrc 'export PATH=$PATH:~/.yarn/bin'
 
 function install-discord () {
   wget -O discord.deb 'https://discordapp.com/api/download?platform=linux&format=deb'
