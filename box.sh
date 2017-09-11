@@ -113,7 +113,7 @@ if must-install apt "yarn"; then
   sudo apt-get update
 fi
 satisfy apt "yarn"
-satisfy file-line ~/.bashrc 'Add yarn binaries to path' 'export PATH=$PATH:~/.yarn/bin'
+satisfy file-line 'Add yarn binaries to PATH in .bashrc' ~/.bashrc 'export PATH=$PATH:~/.yarn/bin'
 
 function install-discord () {
   wget -O discord.deb 'https://discordapp.com/api/download?platform=linux&format=deb'
@@ -129,6 +129,8 @@ satisfy apt "libpq-dev"
 
 # HC
 satisfy apt "libicu-dev"
+
+satisfy file-line 'Source secrets in .bashrc' ~/.bashrc 'source ~/.secrets'
 
 # VPN
 satisfy apt "openvpn"
