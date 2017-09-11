@@ -25,8 +25,17 @@ function install-vim () {
 }
 satisfy executable "vim"
 
+satisfy apt "exuberant-ctags"
+
 satisfy apt "git"
 satisfy apt "nim"
+
+function install-hub () {
+  wget -O hub.tgz "https://github.com/github/hub/releases/download/v2.3.0-pre10/hub-linux-amd64-2.3.0-pre10.tgz"
+  tar -xvzf hub.tgz
+  sudo cp "hub-linux-amd64-2.3.0-pre10/bin/hub" "/usr/local/bin/hub"
+}
+satisfy executable "hub"
 
 if must-install apt "enpass"; then
   sudo echo "deb http://repo.sinew.in/ stable main" > /etc/apt/sources.list.d/enpass.list
