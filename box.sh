@@ -188,8 +188,6 @@ section "apps"
 
   satisfy deb "slack-desktop" "https://downloads.slack-edge.com/linux_releases/slack-desktop-2.7.1-amd64.deb"
 
-  satisfy apt "docker.io"
-
   section "spotify"
     if must-install apt "spotify-client"; then
       sudo apt-key adv --keyserver "hkp://keyserver.ubuntu.com:80" --recv-keys "BBEBDCB318AD50EC6865090613B00F1FD2C19886" "0DF731E45CE24F27EEEB1450EFDC8610341D9410"
