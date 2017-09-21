@@ -19,7 +19,6 @@ fi
 section "dependencies"
   satisfy apt "git"
   satisfy apt "curl"
-  satisfy apt "shellcheck"
 end-section
 
 section "dotfiles"
@@ -40,33 +39,6 @@ section "dotfiles"
   satisfy file-line 'Source secrets in .bashrc' ~/.bashrc 'source ~/.secrets'
 end-section
 
-section "vim"
-  function install-vim () {
-    sudo apt install xorg-dev ncurses-dev
-
-    git clone https://github.com/vim/vim.git --depth 1
-    cd vim
-    ./configure --enable-pythoninterp
-    make
-    sudo make install
-  }
-  satisfy executable "vim"
-  satisfy file-line "Make vim the default EDITOR" ~/.bashrc 'export EDITOR=vim'
-  satisfy apt "exuberant-ctags"
-
-  satisfy github "https://github.com/AndrewVos/vimfiles" "$HOME/vimfiles"
-  satisfy symlink "$HOME/vimfiles/.vimrc" "$HOME/.vimrc"
-  satisfy symlink "$HOME/vimfiles/.vim" "$HOME/.vim"
-  (cd "$HOME/vimfiles" && ./plugins.sh)
-end-section
-
-section "golang"
-  satisfy golang "go1.9"
-  satisfy file-line "Add go binaries to PATH" ~/.bashrc 'export PATH="$PATH:/usr/local/go/bin"'
-  satisfy file-line "Export GOPATH" ~/.bashrc 'export GOPATH="$HOME/gopath"'
-  satisfy file-line "Add go package binaries to PATH" ~/.bashrc 'export PATH="$GOPATH/bin:$PATH"'
-end-section
-
 section "bash"
   section "miscellaneous"
     satisfy file-line "Store a long bash history" ~/.bashrc "HISTSIZE=100000; HISTFILESIZE=2000000"
@@ -85,69 +57,14 @@ section "bash"
   end-section
 end-section
 
-section "ruby"
-  section "ruby-2.3.0"
-    function install-ruby-2-3-0 () {
-      ruby-install ruby-2.3.0
-    }
-    satisfy file "ruby-2.3.0" "$HOME/.rubies/ruby-2.3.0/bin/ruby"
+section "services"
+  section "postgres"
+    satisfy apt "postgresql"
+    if did-install; then
+      sudo su postgres -c "createuser -s $USER"
+    fi
+    satisfy apt "libpq-dev"
   end-section
-
-  section "chruby"
-    function install-chruby () {
-      wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
-      tar -xzvf chruby-0.3.9.tar.gz
-      cd chruby-0.3.9/
-      sudo make install
-      set +u
-      . /usr/local/share/chruby/chruby.sh
-      set -u
-    }
-    satisfy file "chruby" "/usr/local/share/chruby/chruby.sh"
-    satisfy file-line "Source chruby" ~/.bashrc "source /usr/local/share/chruby/chruby.sh"
-    satisfy file-line "Source chruby-auto" ~/.bashrc "source /usr/local/share/chruby/auto.sh"
-  end-section
-
-  section "ruby-install"
-    function install-ruby-install () {
-      wget -O ruby-install-0.6.1.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.1.tar.gz
-      tar -xzvf ruby-install-0.6.1.tar.gz
-      cd ruby-install-0.6.1/
-      sudo make install
-    }
-    satisfy executable "ruby-install"
-  end-section
-end-section
-
-section "nodejs"
-  if must-install apt "nodejs"; then
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 68576280
-    sudo apt-add-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -sc) main"
-    sudo apt-get update
-  fi
-  satisfy apt "nodejs"
-  satisfy file-line "Add node_modules bin to PATH" ~/.bashrc 'export PATH="$PATH:node_modules/.bin"'
-
-  function install-npm () {
-    npm install -g npm
-  }
-  satisfy executable "npm"
-
-  if must-install apt "yarn"; then
-    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-    sudo apt-get update
-  fi
-  satisfy apt "yarn"
-  satisfy file-line 'Add yarn binaries to PATH' ~/.bashrc 'export PATH=$PATH:~/.yarn/bin'
-end-section
-
-section "postgres"
-  satisfy apt "postgresql"
-  if did-install; then
-    sudo su postgres -c "createuser -s $USER"
-  fi
-  satisfy apt "libpq-dev"
 end-section
 
 section "VPN"
@@ -173,33 +90,75 @@ section "phantomjs"
   satisfy executable "phantomjs"
 end-section
 
-section "apps"
-  section "hub"
-    function install-hub () {
-      wget -O hub.tgz "https://github.com/github/hub/releases/download/v2.3.0-pre10/hub-linux-amd64-2.3.0-pre10.tgz"
-      tar -xvzf hub.tgz
-      sudo cp "hub-linux-amd64-2.3.0-pre10/bin/hub" "/usr/local/bin/hub"
-    }
-    satisfy executable "hub"
-  end-section
-
-  section "peek"
-    satisfy apt-ppa "ppa:peek-developers/stable"
-    satisfy apt "peek"
-  end-section
-  satisfy deb "webtorrent-desktop" "https://github.com/webtorrent/webtorrent-desktop/releases/download/v0.18.0/webtorrent-desktop_0.18.0-1_amd64.deb"
-
-  satisfy deb "slack-desktop" "https://downloads.slack-edge.com/linux_releases/slack-desktop-2.7.1-amd64.deb"
-
-  section "spotify"
-    if must-install apt "spotify-client"; then
-      sudo apt-key adv --keyserver "hkp://keyserver.ubuntu.com:80" --recv-keys "BBEBDCB318AD50EC6865090613B00F1FD2C19886" "0DF731E45CE24F27EEEB1450EFDC8610341D9410"
-      echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-
-      sudo apt-get -y update
+section "programming languages"
+  section "nodejs"
+    if must-install apt "nodejs"; then
+      sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 68576280
+      sudo apt-add-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -sc) main"
+      sudo apt-get update
     fi
-    satisfy apt "spotify-client"
+    satisfy apt "nodejs"
+    satisfy file-line "Add node_modules bin to PATH" ~/.bashrc 'export PATH="$PATH:node_modules/.bin"'
+
+    function install-npm () {
+      npm install -g npm
+    }
+    satisfy executable "npm"
+
+    if must-install apt "yarn"; then
+      curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+      echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+      sudo apt-get update
+    fi
+    satisfy apt "yarn"
+    satisfy file-line 'Add yarn binaries to PATH' ~/.bashrc 'export PATH=$PATH:~/.yarn/bin'
   end-section
+
+  section "ruby"
+    section "ruby-2.3.0"
+      function install-ruby-2-3-0 () {
+	ruby-install ruby-2.3.0
+      }
+      satisfy file "ruby-2.3.0" "$HOME/.rubies/ruby-2.3.0/bin/ruby"
+    end-section
+
+    section "chruby"
+      function install-chruby () {
+	wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
+	tar -xzvf chruby-0.3.9.tar.gz
+	cd chruby-0.3.9/
+	sudo make install
+	set +u
+	. /usr/local/share/chruby/chruby.sh
+	set -u
+      }
+      satisfy file "chruby" "/usr/local/share/chruby/chruby.sh"
+      satisfy file-line "Source chruby" ~/.bashrc "source /usr/local/share/chruby/chruby.sh"
+      satisfy file-line "Source chruby-auto" ~/.bashrc "source /usr/local/share/chruby/auto.sh"
+    end-section
+
+    section "ruby-install"
+      function install-ruby-install () {
+	wget -O ruby-install-0.6.1.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.1.tar.gz
+	tar -xzvf ruby-install-0.6.1.tar.gz
+	cd ruby-install-0.6.1/
+	sudo make install
+      }
+      satisfy executable "ruby-install"
+    end-section
+  end-section
+
+  section "golang"
+    satisfy golang "go1.9"
+    satisfy file-line "Add go binaries to PATH" ~/.bashrc 'export PATH="$PATH:/usr/local/go/bin"'
+    satisfy file-line "Export GOPATH" ~/.bashrc 'export GOPATH="$HOME/gopath"'
+    satisfy file-line "Add go package binaries to PATH" ~/.bashrc 'export PATH="$GOPATH/bin:$PATH"'
+  end-section
+end-section
+
+section "cli tools"
+  satisfy apt "htop"
+  satisfy apt "shellcheck"
 
   section "tarsnap"
     function install-tarsnap () {
@@ -214,6 +173,69 @@ section "apps"
     satisfy executable "tarsnap"
   end-section
 
+  section "vim"
+    function install-vim () {
+      sudo apt install xorg-dev ncurses-dev
+
+      git clone https://github.com/vim/vim.git --depth 1
+      cd vim
+      ./configure --enable-pythoninterp
+      make
+      sudo make install
+    }
+    satisfy executable "vim"
+    satisfy file-line "Make vim the default EDITOR" ~/.bashrc 'export EDITOR=vim'
+    satisfy apt "exuberant-ctags"
+
+    satisfy github "https://github.com/AndrewVos/vimfiles" "$HOME/vimfiles"
+    satisfy symlink "$HOME/vimfiles/.vimrc" "$HOME/.vimrc"
+    satisfy symlink "$HOME/vimfiles/.vim" "$HOME/.vim"
+    (cd "$HOME/vimfiles" && ./plugins.sh)
+  end-section
+
+  section "hub"
+    function install-hub () {
+      wget -O hub.tgz "https://github.com/github/hub/releases/download/v2.3.0-pre10/hub-linux-amd64-2.3.0-pre10.tgz"
+      tar -xvzf hub.tgz
+      sudo cp "hub-linux-amd64-2.3.0-pre10/bin/hub" "/usr/local/bin/hub"
+    }
+    satisfy executable "hub"
+  end-section
+end-section
+
+section "apps"
+  section "tilix"
+    satisfy apt-ppa "ppa:webupd8team/terminix"
+    satisfy apt "terminix"
+  end-section
+
+  section "peek"
+    satisfy apt-ppa "ppa:peek-developers/stable"
+    satisfy apt "peek"
+  end-section
+
+  section "webtorrent"
+    satisfy deb "webtorrent-desktop" "https://github.com/webtorrent/webtorrent-desktop/releases/download/v0.18.0/webtorrent-desktop_0.18.0-1_amd64.deb"
+  end-section
+
+  section "slack"
+    satisfy deb "slack-desktop" "https://downloads.slack-edge.com/linux_releases/slack-desktop-2.7.1-amd64.deb"
+  end-section
+
+  section "discord"
+    satisfy deb "discord" "https://discordapp.com/api/download?platform=linux&format=deb"
+  end-section
+
+  section "spotify"
+    if must-install apt "spotify-client"; then
+      sudo apt-key adv --keyserver "hkp://keyserver.ubuntu.com:80" --recv-keys "BBEBDCB318AD50EC6865090613B00F1FD2C19886" "0DF731E45CE24F27EEEB1450EFDC8610341D9410"
+      echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+
+      sudo apt-get -y update
+    fi
+    satisfy apt "spotify-client"
+  end-section
+
   section "enpass"
     if must-install apt "enpass"; then
       sudo echo "deb http://repo.sinew.in/ stable main" > /etc/apt/sources.list.d/enpass.list
@@ -221,10 +243,6 @@ section "apps"
       sudo apt update
     fi
     satisfy apt "enpass"
-  end-section
-
-  section "discord"
-    satisfy deb "discord" "https://discordapp.com/api/download?platform=linux&format=deb"
   end-section
 end-section
 
@@ -236,10 +254,3 @@ end-section
 section "fonts"
   satisfy apt "fonts-hack-ttf"
 end-section
-
-section "tilix"
-  satisfy apt-ppa "ppa:webupd8team/terminix"
-  satisfy apt "terminix"
-end-section
-
-satisfy apt "htop"
