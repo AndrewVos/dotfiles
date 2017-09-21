@@ -1,7 +1,9 @@
+#!/bin/bash
+
 function bootstrap-box () {
   local BOX_PATH="/usr/local/share/box/box.sh"
   if [ ! -f "$BOX_PATH" ]; then
-    sudo mkdir -p `dirname "$BOX_PATH"`
+    sudo mkdir -p "$(dirname "$BOX_PATH")"
     sudo wget -O "$BOX_PATH" https://raw.githubusercontent.com/AndrewVos/box/master/box.sh
     sudo chmod +x "$BOX_PATH"
   fi
@@ -54,7 +56,7 @@ section "vim"
   satisfy github "https://github.com/AndrewVos/vimfiles" "$HOME/vimfiles"
   satisfy symlink "$HOME/vimfiles/.vimrc" "$HOME/.vimrc"
   satisfy symlink "$HOME/vimfiles/.vim" "$HOME/.vim"
-  (cd $HOME/vimfiles && ./plugins.sh)
+  (cd "$HOME/vimfiles" && ./plugins.sh)
 end-section
 
 section "golang"
