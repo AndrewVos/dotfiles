@@ -241,3 +241,5 @@ section "tilix"
   satisfy apt-ppa "ppa:webupd8team/terminix"
   satisfy apt "terminix"
 end-section
+
+satisfy apt "htop"
