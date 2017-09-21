@@ -224,11 +224,7 @@ section "apps"
   end-section
 
   section "discord"
-    function install-discord () {
-      wget -O discord.deb 'https://discordapp.com/api/download?platform=linux&format=deb'
-      sudo dpkg -i discord.deb
-    }
-    satisfy executable "discord"
+    satisfy deb "discord" "https://discordapp.com/api/download?platform=linux&format=deb"
   end-section
 end-section
 
