@@ -236,3 +236,8 @@ end-section
 section "fonts"
   satisfy apt "fonts-hack-ttf"
 end-section
+
+section "tilix"
+  satisfy apt-ppa "ppa:webupd8team/terminix"
+  satisfy apt "terminix"
+end-section
