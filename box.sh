@@ -239,7 +239,7 @@ end-section
 
 section "settings"
   # Screenshot with CMD+SHIFT+s
-  satisfy dconf "/org/gnome/settings-daemon/plugins/media-keys/area-screenshot-clip" "<Shift><Super>s"
+  satisfy dconf "org.gnome.settings-daemon.plugins.media-keys" "area-screenshot-clip" "<Shift><Super>s"
 end-section
 
 section "fonts"
