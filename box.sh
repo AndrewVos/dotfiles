@@ -116,20 +116,6 @@ section "programming languages"
   end-section
 
   section "ruby"
-    section "ruby-2.3.0"
-      function install-ruby-2-3-0 () {
-	ruby-install ruby-2.3.0
-      }
-      satisfy file "ruby-2.3.0" "$HOME/.rubies/ruby-2.3.0/bin/ruby"
-    end-section
-
-    section "ruby 2.4.1"
-      function install-ruby-2-4-1 () {
-	ruby-install ruby-2.4.1
-      }
-      satisfy file "ruby-2.4.1" "$HOME/.rubies/ruby-2.4.1/bin/ruby"
-    end-section
-
     section "chruby"
       function install-chruby () {
 	wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
@@ -153,6 +139,20 @@ section "programming languages"
 	sudo make install
       }
       satisfy executable "ruby-install"
+    end-section
+
+    section "ruby-2.3.0"
+      function install-ruby-2-3-0 () {
+	ruby-install ruby-2.3.0
+      }
+      satisfy file "ruby-2.3.0" "$HOME/.rubies/ruby-2.3.0/bin/ruby"
+    end-section
+
+    section "ruby 2.4.1"
+      function install-ruby-2-4-1 () {
+	ruby-install ruby-2.4.1
+      }
+      satisfy file "ruby-2.4.1" "$HOME/.rubies/ruby-2.4.1/bin/ruby"
     end-section
   end-section
 
