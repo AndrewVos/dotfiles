@@ -66,7 +66,10 @@ section "services"
     fi
     satisfy apt "libpq-dev"
   end-section
+  satisfy apt "redis-server"
 end-section
+
+satisfy apt "awscli"
 
 section "VPN"
   satisfy apt "openvpn"
