@@ -200,6 +200,16 @@ section "cli tools"
     }
     satisfy executable "hub"
   end-section
+
+  section "ngrok"
+    function install-ngrok () {
+      wget -O ngrok.zip "https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip"
+      unzip ngrok.zip
+      chmod +x ngrok
+      sudo mv ngrok /usr/local/bin/ngrok
+    }
+    satisfy executable "ngrok"
+  end-section
 end-section
 
 section "apps"
