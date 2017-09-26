@@ -31,6 +31,7 @@ section "dotfiles"
   satisfy symlink "$DOTFILES_PATH/screen/.screenrc"     "$HOME/.screenrc"
   satisfy symlink "$DOTFILES_PATH/ssh/.ssh/config"      "$HOME/.ssh/config"
   satisfy symlink "$DOTFILES_PATH/tarsnap/.tarsnaprc"   "$HOME/.tarsnaprc"
+  satisfy symlink "$DOTFILES_PATH/fish"                 "$HOME/.config/fish"
 
   satisfy file-line "Add dotfiles/scripts to PATH" ~/.bashrc 'export PATH=$PATH:~/dotfiles/scripts'
   satisfy file-line "Setup ssh-agent" ~/.bashrc 'source $HOME/dotfiles/bash/ssh-agent.sh'
@@ -120,6 +121,13 @@ section "programming languages"
 	ruby-install ruby-2.3.0
       }
       satisfy file "ruby-2.3.0" "$HOME/.rubies/ruby-2.3.0/bin/ruby"
+    end-section
+
+    section "ruby 2.4.1"
+      function install-ruby-2-4-1 () {
+	ruby-install ruby-2.4.1
+      }
+      satisfy file "ruby-2.4.1" "$HOME/.rubies/ruby-2.4.1/bin/ruby"
     end-section
 
     section "chruby"
