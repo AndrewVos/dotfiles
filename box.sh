@@ -222,11 +222,6 @@ section "cli tools"
 end-section
 
 section "apps"
-  section "tilix"
-    satisfy apt-ppa "ppa:webupd8team/terminix"
-    satisfy apt "terminix"
-  end-section
-
   section "peek"
     satisfy apt-ppa "ppa:peek-developers/stable"
     satisfy apt "peek"
