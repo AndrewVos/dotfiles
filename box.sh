@@ -174,7 +174,7 @@ section "cli tools"
 
   section "screen"
     satisfy apt "screen"
-    satisfy file-line "Start screen automatically" ~/.bashrc '[[ $TERM != "screen" ]] && exec screen -q'
+    satisfy file-line "Start screen automatically" ~/.bashrc '[[ -z "$STY" ]] && exec screen -q'
   end-section
 
   section "tarsnap"
