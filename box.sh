@@ -172,6 +172,11 @@ section "cli tools"
   satisfy apt "shellcheck"
   satisfy apt "tmate"
 
+  section "screen"
+    satisfy apt "screen"
+    satisfy file-line "Start screen automatically" ~/.bashrc '[[ $TERM != "screen" ]] && exec screen -q'
+  end-section
+
   section "tarsnap"
     function install-tarsnap () {
       wget -O tarsnap.tgz https://www.tarsnap.com/download/tarsnap-autoconf-1.0.39.tgz
