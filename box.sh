@@ -170,6 +170,7 @@ end-section
 section "cli tools"
   satisfy apt "htop"
   satisfy apt "shellcheck"
+  satisfy apt "tmate"
 
   section "tarsnap"
     function install-tarsnap () {
