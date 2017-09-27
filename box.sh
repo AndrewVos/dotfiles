@@ -265,8 +265,8 @@ section "apps"
 end-section
 
 section "settings"
-  # Screenshot with CMD+SHIFT+s
-  satisfy dconf "org.gnome.settings-daemon.plugins.media-keys" "area-screenshot-clip" "<Shift><Super>s"
+  satisfy dconf "Take a screenshot with CMD+SHIFT+s" "org.gnome.settings-daemon.plugins.media-keys" "area-screenshot-clip" "<Shift><Super>s"
+  satisfy dconf "Launch terminal with CMD+t" "org.gnome.settings-daemon.plugins.media-keys" "terminal" "<Super>t"
 end-section
 
 section "fonts"
