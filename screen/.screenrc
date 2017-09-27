@@ -1,5 +1,11 @@
-altscreen on
-
 escape ^Bb
 
-hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG}'
+altscreen on
+
+startup_message off
+
+attrcolor b ".I"
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E38;5;%dm'
+defbce "on"
+
+defscrollback 30000
