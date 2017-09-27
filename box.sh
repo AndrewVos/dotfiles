@@ -32,6 +32,7 @@ section "dotfiles"
   satisfy symlink "$DOTFILES_PATH/ssh/.ssh/config"      "$HOME/.ssh/config"
   satisfy symlink "$DOTFILES_PATH/tarsnap/.tarsnaprc"   "$HOME/.tarsnaprc"
   satisfy symlink "$DOTFILES_PATH/fish"                 "$HOME/.config/fish"
+  satisfy symlink "$DOTFILES_PATH/tmux/.tmux.conf"      "$HOME/.tmux.conf"
 
   satisfy file-line "Add dotfiles/scripts to PATH" ~/.bashrc 'export PATH=$PATH:~/dotfiles/scripts'
   satisfy file-line "Setup ssh-agent" ~/.bashrc 'source $HOME/dotfiles/bash/ssh-agent.sh'
@@ -172,9 +173,9 @@ section "cli tools"
   satisfy apt "shellcheck"
   satisfy apt "tmate"
 
-  section "screen"
-    satisfy apt "screen"
-    satisfy file-line "Start screen automatically" ~/.bashrc '[[ -z "$STY" ]] && exec screen -q'
+  section "tmux"
+    satisfy apt "tmux"
+    satisfy file-line "Launch tmux in new shells" ~/.bashrc '[[ -z "$TMUX" ]] && exec tmux'
   end-section
 
   section "tarsnap"
