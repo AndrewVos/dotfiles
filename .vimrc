@@ -4,6 +4,7 @@ syntax on
 filetype plugin indent on
 
 colorscheme Tomorrow-Night
+set t_Co=256
 
 " backup to ~/.tmp {{{
   set backup
