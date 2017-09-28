@@ -38,7 +38,7 @@ section "dotfiles"
   satisfy file-line "Setup ssh-agent" ~/.bashrc 'source $HOME/dotfiles/bash/ssh-agent.sh'
   satisfy file-line "Setup gpg-agent" ~/.bashrc 'source $HOME/dotfiles/bash/gpg-agent.sh'
   satisfy file-line "Use custom PS1" ~/.bashrc "source $HOME/dotfiles/bash/ps1.sh"
-  satisfy file-line 'Source secrets in .bashrc' ~/.bashrc 'source ~/.secrets'
+  satisfy file-line 'Source secrets in .bashrc' ~/.bashrc 'source ~/.secrets/bash'
 end-section
 
 section "bash"
