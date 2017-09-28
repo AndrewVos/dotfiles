@@ -7,11 +7,6 @@ function fish_prompt
         echo (git status -s --ignore-submodules=dirty ^/dev/null)
       end
     end
-
-    function _is_git_repo
-      type -q git; or return 1
-      git status -s >/dev/null ^/dev/null
-    end
   end
 
   set -l date_colour (set_color -o black)
