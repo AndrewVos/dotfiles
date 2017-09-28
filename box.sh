@@ -34,7 +34,7 @@ section "dotfiles"
   satisfy symlink "$DOTFILES_PATH/fish"                 "$HOME/.config/fish"
   satisfy symlink "$DOTFILES_PATH/tmux/.tmux.conf"      "$HOME/.tmux.conf"
 
-  satisfy file-line "Add dotfiles scripts to PATH" ~/.bashrc 'export PATH=$PATH:$DOTFILES_PATH/scripts'
+  satisfy file-line "Add dotfiles scripts to PATH" ~/.bashrc "export PATH=\$PATH:$DOTFILES_PATH/scripts"
   satisfy file-line "Setup ssh-agent" ~/.bashrc "source $DOTFILES_PATH/bash/ssh-agent.sh"
   satisfy file-line "Setup gpg-agent" ~/.bashrc "source $DOTFILES_PATH/bash/gpg-agent.sh"
   satisfy file-line "Use custom PS1" ~/.bashrc "source $DOTFILES_PATH/bash/ps1.sh"
@@ -196,10 +196,10 @@ section "cli tools"
     satisfy file-line "Make vim the default EDITOR" ~/.bashrc 'export EDITOR=vim'
     satisfy apt "exuberant-ctags"
 
-    satisfy github "https://github.com/AndrewVos/vimfiles" "$HOME/vimfiles"
-    satisfy symlink "$HOME/vimfiles/.vimrc" "$HOME/.vimrc"
-    satisfy symlink "$HOME/vimfiles/.vim" "$HOME/.vim"
-    (cd "$HOME/vimfiles" && ./plugins.sh)
+    satisfy github "https://github.com/AndrewVos/vimfiles" "$HOME/.vimfiles"
+    satisfy symlink "$HOME/.vimfiles/.vimrc" "$HOME/.vimrc"
+    satisfy symlink "$HOME/.vimfiles/.vim" "$HOME/.vim"
+    (cd "$HOME/.vimfiles" && ./plugins.sh)
   end-section
 
   section "hub"
