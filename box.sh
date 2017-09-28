@@ -22,7 +22,7 @@ section "dependencies"
 end-section
 
 section "dotfiles"
-  DOTFILES_PATH="$HOME/dotfiles"
+  DOTFILES_PATH="$HOME/.dotfiles"
   satisfy github "https://github.com/AndrewVos/dotfiles" "$DOTFILES_PATH"
   satisfy symlink "$DOTFILES_PATH/bash/.inputrc"        "$HOME/.inputrc"
   satisfy symlink "$DOTFILES_PATH/git/.git-template"    "$HOME/.git-template"
@@ -34,10 +34,10 @@ section "dotfiles"
   satisfy symlink "$DOTFILES_PATH/fish"                 "$HOME/.config/fish"
   satisfy symlink "$DOTFILES_PATH/tmux/.tmux.conf"      "$HOME/.tmux.conf"
 
-  satisfy file-line "Add dotfiles/scripts to PATH" ~/.bashrc 'export PATH=$PATH:~/dotfiles/scripts'
-  satisfy file-line "Setup ssh-agent" ~/.bashrc 'source $HOME/dotfiles/bash/ssh-agent.sh'
-  satisfy file-line "Setup gpg-agent" ~/.bashrc 'source $HOME/dotfiles/bash/gpg-agent.sh'
-  satisfy file-line "Use custom PS1" ~/.bashrc "source $HOME/dotfiles/bash/ps1.sh"
+  satisfy file-line "Add dotfiles scripts to PATH" ~/.bashrc 'export PATH=$PATH:$DOTFILES_PATH/scripts'
+  satisfy file-line "Setup ssh-agent" ~/.bashrc "source $DOTFILES_PATH/bash/ssh-agent.sh"
+  satisfy file-line "Setup gpg-agent" ~/.bashrc "source $DOTFILES_PATH/bash/gpg-agent.sh"
+  satisfy file-line "Use custom PS1" ~/.bashrc "source $DOTFILES_PATH/bash/ps1.sh"
   satisfy file-line 'Source secrets in .bashrc' ~/.bashrc 'source ~/.secrets/bash'
 end-section
 
