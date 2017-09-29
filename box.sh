@@ -152,6 +152,13 @@ section "programming languages"
       satisfy file "ruby-2.3.0" "$HOME/.rubies/ruby-2.3.0/bin/ruby"
     end-section
 
+    section "ruby-2.3.3"
+      function install-ruby-2-3-3 () {
+	ruby-install ruby-2.3.3
+      }
+      satisfy file "ruby-2.3.3" "$HOME/.rubies/ruby-2.3.3/bin/ruby"
+    end-section
+
     section "ruby 2.4.1"
       function install-ruby-2-4-1 () {
 	ruby-install ruby-2.4.1
@@ -200,6 +207,13 @@ section "cli tools"
     satisfy symlink "$HOME/.vimfiles/.vimrc" "$HOME/.vimrc"
     satisfy symlink "$HOME/.vimfiles/.vim" "$HOME/.vim"
     (cd "$HOME/.vimfiles" && ./plugins.sh)
+  end-section
+
+  section "micro"
+    function install-micro () {
+      sudo snap install micro --edge --classic
+    }
+    satisfy executable "micro"
   end-section
 
   section "hub"
