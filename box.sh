@@ -182,7 +182,7 @@ section "cli tools"
 
   section "tmux"
     satisfy apt "tmux"
-    satisfy file-line "Launch tmux in new shells" ~/.bashrc '[[ -z "$TMUX" ]] && exec tmux'
+    satisfy file-line "Launch tmux in new shells" ~/.bashrc '[[ "$-" = *i* ]] && [[ -z "$TMUX" ]] && exec tmux'
   end-section
 
   section "tarsnap"
