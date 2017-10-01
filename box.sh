@@ -237,6 +237,10 @@ section "cli tools"
 end-section
 
 section "apps"
+  section "gimp"
+    satisfy apt "gimp"
+  end-section
+
   section "peek"
     satisfy apt-ppa "ppa:peek-developers/stable"
     satisfy apt "peek"
