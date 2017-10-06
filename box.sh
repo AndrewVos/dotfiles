@@ -199,7 +199,16 @@ section "cli tools"
   end-section
 
   section "vim"
-    satisfy apt "vim-nox"
+    function install-vim () {
+      sudo apt install xorg-dev ncurses-dev
+
+      git clone https://github.com/vim/vim.git --depth 1
+      cd vim
+      ./configure --enable-pythoninterp
+      make
+      sudo make install
+    }
+    satisfy executable "vim"
     satisfy file-line "Make vim the default EDITOR" ~/.bashrc 'export EDITOR=vim'
     satisfy apt "exuberant-ctags"
 
