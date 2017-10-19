@@ -328,6 +328,7 @@ section "settings"
   satisfy dconf "Caps Lock acts as Ctrl" "org.gnome.desktop.input-sources" "xkb-options" "['caps:ctrl_modifier']"
   satisfy dconf "Enable hot corners" "org.gnome.shell" "enable-hot-corners" true
   satisfy dconf "Remove minimize and maximize" "org.gnome.desktop.wm.preferences" "button-layout" ":close"
+  satisfy dconf "Hide desktop icons" "org.gnome.desktop.background" "show-desktop-icons" "false"
 end-section
 
 section "fonts"
