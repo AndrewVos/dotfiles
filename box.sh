@@ -269,12 +269,17 @@ section "apps"
     satisfy apt "gimp"
   end-section
 
+  section "chrome"
+    satisfy deb google-chrome-stable "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+  end-section
+
   section "peek"
     satisfy apt-ppa "ppa:peek-developers/stable"
     satisfy apt "peek"
   end-section
 
   section "webtorrent"
+    satisfy apt "gconf2"
     satisfy deb "webtorrent-desktop" "https://github.com/webtorrent/webtorrent-desktop/releases/download/v0.18.0/webtorrent-desktop_0.18.0-1_amd64.deb"
   end-section
 
@@ -283,6 +288,7 @@ section "apps"
   end-section
 
   section "discord"
+    satisfy apt "libc++1"
     satisfy deb "discord" "https://discordapp.com/api/download?platform=linux&format=deb"
   end-section
 
