@@ -244,6 +244,15 @@ section "cli tools"
     satisfy executable "ngrok"
   end-section
 
+  section "google cloud sdk"
+    function install-gcloud () {
+      wget -O google-cloud.tar.gz "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-175.0.0-linux-x86_64.tar.gz"
+      tar -xf google-cloud.tar.gz
+      ./google-cloud-sdk/install.sh --quiet
+    }
+    satisfy executable "gcloud"
+  end-section
+
   section "terraform"
     function install-terraform () {
       wget -O terraform.zip https://releases.hashicorp.com/terraform/0.10.7/terraform_0.10.7_linux_amd64.zip
