@@ -1,0 +1,19 @@
+#!/usr/bin/ruby
+
+require "csv"
+require "json"
+
+if ARGV.length == 0
+  puts "Usage: csv-to-json CSV_FILE"
+  exit 1
+end
+
+FILE_PATH = ARGV.first
+json = []
+CSV.open(FILE_PATH, headers: true).each do |row|
+  item = {}
+  row.each { |k, v| item[k] = v }
+  json << item
+end
+
+puts JSON.pretty_generate(json)
