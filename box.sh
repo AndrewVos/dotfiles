@@ -144,18 +144,11 @@ section "programming languages"
       satisfy executable "ruby-install"
     end-section
 
-    section "ruby-2.3.0"
-      function install-ruby-2-3-0 () {
-	ruby-install ruby-2.3.0
+    section "ruby-2.3.5"
+      function install-ruby-2-3-5 () {
+	ruby-install ruby-2.3.5
       }
-      satisfy file "ruby-2.3.0" "$HOME/.rubies/ruby-2.3.0/bin/ruby"
-    end-section
-
-    section "ruby-2.3.3"
-      function install-ruby-2-3-3 () {
-	ruby-install ruby-2.3.3
-      }
-      satisfy file "ruby-2.3.3" "$HOME/.rubies/ruby-2.3.3/bin/ruby"
+      satisfy file "ruby-2.3.5" "$HOME/.rubies/ruby-2.3.5/bin/ruby"
     end-section
 
     section "ruby 2.4.1"
