@@ -329,6 +329,7 @@ section "settings"
   satisfy dconf "Enable hot corners" "org.gnome.shell" "enable-hot-corners" true
   satisfy dconf "Remove minimize and maximize" "org.gnome.desktop.wm.preferences" "button-layout" ":close"
   satisfy dconf "Hide desktop icons" "org.gnome.desktop.background" "show-desktop-icons" "false"
+  satisfy dconf "Disable tap to click" "org.gnome.desktop.peripherals.touchpad" "tap-to-click" "false"
 end-section
 
 section "fonts"
