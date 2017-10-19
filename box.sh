@@ -176,6 +176,15 @@ section "programming languages"
   end-section
 end-section
 
+section "terminal colours"
+  function install-chalk () {
+    wget -O "$HOME/.chalk.sh" http://git.io/v3Dlb
+    chmod +x "$HOME/.chalk.sh"
+    $HOME/.chalk.sh
+  }
+  satisfy file "chalk" "$HOME/.chalk.sh"
+end-section
+
 section "cli tools"
   satisfy apt "htop"
   satisfy apt "shellcheck"
