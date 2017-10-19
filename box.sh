@@ -327,6 +327,7 @@ section "settings"
   satisfy dconf "Launch terminal with CMD+t" "org.gnome.settings-daemon.plugins.media-keys" "terminal" "<Super>t"
   satisfy dconf "Caps Lock acts as Ctrl" "org.gnome.desktop.input-sources" "xkb-options" "['caps:ctrl_modifier']"
   satisfy dconf "Enable hot corners" "org.gnome.shell" "enable-hot-corners" true
+  satisfy dconf "Remove minimize and maximize" "org.gnome.desktop.wm.preferences" "button-layout" ":close"
 end-section
 
 section "fonts"
