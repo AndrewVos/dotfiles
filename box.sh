@@ -244,13 +244,14 @@ section "cli tools"
     satisfy executable "ngrok"
   end-section
 
-  section "google cloud sdk"
-    function install-gcloud () {
-      wget -O google-cloud.tar.gz "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-175.0.0-linux-x86_64.tar.gz"
-      tar -xf google-cloud.tar.gz
-      ./google-cloud-sdk/install.sh --quiet
+  section "heroku"
+    function install-heroku () {
+      wget https://cli-assets.heroku.com/heroku-cli/channels/stable/heroku-cli-linux-x64.tar.gz -O heroku.tar.gz
+      tar -xzf heroku.tar.gz
+      sudo mv heroku-cli-v6.14.35-e0fe5a3-linux-x64 /usr/local/lib/heroku
+      sudo ln -s /usr/local/lib/heroku/bin/heroku /usr/local/bin/heroku
     }
-    satisfy executable "gcloud"
+    satisfy executable "heroku"
   end-section
 
   section "terraform"
