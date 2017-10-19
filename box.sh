@@ -77,7 +77,6 @@ section "VPN"
   satisfy apt "network-manager-openvpn-gnome"
 
   section "l2tp"
-    satisfy apt-ppa "ppa:nm-l2tp/network-manager-l2tp"
     satisfy apt "strongswan"
     satisfy apt "network-manager-strongswan"
     satisfy apt "network-manager-l2tp"
