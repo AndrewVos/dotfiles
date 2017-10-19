@@ -326,6 +326,7 @@ section "settings"
   satisfy dconf "Take a screenshot with CMD+SHIFT+s" "org.gnome.settings-daemon.plugins.media-keys" "area-screenshot-clip" "<Shift><Super>s"
   satisfy dconf "Launch terminal with CMD+t" "org.gnome.settings-daemon.plugins.media-keys" "terminal" "<Super>t"
   satisfy dconf "Caps Lock acts as Ctrl" "org.gnome.desktop.input-sources" "xkb-options" "['caps:ctrl_modifier']"
+  satisfy dconf "Enable hot corners" "org.gnome.shell" "enable-hot-corners" true
 end-section
 
 section "fonts"
