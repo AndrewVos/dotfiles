@@ -298,7 +298,7 @@ section "apps"
 
   section "enpass"
     if must-install apt "enpass"; then
-      sudo echo "deb http://repo.sinew.in/ stable main" > /etc/apt/sources.list.d/enpass.list
+      echo "deb http://repo.sinew.in/ stable main" | sudo tee /etc/apt/sources.list.d/enpass.list
       wget -O - https://dl.sinew.in/keys/enpass-linux.key | sudo apt-key add -
       sudo apt update
     fi
