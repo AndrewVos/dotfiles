@@ -288,7 +288,7 @@ section "apps"
   end-section
 
   section "slack"
-    satisfy apt "slack-desktop"
+    satisfy deb "slack-desktop" "https://downloads.slack-edge.com/linux_releases/slack-desktop-2.7.1-amd64.deb"
   end-section
 
   section "discord"
