@@ -19,6 +19,7 @@ fi
 section "dependencies"
   satisfy apt "git"
   satisfy apt "curl"
+  satisfy apt "make"
 end-section
 
 section "dotfiles"
