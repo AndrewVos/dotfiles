@@ -324,6 +324,7 @@ section "settings"
   satisfy dconf "Remove minimize and maximize" "org.gnome.desktop.wm.preferences" "button-layout" ":close"
   satisfy dconf "Hide desktop icons" "org.gnome.desktop.background" "show-desktop-icons" "false"
   satisfy dconf "Disable tap to click" "org.gnome.desktop.peripherals.touchpad" "tap-to-click" "false"
+  satisfy dconf "Two finger right-click" "org.gnome.desktop.peripherals.touchpad" "click-method" "fingers"
   satisfy dconf "Auto-hide dock" "org.gnome.shell.extensions.dash-to-dock" "dock-fixed" "false"
 end-section
 
