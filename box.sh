@@ -203,7 +203,7 @@ section "cli tools"
 
   section "vim"
     function install-vim () {
-      sudo apt install xorg-dev ncurses-dev
+      sudo apt install -y xorg-dev ncurses-dev
 
       git clone https://github.com/vim/vim.git --depth 1
       cd vim
