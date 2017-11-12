@@ -20,6 +20,7 @@ section "dependencies"
   satisfy apt "git"
   satisfy apt "curl"
   satisfy apt "make"
+  satisfy apt "openssh-server"
 end-section
 
 section "dotfiles"
