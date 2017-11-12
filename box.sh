@@ -339,3 +339,13 @@ end-section
 section "fonts"
   satisfy apt "fonts-hack-ttf"
 end-section
+
+section "vagga"
+  function install-vagga () {
+    echo 'deb [arch=amd64 trusted=yes] https://ubuntu.zerogw.com vagga main' | sudo tee /etc/apt/sources.list.d/vagga.list
+    sudo apt-get -y update
+    sudo apt-get -y install vagga
+  }
+  satisfy executable "vagga"
+end-section
+
