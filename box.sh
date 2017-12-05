@@ -119,6 +119,12 @@ section "programming languages"
     satisfy file-line 'Add yarn binaries to PATH' ~/.bashrc 'export PATH=$PATH:~/.yarn/bin'
   end-section
 
+  section "lua"
+    satisfy apt "lua5.2"
+    satisfy apt "luarocks"
+    satisfy apt "liblua5.2-dev"
+  end-section
+
   section "ruby"
     section "chruby"
       function install-chruby () {
