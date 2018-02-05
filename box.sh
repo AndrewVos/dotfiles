@@ -99,9 +99,7 @@ end-section
 section "programming languages"
   section "nodejs"
     if must-install apt "nodejs"; then
-      sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 68576280
-      sudo apt-add-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -sc) main"
-      sudo apt-get update
+      curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
     fi
     satisfy apt "nodejs"
     satisfy file-line "Add node_modules bin to PATH" ~/.bashrc 'export PATH="$PATH:node_modules/.bin"'
