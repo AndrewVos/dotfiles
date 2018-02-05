@@ -206,6 +206,15 @@ section "cli tools"
     satisfy executable "tarsnap"
   end-section
 
+  section "chromedriver"
+    function install-chromedriver () {
+      wget http://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip
+      unzip chromedriver_linux64.zip
+      sudo mv chromedriver /usr/local/bin/chromedriver
+    }
+    satisfy executable "chromedriver"
+  end-section
+
   section "vim"
     function install-vim () {
       sudo apt install -y xorg-dev ncurses-dev
