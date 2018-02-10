@@ -74,18 +74,6 @@ end-section
 
 satisfy apt "awscli"
 
-section "VPN"
-  satisfy apt "openvpn"
-  satisfy apt "network-manager-openvpn-gnome"
-
-  section "l2tp"
-    satisfy apt "strongswan"
-    satisfy apt "network-manager-strongswan"
-    satisfy apt "network-manager-l2tp"
-    satisfy apt "network-manager-l2tp-gnome"
-  end-section
-end-section
-
 section "phantomjs"
   function install-phantomjs () {
     wget "https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2"
