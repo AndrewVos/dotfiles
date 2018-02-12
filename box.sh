@@ -35,6 +35,7 @@ section "dotfiles"
   satisfy symlink "$DOTFILES_PATH/tarsnap/.tarsnaprc"   "$HOME/.tarsnaprc"
   satisfy symlink "$DOTFILES_PATH/fish"                 "$HOME/.config/fish"
   satisfy symlink "$DOTFILES_PATH/tmux/.tmux.conf"      "$HOME/.tmux.conf"
+  satisfy symlink "$DOTFILES_PATH/ctags/.ctags"         "$HOME/.ctags"
 
   satisfy file-line "Add dotfiles scripts to PATH" ~/.bashrc "export PATH=\$PATH:$DOTFILES_PATH/scripts"
   satisfy file-line "Setup ssh-agent" ~/.bashrc "source $DOTFILES_PATH/bash/ssh-agent.sh"
