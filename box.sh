@@ -34,7 +34,6 @@ section "dotfiles"
   satisfy symlink "$DOTFILES_PATH/ssh/.ssh/config"      "$HOME/.ssh/config"
   satisfy symlink "$DOTFILES_PATH/tarsnap/.tarsnaprc"   "$HOME/.tarsnaprc"
   satisfy symlink "$DOTFILES_PATH/fish"                 "$HOME/.config/fish"
-  satisfy symlink "$DOTFILES_PATH/tmux/.tmux.conf"      "$HOME/.tmux.conf"
   satisfy symlink "$DOTFILES_PATH/ctags/.ctags"         "$HOME/.ctags"
 
   satisfy file-line "Add dotfiles scripts to PATH" ~/.bashrc "export PATH=\$PATH:$DOTFILES_PATH/scripts"
@@ -176,11 +175,6 @@ section "cli tools"
   satisfy apt "htop"
   satisfy apt "shellcheck"
   satisfy apt "tmate"
-
-  section "tmux"
-    satisfy apt "tmux"
-    satisfy file-line "Launch tmux in new shells" ~/.bashrc '[[ "$-" = *i* ]] && [[ -z "$TMUX" ]] && exec tmux'
-  end-section
 
   section "tarsnap"
     function install-tarsnap () {
