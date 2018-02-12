@@ -32,6 +32,7 @@ set termguicolors
   set autowrite
   highlight Search ctermfg=black ctermbg=blue
   set nofoldenable
+  set number
 " }}}
 
 " gitgutter {{{
