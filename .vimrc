@@ -3,8 +3,8 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-colorscheme Tomorrow-Night
-set t_Co=256
+colorscheme deep-space
+set termguicolors
 
 " backup to ~/.tmp {{{
   set backup

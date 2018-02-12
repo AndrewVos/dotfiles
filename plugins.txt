@@ -38,3 +38,4 @@ ap/vim-css-color
 elixir-lang/vim-elixir
 tpope/vim-rhubarb
 kopischke/vim-fetch
+tyrannicaltoucan/vim-deep-space
