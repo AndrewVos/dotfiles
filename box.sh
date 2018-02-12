@@ -224,13 +224,6 @@ section "cli tools"
     (cd "$HOME/.vimfiles" && ./plugins.sh)
   end-section
 
-  section "micro"
-    function install-micro () {
-      sudo snap install micro --edge --classic
-    }
-    satisfy executable "micro"
-  end-section
-
   section "hub"
     function install-hub () {
       wget -O hub.tgz "https://github.com/github/hub/releases/download/v2.3.0-pre10/hub-linux-amd64-2.3.0-pre10.tgz"
