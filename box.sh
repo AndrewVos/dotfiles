@@ -88,7 +88,7 @@ end-section
 section "programming languages"
   section "nodejs"
     if must-install apt "nodejs"; then
-      curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+      curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
     fi
     satisfy apt "nodejs"
     satisfy file-line "Add node_modules bin to PATH" ~/.bashrc 'export PATH="$PATH:node_modules/.bin"'
