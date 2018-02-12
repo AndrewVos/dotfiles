@@ -31,7 +31,10 @@ section "dotfiles"
   satisfy symlink "$DOTFILES_PATH/git/.gitconfig"       "$HOME/.gitconfig"
   satisfy symlink "$DOTFILES_PATH/git/.gitignore"       "$HOME/.gitignore"
   satisfy symlink "$DOTFILES_PATH/screen/.screenrc"     "$HOME/.screenrc"
+
+  mkdir -p "$HOME/.ssh"
   satisfy symlink "$DOTFILES_PATH/ssh/.ssh/config"      "$HOME/.ssh/config"
+
   satisfy symlink "$DOTFILES_PATH/tarsnap/.tarsnaprc"   "$HOME/.tarsnaprc"
   satisfy symlink "$DOTFILES_PATH/fish"                 "$HOME/.config/fish"
   satisfy symlink "$DOTFILES_PATH/ctags/.ctags"         "$HOME/.ctags"
