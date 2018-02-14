@@ -293,6 +293,7 @@ section "apps"
   end-section
 
   section "zoom"
+    satisfy apt "libxcb-xtest0"
     satisfy deb "zoom" "https://zoom.us/client/latest/zoom_amd64.deb"
   end-section
 
