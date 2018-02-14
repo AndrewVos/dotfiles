@@ -292,6 +292,10 @@ section "apps"
     satisfy deb "discord" "https://discordapp.com/api/download?platform=linux&format=deb"
   end-section
 
+  section "zoom"
+    satisfy deb "zoom" "https://zoom.us/client/latest/zoom_amd64.deb"
+  end-section
+
   section "spotify"
     if must-install apt "spotify-client"; then
       sudo apt-key adv --keyserver "hkp://keyserver.ubuntu.com:80" --recv-keys "BBEBDCB318AD50EC6865090613B00F1FD2C19886" "0DF731E45CE24F27EEEB1450EFDC8610341D9410"
