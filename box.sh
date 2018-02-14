@@ -165,14 +165,16 @@ section "programming languages"
   end-section
 end-section
 
-section "terminal colours"
-  function install-chalk () {
-    wget -O "$HOME/.chalk.sh" http://git.io/v3Dlb
-    chmod +x "$HOME/.chalk.sh"
-    $HOME/.chalk.sh
-  }
-  satisfy file "chalk" "$HOME/.chalk.sh"
-end-section
+if [[ "$(lsb_release -is)" = "Ubuntu" ]]; then
+  section "terminal colours"
+    function install-chalk () {
+      wget -O "$HOME/.chalk.sh" http://git.io/v3Dlb
+      chmod +x "$HOME/.chalk.sh"
+      $HOME/.chalk.sh
+    }
+    satisfy file "chalk" "$HOME/.chalk.sh"
+  end-section
+fi
 
 section "cli tools"
   satisfy apt "htop"
@@ -310,17 +312,19 @@ section "apps"
   end-section
 end-section
 
-section "settings"
-  satisfy dconf "Take a screenshot with CMD+SHIFT+s" "org.gnome.settings-daemon.plugins.media-keys" "area-screenshot-clip" "<Shift><Super>s"
-  satisfy dconf "Launch terminal with CMD+t" "org.gnome.settings-daemon.plugins.media-keys" "terminal" "<Super>t"
-  satisfy dconf "Caps Lock acts as Ctrl" "org.gnome.desktop.input-sources" "xkb-options" "['caps:ctrl_modifier']"
-  satisfy dconf "Enable hot corners" "org.gnome.shell" "enable-hot-corners" true
-  satisfy dconf "Remove minimize and maximize" "org.gnome.desktop.wm.preferences" "button-layout" ":close"
-  satisfy dconf "Hide desktop icons" "org.gnome.desktop.background" "show-desktop-icons" "false"
-  satisfy dconf "Disable tap to click" "org.gnome.desktop.peripherals.touchpad" "tap-to-click" "false"
-  satisfy dconf "Two finger right-click" "org.gnome.desktop.peripherals.touchpad" "click-method" "fingers"
-  satisfy dconf "Auto-hide dock" "org.gnome.shell.extensions.dash-to-dock" "dock-fixed" "false"
-end-section
+if [[ "$(lsb_release -is)" = "Ubuntu" ]]; then
+  section "settings"
+    satisfy dconf "Take a screenshot with CMD+SHIFT+s" "org.gnome.settings-daemon.plugins.media-keys" "area-screenshot-clip" "<Shift><Super>s"
+    satisfy dconf "Launch terminal with CMD+t" "org.gnome.settings-daemon.plugins.media-keys" "terminal" "<Super>t"
+    satisfy dconf "Caps Lock acts as Ctrl" "org.gnome.desktop.input-sources" "xkb-options" "['caps:ctrl_modifier']"
+    satisfy dconf "Enable hot corners" "org.gnome.shell" "enable-hot-corners" true
+    satisfy dconf "Remove minimize and maximize" "org.gnome.desktop.wm.preferences" "button-layout" ":close"
+    satisfy dconf "Hide desktop icons" "org.gnome.desktop.background" "show-desktop-icons" "false"
+    satisfy dconf "Disable tap to click" "org.gnome.desktop.peripherals.touchpad" "tap-to-click" "false"
+    satisfy dconf "Two finger right-click" "org.gnome.desktop.peripherals.touchpad" "click-method" "fingers"
+    satisfy dconf "Auto-hide dock" "org.gnome.shell.extensions.dash-to-dock" "dock-fixed" "false"
+  end-section
+fi
 
 section "fonts"
   satisfy apt "fonts-hack-ttf"
