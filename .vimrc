@@ -3,8 +3,16 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-colorscheme deep-space
-set termguicolors
+" 256 colours in gnome-terminal and st {{{
+  set t_8f=[38;2;%lu;%lu;%lum
+  set t_8b=[48;2;%lu;%lu;%lum
+  set t_Co=256
+  set termguicolors
+" }}}
+
+" colour scheme {{{
+  colorscheme deep-space
+" }}}
 
 " backup to ~/.tmp {{{
   set backup
