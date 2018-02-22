@@ -232,6 +232,52 @@ section "cli tools"
     satisfy executable "hub"
   end-section
 
+  section "tabbed"
+    function install-tabbed() {
+      git clone https://git.suckless.org/tabbed
+      cd tabbed
+      sudo make install
+    }
+    satisfy executable "tabbed"
+  end-section
+
+  section "st"
+    function install-st() {
+      git clone git://git.suckless.org/st
+      cd st
+
+      wget https://gist.githubusercontent.com/AndrewVos/e3fcdcf4b1fb839cdf2ea175db0bdbbf/raw/19137bf32f3e422dd3b1bf5c69f403c48dbe8d87/deep-space.patch
+      patch -i deep-space.patch
+
+      wget https://st.suckless.org/patches/scrollback/st-scrollback-20170329-149c0d3.diff
+      patch -i st-scrollback-20170329-149c0d3.diff
+      wget https://st.suckless.org/patches/scrollback/st-scrollback-mouse-20170427-5a10aca.diff
+      patch -i st-scrollback-mouse-20170427-5a10aca.diff
+
+      sudo make clean install
+      cd ..
+
+      echo '[Desktop Entry]' >> st.desktop
+      echo 'Name=st' >> st.desktop
+      echo 'GenericName=Terminal' >> st.desktop
+      echo 'Comment=standard terminal emulator for the X window system' >> st.desktop
+      echo 'Exec=tabbed -c st -f "Liberation Mono:size=16" -w' >> st.desktop
+      echo 'StartupWMClass=tabbed' >> st.desktop
+      echo 'Terminal=false' >> st.desktop
+      echo 'Type=Application' >> st.desktop
+      echo 'Encoding=UTF-8' >> st.desktop
+      echo 'Icon=utilities-terminal' >> st.desktop
+      echo 'Categories=System;TerminalEmulator;' >> st.desktop
+      echo 'Keywords=shell;prompt;command;commandline;cmd;' >> st.desktop
+      echo 'X-Desktop-File-Install-Version=0.23' >> st.desktop
+
+      desktop-file-install --dir=$HOME/.local/share/applications st.desktop
+    }
+
+
+    satisfy executable "st"
+  end-section
+
   section "ngrok"
     function install-ngrok () {
       wget -O ngrok.zip "https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip"
