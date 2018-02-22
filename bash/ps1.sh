@@ -8,7 +8,7 @@ git_prompt_color () {
   echo -e "\033[0;37m"
 }
 
-DATE_COLOUR="\033[1;30m"
+DATE_COLOUR="\033[1;33m"
 DIR_COLOUR="\033[1;34m"
 RESET_COLOUR="\033[0m"
 
