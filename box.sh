@@ -259,8 +259,10 @@ section "cli tools"
       echo 'X-Desktop-File-Install-Version=0.23' >> st.desktop
 
       desktop-file-install --dir=$HOME/.local/share/applications st.desktop
+
     }
     satisfy executable "st"
+    satisfy file-line "Set the window title in st" ~/.bashrc 'PROMPT_COMMAND='"'"'_terminal_title'"'"''
   end-section
 
   section "ngrok"
