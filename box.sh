@@ -282,15 +282,6 @@ section "cli tools"
     }
     satisfy executable "heroku"
   end-section
-
-  section "terraform"
-    function install-terraform () {
-      wget -O terraform.zip https://releases.hashicorp.com/terraform/0.10.7/terraform_0.10.7_linux_amd64.zip
-      unzip terraform.zip
-      sudo mv terraform /usr/local/bin/terraform
-    }
-    satisfy executable "terraform"
-  end-section
 end-section
 
 section "apps"
