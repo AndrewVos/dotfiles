@@ -248,7 +248,7 @@ section "cli tools"
       echo 'Name=st' >> st.desktop
       echo 'GenericName=Terminal' >> st.desktop
       echo 'Comment=standard terminal emulator for the X window system' >> st.desktop
-      echo 'Exec=tabbed -c st -f "Liberation Mono:size=16" -w' >> st.desktop
+      echo 'Exec=tabbed -c st -f "Hack:style=Regular:size=16" -w' >> st.desktop
       echo 'StartupWMClass=tabbed' >> st.desktop
       echo 'Terminal=false' >> st.desktop
       echo 'Type=Application' >> st.desktop
