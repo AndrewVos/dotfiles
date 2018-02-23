@@ -181,19 +181,6 @@ section "cli tools"
   satisfy apt "shellcheck"
   satisfy apt "tmate"
 
-  section "tarsnap"
-    function install-tarsnap () {
-      wget -O tarsnap.tgz https://www.tarsnap.com/download/tarsnap-autoconf-1.0.39.tgz
-      tar -zxvf tarsnap.tgz
-      cd tarsnap-autoconf-1.0.39
-      ./configure
-      make all
-      sudo make install
-    }
-    satisfy apt "e2fslibs-dev"
-    satisfy executable "tarsnap"
-  end-section
-
   section "chromedriver"
     function install-chromedriver () {
       wget http://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip
@@ -273,8 +260,6 @@ section "cli tools"
 
       desktop-file-install --dir=$HOME/.local/share/applications st.desktop
     }
-
-
     satisfy executable "st"
   end-section
 
