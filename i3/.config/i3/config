@@ -136,6 +136,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym --release $mod+Shift+s exec "scrot /tmp/scrot.png -s -e 'xclip -selection c -t image/png $f'"
 
 exec --no-startup-id polybar --reload top
+exec --no-startup-id setxkbmap -option ctrl:nocaps
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
