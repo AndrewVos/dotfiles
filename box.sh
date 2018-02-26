@@ -26,18 +26,25 @@ end-section
 section "dotfiles"
   DOTFILES_PATH="$HOME/.dotfiles"
   satisfy github "https://github.com/AndrewVos/dotfiles" "$DOTFILES_PATH"
-  satisfy symlink "$DOTFILES_PATH/bash/.inputrc"        "$HOME/.inputrc"
-  satisfy symlink "$DOTFILES_PATH/git/.git-template"    "$HOME/.git-template"
-  satisfy symlink "$DOTFILES_PATH/git/.gitconfig"       "$HOME/.gitconfig"
-  satisfy symlink "$DOTFILES_PATH/git/.gitignore"       "$HOME/.gitignore"
-  satisfy symlink "$DOTFILES_PATH/screen/.screenrc"     "$HOME/.screenrc"
+
+  satisfy symlink "$DOTFILES_PATH/bash/.inputrc"                  "$HOME/.inputrc"
+  satisfy symlink "$DOTFILES_PATH/git/.git-template"              "$HOME/.git-template"
+  satisfy symlink "$DOTFILES_PATH/git/.gitconfig"                 "$HOME/.gitconfig"
+  satisfy symlink "$DOTFILES_PATH/git/.gitignore"                 "$HOME/.gitignore"
+  satisfy symlink "$DOTFILES_PATH/screen/.screenrc"               "$HOME/.screenrc"
+
+  mkdir -p "$HOME/.config/i3"
+  satisfy symlink "$DOTFILES_PATH/i3/.config/i3/config"           "$HOME/.config/i3/config"
+
+  mkdir -p "$HOME/.config/polybar"
+  satisfy symlink "$DOTFILES_PATH/polybar/.config/polybar/config" "$HOME/.config/polybar/config"
 
   mkdir -p "$HOME/.ssh"
-  satisfy symlink "$DOTFILES_PATH/ssh/.ssh/config"      "$HOME/.ssh/config"
+  satisfy symlink "$DOTFILES_PATH/ssh/.ssh/config"                "$HOME/.ssh/config"
 
-  satisfy symlink "$DOTFILES_PATH/tarsnap/.tarsnaprc"   "$HOME/.tarsnaprc"
-  satisfy symlink "$DOTFILES_PATH/fish"                 "$HOME/.config/fish"
-  satisfy symlink "$DOTFILES_PATH/ctags/.ctags"         "$HOME/.ctags"
+  satisfy symlink "$DOTFILES_PATH/tarsnap/.tarsnaprc"             "$HOME/.tarsnaprc"
+  satisfy symlink "$DOTFILES_PATH/fish"                           "$HOME/.config/fish"
+  satisfy symlink "$DOTFILES_PATH/ctags/.ctags"                   "$HOME/.ctags"
 
   satisfy file-line "Add dotfiles scripts to PATH" ~/.bashrc "export PATH=\$PATH:$DOTFILES_PATH/scripts"
   satisfy file-line "Setup ssh-agent" ~/.bashrc "source $DOTFILES_PATH/bash/ssh-agent.sh"
@@ -180,6 +187,7 @@ section "cli tools"
   satisfy apt "htop"
   satisfy apt "shellcheck"
   satisfy apt "tmate"
+  satisfy apt "scrot"
 
   section "chromedriver"
     function install-chromedriver () {
@@ -357,4 +365,30 @@ fi
 
 section "fonts"
   satisfy apt "fonts-hack-ttf"
+  satisfy apt "fonts-font-awesome"
+end-section
+
+section "window-manager"
+  satisfy apt "i3"
+end-section
+
+section "polybar"
+  satisfy apt "libcairo2-dev"
+  satisfy apt "libxcb-xkb-dev"
+  satisfy apt "libxcb-randr0-dev"
+  satisfy apt "libxcb-image0-dev"
+  satisfy apt "xcb-proto"
+  satisfy apt "libxcb-ewmh-dev"
+  satisfy apt "libxcb-xrm-dev"
+  satisfy apt "libxcb-icccm4-dev"
+  satisfy apt "python-xcbgen"
+
+  function install-polybar () {
+    git clone --branch 3.1.0 --recursive https://github.com/jaagr/polybar
+    mkdir polybar/build
+    cd polybar/build
+    cmake ..
+    sudo make install
+  }
+  satisfy executable "polybar"
 end-section
