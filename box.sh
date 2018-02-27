@@ -372,6 +372,7 @@ end-section
 section "window-manager"
   satisfy apt "i3"
   satisfy apt "compton"
+  satisfy apt "rofi"
 
   if must-install apt "notify-osd"; then
     sudo apt-get -y purge dunst
