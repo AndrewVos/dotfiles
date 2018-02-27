@@ -371,25 +371,32 @@ end-section
 
 section "window-manager"
   satisfy apt "i3"
-end-section
+  satisfy apt "compton"
 
-section "polybar"
-  satisfy apt "libcairo2-dev"
-  satisfy apt "libxcb-xkb-dev"
-  satisfy apt "libxcb-randr0-dev"
-  satisfy apt "libxcb-image0-dev"
-  satisfy apt "xcb-proto"
-  satisfy apt "libxcb-ewmh-dev"
-  satisfy apt "libxcb-xrm-dev"
-  satisfy apt "libxcb-icccm4-dev"
-  satisfy apt "python-xcbgen"
+  if must-install apt "notify-osd"; then
+    sudo apt-get -y purge dunst
+    killall dunst || :
+  fi
+  satisfy apt "notify-osd"
 
-  function install-polybar () {
-    git clone --branch 3.1.0 --recursive https://github.com/jaagr/polybar
-    mkdir polybar/build
-    cd polybar/build
-    cmake ..
-    sudo make install
-  }
-  satisfy executable "polybar"
+  section "polybar"
+    satisfy apt "libcairo2-dev"
+    satisfy apt "libxcb-xkb-dev"
+    satisfy apt "libxcb-randr0-dev"
+    satisfy apt "libxcb-image0-dev"
+    satisfy apt "xcb-proto"
+    satisfy apt "libxcb-ewmh-dev"
+    satisfy apt "libxcb-xrm-dev"
+    satisfy apt "libxcb-icccm4-dev"
+    satisfy apt "python-xcbgen"
+
+    function install-polybar () {
+      git clone --branch 3.1.0 --recursive https://github.com/jaagr/polybar
+      mkdir polybar/build
+      cd polybar/build
+      cmake ..
+      sudo make install
+    }
+    satisfy executable "polybar"
+  end-section
 end-section
