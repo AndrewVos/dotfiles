@@ -136,6 +136,7 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+exec --no-startup-id compton
 exec --no-startup-id polybar --reload top
 exec --no-startup-id setxkbmap -option ctrl:nocaps
 
