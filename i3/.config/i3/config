@@ -97,7 +97,8 @@ bindsym $mod+a focus parent
 
 # switch to workspace
 bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
+# bindsym $mod+2 workspace 2
+bindsym $mod+2 exec --no-startup-id "i3-msg workspace 2 && pgrep -c chrome && i3-msg '[class=\\"Google-chrome\\"] focus' || google-chrome"
 bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
