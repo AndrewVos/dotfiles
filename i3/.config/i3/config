@@ -140,7 +140,7 @@ bindsym XF86AudioPrev exec playerctl previous
 exec --no-startup-id compton
 exec --no-startup-id polybar --reload top
 exec --no-startup-id setxkbmap -option ctrl:nocaps
-exec --no-startup-id xsetroot -solid "#1b202a"
+exec --no-startup-id hsetroot -solid "#1b202a"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
