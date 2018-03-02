@@ -350,6 +350,10 @@ section "apps"
   end-section
 end-section
 
+section "services"
+  satisfy apt "redshift"
+end-section
+
 if [[ "$(lsb_release -is)" = "Ubuntu" ]]; then
   section "settings"
     satisfy dconf "Take a screenshot with CMD+SHIFT+s" "org.gnome.settings-daemon.plugins.media-keys" "area-screenshot-clip" "<Shift><Super>s"
