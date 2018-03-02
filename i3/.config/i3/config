@@ -127,8 +127,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym --release $mod+space exec "rofi -combi-modi window,drun -show combi"
 bindsym --release $mod+Shift+s exec "scrot /tmp/scrot.png -s -e 'xclip -selection c -t image/png $f'"
+bindsym --release $mod+space exec --no-startup-id "rofi -combi-modi window,drun -show combi"
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
