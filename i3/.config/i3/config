@@ -130,9 +130,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym --release $mod+space exec --no-startup-id "rofi -combi-modi window,drun -show combi"
 bindsym --release $mod+Shift+s exec --no-startup-id "scrot /tmp/scrot.png -s -e 'xclip -selection c -t image/png $f'"
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume $(pactl list short | grep RUNNING | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,') +5%"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume $(pactl list short | grep RUNNING | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,') -5%"
+bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute $(pactl list short | grep RUNNING | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,') toggle"
 
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
