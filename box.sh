@@ -352,6 +352,7 @@ end-section
 
 section "services"
   satisfy apt "redshift"
+  satisfy apt "unclutter"
 end-section
 
 if [[ "$(lsb_release -is)" = "Ubuntu" ]]; then
