@@ -140,6 +140,7 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 exec --no-startup-id compton
 exec --no-startup-id polybar --reload top
+exec --no-startup-id unclutter
 exec --no-startup-id redshift
 exec --no-startup-id setxkbmap -option ctrl:nocaps
 exec --no-startup-id hsetroot -solid "#1b202a"
