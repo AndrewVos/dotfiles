@@ -379,6 +379,7 @@ section "window-manager"
   satisfy apt "compton"
   satisfy apt "rofi"
   satisfy apt "hsetroot"
+  satisfy apt "xclip"
 
   if must-install apt "notify-osd"; then
     sudo apt-get -y purge dunst
