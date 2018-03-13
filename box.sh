@@ -386,6 +386,7 @@ section "window-manager"
     satisfy apt "libxcb-xrm-dev"
     satisfy apt "libxcb-icccm4-dev"
     satisfy apt "python-xcbgen"
+    satisfy apt "cmake"
 
     function install-polybar () {
       git clone --branch 3.1.0 --recursive https://github.com/jaagr/polybar
