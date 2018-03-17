@@ -55,3 +55,7 @@
     timeout = 0
     background = "#cc6666"
     foreground = "#e0e0e0"
+
+[urgency_low_volume]
+    appname = notify-volume
+    timeout = 1

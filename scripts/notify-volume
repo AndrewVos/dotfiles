@@ -15,4 +15,4 @@ if is_mute; then volume=0; fi
 
 bar=$(seq -s "─" $(($volume / 5)) | sed 's/[0-9]//g')
 
-dunstify --replace 2593 -u normal "$bar"
+dunstify --appname notify-volume --replace 2593 -u normal "$bar"
