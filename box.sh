@@ -89,7 +89,7 @@ section "bash"
   end-section
 end-section
 
-section "services"
+section "databases"
   section "postgres"
     satisfy pacman "postgresql"
     if did-install; then
