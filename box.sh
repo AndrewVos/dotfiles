@@ -112,30 +112,10 @@ section "programming languages"
   end-section
 
   section "ruby"
-    section "chruby"
-      function install-chruby () {
-	wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
-	tar -xzvf chruby-0.3.9.tar.gz
-	cd chruby-0.3.9/
-	sudo make install
-	set +u
-	. /usr/local/share/chruby/chruby.sh
-	set -u
-      }
-      satisfy file "chruby" "/usr/local/share/chruby/chruby.sh"
-      satisfy file-line "Source chruby" ~/.bashrc "source /usr/local/share/chruby/chruby.sh"
-      satisfy file-line "Source chruby-auto" ~/.bashrc "source /usr/local/share/chruby/auto.sh"
-    end-section
-
-    section "ruby-install"
-      function install-ruby-install () {
-	wget -O ruby-install-0.6.1.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.1.tar.gz
-	tar -xzvf ruby-install-0.6.1.tar.gz
-	cd ruby-install-0.6.1/
-	sudo make install
-      }
-      satisfy executable "ruby-install"
-    end-section
+    satisfy yaourt "ruby-install"
+    satisfy yaourt "chruby"
+    satisfy file-line "Source chruby" ~/.bashrc "source /usr/local/share/chruby/chruby.sh"
+    satisfy file-line "Source chruby-auto" ~/.bashrc "source /usr/share/chruby/auto.sh"
 
     section "ruby 2.4.1"
       function install-ruby-2-4-1 () {
