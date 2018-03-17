@@ -43,6 +43,7 @@ section "dotfiles"
   DOTFILES_PATH="$HOME/.dotfiles"
   satisfy github "https://github.com/AndrewVos/dotfiles" "$DOTFILES_PATH"
 
+  satisfy symlink "$DOTFILES_PATH/libinput/etc/X11/xorg.conf.d/30-touchpad.conf" "/etc/X11/xorg.conf.d/30-touchpad.conf"
   satisfy symlink "$DOTFILES_PATH/bash/.inputrc" "$HOME/.inputrc"
   satisfy symlink "$DOTFILES_PATH/git/.git-template" "$HOME/.git-template"
   satisfy symlink "$DOTFILES_PATH/git/.gitconfig" "$HOME/.gitconfig"
