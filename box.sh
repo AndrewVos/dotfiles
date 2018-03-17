@@ -23,20 +23,19 @@ section "dependencies"
   satisfy pacman "make"
   satisfy pacman "openssh"
   satisfy pacman "bash-completion"
-end-section
-
-section "yaourt"
-  function install-yaourt () {
-    git clone https://aur.archlinux.org/package-query.git
-    cd package-query
-    makepkg -si
-    cd ..
-    git clone https://aur.archlinux.org/yaourt.git
-    cd yaourt
-    makepkg -si
-    cd ..
-  }
-  satisfy executable "yaourt"
+  section "yaourt"
+    function install-yaourt () {
+      git clone https://aur.archlinux.org/package-query.git
+      cd package-query
+      makepkg -si
+      cd ..
+      git clone https://aur.archlinux.org/yaourt.git
+      cd yaourt
+      makepkg -si
+      cd ..
+    }
+    satisfy executable "yaourt"
+  end-section
 end-section
 
 section "dotfiles"
@@ -134,20 +133,12 @@ section "programming languages"
   end-section
 end-section
 
-section "testing tools"
-  satisfy yaourt "chromedriver"
-  section "phantomjs"
-    function install-phantomjs () {
-      wget "https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2"
-      bzip2 -d "phantomjs-2.1.1-linux-x86_64.tar.bz2"
-      tar -xf "phantomjs-2.1.1-linux-x86_64.tar"
-      sudo cp "phantomjs-2.1.1-linux-x86_64/bin/phantomjs" "/usr/local/bin/phantomjs"
-    }
-    satisfy executable "phantomjs"
-  end-section
+section "fonts"
+  satisfy pacman "ttf-hack"
+  satisfy pacman "ttf-font-awesome"
 end-section
 
-section "cli tools"
+section "apps"
   satisfy pacman "htop"
   satisfy pacman "shellcheck"
   satisfy pacman "scrot"
@@ -156,6 +147,28 @@ section "cli tools"
   satisfy pacman "xclip"
   satisfy yaourt "tmate"
   satisfy pacman "aws-cli"
+  satisfy yaourt "ngrok"
+  satisfy yaourt "heroku-cli"
+  satisfy pacman "gimp"
+  satisfy yaourt "google-chrome"
+  satisfy yaourt "peek"
+  satisfy yaourt "slack-desktop"
+  satisfy yaourt "zoom"
+  satisfy yaourt "spotify"
+  satisfy yaourt "enpass-bin"
+  satisfy pacman "redshift"
+  satisfy pacman "unclutter"
+  satisfy pacman "i3-wm"
+  satisfy pacman "compton"
+  satisfy pacman "rofi"
+  satisfy pacman "dunst"
+  satisfy yaourt "polybar"
+  satisfy yaourt "chromedriver"
+
+  if must-install yaourt "discord"; then
+    gpg --recv-keys 8F0871F202119294
+  fi
+  satisfy yaourt "discord"
 
   section "vim"
     satisfy pacman "vim"
@@ -199,39 +212,13 @@ section "cli tools"
     satisfy file-line "Set the window title in st" ~/.bashrc 'PROMPT_COMMAND='"'"'_terminal_title'"'"''
   end-section
 
-  satisfy yaourt "ngrok"
-  satisfy yaourt "heroku-cli"
-end-section
-
-section "apps"
-  satisfy pacman "gimp"
-  satisfy yaourt "google-chrome"
-  satisfy yaourt "peek"
-  satisfy yaourt "slack-desktop"
-  satisfy yaourt "zoom"
-  satisfy yaourt "spotify"
-  satisfy yaourt "enpass-bin"
-
-  if must-install yaourt "discord"; then
-    gpg --recv-keys 8F0871F202119294
-  fi
-  satisfy yaourt "discord"
-end-section
-
-section "services"
-  satisfy pacman "redshift"
-  satisfy pacman "unclutter"
-end-section
-
-section "fonts"
-  satisfy pacman "ttf-hack"
-  satisfy pacman "ttf-font-awesome"
-end-section
-
-section "window-manager"
-  satisfy pacman "i3-wm"
-  satisfy pacman "compton"
-  satisfy pacman "rofi"
-  satisfy pacman "dunst"
-  satisfy yaourt "polybar"
+  section "phantomjs"
+    function install-phantomjs () {
+      wget "https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2"
+      bzip2 -d "phantomjs-2.1.1-linux-x86_64.tar.bz2"
+      tar -xf "phantomjs-2.1.1-linux-x86_64.tar"
+      sudo cp "phantomjs-2.1.1-linux-x86_64/bin/phantomjs" "/usr/local/bin/phantomjs"
+    }
+    satisfy executable "phantomjs"
+  end-section
 end-section
