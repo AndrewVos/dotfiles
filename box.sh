@@ -52,8 +52,8 @@ section "dotfiles"
   mkdir -p "$HOME/.config/i3"
   satisfy symlink "$DOTFILES_PATH/i3/.config/i3/config" "$HOME/.config/i3/config"
 
-  mkdir -p "$HOME/.config/polybar"
-  satisfy symlink "$DOTFILES_PATH/polybar/.config/polybar/config" "$HOME/.config/polybar/config"
+  mkdir -p "$HOME/.config/dunst"
+  satisfy symlink "$DOTFILES_PATH/dunst/.config/dunst/dunstrc" "$HOME/.config/dunst/dunstrc"
 
   mkdir -p "$HOME/.ssh"
   satisfy symlink "$DOTFILES_PATH/ssh/.ssh/config" "$HOME/.ssh/config"
@@ -162,8 +162,9 @@ section "apps"
   satisfy pacman "compton"
   satisfy pacman "rofi"
   satisfy pacman "dunst"
-  satisfy yaourt "polybar"
+  satisfy yaourt "dunstify"
   satisfy yaourt "chromedriver"
+  satisfy pacman "acpi"
 
   if must-install yaourt "discord"; then
     gpg --recv-keys 8F0871F202119294

@@ -1,0 +1,24 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+function percentage () {
+  acpi 2>/dev/null | cut -f2 -d ',' | tr -cd '[:digit:]'
+}
+
+NORMAL_WARNING="30"
+URGENT_WARNING="10"
+LAST_PERCENTAGE=""
+
+while true; do
+  PERCENTAGE=$(percentage)
+  if [[ "$PERCENTAGE" != "$LAST_PERCENTAGE" ]]; then
+    if [[ "$PERCENTAGE" -lt "$NORMAL_WARNING" ]]; then
+      notify-send --urgency normal "Battery is below 30%"
+    elif [[ "$PERCENTAGE" -lt "$URGENT_WARNING" ]]; then
+      notify-send --urgency critical "Battery is below 10%"
+    fi
+  fi
+  sleep 1
+  LAST_PERCENTAGE=$PERCENTAGE
+done
