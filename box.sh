@@ -113,7 +113,7 @@ section "programming languages"
   section "ruby"
     satisfy yaourt "ruby-install"
     satisfy yaourt "chruby"
-    satisfy file-line "Source chruby" ~/.bashrc "source /usr/local/share/chruby/chruby.sh"
+    satisfy file-line "Source chruby" ~/.bashrc "source /usr/share/chruby/chruby.sh"
     satisfy file-line "Source chruby-auto" ~/.bashrc "source /usr/share/chruby/auto.sh"
 
     section "ruby 2.4.1"
