@@ -38,57 +38,6 @@ section "dependencies"
   end-section
 end-section
 
-section "dotfiles"
-  DOTFILES_PATH="$HOME/.dotfiles"
-  satisfy github "https://github.com/AndrewVos/dotfiles" "$DOTFILES_PATH"
-
-  satisfy symlink "$DOTFILES_PATH/libinput/etc/X11/xorg.conf.d/30-touchpad.conf" "/etc/X11/xorg.conf.d/30-touchpad.conf"
-  satisfy symlink "$DOTFILES_PATH/bash/.inputrc" "$HOME/.inputrc"
-  satisfy symlink "$DOTFILES_PATH/git/.git-template" "$HOME/.git-template"
-  satisfy symlink "$DOTFILES_PATH/git/.gitconfig" "$HOME/.gitconfig"
-  satisfy symlink "$DOTFILES_PATH/git/.gitignore" "$HOME/.gitignore"
-  satisfy symlink "$DOTFILES_PATH/screen/.screenrc" "$HOME/.screenrc"
-
-  mkdir -p "$HOME/.config/i3"
-  satisfy symlink "$DOTFILES_PATH/i3/.config/i3/config" "$HOME/.config/i3/config"
-
-  mkdir -p "$HOME/.config/dunst"
-  satisfy symlink "$DOTFILES_PATH/dunst/.config/dunst/dunstrc" "$HOME/.config/dunst/dunstrc"
-
-  mkdir -p "$HOME/.ssh"
-  satisfy symlink "$DOTFILES_PATH/ssh/.ssh/config" "$HOME/.ssh/config"
-
-  satisfy symlink "$DOTFILES_PATH/tarsnap/.tarsnaprc" "$HOME/.tarsnaprc"
-  satisfy symlink "$DOTFILES_PATH/fish" "$HOME/.config/fish"
-  satisfy symlink "$DOTFILES_PATH/ctags/.ctags" "$HOME/.ctags"
-
-  satisfy file-line "Add dotfiles scripts to PATH" ~/.bashrc "export PATH=\$PATH:$DOTFILES_PATH/scripts"
-  satisfy file-line "Setup ssh-agent" ~/.bashrc "source $DOTFILES_PATH/bash/ssh-agent.sh"
-  satisfy file-line "Setup gpg-agent" ~/.bashrc "source $DOTFILES_PATH/bash/gpg-agent.sh"
-  satisfy file-line "Use custom PS1" ~/.bashrc "source $DOTFILES_PATH/bash/ps1.sh"
-
-  satisfy file-line "Start X automatically" ~/.bash_profile 'if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then exec startx; fi'
-  satisfy file-line "Start i3 automatically" ~/.xinitrc 'exec i3'
-end-section
-
-section "bash"
-  section "miscellaneous"
-    satisfy file-line "Store a long bash history" ~/.bashrc "HISTSIZE=100000; HISTFILESIZE=2000000"
-  end-section
-
-  section "aliases"
-    satisfy file-line "Alias g to git" ~/.bashrc "alias g=git"
-    satisfy file-line "Setup g to use git completions" ~/.bashrc "complete -o default -o nospace -F _git g"
-    satisfy file-line "Source git completions" ~/.bashrc "source /usr/share/bash-completion/completions/git"
-    satisfy file-line "Alias b" ~/.bashrc "alias b='bundle exec'"
-    satisfy file-line "Alias ber" ~/.bashrc "alias ber='bundle exec rspec spec --color'"
-    satisfy file-line "Alias bec" ~/.bashrc "alias bec='bundle exec cucumber --color'"
-    satisfy file-line "Alias irb to pry" ~/.bashrc "alias irb=pry"
-    satisfy file-line "Alias ls to show color" ~/.bashrc "alias ls='ls -1 -G --color=auto'"
-    satisfy file-line "Alias ll" ~/.bashrc "alias ll='ls -ahlF --color=auto'"
-  end-section
-end-section
-
 section "databases"
   section "postgres"
     satisfy pacman "postgresql"
@@ -223,5 +172,56 @@ section "apps"
       sudo cp "phantomjs-2.1.1-linux-x86_64/bin/phantomjs" "/usr/local/bin/phantomjs"
     }
     satisfy executable "phantomjs"
+  end-section
+end-section
+
+section "dotfiles"
+  DOTFILES_PATH="$HOME/.dotfiles"
+  satisfy github "https://github.com/AndrewVos/dotfiles" "$DOTFILES_PATH"
+
+  satisfy symlink "$DOTFILES_PATH/libinput/etc/X11/xorg.conf.d/30-touchpad.conf" "/etc/X11/xorg.conf.d/30-touchpad.conf"
+  satisfy symlink "$DOTFILES_PATH/bash/.inputrc" "$HOME/.inputrc"
+  satisfy symlink "$DOTFILES_PATH/git/.git-template" "$HOME/.git-template"
+  satisfy symlink "$DOTFILES_PATH/git/.gitconfig" "$HOME/.gitconfig"
+  satisfy symlink "$DOTFILES_PATH/git/.gitignore" "$HOME/.gitignore"
+  satisfy symlink "$DOTFILES_PATH/screen/.screenrc" "$HOME/.screenrc"
+
+  mkdir -p "$HOME/.config/i3"
+  satisfy symlink "$DOTFILES_PATH/i3/.config/i3/config" "$HOME/.config/i3/config"
+
+  mkdir -p "$HOME/.config/dunst"
+  satisfy symlink "$DOTFILES_PATH/dunst/.config/dunst/dunstrc" "$HOME/.config/dunst/dunstrc"
+
+  mkdir -p "$HOME/.ssh"
+  satisfy symlink "$DOTFILES_PATH/ssh/.ssh/config" "$HOME/.ssh/config"
+
+  satisfy symlink "$DOTFILES_PATH/tarsnap/.tarsnaprc" "$HOME/.tarsnaprc"
+  satisfy symlink "$DOTFILES_PATH/fish" "$HOME/.config/fish"
+  satisfy symlink "$DOTFILES_PATH/ctags/.ctags" "$HOME/.ctags"
+
+  satisfy file-line "Add dotfiles scripts to PATH" ~/.bashrc "export PATH=\$PATH:$DOTFILES_PATH/scripts"
+  satisfy file-line "Setup ssh-agent" ~/.bashrc "source $DOTFILES_PATH/bash/ssh-agent.sh"
+  satisfy file-line "Setup gpg-agent" ~/.bashrc "source $DOTFILES_PATH/bash/gpg-agent.sh"
+  satisfy file-line "Use custom PS1" ~/.bashrc "source $DOTFILES_PATH/bash/ps1.sh"
+
+  satisfy file-line "Start X automatically" ~/.bash_profile 'if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then exec startx; fi'
+  satisfy file-line "Start i3 automatically" ~/.xinitrc 'exec i3'
+end-section
+
+section "bash"
+  section "miscellaneous"
+    satisfy file-line "Store a long bash history" ~/.bashrc "HISTSIZE=100000; HISTFILESIZE=2000000"
+  end-section
+
+  section "aliases"
+    satisfy file-line "Alias g to git" ~/.bashrc "alias g=git"
+    satisfy file-line "Setup g to use git completions" ~/.bashrc "complete -o default -o nospace -F _git g"
+    satisfy file-line "Source git completions" ~/.bashrc "source /usr/share/bash-completion/completions/git"
+    satisfy file-line "Alias b" ~/.bashrc "alias b='bundle exec'"
+    satisfy file-line "Alias ber" ~/.bashrc "alias ber='bundle exec rspec spec --color'"
+    satisfy file-line "Alias bec" ~/.bashrc "alias bec='bundle exec cucumber --color'"
+    satisfy file-line "Alias irb to pry" ~/.bashrc "alias irb=pry"
+    satisfy file-line "Alias ls to show color" ~/.bashrc "alias ls='ls -1 -G --color=auto'"
+    satisfy file-line "Alias ll" ~/.bashrc "alias ll='ls -ahlF --color=auto'"
   end-section
 end-section
