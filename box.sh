@@ -68,6 +68,7 @@ section "dotfiles"
   satisfy file-line "Use custom PS1" ~/.bashrc "source $DOTFILES_PATH/bash/ps1.sh"
 
   satisfy file-line "Start X automatically" ~/.bash_profile 'if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then exec startx; fi'
+  satisfy file-line "Start i3 automatically" ~/.xinitrc 'exec i3'
 end-section
 
 section "bash"
