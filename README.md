@@ -56,15 +56,20 @@ genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 ```
 
-### Time and timezone
+### Timezone
+
+```bash
+ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+hwclock --systohc
+```
+
+### Locale
 
 Uncomment en_US.UTF-8 UTF-8 and any localizations you need in `/etc/locale.gen`.
 
 ```bash
 locale-gen
-ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
 echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
-hwclock --systohc
 ```
 
 ### Setting up hostname
