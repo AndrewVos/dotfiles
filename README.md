@@ -7,9 +7,10 @@ my dev machines.
 
 Use [Etcher](https://etcher.io/) to make a bootable Arch Linux USB.
 
-### Connect to wireless
+### Connect to the internet
 
-`wifi-menu`
+If you're using a wired connection then it should be working already,
+otherwise just use `wifi-menu`.
 
 ### Partitioning
 
@@ -109,13 +110,30 @@ Then add this line to it:
 %wheel ALL=(ALL) ALL
 ```
 
-### Make netctl automatically connect to your wireless networks
+### Automatic network connections
+
+#### Wireless
 
 Make sure to use the correct wireless interface name by looking at `ip link`.
 In this case my interface is `wlp58s0`.
 
-```
+```bash
 sudo systemctl enable netctl-auto@wlp58s0.service
+```
+
+#### Wired
+
+Get the name of your wired interface with `ip link`.
+
+```bash
+cp /etc/netctl/examples/ethernet-dhcp /etc/netctl/ethernet-<interface_name>
+```
+
+Edit `/etc/netctl/ethernet-<interface_name>` and change the interface to whatever
+the name of your interface is.
+
+```bash
+sudo netctl enable ethernet-<interface_name>
 ```
 
 ### Install a bootloader
