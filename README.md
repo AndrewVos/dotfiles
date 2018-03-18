@@ -172,5 +172,5 @@ Then reboot:
 ## Provisioning the machine with box
 
 ```bash
-bash <(wget -o /dev/null -qO- https://raw.githubusercontent.com/AndrewVos/box-vos/master/box.sh)
+bash <(wget -o /dev/null -qO- https://raw.githubusercontent.com/AndrewVos/dotfiles/master/box.sh)
 ```
