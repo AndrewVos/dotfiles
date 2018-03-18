@@ -133,12 +133,9 @@ bindsym $mod+Shift+e exec "shutdown now"
 bindsym --release $mod+space exec --no-startup-id "rofi -combi-modi window,drun -show combi"
 bindsym --release $mod+Shift+s exec --no-startup-id "scrot /tmp/scrot.png -s -e 'xclip -selection c -t image/png $f'"
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -q sset Master 5%+ unmute"
-bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -q sset Master 5%- unmute"
-bindsym XF86AudioMute exec --no-startup-id "amixer -q sset Master toggle"
-bindsym --release XF86AudioRaiseVolume exec notify-volume
-bindsym --release XF86AudioLowerVolume exec notify-volume
-bindsym --release XF86AudioMute exec notify-volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -q sset Master 5%+ unmute && notify-volume"
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -q sset Master 5%- unmute && notify-volume"
+bindsym XF86AudioMute exec --no-startup-id "amixer -q sset Master toggle && notify-volume"
 
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
