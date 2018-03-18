@@ -41,7 +41,7 @@ swapon /dev/nvme0n1p2
 ### Installing required packages
 
 ```bash
-pacstrap /mnt base base-devel sudo wpa_supplicant dialog iw wpa_actiond alsa-utils
+pacstrap /mnt base base-devel intel-ucode sudo wpa_supplicant dialog iw wpa_actiond alsa-utils
 ```
 
 ### Setting up fstab
@@ -124,6 +124,7 @@ Create a boot entry in `/boot/loader/entries/arch.conf`:
 ```
 title          Arch Linux
 linux          /vmlinuz-linux
+initrd         /intel-ucode.img
 initrd         /initramfs-linux.img
 options        root=/dev/nvme0n1p3 rw
 ```
