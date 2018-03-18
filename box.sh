@@ -210,7 +210,6 @@ section "dotfiles"
   mkdir -p "$HOME/.ssh"
   satisfy symlink "$DOTFILES_PATH/ssh/.ssh/config" "$HOME/.ssh/config"
 
-  satisfy symlink "$DOTFILES_PATH/fish" "$HOME/.config/fish"
   satisfy symlink "$DOTFILES_PATH/ctags/.ctags" "$HOME/.ctags"
 
   satisfy file-line "Add dotfiles scripts to PATH" ~/.bashrc "export PATH=\$PATH:$DOTFILES_PATH/scripts"
