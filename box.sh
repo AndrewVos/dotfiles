@@ -157,11 +157,24 @@ section "apps"
       wget https://st.suckless.org/patches/scrollback/st-scrollback-mouse-20180311-c5ba9c0.diff
       patch -i st-scrollback-mouse-20180311-c5ba9c0.diff
 
-      sudo make clean install
-      cd ..
+      sudo make install
     }
     satisfy executable "st"
     satisfy file-line "Set the window title in st" ~/.bashrc 'PROMPT_COMMAND='"'"'_terminal_title'"'"''
+  end-section
+
+  section "slock"
+    satisfy pacman "patch"
+    function install-slock () {
+      git clone git://git.suckless.org/slock
+      cd slock
+
+      wget https://gist.githubusercontent.com/anonymous/0227cfef603cef9e26bd7d4660986943/raw/a1431e4e4de06b2814fc38d1fcd8d68bdba9ac6a/deep-space.patch
+      patch -i deep-space.patch
+
+      sudo make install
+    }
+    satisfy executable "slock"
   end-section
 
   section "phantomjs"
