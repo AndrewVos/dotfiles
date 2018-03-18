@@ -61,10 +61,10 @@ arch-chroot /mnt
 Uncomment en_US.UTF-8 UTF-8 and any localizations you need in `/etc/locale.gen`.
 
 ```bash
+locale-gen
 ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
 echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
 hwclock --systohc
-locale-gen
 ```
 
 ### Setting up hostname
