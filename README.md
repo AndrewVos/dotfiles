@@ -41,7 +41,7 @@ swapon /dev/nvme0n1p2
 ### Installing required packages
 
 ```bash
-pacstrap /mnt base base-devel intel-ucode sudo wpa_supplicant dialog iw wpa_actiond alsa-utils
+pacstrap /mnt base base-devel intel-ucode sudo ifplugd wpa_supplicant dialog iw wpa_actiond alsa-utils
 ```
 
 ### Setting up fstab
