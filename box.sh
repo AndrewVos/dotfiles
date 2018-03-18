@@ -27,11 +27,11 @@ section "dependencies"
     function install-yaourt () {
       git clone https://aur.archlinux.org/package-query.git
       cd package-query
-      makepkg -si
+      makepkg --no-confirm -si
       cd ..
       git clone https://aur.archlinux.org/yaourt.git
       cd yaourt
-      makepkg -si
+      makepkg --no-confirm -si
       cd ..
     }
     satisfy executable "yaourt"
