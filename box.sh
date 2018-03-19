@@ -206,6 +206,9 @@ section "dotfiles"
   mkdir -p "$HOME/.config/dunst"
   satisfy symlink "$DOTFILES_PATH/dunst/.config/dunst/dunstrc" "$HOME/.config/dunst/dunstrc"
 
+  mkdir -p "$HOME/.config/rofi"
+  satisfy symlink "$DOTFILES_PATH/rofi/.config/rofi/config" "$HOME/.config/rofi/config"
+
   satisfy symlink "$DOTFILES_PATH/compton/.config/compton.conf" "$HOME/.config/compton.conf"
 
   mkdir -p "$HOME/.ssh"
