@@ -90,6 +90,7 @@ end-section
 
 section "apps"
   satisfy pacman "htop"
+  satisfy yaourt "vtop"
   satisfy pacman "shellcheck"
   satisfy pacman "scrot"
   satisfy pacman "playerctl"
