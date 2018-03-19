@@ -198,7 +198,6 @@ section "dotfiles"
   satisfy symlink "$DOTFILES_PATH/git/.git-template" "$HOME/.git-template"
   satisfy symlink "$DOTFILES_PATH/git/.gitconfig" "$HOME/.gitconfig"
   satisfy symlink "$DOTFILES_PATH/git/.gitignore" "$HOME/.gitignore"
-  satisfy symlink "$DOTFILES_PATH/screen/.screenrc" "$HOME/.screenrc"
 
   mkdir -p "$HOME/.config/i3"
   satisfy symlink "$DOTFILES_PATH/i3/.config/i3/config" "$HOME/.config/i3/config"
