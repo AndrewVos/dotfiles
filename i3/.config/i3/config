@@ -86,6 +86,8 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+assign [class="zoom"] 4
+
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 exec --no-startup-id run-or-raise "2" "Google-chrome" "google-chrome-stable"
