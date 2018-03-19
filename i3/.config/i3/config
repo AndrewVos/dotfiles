@@ -88,10 +88,10 @@ bindsym $mod+a focus parent
 
 # switch to workspace
 bindsym $mod+1 workspace 1
-bindsym $mod+2 exec --no-startup-id "i3-msg workspace 2 && pgrep -c chrome && i3-msg '[class=\\"Google-chrome\\"] focus' || google-chrome-stable"
-bindsym $mod+3 exec --no-startup-id "i3-msg workspace 3 && pgrep -c Discord && i3-msg '[class=\\"discord\\"] focus' || discord"
+bindsym $mod+2 exec --no-startup-id run-or-raise "2" "Google-chrome" "google-chrome-stable"
+bindsym $mod+3 exec --no-startup-id run-or-raise "3" "discord" "discord"
 bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
+bindsym $mod+5 exec --no-startup-id run-or-raise "5" "Enpass" "enpass"
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
