@@ -213,6 +213,13 @@ section "dotfiles"
 
   satisfy symlink "$DOTFILES_PATH/ctags/.ctags" "$HOME/.ctags"
 
+  section "themes"
+    satisfy pacman "arc-gtk-theme"
+    satisfy symlink "$DOTFILES_PATH/gtk2/.gtkrc-2.0" "$HOME/.gtkrc-2.0"
+    mkdir -p "$HOME/.config/gtk-3.0"
+    satisfy symlink "$DOTFILES_PATH/gtk3/.config/gtk-3.0/settings.ini" "$HOME/.config/gtk-3.0/settings.ini"
+  end-section
+
   satisfy file-line "Add dotfiles scripts to PATH" ~/.bashrc "export PATH=\$PATH:$DOTFILES_PATH/scripts"
   satisfy file-line "Setup ssh-agent" ~/.bashrc "source $DOTFILES_PATH/bash/ssh-agent.sh"
   satisfy file-line "Setup gpg-agent" ~/.bashrc "source $DOTFILES_PATH/bash/gpg-agent.sh"
