@@ -1,7 +1,0 @@
-#!/bin/bash
-set -euo pipefail
-IFS=$'\n\t'
-
-WINDOWS_TITLE=`grep -i 'windows' /boot/grub/grub.cfg|cut -d"'" -f2`
-sudo grub-reboot "$WINDOWS_TITLE"
-sudo reboot

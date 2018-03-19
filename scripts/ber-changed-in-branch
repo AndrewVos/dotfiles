@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-set -euo pipefail
-IFS=$'\n\t'
-
-set -x
-bundle exec rspec $(git diff --name-only --diff-filter AM master... | grep _spec.rb | paste -s)
