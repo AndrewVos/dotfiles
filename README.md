@@ -136,6 +136,28 @@ the name of your interface is.
 sudo netctl enable ethernet-<interface_name>
 ```
 
+### Bluetooth
+
+```bash
+sudo pacman -S bluez bluez-utils
+```
+
+Press the pair button on your device and then inside `bluetoothctl`:
+
+```bash
+power on
+scan on
+pair <TAB_COMPLETE_DEVICE_ID>
+trust <TAB_COMPLETE_DEVICE_ID>
+connect <TAB_COMPLETE_DEVICE_ID>
+```
+
+To automatically start bluetooh add the following to `/etc/bluetooth/main.conf`:
+
+```
+AutoEnable=true
+```
+
 ### Install a bootloader
 
 ```
