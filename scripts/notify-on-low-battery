@@ -2,23 +2,51 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+LOW="30"
+CRITICAL="10"
+
+LAST_WARNED_PERCENTAGE="0"
+CURRENT_PERCENTAGE="1000"
+
 function percentage () {
   acpi 2>/dev/null | cut -f2 -d ',' | tr -cd '[:digit:]'
 }
 
-NORMAL_WARNING="30"
-URGENT_WARNING="10"
-LAST_PERCENTAGE=""
+function percentage_changed () {
+  local NEW_PERCENTAGE
+  local OLD_PERCENTAGE
+
+  NEW_PERCENTAGE="$(percentage)"
+  OLD_PERCENTAGE="$CURRENT_PERCENTAGE"
+  CURRENT_PERCENTAGE="$NEW_PERCENTAGE"
+
+  if [[ "$NEW_PERCENTAGE" -ne "$OLD_PERCENTAGE" ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+function should_warn_on () {
+  PERCENTAGE_TO_WARN_ON="$1"
+
+  if [[ "$LAST_WARNED_PERCENTAGE" -eq "$PERCENTAGE_TO_WARN_ON" ]]; then
+    return 1
+  elif [[ "$CURRENT_PERCENTAGE" -lt "$PERCENTAGE_TO_WARN_ON" ]]; then
+    LAST_WARNED_PERCENTAGE="$PERCENTAGE_TO_WARN_ON"
+    return 0
+  else
+    return 1
+  fi
+}
 
 while true; do
-  PERCENTAGE=$(percentage)
-  if [[ "$PERCENTAGE" != "$LAST_PERCENTAGE" ]]; then
-    if [[ "$PERCENTAGE" -lt "$NORMAL_WARNING" ]]; then
-      notify-send --urgency normal "Battery is below 30%"
-    elif [[ "$PERCENTAGE" -lt "$URGENT_WARNING" ]]; then
+  if percentage_changed; then
+    if should_warn_on "$CRITICAL"; then
       notify-send --urgency critical "Battery is below 10%"
+    elif should_warn_on "$LOW"; then
+      notify-send --urgency normal "Battery is below 30%"
     fi
   fi
   sleep 1
-  LAST_PERCENTAGE=$PERCENTAGE
 done
