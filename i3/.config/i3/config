@@ -118,7 +118,7 @@ bindsym --release $mod+Shift+e exec --no-startup-id "shutdown now"
 bindsym --release $mod+Shift+l exec --no-startup-id "slock"
 
 bindsym --release $mod+space exec --no-startup-id "rofi -combi-modi window,drun -show combi"
-bindsym --release $mod+Shift+s exec --no-startup-id "scrot /tmp/scrot.png -s -e 'xclip -selection c -t image/png $f'"
+bindsym $mod+Shift+s exec --no-startup-id "maim -s | xclip -selection c -t image/png"
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -q sset Master 5%+ unmute && notify-volume"
 bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -q sset Master 5%- unmute && notify-volume"

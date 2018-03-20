@@ -92,7 +92,6 @@ section "apps"
   satisfy pacman "htop"
   satisfy yaourt "vtop"
   satisfy pacman "shellcheck"
-  satisfy pacman "scrot"
   satisfy pacman "playerctl"
   satisfy yaourt "hsetroot"
   satisfy pacman "xclip"
@@ -117,6 +116,7 @@ section "apps"
   satisfy yaourt "dunstify"
   satisfy yaourt "chromedriver"
   satisfy pacman "acpi"
+  satisfy pacman "maim"
 
   if must-install yaourt "discord"; then
     gpg --recv-keys 8F0871F202119294
