@@ -8,6 +8,11 @@ CRITICAL="10"
 LAST_WARNED_PERCENTAGE="0"
 CURRENT_PERCENTAGE="1000"
 
+if [[ "$(acpi)" == "" ]]; then
+  echo "No battery detected"
+  exit 1
+fi
+
 function percentage () {
   acpi 2>/dev/null | cut -f2 -d ',' | tr -cd '[:digit:]'
 }
