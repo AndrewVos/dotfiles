@@ -17,6 +17,11 @@ function percentage () {
   acpi 2>/dev/null | cut -f2 -d ',' | tr -cd '[:digit:]'
 }
 
+function charging () {
+  acpi 2> /dev/null | grep Charging && return 0
+  return 1
+}
+
 function percentage_changed () {
   local NEW_PERCENTAGE
   local OLD_PERCENTAGE
@@ -46,7 +51,7 @@ function should_warn_on () {
 }
 
 while true; do
-  if percentage_changed; then
+  if ! charging && percentage_changed; then
     if should_warn_on "$CRITICAL"; then
       notify-send --urgency critical "Battery is below 10%"
     elif should_warn_on "$LOW"; then
