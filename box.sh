@@ -117,6 +117,7 @@ section "apps"
   satisfy yaourt "chromedriver"
   satisfy pacman "acpi"
   satisfy pacman "maim"
+  satisfy yaourt "light-git"
 
   if must-install yaourt "discord"; then
     gpg --recv-keys 8F0871F202119294
