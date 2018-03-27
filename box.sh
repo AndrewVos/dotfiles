@@ -109,8 +109,6 @@ section "apps"
   satisfy pacman "redshift"
   satisfy pacman "unclutter"
   satisfy pacman "xorg-xinit"
-  satisfy pacman "i3-wm"
-  satisfy pacman "compton"
   satisfy pacman "rofi"
   satisfy pacman "dunst"
   satisfy yaourt "dunstify"
@@ -118,6 +116,8 @@ section "apps"
   satisfy pacman "acpi"
   satisfy pacman "maim"
   satisfy yaourt "light-git"
+  satisfy pacman "bspwm"
+  satisfy pacman "sxhkd"
 
   if must-install yaourt "discord"; then
     gpg --recv-keys 8F0871F202119294
@@ -200,16 +200,17 @@ section "dotfiles"
   satisfy symlink "$DOTFILES_PATH/git/.gitconfig" "$HOME/.gitconfig"
   satisfy symlink "$DOTFILES_PATH/git/.gitignore" "$HOME/.gitignore"
 
-  mkdir -p "$HOME/.config/i3"
-  satisfy symlink "$DOTFILES_PATH/i3/.config/i3/config" "$HOME/.config/i3/config"
+  mkdir -p "$HOME/.config/sxhkd"
+  satisfy symlink "$DOTFILES_PATH/sxhkd/.config/sxhkd/sxhkdrc" "$HOME/.config/sxhkd/sxhkdrc"
+
+  mkdir -p "$HOME/.config/bspwm"
+  satisfy symlink "$DOTFILES_PATH/bspwm/.config/bspwm/bspwmrc" "$HOME/.config/bspwm/bspwmrc"
 
   mkdir -p "$HOME/.config/dunst"
   satisfy symlink "$DOTFILES_PATH/dunst/.config/dunst/dunstrc" "$HOME/.config/dunst/dunstrc"
 
   mkdir -p "$HOME/.config/rofi"
   satisfy symlink "$DOTFILES_PATH/rofi/.config/rofi/config" "$HOME/.config/rofi/config"
-
-  satisfy symlink "$DOTFILES_PATH/compton/.config/compton.conf" "$HOME/.config/compton.conf"
 
   mkdir -p "$HOME/.ssh"
   satisfy symlink "$DOTFILES_PATH/ssh/.ssh/config" "$HOME/.ssh/config"
@@ -228,8 +229,8 @@ section "dotfiles"
   satisfy file-line "Setup gpg-agent" ~/.bashrc "source $DOTFILES_PATH/bash/gpg-agent.sh"
   satisfy file-line "Use custom PS1" ~/.bashrc "source $DOTFILES_PATH/bash/ps1.sh"
 
+  satisfy file-line "Start bspwm automatically" ~/.xinitrc 'exec bspwm'
   satisfy file-line "Start X automatically" ~/.bash_profile 'if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then exec startx; fi'
-  satisfy file-line "Start i3 automatically" ~/.xinitrc 'exec i3'
 end-section
 
 section "bash"
