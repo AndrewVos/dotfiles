@@ -119,6 +119,9 @@ section "apps"
   satisfy pacman "bspwm"
   satisfy pacman "sxhkd"
 
+  satisfy yaourt "undistract-me-git"
+  satisfy file-line "Source undistract-me" ~/.bashrc 'source /etc/profile.d/undistract-me.sh'
+
   if must-install yaourt "discord"; then
     gpg --recv-keys 8F0871F202119294
   fi
