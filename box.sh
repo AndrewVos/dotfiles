@@ -118,6 +118,7 @@ section "apps"
   satisfy yaourt "light-git"
   satisfy pacman "bspwm"
   satisfy pacman "sxhkd"
+  satisfy yaourt "vbar-git"
 
   satisfy yaourt "undistract-me-git"
   satisfy file-line "Source undistract-me" ~/.bashrc 'source /etc/profile.d/undistract-me.sh'
@@ -208,6 +209,9 @@ section "dotfiles"
 
   mkdir -p "$HOME/.config/bspwm"
   satisfy symlink "$DOTFILES_PATH/bspwm/.config/bspwm/bspwmrc" "$HOME/.config/bspwm/bspwmrc"
+
+  mkdir -p "$HOME/.config/vbar"
+  satisfy symlink "$DOTFILES_PATH/vbar/.config/vbar/vbar.json" "$HOME/.config/vbar/vbar.json"
 
   mkdir -p "$HOME/.config/dunst"
   satisfy symlink "$DOTFILES_PATH/dunst/.config/dunst/dunstrc" "$HOME/.config/dunst/dunstrc"
