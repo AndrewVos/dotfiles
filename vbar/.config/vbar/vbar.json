@@ -5,56 +5,52 @@
       "font-weight: normal;",
       "font-size: 20px;",
       "text-shadow: none;",
-      "background-color: #261d18;",
-      "border: 10px solid #261d18;"
+      "background-color: #1b202a;",
+      "border: 10px solid #1b202a;"
     ],
     "block": [
       "padding-top: 5px;",
       "padding-bottom: 5px;",
       "padding-left: 10px;",
       "padding-right: 10px;",
-      "color: #b39a8f;"
+      "color: #9aa7bd;",
+      "background-color: #323c4d;"
     ],
     "menu": [
       "font-family: Hack;",
       "font-weight: normal;",
       "font-size: 20px;",
       "text-shadow: none;",
-      "background-color: #261d18;",
-      "color: #b39a8f;",
-      "border: 10px solid #261d18;"
+      "background-color: #323c4d;",
+      "color: #9aa7bd;",
+      "border: 10px solid #323c4d;"
     ],
     "menu :hover": [
-      "background-color: #30251f;",
-      "color: #b39a8f;"
+      "background-color: #232936;",
+      "color: #9aa7bd;"
     ],
     "power-off-icon": [
-      "font-family: \"Font Awesome\"",
-      "background-color: #3b2d26;"
+      "font-family: \"Font Awesome\";",
+      "background-color: #232936;"
     ],
     "battery-icon": [
-      "font-family: \"Font Awesome\"",
-      "background-color: #3b2d26;"
+      "font-family: \"Font Awesome\";",
+      "background-color: #232936;"
     ],
     "battery": [
-      "background-color: #30251f;",
       "margin-right: 10px;"
     ],
     "wireless-icon": [
-      "font-family: \"Font Awesome\"",
-      "background-color: #3b2d26;"
+      "font-family: \"Font Awesome\";",
+      "background-color: #232936;"
     ],
     "wireless": [
-      "background-color: #30251f;",
       "margin-right: 10px;"
     ],
     "date": [
-      "background-color: #30251f;",
       "margin-right: 10px;"
     ],
     "time": [
-      "background-color: #c77e64;",
-      "color: #261d18;",
       "margin-right: 0px;"
     ]
   },
@@ -78,7 +74,7 @@
     "center": [
       {
         "name": "title",
-        "text": "Welcome to vbar"
+        "command": "xprop -id $(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f 5) WM_NAME | sed -e 's/.*\"\\(.*\\)\".*/\\1/'"
       }
     ],
     "right": [
