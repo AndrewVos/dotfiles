@@ -1,1 +1,1 @@
-rofi.theme: /usr/share/rofi/themes/blue.rasi
+rofi.theme: ~/.config/rofi/nord.rasi

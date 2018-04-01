@@ -218,6 +218,7 @@ section "dotfiles"
 
   mkdir -p "$HOME/.config/rofi"
   satisfy symlink "$DOTFILES_PATH/rofi/.config/rofi/config" "$HOME/.config/rofi/config"
+  satisfy symlink "$DOTFILES_PATH/rofi/.config/rofi/nord.rasi" "$HOME/.config/rofi/nord.rasi"
 
   mkdir -p "$HOME/.ssh"
   satisfy symlink "$DOTFILES_PATH/ssh/.ssh/config" "$HOME/.ssh/config"
