@@ -3,6 +3,7 @@
 setxkbmap -option ctrl:nocaps
 hsetroot -solid "#1b202a"
 
+compton &
 dunst &
 unclutter &
 redshift &
