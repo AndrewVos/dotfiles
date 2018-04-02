@@ -44,6 +44,13 @@
     "battery": [
       "margin-right: 10px;"
     ],
+    "volume-icon": [
+      "font-family: \"Font Awesome\";",
+      "background-color: #232936;"
+    ],
+    "volume": [
+      "margin-right: 10px;"
+    ],
     "wireless-icon": [
       "font-family: \"Font Awesome\";",
       "background-color: #232936;"
@@ -86,6 +93,15 @@
       }
     ],
     "right": [
+      {
+        "name": "volume-icon",
+        "text": "",
+        "command": "volume icon"
+      },
+      {
+        "name": "volume",
+        "command": "volume percentage"
+      },
       {
         "name": "battery-icon",
         "text": ""
