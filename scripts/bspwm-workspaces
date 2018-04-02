@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+for desktop in $(bspc query --desktops --names -d .occupied); do
+  active_desktop=$(bspc query --desktops --names -d .focused)
+  if [[ "$desktop" = "$active_desktop" ]]; then
+    echo ""
+  else
+    echo ""
+  fi
+done

@@ -10,6 +10,7 @@ notify-on-low-battery &
 sxhkd &
 vbar &
 xprop -root -spy _NET_ACTIVE_WINDOW | while read -r LINE; do vbar --update title; done &
+xprop -root -spy _NET_CURRENT_DESKTOP | while read -r LINE; do vbar --update workspaces; done &
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 

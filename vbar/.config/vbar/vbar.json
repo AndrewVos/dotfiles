@@ -33,6 +33,10 @@
       "font-family: \"Font Awesome\";",
       "background-color: #232936;"
     ],
+    "workspaces": [
+      "background-color: #1b202a;",
+      "letter-spacing: 10px;"
+    ],
     "battery-icon": [
       "font-family: \"Font Awesome\";",
       "background-color: #232936;"
@@ -69,6 +73,10 @@
             "command": "systemctl poweroff"
           }
         ]
+      },
+      {
+        "name": "workspaces",
+        "command": "bspwm-workspaces"
       }
     ],
     "center": [
@@ -84,8 +92,7 @@
       },
       {
         "name": "battery",
-        "command": "acpi | cut -d, -f2 | sed 's/ //'",
-        "interval": 1
+        "tail_command": "while true; do acpi | cut -d, -f2 | sed 's/ //'; sleep 5; done"
       },
       {
         "name": "wireless-icon",
