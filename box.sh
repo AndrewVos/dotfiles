@@ -120,6 +120,7 @@ section "apps"
   satisfy pacman "sxhkd"
   satisfy yaourt "vbar-git"
   satisfy pacman "compton"
+  satisfy yaourt "xtitle"
 
   satisfy yaourt "undistract-me-git"
   satisfy file-line "Source undistract-me" ~/.bashrc 'source /etc/profile.d/undistract-me.sh'
