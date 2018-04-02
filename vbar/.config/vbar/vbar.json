@@ -38,6 +38,9 @@
       "background-color: #1b202a;",
       "letter-spacing: 10px;"
     ],
+    "title": [
+      "background-color: #1b202a;"
+    ],
     "battery-icon": [
       "font-family: \"Font Awesome\";",
       "background-color: #232936;"
