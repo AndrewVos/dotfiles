@@ -6,8 +6,7 @@
       "font-size: 20px;",
       "text-shadow: none;",
       "background-color: #1b202a;",
-      "border: 10px solid #1b202a;",
-      "border-bottom: 0;"
+      "border: 10px solid #1b202a;"
     ],
     "block": [
       "padding-top: 5px;",
