@@ -9,8 +9,9 @@ unclutter &
 redshift &
 notify-on-low-battery &
 sxhkd &
-vbar &
-xprop -root -spy _NET_CURRENT_DESKTOP | while read -r LINE; do vbar --update workspaces; done &
+vbar > /home/andrewvos/vbar.log 2>&1 &
+
+xprop -root -spy _NET_CURRENT_DESKTOP | while read -r LINE; do vbar update --block workspaces; done &
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 
