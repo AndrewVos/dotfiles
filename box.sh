@@ -73,14 +73,6 @@ section "programming languages"
       satisfy file "ruby-2.4.1" "$HOME/.rubies/ruby-2.4.1/bin/ruby"
     end-section
   end-section
-
-  section "golang"
-    satisfy file-line "Add go binaries to PATH" ~/.bashrc 'export PATH="$PATH:/usr/local/go/bin"'
-    satisfy file-line "Export GOPATH" ~/.bashrc 'export GOPATH="$HOME/gopath"'
-    satisfy file-line "Add go package binaries to PATH" ~/.bashrc 'export PATH="$GOPATH/bin:$PATH"'
-    export PATH="$PATH:/usr/local/go/bin"
-    satisfy golang "go1.9"
-  end-section
 end-section
 
 section "fonts"
