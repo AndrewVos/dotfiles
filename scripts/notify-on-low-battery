@@ -54,8 +54,10 @@ while true; do
   if ! charging && percentage_changed; then
     if should_warn_on "$CRITICAL"; then
       notify-send --urgency critical "Battery is below 10%"
+      vbar add-css --class battery --css "color: red;"
     elif should_warn_on "$LOW"; then
       notify-send --urgency normal "Battery is below 30%"
+      vbar add-css --class battery --css "color: blue;"
     fi
   fi
   sleep 1
