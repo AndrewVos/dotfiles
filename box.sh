@@ -205,7 +205,7 @@ section "dotfiles"
   satisfy symlink "$DOTFILES_PATH/bspwm/.config/bspwm/bspwmrc" "$HOME/.config/bspwm/bspwmrc"
 
   mkdir -p "$HOME/.config/vbar"
-  satisfy symlink "$DOTFILES_PATH/vbar/.config/vbar/vbar.json" "$HOME/.config/vbar/vbar.json"
+  satisfy symlink "$DOTFILES_PATH/vbar/.config/vbar/vbarrc" "$HOME/.config/vbar/vbarrc"
 
   mkdir -p "$HOME/.config/dunst"
   satisfy symlink "$DOTFILES_PATH/dunst/.config/dunst/dunstrc" "$HOME/.config/dunst/dunstrc"
