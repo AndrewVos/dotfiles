@@ -38,8 +38,7 @@ vbar add-css --class workspaces \
 	--css "letter-spacing: 10px;"
 
 vbar add-css --class title \
-	--css "background-color: #1b202a;" \
-	-css "text-overflow: ellipsis;"
+	--css "background-color: #1b202a;"
 
 vbar add-css --class battery-icon \
 	--css "font-family: \"Font Awesome\";" \
