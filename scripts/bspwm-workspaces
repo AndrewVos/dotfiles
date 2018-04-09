@@ -3,13 +3,22 @@ set -euo pipefail
 IFS=$'\n\t'
 
 all_desktops=$(bspc query --desktops --names)
-active_desktop=$(bspc query --desktops --names -d .focused)
+focused_desktop=$(bspc query --desktops --names -d .focused)
+occupied_desktop=$(bspc query --desktops --names -d .occupied | sort -nr | head -n1)
+
+last_desktop="$focused_desktop"
+if [[ "$occupied_desktop" -gt "$last_desktop" ]]; then
+  last_desktop="$occupied_desktop"
+fi
 
 for desktop in $all_desktops; do
-  if [[ "$desktop" = "$active_desktop" ]]; then
+  if [[ "$desktop" = "$focused_desktop" ]]; then
     echo -n ""
-    exit 0
   else
     echo -n ""
+  fi
+
+  if [[ "$desktop" = "$last_desktop" ]]; then
+    exit 0
   fi
 done
