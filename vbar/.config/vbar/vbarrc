@@ -30,8 +30,8 @@ vbar add-css --class "menu :hover" --css "color: #9aa7bd;"
 vbar add-css --class power-off-icon --css "font-family: \"Font Awesome\";"
 vbar add-css --class power-off-icon --css "background-color: #232936;"
 
-vbar add-css --class workspaces --css "background-color: #1b202a;"
-vbar add-css --class workspaces --css "letter-spacing: 10px;"
+vbar add-css --class desktops --css "background-color: #1b202a;"
+vbar add-css --class desktops --css "letter-spacing: 10px;"
 
 vbar add-css --class title --css "background-color: #1b202a;"
 
@@ -56,7 +56,7 @@ vbar add-css --class time --css "margin-right: 0px;"
 
 vbar add-block --left --name power-off-icon --text ""
 
-vbar add-block --left --name workspaces --command "bspwm-workspaces"
+vbar add-block --left --name desktops --command "bspwm-desktops"
 
 vbar add-menu --name power-off-icon --text "Log off" --command "bspc quit"
 vbar add-menu --name power-off-icon --text "Shut down" --command "systemctl poweroff"

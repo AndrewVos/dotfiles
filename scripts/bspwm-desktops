@@ -4,11 +4,13 @@ IFS=$'\n\t'
 
 all_desktops=$(bspc query --desktops --names)
 focused_desktop=$(bspc query --desktops --names -d .focused)
-occupied_desktop=$(bspc query --desktops --names -d .occupied | sort -nr | head -n1)
+occupied_desktop=$(bspc query --desktops --names -d .occupied | sort -nr | head -n1 || :)
 
 last_desktop="$focused_desktop"
-if [[ "$occupied_desktop" -gt "$last_desktop" ]]; then
-  last_desktop="$occupied_desktop"
+if [[ "$occupied_desktop" != "" ]]; then
+  if [[ "$occupied_desktop" -gt "$last_desktop" ]]; then
+    last_desktop="$occupied_desktop"
+  fi
 fi
 
 for desktop in $all_desktops; do
