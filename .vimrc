@@ -55,7 +55,7 @@ filetype plugin indent on
   highlight GitGutterDelete ctermfg=red
   highlight GitGutterChangeDelete ctermfg=red
 
-  command! -nargs=0 Revert :GitGutterRevertHunk
+  command! -nargs=0 Revert :GitGutterUndoHunk
 " }}}
 
 " format json {{{
