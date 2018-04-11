@@ -3,6 +3,7 @@
 set -e
 
 THEME="light-blue"
+BASE_FONT="mplus"
 
 if [[ "$THEME" = "light" ]]; then
 	BORDER="10px"
@@ -26,7 +27,7 @@ fi
 
 vbar add-css --class switch-theme --css "background-color: $ICON_BACKGROUND"
 
-vbar add-css --class bar --css "font-family: Hack;"
+vbar add-css --class bar --css "font-family: $BASE_FONT;"
 vbar add-css --class bar --css "font-weight: normal;"
 vbar add-css --class bar --css "font-size: 20px;"
 vbar add-css --class bar --css "text-shadow: none;"
@@ -40,7 +41,7 @@ vbar add-css --class block --css "padding-right: 10px;"
 vbar add-css --class block --css "color: $TEXT_FOREGROUND;"
 vbar add-css --class block --css "background-color: $TEXT_BACKGROUND;"
 
-vbar add-css --class menu --css "font-family: Hack;"
+vbar add-css --class menu --css "font-family: $BASE_FONT;"
 vbar add-css --class menu --css "font-weight: normal;"
 vbar add-css --class menu --css "font-size: 20px;"
 vbar add-css --class menu --css "text-shadow: none;"
