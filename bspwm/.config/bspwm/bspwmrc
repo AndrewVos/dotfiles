@@ -10,6 +10,7 @@ else
 	BACKGROUND="#1b202a"
 fi
 hsetroot -solid "$BACKGROUND"
+feh --bg-max ~/.dotfiles/wallpapers/nnLP9U6.png
 
 compton &
 dunst &
