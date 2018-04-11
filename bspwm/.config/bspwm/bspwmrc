@@ -1,7 +1,15 @@
 #! /bin/sh
 
 setxkbmap -option ctrl:nocaps
-hsetroot -solid "#1b202a"
+xsetroot -cursor_name left_ptr
+
+THEME="light"
+if [ "$THEME" = "light" ]; then
+	BACKGROUND="#e4dfd5"
+else
+	BACKGROUND="#1b202a"
+fi
+hsetroot -solid "$BACKGROUND"
 
 compton &
 dunst &

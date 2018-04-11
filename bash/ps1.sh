@@ -7,7 +7,7 @@ git_prompt_color () {
       return 0
     fi
   fi
-  echo -e "\033[0;37m"
+  echo -e "\033[0;30m"
 }
 
 DATE_COLOUR="\033[1;33m"

@@ -113,6 +113,7 @@ section "apps"
   satisfy yaourt "vbar-git"
   satisfy pacman "compton"
   satisfy yaourt "xtitle"
+  satisfy yaourt "sxiv"
 
   satisfy yaourt "undistract-me-git"
   satisfy file-line "Source undistract-me" ~/.bashrc 'source /etc/profile.d/undistract-me.sh'
@@ -149,13 +150,14 @@ section "apps"
       git clone git://git.suckless.org/st
       cd st
 
-      wget https://gist.githubusercontent.com/AndrewVos/e3fcdcf4b1fb839cdf2ea175db0bdbbf/raw/5eb8b23111de0ef941cf5c44dd0c7ef63c850714/deep-space.patch
-      patch -i deep-space.patch
+      wget https://gist.githubusercontent.com/AndrewVos/eed92c3b3439cf289878e71a46aec38b/raw/d746a14149359658655e2d518516cf63378db58d/forgotten.patch
+      patch -i forgotten.patch
 
-      wget https://st.suckless.org/patches/scrollback/st-scrollback-20180311-c5ba9c0.diff
-      patch -i st-scrollback-20180311-c5ba9c0.diff
-      wget https://st.suckless.org/patches/scrollback/st-scrollback-mouse-20180311-c5ba9c0.diff
-      patch -i st-scrollback-mouse-20180311-c5ba9c0.diff
+      wget https://st.suckless.org/patches/scrollback/st-scrollback-0.8.diff
+      patch -i st-scrollback-0.8.diff
+
+      wget https://st.suckless.org/patches/scrollback/st-scrollback-mouse-0.8.diff
+      patch -i st-scrollback-mouse-0.8.diff
 
       sudo make install
     }
