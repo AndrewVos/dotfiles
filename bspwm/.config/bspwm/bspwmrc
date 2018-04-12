@@ -30,3 +30,4 @@ bspc config window_gap          12
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      false
+bspc config external_rules_command "bspm-window-rules"

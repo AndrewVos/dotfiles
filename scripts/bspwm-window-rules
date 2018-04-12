@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+wid=$1
+class=$2
+instance=$3
+title=$(xtitle "$wid")
+
+if [[ "$title" = "Jitsi Meetings is sharing your screen with meet.jit.si." ]] ; then
+  echo "hidden = on"
+fi
