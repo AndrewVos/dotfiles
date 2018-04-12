@@ -36,8 +36,8 @@ vbar add-css --class bar --css "border: $BORDER solid $BACKGROUND;"
 
 vbar add-css --class block --css "padding-top: 5px;"
 vbar add-css --class block --css "padding-bottom: 5px;"
-vbar add-css --class block --css "padding-left: 10px;"
-vbar add-css --class block --css "padding-right: 10px;"
+vbar add-css --class block --css "padding-left: 5px;"
+vbar add-css --class block --css "padding-right: 5px;"
 vbar add-css --class block --css "color: $TEXT_FOREGROUND;"
 vbar add-css --class block --css "background-color: $TEXT_BACKGROUND;"
 
