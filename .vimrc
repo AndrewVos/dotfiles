@@ -15,7 +15,7 @@ cnoremap <C-A> <Home>
 " }}}
 
 " colour scheme {{{
-  colorscheme deep-space
+  colorscheme forgotten-light
 " }}}
 
 " backup to ~/.tmp {{{
