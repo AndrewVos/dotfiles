@@ -62,6 +62,10 @@ vbar add-css --class battery-icon --css "background-color: $ICON_BACKGROUND;"
 
 vbar add-css --class battery --css "margin-right: 10px;"
 
+vbar add-css --class microphone-icon --css "font-family: \"Font Awesome\";"
+vbar add-css --class microphone-icon --css "background-color: $ICON_BACKGROUND;"
+vbar add-css --class microphone-icon --css "margin-right: 10px;"
+
 vbar add-css --class volume-icon --css "font-family: \"Font Awesome\";"
 vbar add-css --class volume-icon --css "background-color: $ICON_BACKGROUND;"
 
@@ -84,6 +88,8 @@ vbar add-block --left --name switch-theme --text "" --click-command "switch-t
 vbar add-block --left --name desktops --command "bspwm-desktops"
 
 vbar add-block --center --name title --tail-command "xtitle -s"
+
+vbar add-block --right --name microphone-icon --command "microphone" --click-command "amixer -q sset Capture toggle && vbar update --name microphone-icon"
 
 vbar add-block --right --name volume-icon --command "volume icon" --click-command "amixer -q sset Master toggle && vbar update --name volume && vbar update --name volume-icon"
 

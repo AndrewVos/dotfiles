@@ -37,4 +37,3 @@ if [[ "$1" == "icon" ]]; then
 elif [[ "$1" == "percentage" ]]; then
   volume_percentage
 fi
-

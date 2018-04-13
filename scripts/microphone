@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+function volume () {
+  amixer get Capture | grep '%' | head -n 1 | cut -d '[' -f 2 | cut -d '%' -f 1
+}
+
+function is_mute () {
+  amixer get Capture | grep '%' | grep -oE '[^ ]+$' | grep off > /dev/null
+}
+
+function microphone_icon () {
+  volume=$(volume)
+  if is_mute; then
+    echo ""
+  else
+    echo ""
+  fi
+}
+
+microphone_icon
