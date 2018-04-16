@@ -58,20 +58,24 @@ vbar add-css --class desktops --css "background-color: $BACKGROUND;"
 vbar add-css --class title --css "background-color: $BACKGROUND;"
 
 vbar add-css --class battery-icon --css "font-family: \"Font Awesome\";"
+vbar add-css --class battery-icon --css "font-size: 16px;"
 vbar add-css --class battery-icon --css "background-color: $ICON_BACKGROUND;"
 
 vbar add-css --class battery --css "margin-right: 10px;"
 
 vbar add-css --class microphone-icon --css "font-family: \"Font Awesome\";"
+vbar add-css --class microphone-icon --css "font-size: 16px;"
 vbar add-css --class microphone-icon --css "background-color: $ICON_BACKGROUND;"
 vbar add-css --class microphone-icon --css "margin-right: 10px;"
 
 vbar add-css --class volume-icon --css "font-family: \"Font Awesome\";"
+vbar add-css --class volume-icon --css "font-size: 16px;"
 vbar add-css --class volume-icon --css "background-color: $ICON_BACKGROUND;"
 
 vbar add-css --class volume --css "margin-right: 10px;"
 
 vbar add-css --class wireless-icon --css "font-family: \"Font Awesome\";"
+vbar add-css --class wireless-icon --css "font-size: 16px;"
 vbar add-css --class wireless-icon --css "background-color: $ICON_BACKGROUND;"
 
 vbar add-css --class wireless --css "margin-right: 10px;"
@@ -81,6 +85,7 @@ vbar add-css --class date --css "margin-right: 10px;"
 vbar add-css --class time --css "margin-right: 10px;"
 
 vbar add-css --class power-off-icon --css "font-family: \"Font Awesome\";"
+vbar add-css --class power-off-icon --css "font-size: 16px;"
 vbar add-css --class power-off-icon --css "background-color: $ICON_BACKGROUND;"
 
 vbar add-block --left --name switch-theme --text "" --click-command "switch-theme"
@@ -95,11 +100,13 @@ vbar add-block --right --name volume-icon --command "volume icon" --click-comman
 
 vbar add-block --right --name volume --command "volume percentage"
 
-vbar add-block --right --name battery-icon --text ''
-vbar add-block --right --name battery --tail-command "while true; do acpi | cut -d, -f2 | sed 's/ //'; sleep 5; done"
+if [[ -d /proc/acpi/battery/BAT* ]]; then
+	vbar add-block --right --name battery-icon --text ''
+	vbar add-block --right --name battery --tail-command "while true; do acpi | cut -d, -f2 | sed 's/ //'; sleep 5; done"
 
-vbar add-block --right --name wireless-icon --text ""
-vbar add-block --right --name wireless --command "netctl-auto list | grep '* ' | sed 's/* //'" --interval 5
+	vbar add-block --right --name wireless-icon --text ""
+	vbar add-block --right --name wireless --command "netctl-auto list | grep '* ' | sed 's/* //'" --interval 5
+fi
 
 vbar add-block --right --name date --command "date +%d/%m" --interval 60
 vbar add-block --right --name time --command "date +%H:%M" --interval 1
