@@ -13,7 +13,6 @@ fi
 compton &
 dunst &
 unclutter &
-redshift &
 notify-on-low-battery &
 sxhkd &
 vbar start > /home/andrewvos/vbar.log 2>&1 &

@@ -115,6 +115,7 @@ section "apps"
   satisfy yaourt "sxiv"
   satisfy pacman "transset-df"
   satisfy pacman "feh"
+  satisfy yaourt "xcalib"
 
   satisfy yaourt "undistract-me-git"
   satisfy file-line "Source undistract-me" ~/.bashrc 'source /etc/profile.d/undistract-me.sh'
