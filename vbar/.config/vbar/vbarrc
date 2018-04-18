@@ -113,4 +113,5 @@ vbar add-block --right --name time --command "date +%H:%M" --interval 1
 
 vbar add-block --right --name power-off-icon --text ""
 vbar add-menu --name power-off-icon --text "Log off" --command "bspc quit"
+vbar add-menu --name power-off-icon --text "Restart" --command "systemctl reboot"
 vbar add-menu --name power-off-icon --text "Shut down" --command "systemctl poweroff"
