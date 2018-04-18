@@ -242,7 +242,7 @@ section "dotfiles"
 end-section
 
 section "wallpaper"
-  feh --bg-max ~/.dotfiles/wallpapers/nnLP9U6.png
+  feh --bg-max ~/.dotfiles/wallpapers/Zj1pTBy.png
 end-section
 
 section "bash"

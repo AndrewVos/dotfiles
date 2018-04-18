@@ -2,7 +2,7 @@
 
 set -e
 
-THEME="light-blue"
+THEME="light"
 BASE_FONT="mplus"
 
 if [[ "$THEME" = "light" ]]; then
