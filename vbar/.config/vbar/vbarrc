@@ -100,7 +100,7 @@ vbar add-block --right --name volume-icon --command "volume icon" --click-comman
 
 vbar add-block --right --name volume --command "volume percentage"
 
-if [[ -d /proc/acpi/battery/BAT* ]]; then
+if [[ -d /sys/class/power_supply/BAT0 ]]; then
 	vbar add-block --right --name battery-icon --text ''
 	vbar add-block --right --name battery --tail-command "while true; do acpi | cut -d, -f2 | sed 's/ //'; sleep 5; done"
 
