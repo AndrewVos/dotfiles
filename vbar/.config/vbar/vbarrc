@@ -90,13 +90,13 @@ vbar add-css --class power-off-icon --css "background-color: $ICON_BACKGROUND;"
 
 vbar add-block --left --name switch-theme --text "" --click-command "switch-theme"
 
-vbar add-block --left --name desktops --command "bspwm-desktops"
+vbar add-block --left --name desktops --command "vbar-desktops"
 
 vbar add-block --center --name title --tail-command "xtitle -s"
 
 vbar add-block --right --name microphone-icon --command "microphone" --click-command "amixer -q sset Capture toggle && vbar update --name microphone-icon"
 
-vbar add-block --right --name volume-icon --command "volume icon" --click-command "amixer -q sset Master toggle && vbar update --name volume && vbar update --name volume-icon"
+vbar add-block --right --name volume-icon --command "volume icon" --click-command "volume toggle"
 
 vbar add-block --right --name volume --command "volume percentage"
 
@@ -112,6 +112,6 @@ vbar add-block --right --name date --command "date +%d/%m" --interval 60
 vbar add-block --right --name time --command "date +%H:%M" --interval 1
 
 vbar add-block --right --name power-off-icon --text ""
-vbar add-menu --name power-off-icon --text "Log off" --command "bspc quit"
+vbar add-menu --name power-off-icon --text "Log off" --command "herbstclient quit"
 vbar add-menu --name power-off-icon --text "Restart" --command "systemctl reboot"
 vbar add-menu --name power-off-icon --text "Shut down" --command "systemctl poweroff"

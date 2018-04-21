@@ -36,4 +36,16 @@ if [[ "$1" == "icon" ]]; then
   volume_icon
 elif [[ "$1" == "percentage" ]]; then
   volume_percentage
+elif [[ "$1" == "up" ]]; then
+  amixer -q sset Master 5%+ unmute
+  vbar update --name volume
+  vbar update --name volume-icon
+elif [[ "$1" == "down" ]]; then
+  amixer -q sset Master 5%- unmute
+  vbar update --name volume
+  vbar update --name volume-icon
+elif [[ "$1" == "toggle" ]]; then
+  amixer -q sset Master toggle
+  vbar update --name volume
+  vbar update --name volume-icon
 fi

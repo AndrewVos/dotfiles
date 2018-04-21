@@ -2,9 +2,19 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-all_desktops=$(bspc query --desktops --names)
-focused_desktop=$(bspc query --desktops --names -d .focused)
-occupied_desktop=$(bspc query --desktops --names -d .occupied | sort -nr | head -n1 || :)
+focused_desktop=""
+occupied_desktop=""
+
+for tag in $(herbstclient tag_status); do
+  type="${tag//[0-9]/}"
+  number="${tag//[!0-9]/}"
+
+  if [[ "$type" = "#" ]]; then
+    focused_desktop="$number"
+  elif [[ "$type" = ":" ]]; then
+    occupied_desktop="$number"
+  fi
+done
 
 last_desktop="$focused_desktop"
 if [[ "$occupied_desktop" != "" ]]; then
@@ -13,7 +23,7 @@ if [[ "$occupied_desktop" != "" ]]; then
   fi
 fi
 
-for desktop in $all_desktops; do
+for desktop in $(seq 1 9); do
   if [[ "$desktop" = "$focused_desktop" ]]; then
     echo -n ""
   else

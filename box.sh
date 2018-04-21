@@ -103,19 +103,17 @@ section "apps"
   satisfy pacman "xorg-xinit"
   satisfy pacman "rofi"
   satisfy pacman "dunst"
-  satisfy yaourt "dunstify"
   satisfy yaourt "chromedriver"
   satisfy pacman "acpi"
   satisfy pacman "maim"
   satisfy yaourt "light-git"
-  satisfy pacman "bspwm"
-  satisfy pacman "sxhkd"
   satisfy pacman "compton"
   satisfy yaourt "xtitle"
   satisfy yaourt "sxiv"
   satisfy pacman "transset-df"
   satisfy pacman "feh"
   satisfy yaourt "xcalib"
+  satisfy yaourt "herbstluftwm"
 
   satisfy yaourt "undistract-me-git"
   satisfy file-line "Source undistract-me" ~/.bashrc 'source /etc/profile.d/undistract-me.sh'
@@ -202,11 +200,10 @@ section "dotfiles"
   satisfy symlink "$DOTFILES_PATH/git/.gitconfig" "$HOME/.gitconfig"
   satisfy symlink "$DOTFILES_PATH/git/.gitignore" "$HOME/.gitignore"
 
-  mkdir -p "$HOME/.config/sxhkd"
-  satisfy symlink "$DOTFILES_PATH/sxhkd/.config/sxhkd/sxhkdrc" "$HOME/.config/sxhkd/sxhkdrc"
+  satisfy symlink "$DOTFILES_PATH/x/.xinitrc" "$HOME/.xinitrc"
 
-  mkdir -p "$HOME/.config/bspwm"
-  satisfy symlink "$DOTFILES_PATH/bspwm/.config/bspwm/bspwmrc" "$HOME/.config/bspwm/bspwmrc"
+  mkdir -p "$HOME/.config/herbstluftwm"
+  satisfy symlink "$DOTFILES_PATH/herbstluftwm/.config/herbstluftwm/autostart" "$HOME/.config/herbstluftwm/autostart"
 
   mkdir -p "$HOME/.config/vbar"
   satisfy symlink "$DOTFILES_PATH/vbar/.config/vbar/vbarrc" "$HOME/.config/vbar/vbarrc"
@@ -235,14 +232,7 @@ section "dotfiles"
   satisfy file-line "Setup gpg-agent" ~/.bashrc "source $DOTFILES_PATH/bash/gpg-agent.sh"
   satisfy file-line "Use custom PS1" ~/.bashrc "source $DOTFILES_PATH/bash/ps1.sh"
 
-  satisfy file-line "Set wallpaper correctly" ~/.xinitrc '~/.fehbg'
-  satisfy file-line "Start bspwm automatically" ~/.xinitrc 'exec bspwm'
-
   satisfy file-line "Start X automatically" ~/.bash_profile 'if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then exec startx; fi'
-end-section
-
-section "wallpaper"
-  feh --bg-max ~/.dotfiles/wallpapers/Zj1pTBy.png
 end-section
 
 section "bash"
