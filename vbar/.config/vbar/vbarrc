@@ -25,7 +25,7 @@ elif [[ "$THEME" = "light-blue" ]]; then
 	TEXT_FOREGROUND="#0D2C54"
 fi
 
-vbar add-css --class switch-theme --css "background-color: $ICON_BACKGROUND"
+vbar add-css --class invert --css "background-color: $ICON_BACKGROUND"
 
 vbar add-css --class bar --css "font-family: $BASE_FONT;"
 vbar add-css --class bar --css "font-weight: normal;"
@@ -88,7 +88,7 @@ vbar add-css --class power-off-icon --css "font-family: \"Font Awesome\";"
 vbar add-css --class power-off-icon --css "font-size: 16px;"
 vbar add-css --class power-off-icon --css "background-color: $ICON_BACKGROUND;"
 
-vbar add-block --left --name switch-theme --text "" --click-command "switch-theme"
+vbar add-block --left --name invert --text "" --click-command "xrandr-invert-colors"
 
 vbar add-block --left --name desktops --command "vbar-desktops"
 
