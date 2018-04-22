@@ -98,7 +98,7 @@ vbar add-block --right --name microphone-icon --command "microphone" --click-com
 
 vbar add-block --right --name volume-icon --command "volume icon" --click-command "volume toggle"
 
-vbar add-block --right --name volume --command "volume percentage"
+vbar add-block --right --name volume --command "volume percentage" --click-command "volume toggle"
 
 if [[ -d /sys/class/power_supply/BAT0 ]]; then
 	vbar add-block --right --name battery-icon --text ''
