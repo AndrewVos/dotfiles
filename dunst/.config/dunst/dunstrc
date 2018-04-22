@@ -1,6 +1,6 @@
 [global]
     follow = keyboard
-    geometry = "420x20-30+30"
+    geometry = "420x20-30+85"
     indicate_hidden = yes
     shrink = no
     transparency = 10
