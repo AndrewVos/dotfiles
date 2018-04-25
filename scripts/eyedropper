@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+colorpicker --one-shot --short --preview | xclip -selection clipboard

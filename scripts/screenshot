@@ -2,4 +2,4 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-maim -s | xclip -selection c -t 'image/png'
+maim -s | xclip -selection clipboard -t 'image/png'

@@ -63,6 +63,11 @@ vbar add-css --class battery-icon --css "background-color: $ICON_BACKGROUND;"
 
 vbar add-css --class battery --css "margin-right: 10px;"
 
+vbar add-css --class eyedropper --css "font-family: \"Font Awesome\";"
+vbar add-css --class eyedropper --css "font-size: 16px;"
+vbar add-css --class eyedropper --css "background-color: $ICON_BACKGROUND;"
+vbar add-css --class eyedropper --css "margin-right: 10px;"
+
 vbar add-css --class microphone-icon --css "font-family: \"Font Awesome\";"
 vbar add-css --class microphone-icon --css "font-size: 16px;"
 vbar add-css --class microphone-icon --css "background-color: $ICON_BACKGROUND;"
@@ -93,6 +98,8 @@ vbar add-block --left --name invert --text "" --click-command "xrandr-invert-
 vbar add-block --left --name desktops --command "vbar-desktops"
 
 vbar add-block --center --name title --tail-command "xtitle -s"
+
+vbar add-block --right --name eyedropper --text "" --click-command "eyedropper"
 
 vbar add-block --right --name microphone-icon --command "microphone" --click-command "amixer -q sset Capture toggle && vbar update --name microphone-icon"
 
