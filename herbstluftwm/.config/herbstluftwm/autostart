@@ -30,7 +30,7 @@ hc keybind XF86AudioPrev spawn playerctl previous
 hc keybind XF86MonBrightnessUp spawn light -A 10
 hc keybind XF86MonBrightnessDown spawn light -U 10
 
-hc keybind $Mod-Shift-s spawn maim -s | xclip -selection c -t 'image/png'
+hc keybind $Mod-Shift-s spawn screenshot
 
 # basic movement
 # focusing clients
