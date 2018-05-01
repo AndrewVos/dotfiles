@@ -58,6 +58,7 @@ section "programming languages"
     satisfy file-line "Source nvm" ~/.bashrc "source /usr/share/nvm/init-nvm.sh"
     satisfy file-line "Add node_modules bin to PATH" ~/.bashrc 'export PATH="$PATH:node_modules/.bin"'
     satisfy file-line 'Add yarn binaries to PATH' ~/.bashrc 'export PATH=$PATH:~/.yarn/bin'
+    satisfy file-line "Ensure husky doesn't install git hooks" ~/.bashrc 'export HUSKY_SKIP_INSTALL=yes'
   end-section
 
   section "ruby"
