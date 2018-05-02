@@ -74,6 +74,10 @@ section "programming languages"
       satisfy file "ruby-2.4.1" "$HOME/.rubies/ruby-2.4.1/bin/ruby"
     end-section
   end-section
+
+  section "golang"
+    satisfy pacman "go"
+  end-section
 end-section
 
 section "fonts"
