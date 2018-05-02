@@ -197,6 +197,20 @@ section "apps"
     }
     satisfy executable "phantomjs"
   end-section
+
+  section "openvpn"
+    satisfy pacman "openvpn"
+    satisfy yaourt "openvpn-pia"
+    function install-pia-credentials() {
+      echo -n "PIA Username:"
+      read username
+      echo -n "PIA Password:"
+      read password
+      echo "$username" | sudo tee "/etc/openvpn-pia.conf"
+      echo "$password" | sudo tee -a "/etc/openvpn-pia.conf"
+    }
+    satisfy file "pia-credentials" "/etc/openvpn-pia.conf"
+  end-section
 end-section
 
 section "dotfiles"
