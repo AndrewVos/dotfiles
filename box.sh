@@ -77,6 +77,7 @@ section "programming languages"
 
   section "golang"
     satisfy pacman "go"
+    satisfy file-line "Add golang binaries to PATH" ~/.bashrc "export PATH=\$PATH:~/go/bin"
   end-section
 end-section
 
