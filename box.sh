@@ -226,6 +226,9 @@ section "dotfiles"
   satisfy symlink "$DOTFILES_PATH/git/.gitignore" "$HOME/.gitignore"
 
   satisfy symlink "$DOTFILES_PATH/x/.xinitrc" "$HOME/.xinitrc"
+  if [[ "$(hostname)" = "vos-thinkpad" ]]; then
+    satisfy symlink "$DOTFILES_PATH/x/.Xresources" "$HOME/.Xresources"
+  fi
 
   mkdir -p "$HOME/.config/herbstluftwm"
   satisfy symlink "$DOTFILES_PATH/herbstluftwm/.config/herbstluftwm/autostart" "$HOME/.config/herbstluftwm/autostart"
@@ -277,3 +280,23 @@ section "bash"
     satisfy file-line "Alias ll" ~/.bashrc "alias ll='ls -ahlF --color=auto'"
   end-section
 end-section
+
+if [[ "$(hostname)" = "vos-thinkpad" ]]; then
+  satisfy pacman "powertop"
+  function install-powertop-service() {
+    FILE="/etc/systemd/system/powertop.service"
+
+    sudo touch "$FILE"
+    echo "[Unit]"                                  | sudo tee -a "$FILE"
+    echo "Description=Powertop tunings"            | sudo tee -a "$FILE"
+    echo "[Service]"                               | sudo tee -a "$FILE"
+    echo "ExecStart=/usr/bin/powertop --auto-tune" | sudo tee -a "$FILE"
+    echo "RemainAfterExit=true"                    | sudo tee -a "$FILE"
+    echo "[Install]"                               | sudo tee -a "$FILE"
+    echo "WantedBy=multi-user.target"              | sudo tee -a "$FILE"
+
+    sudo systemctl enable powertop.service
+  }
+
+  satisfy file "powertop.service" "/etc/systemd/system/powertop.service"
+fi
