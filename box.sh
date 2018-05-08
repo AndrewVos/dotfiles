@@ -16,6 +16,8 @@ else
   bootstrap-box
 fi
 
+sudo pacman -Syu
+
 section "dependencies"
   satisfy pacman "git"
   satisfy pacman "curl"
