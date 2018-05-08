@@ -61,8 +61,6 @@ vbar add-css --class battery-icon --css "font-family: \"Font Awesome\";"
 vbar add-css --class battery-icon --css "font-size: 16px;"
 vbar add-css --class battery-icon --css "background-color: $ICON_BACKGROUND;"
 
-vbar add-css --class battery --css "margin-right: 10px;"
-
 vbar add-css --class eyedropper --css "font-family: \"Font Awesome\";"
 vbar add-css --class eyedropper --css "font-size: 16px;"
 vbar add-css --class eyedropper --css "background-color: $ICON_BACKGROUND;"
@@ -114,10 +112,19 @@ vbar add-block --right --name volume-icon --command "volume icon" --click-comman
 
 vbar add-block --right --name volume --command "volume percentage" --click-command "volume toggle"
 
-if [[ -d /sys/class/power_supply/BAT0 ]]; then
+if [[ -d "/sys/class/power_supply/BAT0" ]]; then
 	vbar add-block --right --name battery-icon --text ''
-	vbar add-block --right --name battery --tail-command "while true; do acpi | cut -d, -f2 | sed 's/ //'; sleep 5; done"
+	vbar add-css --class "battery-0" --css "margin-right: 0;"
+fi
+for battery_number in {0..9}; do
+	if [[ -d "/sys/class/power_supply/BAT$battery_number" ]]; then
+		vbar add-css --class "battery-$battery_number" --css "margin-right: 10px;"
 
+		vbar add-block --right --name battery --command "battery-percent $battery_number" --interval 5
+	fi
+done
+
+if [[ -d "/sys/class/power_supply/BAT0" ]]; then
 	vbar add-block --right --name wireless-icon --text ""
 	vbar add-block --right --name wireless --command "netctl-auto list | grep '* ' | sed 's/* //'" --interval 5
 fi
