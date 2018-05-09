@@ -1,4 +1,4 @@
-if [[ -f "~/.Xresources" ]]; then
+if [[ -f ~/.Xresources ]]; then
   xrdb -merge ~/.Xresources
 fi
 

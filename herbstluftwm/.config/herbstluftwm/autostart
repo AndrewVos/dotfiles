@@ -167,7 +167,7 @@ herbstclient set tree_style '╾│ ├└╼─┐'
 # or simply:
 # hc detect_monitors
 
-hc pad 0 55
+hc pad 0 35
 
 setxkbmap -option ctrl:nocaps
 
