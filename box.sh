@@ -165,8 +165,8 @@ section "apps"
       git clone git://git.suckless.org/st
       cd st
 
-      wget https://gist.githubusercontent.com/AndrewVos/eed92c3b3439cf289878e71a46aec38b/raw/d746a14149359658655e2d518516cf63378db58d/forgotten.patch
-      patch -i forgotten.patch
+      wget https://gist.githubusercontent.com/AndrewVos/09ee9e7179a2efbd7b174e6ee4fb5f98/raw/fe55dad082b42d084e1440b9deb7bd2eff8bb449/ec.patch
+      patch -i ec.patch
 
       wget https://st.suckless.org/patches/scrollback/st-scrollback-0.8.diff
       patch -i st-scrollback-0.8.diff
