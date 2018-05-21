@@ -87,6 +87,7 @@ section "fonts"
   satisfy pacman "ttf-hack"
   satisfy pacman "ttf-font-awesome"
   satisfy yaourt "mplus-font"
+  satisfy yaourt "otf-unscii-16-full"
 end-section
 
 section "apps"

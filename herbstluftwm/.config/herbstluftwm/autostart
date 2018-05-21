@@ -16,8 +16,9 @@ Mod=Mod4
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
-hc keybind $Mod-Return spawn st -f "Hack:style=Regular:size=16"
 hc keybind $Mod-d spawn rofi -combi-modi window,drun -show combi -font 'hack 16'
+# hc keybind $Mod-Return spawn st -f "Hack:style=Regular:size=16"
+hc keybind $Mod-Return spawn st -f "unscii:style=16-full:size=16"
 
 hc keybind XF86AudioRaiseVolume spawn volume up
 hc keybind XF86AudioLowerVolume spawn volume down
