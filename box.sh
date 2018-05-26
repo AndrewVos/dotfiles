@@ -88,6 +88,20 @@ section "fonts"
   satisfy pacman "ttf-font-awesome"
   satisfy yaourt "mplus-font"
   satisfy yaourt "otf-unscii-16-full"
+  satisfy pacman "noto-fonts"
+
+  function install-sub-pixel-rgb() {
+    sudo ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d
+  }
+  satisfy file "sub-pixel-rgb" "/etc/fonts/conf.d/10-sub-pixel-rgb.conf"
+
+  function install-lcdfilter-default() {
+    sudo ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d
+  }
+  satisfy file "lcdfilter-default" "/etc/fonts/conf.d/11-lcdfilter-default.conf"
+
+  mkdir -p "$HOME/.config/fontconfig"
+  satisfy symlink "$HOME/.dotfiles/fontconfig/fonts.conf" "$HOME/.config/fontconfig/fonts.conf"
 end-section
 
 section "apps"
