@@ -1,7 +1,9 @@
 #!/bin/bash
 
-# normal output
-# pactl set-card-profile 0 output:analog-stereo
-
-# hdmi output
-pactl set-card-profile 0  output:hdmi-stereo-extra1
+if grep '^connected$' /sys/class/drm/card0/*HDMI*/status; then
+  echo 'HDMI sound enabled'
+  pactl set-card-profile 0  output:hdmi-stereo-extra1
+else
+  echo 'HDMI sound disabled'
+  pactl set-card-profile 0 output:analog-stereo+input:analog-stereo
+fi
