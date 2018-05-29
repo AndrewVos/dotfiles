@@ -175,3 +175,4 @@ pkill dunst; dunst &
 pkill unclutter; unclutter &
 pkill notify-on-low-battery; notify-on-low-battery &
 pkill compton; compton &
+pkill libinput-gestures; libinput-gestures &

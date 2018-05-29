@@ -237,6 +237,7 @@ section "dotfiles"
   satisfy github "https://github.com/AndrewVos/dotfiles" "$DOTFILES_PATH"
 
   satisfy symlink "$DOTFILES_PATH/libinput/etc/X11/xorg.conf.d/30-touchpad.conf" "/etc/X11/xorg.conf.d/30-touchpad.conf"
+  satisfy symlink "$DOTFILES_PATH/libinput-gestures/libinput-gestures.conf" "$HOME/.config/libinput-gestures.conf"
   satisfy symlink "$DOTFILES_PATH/bash/.inputrc" "$HOME/.inputrc"
   satisfy symlink "$DOTFILES_PATH/git/.git-template" "$HOME/.git-template"
   satisfy symlink "$DOTFILES_PATH/git/.gitconfig" "$HOME/.gitconfig"
@@ -292,6 +293,14 @@ section "bash"
     satisfy file-line "Alias irb to pry" ~/.bashrc "alias irb=pry"
     satisfy file-line "Alias ls to show color" ~/.bashrc "alias ls='ls -1 -G --color=auto'"
     satisfy file-line "Alias ll" ~/.bashrc "alias ll='ls -ahlF --color=auto'"
+  end-section
+
+  section "touchpad gestures"
+    satisfy pacman "xdotool"
+    satisfy yaourt "libinput-gestures"
+    if did-install; then
+      sudo gpasswd -a "$USER" input
+    fi
   end-section
 end-section
 
