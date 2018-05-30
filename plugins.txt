@@ -41,3 +41,4 @@ tpope/vim-rhubarb
 kopischke/vim-fetch
 tyrannicaltoucan/vim-deep-space
 nightsense/forgotten
+AndrewVos/vim-pinata
