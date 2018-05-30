@@ -40,6 +40,7 @@ cnoremap <C-A> <Home>
   set shortmess=ITt
   set hlsearch
   set smartcase
+  set ignorecase
   set hidden
   set autowrite
   highlight Search ctermfg=black ctermbg=blue
