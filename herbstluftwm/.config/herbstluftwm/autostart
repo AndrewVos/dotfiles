@@ -32,6 +32,7 @@ hc keybind XF86MonBrightnessUp spawn light -A 10
 hc keybind XF86MonBrightnessDown spawn light -U 10
 
 hc keybind $Mod-Shift-s spawn screenshot
+hc keybind $Mod-Shift-i spawn xrandr-invert-colors
 
 # basic movement
 # focusing clients
