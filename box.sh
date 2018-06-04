@@ -251,6 +251,8 @@ section "dotfiles"
   mkdir -p "$HOME/.config/herbstluftwm"
   satisfy symlink "$DOTFILES_PATH/herbstluftwm/.config/herbstluftwm/autostart" "$HOME/.config/herbstluftwm/autostart"
 
+  satisfy symlink "$DOTFILES_PATH/compton/.compton.conf" "$HOME/.config/compton.conf"
+
   mkdir -p "$HOME/.config/dunst"
   satisfy symlink "$DOTFILES_PATH/dunst/.config/dunst/dunstrc" "$HOME/.config/dunst/dunstrc"
 
