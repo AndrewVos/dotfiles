@@ -42,3 +42,4 @@ kopischke/vim-fetch
 tyrannicaltoucan/vim-deep-space
 nightsense/forgotten
 AndrewVos/vim-pinata
+kristijanhusak/vim-js-file-import

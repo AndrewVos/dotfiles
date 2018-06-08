@@ -88,6 +88,13 @@ cnoremap <C-A> <Home>
   let g:html_indent_inctags = "p"
 " }}}
 
+" vim-js-file-import {{{
+  set wildignore+=*/node_modules/*
+  let g:js_file_import_omit_semicolon = 1
+  let g:js_file_import_no_mappings = 1
+  let g:js_file_import_sort_after_insert = 1
+" }}}
+
 " rspec {{{
   function! RunAllTests()
     compiler rspec
