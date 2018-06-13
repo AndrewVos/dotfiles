@@ -14,6 +14,7 @@ hc keyunbind --all
 Mod=Mod4
 
 hc keybind $Mod-Shift-q spawn shutdown now
+hc keybind XF86PowerOff spawn shutdown now
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 hc keybind $Mod-d spawn rofi -show drun -font 'hack 16'
