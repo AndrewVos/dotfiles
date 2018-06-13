@@ -29,8 +29,10 @@ hc keybind XF86AudioPlay spawn playerctl play-pause
 hc keybind XF86AudioNext spawn playerctl next
 hc keybind XF86AudioPrev spawn playerctl previous
 
-hc keybind XF86MonBrightnessUp spawn light -A 10
-hc keybind XF86MonBrightnessDown spawn light -U 10
+hc keybind Shift-XF86MonBrightnessUp spawn light -A 10
+hc keybind XF86MonBrightnessUp spawn light -A 4
+hc keybind Shift-XF86MonBrightnessDown spawn light -U 10
+hc keybind XF86MonBrightnessDown spawn light -U 4
 
 hc keybind $Mod-Shift-s spawn screenshot
 hc keybind $Mod-Shift-i spawn xrandr-invert-colors
