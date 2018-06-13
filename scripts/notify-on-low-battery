@@ -1,62 +1,61 @@
-#!/bin/bash
-set -euo pipefail
-IFS=$'\n\t'
+#!/usr/bin/env python
 
-LOW="30"
-CRITICAL="10"
+import re
+import subprocess
+import os
+import time
+import random
 
-LAST_WARNED_PERCENTAGE="0"
-CURRENT_PERCENTAGE="1000"
+class Notifier:
+    def __init__(self):
+        self.needs_reset = True
 
-if [[ "$(acpi)" == "" ]]; then
-  echo "No battery detected"
-  exit 1
-fi
+    def percentage(self):
+        total = 0
+        max = 0
 
-function percentage () {
-  acpi 2>/dev/null | cut -f2 -d ',' | tr -cd '[:digit:]'
-}
+        for battery in range(0, 9):
+            if os.path.isdir("/sys/class/power_supply/BAT" + str(battery)):
+                max += 100
+                process = subprocess.run(
+                        ['upower', '-i', '/org/freedesktop/UPower/devices/battery_BAT' + str(battery)],
+                        stdout=subprocess.PIPE
+                        )
+                output = str(process.stdout)
+                match = re.search('percentage:\s*([0-9]+)', output)
+                total += int(match.groups()[0])
 
-function charging () {
-  acpi 2> /dev/null | grep Charging && return 0
-  return 1
-}
+        return (total / max) * 100
 
-function percentage_changed () {
-  local NEW_PERCENTAGE
-  local OLD_PERCENTAGE
+    def charging(self):
+        for battery in range(0, 9):
+            if os.path.isdir("/sys/class/power_supply/BAT" + str(battery)):
+                process = subprocess.run(
+                        ['upower', '-i', '/org/freedesktop/UPower/devices/battery_BAT' + str(battery)],
+                        stdout=subprocess.PIPE
+                        )
+                output = str(process.stdout)
+                return re.search('state:\s*charging', output) != None
 
-  NEW_PERCENTAGE="$(percentage)"
-  OLD_PERCENTAGE="$CURRENT_PERCENTAGE"
-  CURRENT_PERCENTAGE="$NEW_PERCENTAGE"
+    def notify(self):
+        self.needs_reset = True
+        r = "{0:.4f}".format(random.random())
+        g = "{0:.4f}".format(random.random())
+        b = "{0:.4f}".format(random.random())
+        subprocess.call(["xrandr", "--output", "eDP-1", "--gamma", "{}:{}:{}".format(r, g, b)])
 
-  if [[ "$NEW_PERCENTAGE" -ne "$OLD_PERCENTAGE" ]]; then
-    return 0
-  else
-    return 1
-  fi
-}
+    def reset(self):
+        if self.needs_reset:
+            self.needs_reset = False
+            subprocess.call(["xrandr", "--output", "eDP-1", "--gamma", "1:1:1"])
 
-function should_warn_on () {
-  PERCENTAGE_TO_WARN_ON="$1"
+    def loop(self):
+        while True:
+            if self.charging() or self.percentage() >= 10:
+                self.reset()
+            else:
+                self.notify()
+            time.sleep(10)
 
-  if [[ "$LAST_WARNED_PERCENTAGE" -eq "$PERCENTAGE_TO_WARN_ON" ]]; then
-    return 1
-  elif [[ "$CURRENT_PERCENTAGE" -lt "$PERCENTAGE_TO_WARN_ON" ]]; then
-    LAST_WARNED_PERCENTAGE="$PERCENTAGE_TO_WARN_ON"
-    return 0
-  else
-    return 1
-  fi
-}
-
-while true; do
-  if ! charging && percentage_changed; then
-    if should_warn_on "$CRITICAL"; then
-      notify-send --urgency critical "Battery is below 10%"
-    elif should_warn_on "$LOW"; then
-      notify-send --urgency normal "Battery is below 30%"
-    fi
-  fi
-  sleep 1
-done
+notifier = Notifier()
+notifier.loop()
