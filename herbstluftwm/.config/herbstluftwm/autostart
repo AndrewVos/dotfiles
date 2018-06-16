@@ -181,3 +181,4 @@ pkill dunst; dunst &
 pkill unclutter; unclutter &
 pkill notify-on-low-battery; notify-on-low-battery &
 pkill compton; compton &
+pkill auto-switch-screens; auto-switch-screens &
