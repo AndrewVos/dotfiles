@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+INTERNAL_SCREEN="eDP-1"
+EXTERNAL_SCREEN="HDMI-2"
+
+if xrandr | grep "$EXTERNAL_SCREEN connected"; then
+  xrandr --output "$INTERNAL_SCREEN" --off --output "$EXTERNAL_SCREEN" --auto --primary
+  herbstclient detect_monitors
+else
+  echo "HDMI not connected, turning on laptop display"
+  xrandr --output "$EXTERNAL_SCREEN" --off --output "$INTERNAL_SCREEN" --auto --primary
+  herbstclient detect_monitors
+fi
