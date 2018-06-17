@@ -4,10 +4,11 @@ IFS=$'\n\t'
 
 INTERNAL_SCREEN="eDP-1"
 EXTERNAL_SCREEN="HDMI-2"
+EXTERNAL_SCREEN_PATH="/sys/class/drm/card0/card0-HDMI-A-2/status"
 CURRENT_SCREEN="$INTERNAL_SCREEN"
 
 function switch-screens() {
-  if xrandr | grep "$EXTERNAL_SCREEN connected" > /dev/null; then
+  if [[ $(cat "$EXTERNAL_SCREEN_PATH") = "connected" ]]; then
     NEW_SCREEN="$EXTERNAL_SCREEN"
   else
     NEW_SCREEN="$INTERNAL_SCREEN"
@@ -15,7 +16,9 @@ function switch-screens() {
 
   if [[ "$NEW_SCREEN" != "$CURRENT_SCREEN" ]]; then
     echo "Screen changed, turning off \"$CURRENT_SCREEN\", and turning on \"$NEW_SCREEN\""
-    xrandr --output "$CURRENT_SCREEN" --off --output "$NEW_SCREEN" --auto --primary
+    xrandr --output "$NEW_SCREEN" --auto --primary
+    xrandr --output "$CURRENT_SCREEN" --off
+    # xrandr --output "$CURRENT_SCREEN" --off --output "$NEW_SCREEN" --auto --primary
     herbstclient detect_monitors
     CURRENT_SCREEN="$NEW_SCREEN"
   fi
