@@ -24,7 +24,4 @@ function switch-screens() {
   fi
 }
 
-while :; do
-  switch-screens
-  sleep 1
-done
+switch-screens
