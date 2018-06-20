@@ -132,6 +132,14 @@ cp /etc/netctl/examples/ethernet-dhcp /etc/netctl/ethernet-<interface_name>
 Edit `/etc/netctl/ethernet-<interface_name>` and change the interface to whatever
 the name of your interface is.
 
+Remember to add DNS config to the profile.
+
+For CloudFlare:
+
+```
+DNS=('1.1.1.1')
+```
+
 ```bash
 sudo netctl enable ethernet-<interface_name>
 ```
