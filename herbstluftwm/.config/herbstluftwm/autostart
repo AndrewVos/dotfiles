@@ -17,8 +17,7 @@ hc keybind XF86PowerOff spawn shutdown now
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 hc keybind $Mod-d spawn rofi -show drun -font 'hack 16'
-# hc keybind $Mod-Return spawn st -f "Hack:style=Regular:size=16"
-hc keybind $Mod-Return spawn st -f "unscii:style=16-full:size=16"
+hc keybind $Mod-Return spawn "alacritty"
 
 hc keybind XF86AudioRaiseVolume spawn volume up
 hc keybind XF86AudioLowerVolume spawn volume down

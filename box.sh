@@ -143,6 +143,7 @@ section "apps"
   satisfy yaourt "rover"
   satisfy pacman "whois"
   satisfy yaourt "jq"
+  satisfy yaourt "alacritty-scrollback-git"
 
   satisfy yaourt "undistract-me-git"
   satisfy file-line "Source undistract-me" ~/.bashrc 'source /etc/profile.d/undistract-me.sh'
@@ -171,28 +172,6 @@ section "apps"
       sudo cp "hub-linux-amd64-2.3.0-pre10/bin/hub" "/usr/local/bin/hub"
     }
     satisfy executable "hub"
-  end-section
-
-  section "st"
-    satisfy pacman "patch"
-
-    function install-st() {
-      git clone git://git.suckless.org/st
-      cd st
-
-      wget https://gist.githubusercontent.com/AndrewVos/09ee9e7179a2efbd7b174e6ee4fb5f98/raw/fe55dad082b42d084e1440b9deb7bd2eff8bb449/ec.patch
-      patch -i ec.patch
-
-      wget https://st.suckless.org/patches/scrollback/st-scrollback-0.8.diff
-      patch -i st-scrollback-0.8.diff
-
-      wget https://st.suckless.org/patches/scrollback/st-scrollback-mouse-0.8.diff
-      patch -i st-scrollback-mouse-0.8.diff
-
-      sudo make install
-    }
-    satisfy executable "st"
-    satisfy file-line "Set the window title in st" ~/.bashrc 'PROMPT_COMMAND='"'"'_terminal_title'"'"''
   end-section
 
   section "slock"
@@ -251,6 +230,9 @@ section "dotfiles"
 
   mkdir -p "$HOME/.config/herbstluftwm"
   satisfy symlink "$DOTFILES_PATH/herbstluftwm/.config/herbstluftwm/autostart" "$HOME/.config/herbstluftwm/autostart"
+
+  mkdir -p "$HOME/.config/alacritty"
+  satisfy symlink "$DOTFILES_PATH/alacritty/.config/alacritty/alacritty.yml" "$HOME/.config/alacritty/alacritty.yml"
 
   satisfy symlink "$DOTFILES_PATH/compton/.compton.conf" "$HOME/.config/compton.conf"
 
