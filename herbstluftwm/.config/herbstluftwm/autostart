@@ -4,8 +4,6 @@ hc() {
     herbstclient "$@"
 }
 
-feh --no-fehbg --bg-max ~/.dotfiles/wallpapers/Zj1pTBy.png
-
 hc emit_hook reload
 
 hc keyunbind --all
@@ -169,18 +167,10 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 
-hc unlock
-
 herbstclient set tree_style '╾│ ├└╼─┐'
 
 # do multi monitor setup here, e.g.:
 # hc set_monitors 2560x1440+0+0 1920x1080+2560+0
 # or simply:
-hc detect_monitors
-
-setxkbmap -option ctrl:nocaps
-
-pkill dunst; dunst &
-pkill unclutter; unclutter &
-pkill notify-on-low-battery; notify-on-low-battery &
-pkill compton; compton &
+# hc detect_monitors
+hc unlock
