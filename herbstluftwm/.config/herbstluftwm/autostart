@@ -160,6 +160,11 @@ hc rule focus=on # normally focus new clients
 #hc rule class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)' focus=on
 hc rule class="discord" tag=3
 hc rule class="zoom" tag=4
+
+hc rule class="Enpass" tag=5
+hc rule class="Enpass-Desktop" tag=5
+hc spawn enpass
+
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
