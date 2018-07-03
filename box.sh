@@ -144,6 +144,7 @@ section "apps"
   satisfy pacman "whois"
   satisfy yaourt "jq"
   satisfy yaourt "alacritty-scrollback-git"
+  satisfy yaourt "ncpamixer-git"
 
   satisfy yaourt "undistract-me-git"
   satisfy file-line "Source undistract-me" ~/.bashrc 'source /etc/profile.d/undistract-me.sh'
