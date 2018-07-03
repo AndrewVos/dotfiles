@@ -17,6 +17,7 @@ else
 fi
 
 sudo pacman -Syu
+yaourt --noconfirm -Syua
 
 section "dependencies"
   satisfy pacman "git"
