@@ -157,6 +157,8 @@ hc rule focus=on # normally focus new clients
 # give focus to most common terminals
 #hc rule class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)' focus=on
 hc rule class="discord" tag=3
+hc spawn discord
+
 hc rule class="zoom" tag=4
 
 hc rule class="Enpass" tag=5
