@@ -10,4 +10,4 @@ compton &
 setxkbmap -option ctrl:nocaps
 xcalib ~/colours.icm || :
 feh --no-fehbg --bg-max ~/.dotfiles/wallpapers/Zj1pTBy.png
-exec herbstluftwm --locked 2>&1 > ~/herbstluftwm.log
+exec i3 2>&1 > ~/.i3.log
