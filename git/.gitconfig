@@ -10,7 +10,6 @@
   wip = commit -m 'wip [ci skip]'
 [core]
   excludesfile = ~/.gitignore
-  commentChar = ";"
 
 [format]
   pretty=format:%C(yellow)%h%Creset %s%C(red)%d%Creset %Cgreen(%cr) %C(bold blue)<%an>%Creset
