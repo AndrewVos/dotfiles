@@ -1,6 +1,8 @@
 [user]
   name = Andrew Vos
   email = andrew.vos@gmail.com
+  signingkey = EAEE27C95790CBBE
+
 [color]
   ui = true
 [alias]
@@ -33,3 +35,5 @@
 	helper = store
 [pull]
 	rebase = true
+[commit]
+	gpgsign = true
