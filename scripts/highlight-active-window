@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+function focus_window() {
+  window_id=$1
+  for transparency in $(seq 0.5 0.1 1); do
+    transset-df --id "$window_id" "$transparency" || :
+    sleep .01
+  done
+}
+
+while read -r line; do
+  window_id=$(echo "$line" | cut -d ' ' -f 5)
+  if [[ "$window_id" != "" && "$window_id" != "0x0" ]]; then
+    focus_window "$window_id" &
+  fi
+done < <(xprop -root -spy _NET_ACTIVE_WINDOW)
