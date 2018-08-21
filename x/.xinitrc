@@ -10,5 +10,5 @@ highlight-active-window &
 
 setxkbmap -option ctrl:nocaps
 xcalib ~/colours.icm || :
-feh --no-fehbg --bg-max ~/.dotfiles/wallpapers/Zj1pTBy.png
+feh --no-fehbg --bg-max ~/.dotfiles/wallpapers/pluto.jpg
 exec i3 2>&1 > ~/.i3.log
