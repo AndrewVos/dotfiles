@@ -8,14 +8,17 @@ for_window [class="^.*"] border pixel 1
 
 # launch some apps on their desktops
 assign [class="discord"] 3
-exec --no-startup-id discord
-
-assign [class="zoom"] 4
-exec --no-startup-id zoom
-
+assign [class="slack"] 3
+assign [class="Slack"] 3
 assign [class="Enpass"] 5
 assign [class="Enpass-Desktop"] 5
+assign [class="zoom"] 4
+
 exec --no-startup-id enpass
+
+exec --no-startup-id "sh -c 'sleep 5; exec discord'"
+exec --no-startup-id "sh -c 'sleep 5; exec slack'"
+exec --no-startup-id "sh -c 'sleep 5; exec zoom'"
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
