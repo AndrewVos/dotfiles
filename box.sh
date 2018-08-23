@@ -285,6 +285,16 @@ section "bash"
   end-section
 end-section
 
+section "backgrounds"
+  BACKGROUND="$HOME/.background.jpg"
+  #BACKGROUND_URL="https://i.imgur.com/tY3OiJm.jpg"
+  BACKGROUND_URL="https://i.imgur.com/vgqEbKB.jpg"
+
+  [[ -f "$BACKGROUND" ]] || wget "$BACKGROUND_URL" -O "$BACKGROUND"
+
+  feh --no-fehbg --bg-max "$BACKGROUND"
+end-section
+
 product=$(cat /sys/devices/virtual/dmi/id/product_family)
 
 if [[ "$product" = "ThinkPad T480" ]]; then
