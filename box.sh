@@ -225,6 +225,7 @@ section "dotfiles"
   satisfy symlink "$DOTFILES_PATH/git/.gitconfig" "$HOME/.gitconfig"
   satisfy symlink "$DOTFILES_PATH/git/.gitignore" "$HOME/.gitignore"
 
+  satisfy symlink "$DOTFILES_PATH/x/.Xmodmap" "$HOME/.Xmodmap"
   satisfy symlink "$DOTFILES_PATH/x/.xinitrc" "$HOME/.xinitrc"
   if [[ "$(hostname)" = "vos-thinkpad" ]]; then
     satisfy symlink "$DOTFILES_PATH/x/.Xresources" "$HOME/.Xresources"
