@@ -146,6 +146,7 @@ section "apps"
   satisfy yaourt "jq"
   satisfy yaourt "alacritty-scrollback-git"
   satisfy yaourt "ncpamixer-git"
+  satisfy pacman "xscreensaver"
 
   satisfy yaourt "undistract-me-git"
   satisfy file-line "Source undistract-me" ~/.bashrc 'source /etc/profile.d/undistract-me.sh'
@@ -230,6 +231,8 @@ section "dotfiles"
   if [[ "$(hostname)" = "vos-thinkpad" ]]; then
     satisfy symlink "$DOTFILES_PATH/x/.Xresources" "$HOME/.Xresources"
   fi
+
+  satisfy symlink "$DOTFILES_PATH/xscreensaver/.xscreensaver" "$HOME/.xscreensaver"
 
   mkdir -p "$HOME/.config/i3"
   satisfy symlink "$DOTFILES_PATH/i3/.config/i3/config" "$HOME/.config/i3/config"
