@@ -157,7 +157,6 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 exec --no-startup-id "xrdb -merge ~/.Xresources"
-exec --no-startup-id "xmodmap ~/.Xmodmap"
 exec --no-startup-id "xcalib ~/colours.icm"
 exec --no-startup-id "feh --no-fehbg --bg-max ~/.background.jpg"
 exec --no-startup-id "dunst"

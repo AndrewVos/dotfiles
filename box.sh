@@ -220,13 +220,14 @@ section "dotfiles"
   DOTFILES_PATH="$HOME/.dotfiles"
   satisfy github "https://github.com/AndrewVos/dotfiles" "$DOTFILES_PATH"
 
-  satisfy symlink "$DOTFILES_PATH/libinput/etc/X11/xorg.conf.d/30-touchpad.conf" "/etc/X11/xorg.conf.d/30-touchpad.conf"
+  satisfy symlink "$DOTFILES_PATH/X11/etc/X11/xorg.conf.d/00-keyboard.conf" "/etc/X11/xorg.conf.d/00-keyboard.conf"
+  satisfy symlink "$DOTFILES_PATH/X11/etc/X11/xorg.conf.d/30-touchpad.conf" "/etc/X11/xorg.conf.d/30-touchpad.conf"
+
   satisfy symlink "$DOTFILES_PATH/bash/.inputrc" "$HOME/.inputrc"
   satisfy symlink "$DOTFILES_PATH/git/.git-template" "$HOME/.git-template"
   satisfy symlink "$DOTFILES_PATH/git/.gitconfig" "$HOME/.gitconfig"
   satisfy symlink "$DOTFILES_PATH/git/.gitignore" "$HOME/.gitignore"
 
-  satisfy symlink "$DOTFILES_PATH/x/.Xmodmap" "$HOME/.Xmodmap"
   satisfy symlink "$DOTFILES_PATH/x/.xinitrc" "$HOME/.xinitrc"
   if [[ "$(hostname)" = "vos-thinkpad" ]]; then
     satisfy symlink "$DOTFILES_PATH/x/.Xresources" "$HOME/.Xresources"
