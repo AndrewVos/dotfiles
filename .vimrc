@@ -52,6 +52,7 @@ cnoremap <C-A> <Home>
   " Async support breaks vim rendering when you use :make with
   " unsaved changes, and autowrite enabled.
   let g:gitgutter_async=0
+  set updatetime=100
   let g:gitgutter_sign_removed = '×'
   set signcolumn=yes
 
