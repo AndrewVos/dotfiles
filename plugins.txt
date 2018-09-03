@@ -43,4 +43,5 @@ tyrannicaltoucan/vim-deep-space
 nightsense/forgotten
 AndrewVos/vim-pinata
 kristijanhusak/vim-js-file-import
+Shougo/denite.nvim
 arcticicestudio/nord-vim
