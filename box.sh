@@ -90,6 +90,7 @@ section "fonts"
   satisfy yaourt "mplus-font"
   satisfy yaourt "otf-unscii-16-full"
   satisfy pacman "noto-fonts"
+  satisfy pacman "adobe-source-code-pro-fonts"
 
   function install-sub-pixel-rgb() {
     sudo ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d

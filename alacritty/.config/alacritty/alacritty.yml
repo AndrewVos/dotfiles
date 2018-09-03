@@ -84,19 +84,19 @@ draw_bold_text_with_bright_colors: true
 font:
   # The normal (roman) font face to use.
   normal:
-    family: unscii # should be "Menlo" or something on macOS.
+    family: Source Code Pro # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
     # style: Regular
 
   # The bold font face
   bold:
-    family: unscii # should be "Menlo" or something on macOS.
+    family: Source Code Pro # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
     # style: Bold
 
   # The italic font face
   italic:
-    family: unscii # should be "Menlo" or something on macOS.
+    family: Source Code Pro # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
     # style: Italic
 
@@ -128,34 +128,34 @@ render_timer: false
 # and cursor.background colors, otherwise invert the colors of the cursor.
 custom_cursor_colors: false
 
-# Colors (Tomorrow Night Bright)
+# Colors (Nord)
 colors:
-  # Default colors
-  primary:
-    background: '0xffffff'
-    foreground: '0x474c57'
+   # Default colors
+   primary:
+     background: '0x2E3440'
+     foreground: '0xD8DEE9'
 
-  normal:
-    black:   '0x737a8a'
-    red:     '0xef6b7b'
-    green:   '0xa1d569'
-    yellow:  '0xf59335'
-    blue:    '0x4ec2e8'
-    magenta: '0xfec7cd'
-    cyan:    '0x95c1c0'
-    white:   '0xdde1e8'
+   # Normal colors
+   normal:
+     black:   '0x3B4252'
+     red:     '0xBF616A'
+     green:   '0xA3BE8C'
+     yellow:  '0xEBCB8B'
+     blue:    '0x81A1C1'
+     magenta: '0xB48EAD'
+     cyan:    '0x88C0D0'
+     white:   '0xE5E9F0'
 
-  bright:
-    black:   '0x737a8a'
-    red:     '0xef6b7b'
-    green:   '0xa1d569'
-    yellow:  '0xf59335'
-    blue:    '0x4ec2e8'
-    magenta: '0xfec7cd'
-    cyan:    '0x95c1c0'
-    white:   '0xdde1e8'
-
-  # dim:
+   # Bright colors
+   bright:
+     black:   '0x4C566A'
+     red:     '0xBF616A'
+     green:   '0xA3BE8C'
+     yellow:  '0xEBCB8B'
+     blue:    '0x81A1C1'
+     magenta: '0xB48EAD'
+     cyan:    '0x8FBCBB'
+     white:   '0xECEFF4'
 
 # Visual Bell
 #
