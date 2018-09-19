@@ -66,11 +66,11 @@ hwclock --systohc
 
 ### Locale
 
-Uncomment en_US.UTF-8 UTF-8 and any localizations you need in `/etc/locale.gen`.
+Uncomment en_US.UTF-8, en_GB.UTF-8 and any localizations you need in `/etc/locale.gen`.
 
 ```bash
 locale-gen
-echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
+echo 'LANG=en_GB.UTF-8' >> /etc/locale.conf
 ```
 
 ### Setting up hostname
