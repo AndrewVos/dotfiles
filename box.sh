@@ -145,7 +145,7 @@ section "apps"
   satisfy yaourt "rover"
   satisfy pacman "whois"
   satisfy yaourt "jq"
-  satisfy yaourt "alacritty-scrollback-git"
+  satisfy yaourt "alacritty-git"
   satisfy yaourt "ncpamixer-git"
 
   satisfy yaourt "undistract-me-git"
