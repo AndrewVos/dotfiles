@@ -8,14 +8,17 @@ for_window [class="^.*"] border pixel 1
 
 # launch some apps on their desktops
 assign [class="discord"] 3
-assign [class="slack"] 3
 assign [class="Slack"] 3
 assign [class="Enpass"] 5
 assign [class="Enpass-Desktop"] 5
 assign [class="zoom"] 4
 
-exec --no-startup-id enpass
+# stop them from stealing focus when opening initially
+no_focus [class="Slack"]
+no_focus [class="discord"]
+no_focus [class="zoom"]
 
+exec --no-startup-id enpass
 exec --no-startup-id "sh -c 'sleep 5; exec discord'"
 exec --no-startup-id "sh -c 'sleep 5; exec slack'"
 exec --no-startup-id "sh -c 'sleep 5; exec zoom'"
