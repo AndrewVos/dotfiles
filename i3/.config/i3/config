@@ -9,19 +9,18 @@ for_window [class="^.*"] border pixel 1
 # launch some apps on their desktops
 assign [class="discord"] 3
 assign [class="Slack"] 3
+assign [class="zoom"] 4
 assign [class="Enpass"] 5
 assign [class="Enpass-Desktop"] 5
-assign [class="zoom"] 4
+assign [class="Spotify"] 6
 
-# stop them from stealing focus when opening initially
-no_focus [class="Slack"]
+# stop apps from stealing focus when opening initially
+no_focus [class="Spotify"]
 no_focus [class="discord"]
-no_focus [class="zoom"]
 
 exec --no-startup-id enpass
-exec --no-startup-id "sh -c 'sleep 5; exec flatpak run com.discordapp.Discord'"
-exec --no-startup-id "sh -c 'sleep 5; exec slack'"
-exec --no-startup-id "sh -c 'sleep 5; exec zoom'"
+exec --no-startup-id spotify
+exec --no-startup-id "sh -c 'sleep 2; exec flatpak run com.discordapp.Discord'"
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
