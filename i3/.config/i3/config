@@ -19,7 +19,7 @@ no_focus [class="discord"]
 no_focus [class="zoom"]
 
 exec --no-startup-id enpass
-exec --no-startup-id "sh -c 'sleep 5; exec discord'"
+exec --no-startup-id "sh -c 'sleep 5; exec flatpak run com.discordapp.Discord'"
 exec --no-startup-id "sh -c 'sleep 5; exec slack'"
 exec --no-startup-id "sh -c 'sleep 5; exec zoom'"
 

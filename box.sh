@@ -151,11 +151,11 @@ section "apps"
   satisfy yaourt "undistract-me-git"
   satisfy file-line "Source undistract-me" ~/.bashrc 'source /etc/profile.d/undistract-me.sh'
 
-  if must-install yaourt "discord"; then
-    gpg --recv-keys 11E521D646982372EB577A1F8F0871F202119294
-    gpg --recv-keys B6C8F98282B944E3B0D5C2530FC3042E345AD05D
-  fi
-  satisfy yaourt "discord"
+  satisfy pacman "flatpak"
+  function install-discord() {
+    flatpak install --user https://flathub.org/repo/appstream/com.discordapp.Discord.flatpakref
+  }
+  satisfy executable "discord"
 
   section "vim"
     satisfy pacman "vim"
