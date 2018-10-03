@@ -20,7 +20,7 @@ no_focus [class="discord"]
 
 exec --no-startup-id enpass
 exec --no-startup-id spotify
-exec --no-startup-id "sh -c 'sleep 2; exec flatpak run com.discordapp.Discord'"
+exec --no-startup-id discord
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

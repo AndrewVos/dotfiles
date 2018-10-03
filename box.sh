@@ -153,12 +153,7 @@ section "apps"
 
   satisfy yaourt "undistract-me-git"
   satisfy file-line "Source undistract-me" ~/.bashrc 'source /etc/profile.d/undistract-me.sh'
-
-  satisfy pacman "flatpak"
-  function install-discord() {
-    flatpak install --user https://flathub.org/repo/appstream/com.discordapp.Discord.flatpakref
-  }
-  satisfy executable "discord"
+  satisfy yaourt "discord"
 
   section "vim"
     satisfy pacman "vim"
