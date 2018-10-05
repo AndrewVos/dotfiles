@@ -7,6 +7,21 @@ filetype plugin indent on
 cnoremap <C-A> <Home>
 " }}}
 
+" vim-autoformat {{{
+  let g:autoformat_autoindent = 0
+  let g:autoformat_retab = 0
+  let g:autoformat_remove_trailing_spaces = 0
+  let g:formatters_javascript = [
+        \ 'prettier',
+        \ 'eslint_local',
+        \ 'jsbeautify_javascript',
+        \ 'jscs',
+        \ 'standard_javascript',
+        \ 'xo_javascript',
+        \ ]
+  au BufWrite * :Autoformat
+" }}}
+
 " 256 colours in gnome-terminal and st {{{
   set t_8f=[38;2;%lu;%lu;%lum
   set t_8b=[48;2;%lu;%lu;%lum
