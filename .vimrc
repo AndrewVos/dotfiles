@@ -152,3 +152,27 @@ nnoremap <silent> <C-p> :<C-u>Denite
   command! -nargs=0 FocusTest call FocusTest()
   noremap tF :call RunSingleTest()<cr>
 " }}}
+
+" Indigo {{{
+function! IndigoCompletion(ArgLead, CmdLine, CursorPos)
+  let command="grep \"Scenario:\" -r features/ --line-number| awk '{print $1}' FS=\': \'"
+  if len(a:ArgLead) > 0
+    return split(system(command . "\| grep --ignore-case " . a:ArgLead), "\n")
+  else
+    return split(system(command), "\n")
+  endif
+endfunction
+
+function! IndigoRun(type, ...)
+  execute "!features/run/" . a:type . " " . join(a:000, " ")
+endfunction
+
+function! IndigoRunWebdriverBrowser(...)
+  execute "!HANG=60 HEADLESS=no features/run/webdriver-memory " . join(a:000, " ")
+endfunction
+
+command! -bang -complete=customlist,IndigoCompletion -nargs=* Memory call IndigoRun("memory", <f-args>)
+command! -bang -complete=customlist,IndigoCompletion -nargs=* DomMemory call IndigoRun("dom-memory", <f-args>)
+command! -bang -complete=customlist,IndigoCompletion -nargs=* WebdriverMemory call IndigoRun("webdriver-memory", <f-args>)
+command! -bang -complete=customlist,IndigoCompletion -nargs=* WebdriverMemoryBrowser call IndigoRunWebdriverBrowser(<f-args>)
+" }}}
