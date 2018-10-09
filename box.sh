@@ -17,6 +17,21 @@ else
 fi
 
 sudo pacman -Syu
+
+section "yaourt"
+  function install-yaourt () {
+    git clone https://aur.archlinux.org/package-query.git
+    cd package-query
+    makepkg -si
+    cd ..
+    git clone https://aur.archlinux.org/yaourt.git
+    cd yaourt
+    makepkg -si
+    cd ..
+  }
+  satisfy executable "yaourt"
+end-section
+
 yaourt --noconfirm -Syua
 
 section "dependencies"
@@ -26,19 +41,6 @@ section "dependencies"
   satisfy pacman "make"
   satisfy pacman "openssh"
   satisfy pacman "bash-completion"
-  section "yaourt"
-    function install-yaourt () {
-      git clone https://aur.archlinux.org/package-query.git
-      cd package-query
-      makepkg -si
-      cd ..
-      git clone https://aur.archlinux.org/yaourt.git
-      cd yaourt
-      makepkg -si
-      cd ..
-    }
-    satisfy executable "yaourt"
-  end-section
 end-section
 
 section "databases"
