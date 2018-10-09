@@ -231,8 +231,6 @@ section "dotfiles"
     satisfy symlink "$DOTFILES_PATH/x/.Xresources" "$HOME/.Xresources"
   fi
 
-  satisfy symlink "$DOTFILES_PATH/xscreensaver/.xscreensaver" "$HOME/.xscreensaver"
-
   mkdir -p "$HOME/.config/i3"
   satisfy symlink "$DOTFILES_PATH/i3/.config/i3/config" "$HOME/.config/i3/config"
 
@@ -294,7 +292,7 @@ section "backgrounds"
 
   [[ -f "$BACKGROUND" ]] || wget "$BACKGROUND_URL" -O "$BACKGROUND"
 
-  feh --no-fehbg --bg-max "$BACKGROUND"
+  feh --no-fehbg --bg-max "$BACKGROUND" || :
 end-section
 
 product=$(cat /sys/devices/virtual/dmi/id/product_family)
