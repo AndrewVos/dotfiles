@@ -86,30 +86,6 @@ section "programming languages"
   end-section
 end-section
 
-section "fonts"
-  satisfy pacman "ttf-hack"
-  satisfy pacman "ttf-font-awesome"
-  satisfy yaourt "mplus-font"
-  satisfy yaourt "otf-unscii-16-full"
-  satisfy pacman "noto-fonts"
-  satisfy pacman "adobe-source-code-pro-fonts"
-  satisfy pacman "ttf-ubuntu-font-family"
-  satisfy yaourt "ttf-material-icons"
-
-  function install-sub-pixel-rgb() {
-    sudo ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d
-  }
-  satisfy file "sub-pixel-rgb" "/etc/fonts/conf.d/10-sub-pixel-rgb.conf"
-
-  function install-lcdfilter-default() {
-    sudo ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d
-  }
-  satisfy file "lcdfilter-default" "/etc/fonts/conf.d/11-lcdfilter-default.conf"
-
-  mkdir -p "$HOME/.config/fontconfig"
-  satisfy symlink "$HOME/.dotfiles/fontconfig/fonts.conf" "$HOME/.config/fontconfig/fonts.conf"
-end-section
-
 section "apps"
   satisfy pacman "htop"
   satisfy yaourt "vtop"
@@ -273,6 +249,30 @@ section "dotfiles"
   satisfy file-line "Source yarn completion" ~/.bashrc "source $DOTFILES_PATH/yarn/yarn-completion.sh"
 
   satisfy file-line "Start X automatically" ~/.bash_profile 'if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then exec startx &> /dev/null; fi'
+end-section
+
+section "fonts"
+  satisfy pacman "ttf-hack"
+  satisfy pacman "ttf-font-awesome"
+  satisfy yaourt "mplus-font"
+  satisfy yaourt "otf-unscii-16-full"
+  satisfy pacman "noto-fonts"
+  satisfy pacman "adobe-source-code-pro-fonts"
+  satisfy pacman "ttf-ubuntu-font-family"
+  satisfy yaourt "ttf-material-icons"
+
+  function install-sub-pixel-rgb() {
+    sudo ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d
+  }
+  satisfy file "sub-pixel-rgb" "/etc/fonts/conf.d/10-sub-pixel-rgb.conf"
+
+  function install-lcdfilter-default() {
+    sudo ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d
+  }
+  satisfy file "lcdfilter-default" "/etc/fonts/conf.d/11-lcdfilter-default.conf"
+
+  mkdir -p "$HOME/.config/fontconfig"
+  satisfy symlink "$HOME/.dotfiles/fontconfig/fonts.conf" "$HOME/.config/fontconfig/fonts.conf"
 end-section
 
 section "bash"
