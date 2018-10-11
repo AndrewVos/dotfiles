@@ -261,6 +261,11 @@ section "fonts"
   satisfy pacman "ttf-ubuntu-font-family"
   satisfy yaourt "ttf-material-icons"
 
+  function install-no-bitmaps() {
+    sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
+  }
+  satisfy file "no-bitmaps" "/etc/fonts/conf.d/70-no-bitmaps.conf"
+
   function install-sub-pixel-rgb() {
     sudo ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d
   }
