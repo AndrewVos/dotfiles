@@ -261,6 +261,21 @@ section "fonts"
   satisfy pacman "ttf-ubuntu-font-family"
   satisfy yaourt "ttf-material-icons"
 
+  # from https://aur.archlinux.org/packages/ttf-google-fonts-git/
+  satisfy yaourt "noto-fonts-extra"
+  satisfy yaourt "ttf-croscore"
+  satisfy yaourt "ttf-fira-mono"
+  satisfy yaourt "ttf-fira-sans"
+  satisfy yaourt "ttf-inconsolata"
+  satisfy yaourt "ttf-merriweather"
+  satisfy yaourt "ttf-merriweather-sans"
+  satisfy yaourt "ttf-opensans"
+  satisfy yaourt "ttf-oswald"
+  satisfy yaourt "ttf-quintessential"
+  satisfy yaourt "ttf-roboto"
+  satisfy yaourt "ttf-signika"
+  satisfy yaourt "ttf-ubuntu-font-family"
+
   function install-no-bitmaps() {
     sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
   }
