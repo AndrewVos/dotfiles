@@ -1,0 +1,300 @@
+# xresources
+# private-internet-access login.conf
+# remove before-install
+# thinkpad-specific
+
+system:
+  - name: upgrade pacman
+    dependencies:
+      - type: exec
+        command: sudo pacman -Syu
+  - name: yaourt-upgrade
+    dependencies:
+      - type: exec
+        command: yaourt --noconfirm -Syua
+  - name: miscellaneous
+    dependencies:
+      - type: packages
+        packages:
+          - git
+          - curl
+          - wget
+          - make
+          - openssh
+          - bash-completion
+  - name: postgres
+    dependencies:
+      - type: packages
+        packages:
+          - postgres
+    after-install: |
+      sudo su postgres -c "initdb --locale $LANG -E UTF8 -D /var/lib/postgres/data"
+      sudo systemctl start postgresql.service
+      sudo systemctl enable postgresql.service
+      sudo su postgres -c "createuser -s $USER"
+  - name: redis
+    dependencies:
+      - type: packages
+        packages:
+          - redis
+  - name: nodejs
+    dependencies:
+      - type: aur
+        packages:
+          - nvm
+          - yarn
+      - type: file-line
+        description: Source nvm
+        file: ~/.bashrc
+        line: source /usr/share/nvm/init-nvm.sh
+      - type: file-line
+        description: Add node_modules bin to PATH
+        file: ~/.bashrc
+        line: export PATH="$PATH:node_modules/.bin"
+      - type: file-line
+        description: Ensure husky doesn't install git hooks
+        file: ~/.bashrc
+        line: export HUSKY_SKIP_INSTALL=yes
+  - name: ruby
+    dependencies:
+      - type: aur
+        packages:
+          - ruby-install
+          - chruby
+      - type: file-line
+        description: Source chruby
+        file: ~/.bashrc
+        line: source /usr/share/chruby/chruby.sh
+      - type: file-line
+        description: Source chruby-auto
+        file: ~/.bashrc
+        line: source /usr/share/chruby/auto.sh
+      - type: file
+        path: ~/.rubies/ruby-2.4.1/bin/ruby
+        install: |
+          ruby-install ruby-2.4.1
+  - name: golang
+    dependencies:
+      - type: packages
+        packages:
+          - go
+      - type: file-line
+        description: Add golang binaries to PATH
+        file: ~/.bashrc
+        line: export PATH=\$PATH:~/go/bin
+  - name: apps
+    dependencies:
+      - type: packages
+        packages:
+          - htop
+          - shellcheck
+          - playerctl
+          - xclip
+          - aws-cli
+          - krita
+          - unclutter
+          - xorg-xinit
+          - rofi
+          - dunst
+          - acpi
+          - maim
+          - compton
+          - feh
+          - i3-wm
+          - mpv
+          - whois
+      - type: aur
+        packages:
+          - light-git
+          - vtop
+          - hsetroot
+          - tmate
+          - ngrok
+          - heroku-cli
+          - google-chrome
+          - peek
+          - slack-desktop
+          - zoom
+          - spotify
+          - spotifywm-git
+          - enpass-bin
+          - chromedriver
+          - xtitle
+          - sxiv
+          - xcalib
+          - xrandr-invert-colors
+          - colorpicker
+          - webtorrent-desktop
+          - rover
+          - jq
+          - alacritty-git
+          - ncpamixer-git
+          - discord
+  - name: undistract-me
+    dependencies:
+      - type: aur
+        packages:
+          - undistract-me-git
+      - type: file-line
+        description: Source undistract-me
+        file: ~/.bashrc
+        line: source /etc/profile.d/undistract-me.sh
+  - name: vim
+    dependencies:
+      - type: packages
+        packages:
+          - vim
+          - ctags
+      - type: file-line
+        description: Make vim the default EDITOR
+        file: ~/.bashrc
+        line: export EDITOR=vim
+      - type: git-repository
+        url: https://github.com/AndrewVos/vimfiles
+        local-path: ~/.vimfiles
+      - type: symlink
+        links:
+          - from: ~/.vimfiles/.vimrc
+            to: ~/.vimrc
+          - from: ~/.vimfiles/.vim
+            to: ~/.vim
+  - name: hub
+    dependencies:
+      - type: file
+        path: /usr/local/bin/hub
+        install: |
+          wget -O hub.tgz "https://github.com/github/hub/releases/download/v2.3.0-pre10/hub-linux-amd64-2.3.0-pre10.tgz"
+          tar -xvzf hub.tgz
+          sudo cp "hub-linux-amd64-2.3.0-pre10/bin/hub" "/usr/local/bin/hub"
+  - name: phantomjs
+    dependencies:
+      - type: file
+        path: /usr/local/bin/phantomjs
+        install: |
+          wget "https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2"
+          bzip2 -d "phantomjs-2.1.1-linux-x86_64.tar.bz2"
+          tar -xf "phantomjs-2.1.1-linux-x86_64.tar"
+          sudo cp "phantomjs-2.1.1-linux-x86_64/bin/phantomjs" "/usr/local/bin/phantomjs"
+  - name: vpn
+    dependencies:
+      - type: packages
+        packages:
+          - openvpn
+      - type: aur
+        packages:
+          - private-internet-access-vpn
+  - name: dotfiles
+    dependencies:
+      - type: symlinks
+        links:
+          - from: ~/.dotfiles/X11/etc/X11/xorg.conf.d/00-keyboard.conf
+            to: /etc/X11/xorg.conf.d/00-keyboard.conf
+          - from: ~/.dotfiles/X11/etc/X11/xorg.conf.d/30-touchpad.conf
+            to: /etc/X11/xorg.conf.d/30-touchpad.conf
+          - from: ~/.dotfiles/bash/.inputrc
+            to: ~/.inputrc
+          - from: ~/.dotfiles/git/.git-template
+            to: ~/.git-template
+          - from: ~/.dotfiles/git/.gitconfig
+            to: ~/.gitconfig
+          - from: ~/.dotfiles/git/.gitignore
+            to: ~/.gitignore
+          - from: ~/.dotfiles/x/.xinitrc
+            to: ~/.xinitrc
+          - from: ~/.dotfiles/i3/.config/i3/config
+            to: ~/.config/i3/config
+            before-install: mkdir -p ~/.config/i3
+          - from: ~/.dotfiles/alacritty/.config/alacritty/alacritty.yml
+            to: ~/.config/alacritty/alacritty.yml
+            before-install: mkdir -p ~/.config/alacritty
+          - from: ~/.dotfiles/compton/.compton.conf
+            to: ~/.config/compton.conf
+          - from: ~/.dotfiles/dunst/.config/dunst/dunstrc
+            to: ~/.config/dunst/dunstrc
+            before-install: mkdir -p ~/.config/dunst
+          - from: ~/.dotfiles/rofi/.config/rofi/config
+            to: ~/.config/rofi/config
+            before-install: mkdir -p ~/.config/rofi
+          - from: ~/.dotfiles/rofi/.config/rofi/nord.rasi
+            to: ~/.config/rofi/nord.rasi
+            before-install: mkdir -p ~/.config/rofi
+          - from: ~/.dotfiles/ssh/.ssh/config
+            to: ~/.ssh/config
+            before-install: mkdir -p ~/.ssh
+          - from: ~/.dotfiles/ctags/.ctags
+            to: ~/.ctags
+      - type: file-lines
+        - description: Add dotfiles scripts to PATH
+          path: ~/.bashrc
+          line: export PATH=\$PATH:~/.dotfiles/scripts"
+        - description: Setup ssh-agent
+          path: ~/.bashrc
+          line: source ~/.dotfiles/bash/ssh-agent.sh"
+        - description: Setup gpg-agent
+          path: ~/.bashrc
+          line: source ~/.dotfiles/bash/gpg-agent.sh"
+        - description: Use custom PS1
+          path: ~/.bashrc
+          line: source ~/.dotfiles/bash/ps1.sh"
+        - description: Source yarn completion
+          path: ~/.bashrc
+          line: source ~/.dotfiles/yarn/yarn-completion.sh"
+        - description: Start X automatically
+          path: ~/.bash_profile
+          line: if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then exec startx &> /dev/null; fi
+  - name: themes
+    dependencies:
+      - type: packages
+        packages:
+          - arc-gtk-theme
+      - type: symlinks
+        links:
+          - from: ~/.dotfiles/gtk2/.gtkrc-2.0
+            to: ~/.gtkrc-2.0
+          - from: ~/.dotfiles/gtk3/.config/gtk-3.0/settings.ini
+            to: ~/.config/gtk-3.0/settings.ini
+            before-install: mkdir -p ~/.config/gtk-3.0
+  - name: fonts
+    dependencies:
+      - type: packages
+        packages:
+          - ttf-hack
+          - ttf-font-awesome
+          - noto-fonts
+          - adobe-source-code-pro-fonts
+          - ttf-ubuntu-font-family
+      - type: aur
+        packages:
+          - mplus-font
+          - otf-unscii-16-full
+          - ttf-material-icons
+          - noto-fonts-extra
+          - ttf-croscore
+          - ttf-fira-mono
+          - ttf-fira-sans
+          - ttf-inconsolata
+          - ttf-merriweather
+          - ttf-merriweather-sans
+          - ttf-opensans
+          - ttf-oswald
+          - ttf-quintessential
+          - ttf-roboto
+          - ttf-signika
+          - ttf-ubuntu-font-family
+      - type: symlinks
+        links:
+          - from: /etc/fonts/conf.avail/70-no-bitmaps.conf
+            to: /etc/fonts/conf.d/70-no-bitmaps.conf
+          - from: /etc/fonts/conf.avail/10-sub-pixel-rgb.conf
+            to: /etc/fonts/conf.d/10-sub-pixel-rgb.conf
+          - from: /etc/fonts/conf.avail/11-lcdfilter-default.conf
+            to: /etc/fonts/conf.d/11-lcdfilter-default.conf
+          - from: ~/.dotfiles/fontconfig/fonts.conf
+            to: ~/.config/fontconfig/fonts.conf
+            before-install: mkdir -p ~/.config/fontconfig
+  - name: backgrounds
+    dependencies:
+      - type: download
+        url: https://i.imgur.com/vgqEbKB.jpg
+        path: ~/.background.jpg
+        after-install: feh --no-fehbg --bg-max ~/.background.jpg
