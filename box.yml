@@ -43,32 +43,31 @@ system:
         packages:
           - nvm
           - yarn
-      - type: file-line
-        description: Source nvm
-        file: ~/.bashrc
-        line: source /usr/share/nvm/init-nvm.sh
-      - type: file-line
-        description: Add node_modules bin to PATH
-        file: ~/.bashrc
-        line: export PATH="$PATH:node_modules/.bin"
-      - type: file-line
-        description: Ensure husky doesn't install git hooks
-        file: ~/.bashrc
-        line: export HUSKY_SKIP_INSTALL=yes
+      - type: file-lines
+        lines:
+          - description: Source nvm
+            file: ~/.bashrc
+            line: source /usr/share/nvm/init-nvm.sh
+          - description: Add node_modules bin to PATH
+            file: ~/.bashrc
+            line: export PATH="$PATH:node_modules/.bin"
+          - description: Ensure husky doesn't install git hooks
+            file: ~/.bashrc
+            line: export HUSKY_SKIP_INSTALL=yes
   - name: ruby
     dependencies:
       - type: aur
         packages:
           - ruby-install
           - chruby
-      - type: file-line
-        description: Source chruby
-        file: ~/.bashrc
-        line: source /usr/share/chruby/chruby.sh
-      - type: file-line
-        description: Source chruby-auto
-        file: ~/.bashrc
-        line: source /usr/share/chruby/auto.sh
+      - type: file-lines
+        lines:
+          - description: Source chruby
+            file: ~/.bashrc
+            line: source /usr/share/chruby/chruby.sh
+          - description: Source chruby-auto
+            file: ~/.bashrc
+            line: source /usr/share/chruby/auto.sh
       - type: file
         path: ~/.rubies/ruby-2.4.1/bin/ruby
         install: |
@@ -78,10 +77,11 @@ system:
       - type: packages
         packages:
           - go
-      - type: file-line
-        description: Add golang binaries to PATH
-        file: ~/.bashrc
-        line: export PATH=\$PATH:~/go/bin
+      - type: file-lines
+        lines:
+          - description: Add golang binaries to PATH
+            file: ~/.bashrc
+            line: export PATH=\$PATH:~/go/bin
   - name: apps
     dependencies:
       - type: packages
@@ -135,20 +135,22 @@ system:
       - type: aur
         packages:
           - undistract-me-git
-      - type: file-line
-        description: Source undistract-me
-        file: ~/.bashrc
-        line: source /etc/profile.d/undistract-me.sh
+      - type: file-lines
+        lines:
+          - description: Source undistract-me
+            file: ~/.bashrc
+            line: source /etc/profile.d/undistract-me.sh
   - name: vim
     dependencies:
       - type: packages
         packages:
           - vim
           - ctags
-      - type: file-line
-        description: Make vim the default EDITOR
-        file: ~/.bashrc
-        line: export EDITOR=vim
+      - type: file-lines
+        lines:
+          - description: Make vim the default EDITOR
+            file: ~/.bashrc
+            line: export EDITOR=vim
       - type: git-repository
         url: https://github.com/AndrewVos/vimfiles
         local-path: ~/.vimfiles
