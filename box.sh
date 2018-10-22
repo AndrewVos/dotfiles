@@ -60,17 +60,11 @@ section "programming languages"
   section "nodejs"
     satisfy yaourt "nvm"
     satisfy yaourt "yarn"
-    satisfy file-line "Source nvm" ~/.bashrc "source /usr/share/nvm/init-nvm.sh"
-    satisfy file-line "Add node_modules bin to PATH" ~/.bashrc 'export PATH="$PATH:node_modules/.bin"'
-    satisfy file-line 'Add yarn binaries to PATH' ~/.bashrc 'export PATH=$PATH:~/.yarn/bin'
-    satisfy file-line "Ensure husky doesn't install git hooks" ~/.bashrc 'export HUSKY_SKIP_INSTALL=yes'
   end-section
 
   section "ruby"
     satisfy yaourt "ruby-install"
     satisfy yaourt "chruby"
-    satisfy file-line "Source chruby" ~/.bashrc "source /usr/share/chruby/chruby.sh"
-    satisfy file-line "Source chruby-auto" ~/.bashrc "source /usr/share/chruby/auto.sh"
 
     section "ruby 2.4.1"
       function install-ruby-2-4-1 () {
@@ -82,7 +76,6 @@ section "programming languages"
 
   section "golang"
     satisfy pacman "go"
-    satisfy file-line "Add golang binaries to PATH" ~/.bashrc "export PATH=\$PATH:~/go/bin"
   end-section
 end-section
 
@@ -128,14 +121,11 @@ section "apps"
   satisfy yaourt "jq"
   satisfy yaourt "alacritty-git"
   satisfy yaourt "ncpamixer-git"
-
   satisfy yaourt "undistract-me-git"
-  satisfy file-line "Source undistract-me" ~/.bashrc 'source /etc/profile.d/undistract-me.sh'
   satisfy yaourt "discord"
 
   section "vim"
     satisfy pacman "vim"
-    satisfy file-line "Make vim the default EDITOR" ~/.bashrc 'export EDITOR=vim'
     satisfy pacman "ctags"
 
     satisfy github "https://github.com/AndrewVos/vimfiles" "$HOME/.vimfiles"
@@ -230,11 +220,7 @@ section "dotfiles"
     satisfy pacman "arc-gtk-theme"
   end-section
 
-  satisfy file-line "Add dotfiles scripts to PATH" ~/.bashrc "export PATH=\$PATH:$DOTFILES_PATH/scripts"
-  satisfy file-line "Setup ssh-agent" ~/.bashrc "source $DOTFILES_PATH/bash/init/ssh-agent.sh"
-  satisfy file-line "Setup gpg-agent" ~/.bashrc "source $DOTFILES_PATH/bash/init/gpg-agent.sh"
-  satisfy file-line "Use custom PS1" ~/.bashrc "source $DOTFILES_PATH/bash/init/ps1.sh"
-  satisfy file-line "Source yarn completion" ~/.bashrc "source $DOTFILES_PATH/bash/init/yarn-completion.sh"
+  satisfy file-line "Source bash init.sh" ~/.bashrc "source ~/.dotfiles/bash/init.sh"
 
   satisfy file-line "Start X automatically" ~/.bash_profile 'if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then exec startx &> /dev/null; fi'
 end-section
@@ -279,24 +265,6 @@ section "fonts"
   }
   satisfy file "lcdfilter-default" "/etc/fonts/conf.d/11-lcdfilter-default.conf"
 
-end-section
-
-section "bash"
-  section "miscellaneous"
-    satisfy file-line "Store a long bash history" ~/.bashrc "HISTSIZE=100000; HISTFILESIZE=2000000"
-  end-section
-
-  section "aliases"
-    satisfy file-line "Alias g to git" ~/.bashrc "alias g=git"
-    satisfy file-line "Setup g to use git completions" ~/.bashrc "complete -o default -o nospace -F _git g"
-    satisfy file-line "Source git completions" ~/.bashrc "source /usr/share/bash-completion/completions/git"
-    satisfy file-line "Alias b" ~/.bashrc "alias b='bundle exec'"
-    satisfy file-line "Alias ber" ~/.bashrc "alias ber='bundle exec rspec spec --color'"
-    satisfy file-line "Alias bec" ~/.bashrc "alias bec='bundle exec cucumber --color'"
-    satisfy file-line "Alias irb to pry" ~/.bashrc "alias irb=pry"
-    satisfy file-line "Alias ls to show color" ~/.bashrc "alias ls='ls -1 -G --color=auto'"
-    satisfy file-line "Alias ll" ~/.bashrc "alias ll='ls -ahlF --color=auto'"
-  end-section
 end-section
 
 section "backgrounds"
