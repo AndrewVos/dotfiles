@@ -191,7 +191,7 @@ end-section
 section "dotfiles"
   satisfy github "https://github.com/AndrewVos/dotfiles" "$HOME/.dotfiles"
   satisfy pacman "stow"
-  stow --verbose --target ~ alacritty bash compton ctags dunst fontconfig git gtk2 gtk3 i3 rofi ssh x
+  stow --verbose --target ~ alacritty bash compton ctags dunst fish fontconfig git gtk2 gtk3 i3 rofi ssh x
 
   product=$(cat /sys/devices/virtual/dmi/id/product_family)
   if [[ "$product" = "ThinkPad T480" ]]; then
