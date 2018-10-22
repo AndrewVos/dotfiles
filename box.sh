@@ -199,54 +199,42 @@ section "apps"
 end-section
 
 section "dotfiles"
+  satisfy pacman "stow"
+
   DOTFILES_PATH="$HOME/.dotfiles"
   satisfy github "https://github.com/AndrewVos/dotfiles" "$DOTFILES_PATH"
+
+  stow --verbose alacritty
+  stow --verbose bash
+  stow --verbose compton
+  stow --verbose ctags
+  stow --verbose dunst
+  stow --verbose fontconfig
+  stow --verbose git
+  stow --verbose gtk2
+  stow --verbose gtk3
+  stow --verbose i3
+  stow --verbose rofi
+  stow --verbose ssh
+  stow --verbose x
+
+  product=$(cat /sys/devices/virtual/dmi/id/product_family)
+  if [[ "$product" = "ThinkPad T480" ]]; then
+    stow --verbose t480
+  fi
 
   satisfy symlink "$DOTFILES_PATH/X11/etc/X11/xorg.conf.d/00-keyboard.conf" "/etc/X11/xorg.conf.d/00-keyboard.conf"
   satisfy symlink "$DOTFILES_PATH/X11/etc/X11/xorg.conf.d/30-touchpad.conf" "/etc/X11/xorg.conf.d/30-touchpad.conf"
 
-  satisfy symlink "$DOTFILES_PATH/bash/.inputrc" "$HOME/.inputrc"
-  satisfy symlink "$DOTFILES_PATH/git/.git-template" "$HOME/.git-template"
-  satisfy symlink "$DOTFILES_PATH/git/.gitconfig" "$HOME/.gitconfig"
-  satisfy symlink "$DOTFILES_PATH/git/.gitignore" "$HOME/.gitignore"
-
-  satisfy symlink "$DOTFILES_PATH/x/.xinitrc" "$HOME/.xinitrc"
-  if [[ "$(hostname)" = "vos-thinkpad" ]]; then
-    satisfy symlink "$DOTFILES_PATH/x/.Xresources" "$HOME/.Xresources"
-  fi
-
-  mkdir -p "$HOME/.config/i3"
-  satisfy symlink "$DOTFILES_PATH/i3/.config/i3/config" "$HOME/.config/i3/config"
-
-  mkdir -p "$HOME/.config/alacritty"
-  satisfy symlink "$DOTFILES_PATH/alacritty/.config/alacritty/alacritty.yml" "$HOME/.config/alacritty/alacritty.yml"
-
-  satisfy symlink "$DOTFILES_PATH/compton/.config/.compton.conf" "$HOME/.config/compton.conf"
-
-  mkdir -p "$HOME/.config/dunst"
-  satisfy symlink "$DOTFILES_PATH/dunst/.config/dunst/dunstrc" "$HOME/.config/dunst/dunstrc"
-
-  mkdir -p "$HOME/.config/rofi"
-  satisfy symlink "$DOTFILES_PATH/rofi/.config/rofi/config" "$HOME/.config/rofi/config"
-  satisfy symlink "$DOTFILES_PATH/rofi/.config/rofi/nord.rasi" "$HOME/.config/rofi/nord.rasi"
-
-  mkdir -p "$HOME/.ssh"
-  satisfy symlink "$DOTFILES_PATH/ssh/.ssh/config" "$HOME/.ssh/config"
-
-  satisfy symlink "$DOTFILES_PATH/ctags/.ctags" "$HOME/.ctags"
-
   section "themes"
     satisfy pacman "arc-gtk-theme"
-    satisfy symlink "$DOTFILES_PATH/gtk2/.gtkrc-2.0" "$HOME/.gtkrc-2.0"
-    mkdir -p "$HOME/.config/gtk-3.0"
-    satisfy symlink "$DOTFILES_PATH/gtk3/.config/gtk-3.0/settings.ini" "$HOME/.config/gtk-3.0/settings.ini"
   end-section
 
   satisfy file-line "Add dotfiles scripts to PATH" ~/.bashrc "export PATH=\$PATH:$DOTFILES_PATH/scripts"
-  satisfy file-line "Setup ssh-agent" ~/.bashrc "source $DOTFILES_PATH/bash/ssh-agent.sh"
-  satisfy file-line "Setup gpg-agent" ~/.bashrc "source $DOTFILES_PATH/bash/gpg-agent.sh"
-  satisfy file-line "Use custom PS1" ~/.bashrc "source $DOTFILES_PATH/bash/ps1.sh"
-  satisfy file-line "Source yarn completion" ~/.bashrc "source $DOTFILES_PATH/yarn/yarn-completion.sh"
+  satisfy file-line "Setup ssh-agent" ~/.bashrc "source $DOTFILES_PATH/bash/init/ssh-agent.sh"
+  satisfy file-line "Setup gpg-agent" ~/.bashrc "source $DOTFILES_PATH/bash/init/gpg-agent.sh"
+  satisfy file-line "Use custom PS1" ~/.bashrc "source $DOTFILES_PATH/bash/init/ps1.sh"
+  satisfy file-line "Source yarn completion" ~/.bashrc "source $DOTFILES_PATH/bash/init/yarn-completion.sh"
 
   satisfy file-line "Start X automatically" ~/.bash_profile 'if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then exec startx &> /dev/null; fi'
 end-section
@@ -291,8 +279,6 @@ section "fonts"
   }
   satisfy file "lcdfilter-default" "/etc/fonts/conf.d/11-lcdfilter-default.conf"
 
-  mkdir -p "$HOME/.config/fontconfig"
-  satisfy symlink "$HOME/.dotfiles/fontconfig/fonts.conf" "$HOME/.config/fontconfig/fonts.conf"
 end-section
 
 section "bash"
