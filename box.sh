@@ -221,7 +221,7 @@ section "dotfiles"
   mkdir -p "$HOME/.config/alacritty"
   satisfy symlink "$DOTFILES_PATH/alacritty/.config/alacritty/alacritty.yml" "$HOME/.config/alacritty/alacritty.yml"
 
-  satisfy symlink "$DOTFILES_PATH/compton/.compton.conf" "$HOME/.config/compton.conf"
+  satisfy symlink "$DOTFILES_PATH/compton/.config/.compton.conf" "$HOME/.config/compton.conf"
 
   mkdir -p "$HOME/.config/dunst"
   satisfy symlink "$DOTFILES_PATH/dunst/.config/dunst/dunstrc" "$HOME/.config/dunst/dunstrc"
