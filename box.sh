@@ -189,32 +189,23 @@ section "apps"
 end-section
 
 section "dotfiles"
+  satisfy github "https://github.com/AndrewVos/dotfiles" "$HOME/.dotfiles"
   satisfy pacman "stow"
-
-  DOTFILES_PATH="$HOME/.dotfiles"
-  satisfy github "https://github.com/AndrewVos/dotfiles" "$DOTFILES_PATH"
-
-  stow --verbose alacritty
-  stow --verbose bash
-  stow --verbose compton
-  stow --verbose ctags
-  stow --verbose dunst
-  stow --verbose fontconfig
-  stow --verbose git
-  stow --verbose gtk2
-  stow --verbose gtk3
-  stow --verbose i3
-  stow --verbose rofi
-  stow --verbose ssh
-  stow --verbose x
+  stow --verbose --target ~ alacritty bash compton ctags dunst fontconfig git gtk2 gtk3 i3 rofi ssh x
 
   product=$(cat /sys/devices/virtual/dmi/id/product_family)
   if [[ "$product" = "ThinkPad T480" ]]; then
-    stow --verbose t480
+    stow --verbose --target ~ t480
+
+    # Trackpoint config
+    stow --verbose --target / hwdb
+
+    # Powertop config
+    stow --verbose --target / powertop
+    systemctl status powertop.service || sudo systemctl enable powertop.service
   fi
 
-  satisfy symlink "$DOTFILES_PATH/X11/etc/X11/xorg.conf.d/00-keyboard.conf" "/etc/X11/xorg.conf.d/00-keyboard.conf"
-  satisfy symlink "$DOTFILES_PATH/X11/etc/X11/xorg.conf.d/30-touchpad.conf" "/etc/X11/xorg.conf.d/30-touchpad.conf"
+  sudo stow --verbose --target / X11
 
   section "themes"
     satisfy pacman "arc-gtk-theme"
@@ -276,36 +267,3 @@ section "backgrounds"
 
   feh --no-fehbg --bg-max "$BACKGROUND" || :
 end-section
-
-product=$(cat /sys/devices/virtual/dmi/id/product_family)
-
-if [[ "$product" = "ThinkPad T480" ]]; then
-  section "thinkpad-t480"
-    section "powertop-auto"
-      satisfy pacman "powertop"
-      function install-powertop-service() {
-	FILE="/etc/systemd/system/powertop.service"
-
-	sudo touch "$FILE"
-	echo "[Unit]"                                  | sudo tee -a "$FILE"
-	echo "Description=Powertop tunings"            | sudo tee -a "$FILE"
-	echo "[Service]"                               | sudo tee -a "$FILE"
-	echo "ExecStart=/usr/bin/powertop --auto-tune" | sudo tee -a "$FILE"
-	echo "RemainAfterExit=true"                    | sudo tee -a "$FILE"
-	echo "[Install]"                               | sudo tee -a "$FILE"
-	echo "WantedBy=multi-user.target"              | sudo tee -a "$FILE"
-
-	sudo systemctl enable powertop.service
-      }
-
-      satisfy file "powertop.service" "/etc/systemd/system/powertop.service"
-    end-section
-
-    section "trackpoint-settings"
-      function install-99-trackpoint-hwdb() {
-	sudo cp "hwdb/99-trackpoint.hwdb" "/etc/udev/hwdb.d/99-trackpoint.hwdb"
-      }
-      satisfy file "99-trackpoint.hwdb" "/etc/udev/hwdb.d/99-trackpoint.hwdb"
-    end-section
-  end-section
-fi
