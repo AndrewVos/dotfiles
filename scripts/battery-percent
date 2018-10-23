@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+BATTERY_NUMBER=$1
+acpi | sed "$((BATTERY_NUMBER + 1))q;d" | cut -d, -f2 | sed 's/ //'
