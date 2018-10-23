@@ -106,14 +106,6 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-# g613 bindings
-bindcode 67 workspace $ws1
-bindcode 68 workspace $ws2
-bindcode 69 workspace $ws3
-bindcode 70 workspace $ws4
-bindcode 71 workspace $ws5
-bindcode 72 workspace $ws6
-
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
