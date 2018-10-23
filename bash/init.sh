@@ -3,7 +3,7 @@ HISTFILESIZE=2000000
 
 export EDITOR=vim
 
-export PATH="$PATH:~/.dotfiles/bash/scripts"
+export PATH=$PATH:~/.dotfiles/bash/scripts
 
 # Alias g to git
 alias g=git
@@ -28,7 +28,7 @@ source ~/.dotfiles/bash/init/yarn-completion.sh
 # Nodejs
 source /usr/share/nvm/init-nvm.sh
 export PATH="$PATH:node_modules/.bin"
-export PATH=$PATH:~/.yarn/bin
+export PATH="$PATH:$HOME/.yarn/bin"
 export HUSKY_SKIP_INSTALL=yes
 
 # Ruby
@@ -36,7 +36,7 @@ source /usr/share/chruby/chruby.sh
 source /usr/share/chruby/auto.sh
 
 # Golang
-export PATH="$PATH:~/go/bin"
+export PATH=$PATH:~/go/bin
 
 # undistract-me
 source /etc/profile.d/undistract-me.sh
