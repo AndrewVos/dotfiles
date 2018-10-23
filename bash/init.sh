@@ -3,7 +3,7 @@ HISTFILESIZE=2000000
 
 export EDITOR=vim
 
-export PATH=$PATH:~/.dotfiles/bash/scripts
+export PATH=$PATH:~/.dotfiles/scripts
 
 # Alias g to git
 alias g=git
