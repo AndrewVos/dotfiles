@@ -124,6 +124,8 @@ section "apps"
   satisfy yaourt "ncpamixer-git"
   satisfy yaourt "undistract-me-git"
   satisfy yaourt "discord"
+  satisfy yaourt "ffcast"
+  satisfy pacman "imagemagick"
 
   section "vim"
     satisfy pacman "vim"
