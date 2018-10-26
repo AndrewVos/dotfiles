@@ -1,19 +1,14 @@
 #!/bin/bash
-
 set -euo pipefail
 IFS=$'\n\t'
 
 function bootstrap-box () {
-  local BOX_PATH="/usr/local/share/box/box.sh"
-  if [ ! -f "$BOX_PATH" ]; then
-    sudo mkdir -p "$(dirname "$BOX_PATH")"
-    sudo wget -O "$BOX_PATH" https://raw.githubusercontent.com/AndrewVos/box/master/box.sh
-    sudo chmod +x "$BOX_PATH"
-  fi
-  source "$BOX_PATH"
+  # shellcheck source=/dev/null
+  source <(curl -s https://raw.githubusercontent.com/AndrewVos/box/master/box.sh)
 }
 
 if [[ -f "$HOME/code/box/box.sh" ]]; then
+  # shellcheck source=../code/box/box.sh
   source "$HOME/code/box/box.sh"
 else
   bootstrap-box
@@ -181,9 +176,9 @@ section "apps"
 
     function install-pia-login-conf() {
       echo -n "PIA Username: "
-      read username
+      read -r username
       echo -n "PIA Password: "
-      read password
+      read -r password
       echo "$username" | sudo tee "$LOGIN_PATH"
       echo "$password" | sudo tee -a "$LOGIN_PATH"
       sudo chmod 0600 /etc/private-internet-access/login.conf
