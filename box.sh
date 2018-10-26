@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -euo pipefail
+IFS=$'\n\t'
+
 function bootstrap-box () {
   local BOX_PATH="/usr/local/share/box/box.sh"
   if [ ! -f "$BOX_PATH" ]; then
