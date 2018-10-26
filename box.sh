@@ -122,6 +122,7 @@ section "apps"
   satisfy yaourt "ncpamixer-git"
   satisfy yaourt "undistract-me-git"
   satisfy yaourt "discord"
+  satisfy yaourt "cheat"
   satisfy yaourt "ffcast"
   satisfy pacman "imagemagick"
 
