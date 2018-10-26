@@ -7,6 +7,25 @@ filetype plugin indent on
 cnoremap <C-A> <Home>
 " }}}
 
+" 256 colours in gnome-terminal and st {{{
+  set t_8f=[38;2;%lu;%lu;%lum
+  set t_8b=[48;2;%lu;%lu;%lum
+  set t_Co=256
+  set termguicolors
+" }}}
+
+" colour scheme {{{
+  colorscheme flatwhite
+" }}}
+
+" ale {{{
+  let g:ale_set_highlights=1
+  let g:ale_set_signs=0
+  highlight ALEErrorLine ctermbg=lightred ctermfg=darkgray
+  highlight ALEWarningLine ctermbg=lightyellow ctermfg=darkgray
+  highlight ALEInfoLine ctermbg=lightblue ctermfg=darkgray
+" }}}
+
 " vim-autoformat {{{
   let g:autoformat_autoindent = 0
   let g:autoformat_retab = 0
@@ -20,17 +39,6 @@ cnoremap <C-A> <Home>
         \ 'xo_javascript',
         \ ]
   au BufWrite * :Autoformat
-" }}}
-
-" 256 colours in gnome-terminal and st {{{
-  set t_8f=[38;2;%lu;%lu;%lum
-  set t_8b=[48;2;%lu;%lu;%lum
-  set t_Co=256
-  set termguicolors
-" }}}
-
-" colour scheme {{{
-  colorscheme nord
 " }}}
 
 " backup to ~/.tmp {{{
@@ -58,7 +66,9 @@ cnoremap <C-A> <Home>
   set ignorecase
   set hidden
   set autowrite
-  highlight Search ctermfg=black ctermbg=blue
+  highlight clear Search
+  highlight Search cterm=NONE ctermfg=red ctermbg=None
+
   set nofoldenable
   set number
 " }}}
