@@ -125,6 +125,7 @@ section "apps"
   satisfy yaourt "cheat"
   satisfy yaourt "ffcast"
   satisfy pacman "imagemagick"
+  satisfy pacman "unzip"
 
   section "vim"
     satisfy pacman "vim"
