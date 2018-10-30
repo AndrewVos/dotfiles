@@ -103,6 +103,7 @@ if [[ -d "/sys/class/power_supply/BAT0" ]]; then
   vbar add-block --right --name wireless --command "netctl-auto list | grep '* ' | sed 's/* //'" --interval 5
 fi
 
+vbar add-block --right --name date-icon --text ""
 vbar add-block --right --name date --command "date +%d/%m" --interval 60
 vbar add-block --right --name time-icon --text ""
 vbar add-block --right --name time --command "date +%H:%M" --interval 1
