@@ -4,7 +4,8 @@ set $mod Mod4
 font pango:monospace 8
 
 # disable window titles
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 5
+hide_edge_borders smart # none|vertical|horizontal|both|smart
 
 # launch some apps on their desktops
 assign [class="discord"] 3
@@ -158,6 +159,12 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
+
+# <colorclass> <border> <background> <text> <indicator> <child_border>
+client.background       #F1DDF2
+client.focused          #F1DDF2 #F1DDF2 #F1DDF2 #F1DDF2   #DDE4F3
+client.focused_inactive #F1DDF2 #F1DDF2 #F1DDF2 #F1DDF2   #f7f3ee
+client.unfocused        #F1DDF2 #F1DDF2 #F1DDF2 #F1DDF2   #f7f3ee
 
 bindsym $mod+r mode "resize"
 
