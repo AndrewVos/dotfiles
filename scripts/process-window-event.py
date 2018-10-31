@@ -33,8 +33,19 @@ def unfocus(previous_window_id):
   # windows.remove(previous_window_id)
     focus_window(windows[-1])
 
+def ignore_window(window_id):
+    try:
+        run(['wattr', 'o', window_id])
+        return True
+    except subprocess.CalledProcessError:
+        return False
+
 def process_window_event(event, last_event):
     print('process_window_event:', event, last_event)
+
+    if ignore_window(event.window_id):
+      return
+
     # XCB_CREATE_NOTIFY ...... 16
     # XCB_DESTROY_NOTIFY ..... 17
     # XCB_UNMAP_NOTIFY ....... 18

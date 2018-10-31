@@ -13,5 +13,9 @@ last_event = ''
 
 for line in fileinput.input():
     event = line.strip()
-    run(['process-window-event.py', event, last_event])
+    try:
+        run(['process-window-event.py', event, last_event])
+    except subprocess.CalledProcessError as err:
+        print(err.output)
+
     last_event = event
