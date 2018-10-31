@@ -47,9 +47,10 @@ def process_window_event(event, last_event, window_id):
    elif event == "18":
       unfocus(window_id)
    elif event == "19":
+      focus_window(window_id)
+
       if last_event == "16":
          resize_window(window_id)
-      focus_window(window_id)
 
 event      = sys.argv[1]
 last_event = sys.argv[2]
