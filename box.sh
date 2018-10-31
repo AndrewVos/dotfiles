@@ -126,6 +126,8 @@ section "apps"
   satisfy pacman "imagemagick"
   satisfy pacman "unzip"
   satisfy pacman "flameshot"
+  satisfy yaourt "wmutils-git"
+  satisfy pacman "sxhkd"
 
   section "vim"
     satisfy pacman "vim"
@@ -194,7 +196,7 @@ end-section
 section "dotfiles"
   satisfy github "https://github.com/AndrewVos/dotfiles" "$HOME/.dotfiles"
   satisfy pacman "stow"
-  stow --verbose --target ~ alacritty bash compton ctags dunst fontconfig git gtk2 gtk3 i3 rofi ssh vbar x
+  stow --verbose --target ~ alacritty bash compton ctags dunst fontconfig git gtk2 gtk3 i3 rofi ssh sxhkd vbar x
 
   product=$(cat /sys/devices/virtual/dmi/id/product_family)
   if [[ "$product" = "ThinkPad T480" ]]; then

@@ -1,0 +1,36 @@
+super + Return
+	alacritty
+
+alt + shift + Escape
+	pkill -USR1 -x sxhkd
+
+super + d
+	rofi -show drun -font 'hack 16'
+
+alt + {_,shift +} Tab
+	focus.sh {next,prev}
+
+super + f
+	fullscreen.sh $(pfw)
+
+super + {1,2,3,4,5,6,7,8,9}
+	workspace.sh -g {1,2,3,4,5,6,7,8,9}
+
+super + l
+	wrs 10 0 $(pfw)
+super + h
+	wrs -10 0 $(pfw)
+super + j
+	wrs 0 -10 $(pfw)
+super + k
+	wrs 0 10 $(pfw)
+
+super + Down
+	wmv 0 10 $(pfw)
+super + Up
+	wmv 0 -10 $(pfw)
+super + Right
+	wmv 10 0 $(pfw)
+super + Left
+	wmv -10 0 $(pfw)
+
