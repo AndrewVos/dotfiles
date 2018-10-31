@@ -1,23 +1,25 @@
 #!/usr/bin/env python
 
 import subprocess
-import sys
 
 def output(args):
-   return subprocess.check_output(args).decode('utf-8').strip()
+    return subprocess.check_output(args).decode('utf-8').strip()
 
 def run(args):
-   print('run:', args)
-   subprocess.run(args, check=True)
+    print('run:', args)
+    subprocess.run(args, check=True)
 
 def cycle():
-   current_window = output(['pfw'])
-   windows = output(['lsw']).splitlines(False)
-   windows.remove(current_window)
-   next_window = windows[-1]
+    current_window = output(['pfw'])
+    windows = output(['lsw']).splitlines(False)
 
-   run(['chwso', '-r', next_window])
-   run(['wtf', next_window])
-   run(['chwso', '-l', current_window])
+    index = windows.index(current_window)
+    index += 1
+    if index == len(windows):
+       index = 0
+
+    next_window = windows[index]
+
+    run(['wtf', next_window])
 
 cycle()
