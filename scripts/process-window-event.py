@@ -6,41 +6,52 @@ import sys
 def focus_window(window_id):
    print("focusing:", window_id)
    # put it on top of the stack
-   subprocess.run(['chwso', '-r', window_id])
+   run(['chwso', '-r', window_id])
    # set focus to it
-   subprocess.run(['wtf', window_id])
+   run(['wtf', window_id])
 
 def output(args):
    return subprocess.check_output(args).decode('utf-8').strip()
 
 def run(args):
    print('run:', args)
-   subprocess.run(args)
+   subprocess.run(args, check=True)
 
 def resize_window(window_id):
    root = output(['lsw', '-r'])
    screen_width = output(['wattr', 'w', root])
    screen_height = output(['wattr', 'h', root])
-   subprocess.run(['wmv', '100', '100', window_id])
-   subprocess.run(['wtp', '0', '0', screen_width, screen_height, window_id])
+   run(['wtp', '0', '0', screen_width, screen_height, window_id])
 
-def focus_previous():
-   lsw = subprocess.check_output(['lsw']).decode('utf-8').strip()
+def unfocus(previous_window_id):
+   print('unfocus:', previous_window_id)
+   lsw = output(['lsw'])
    windows = lsw.splitlines(False)
-   focus_window(windows(-1))
+   if len(windows) == 0:
+      return print("nothing to unfocus...")
 
-event = sys.argv[1]
-window_id = sys.argv[2]
+   # windows.remove(previous_window_id)
+   focus_window(windows[-1])
 
-# XCB_CREATE_NOTIFY ...... 16
-# XCB_DESTROY_NOTIFY ..... 17
-# XCB_UNMAP_NOTIFY ....... 18
-# XCB_MAP_NOTIFY ......... 19
+def process_window_event(event, last_event, window_id):
+   print('process_window_event:', event, last_event, window_id)
+   # XCB_CREATE_NOTIFY ...... 16
+   # XCB_DESTROY_NOTIFY ..... 17
+   # XCB_UNMAP_NOTIFY ....... 18
+   # XCB_MAP_NOTIFY ......... 19
 
-if event == "16":
-   resize_window(window_id)
-elif event == "18":
-   focus_previous
-elif event == "19":
-   focus_window(window_id)
-   resize_window(window_id)
+   if event == "16":
+      resize_window(window_id)
+   elif event == "7":
+      focus_window(window_id)
+   elif event == "18":
+      unfocus(window_id)
+   elif event == "19":
+      if last_event == "16":
+         resize_window(window_id)
+      focus_window(window_id)
+
+event      = sys.argv[1]
+last_event = sys.argv[2]
+window_id  = sys.argv[3]
+process_window_event(event, last_event, window_id)
