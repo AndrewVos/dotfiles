@@ -7,14 +7,11 @@ alt + shift + Escape
 super + d
 	rofi -show drun -font 'hack 16'
 
-alt + {_,shift +} Tab
-	focus.sh {next,prev}
-
 super + f
 	fullscreen.sh $(pfw)
 
 super + {1,2,3,4,5,6,7,8,9}
-	workspace.sh -g {1,2,3,4,5,6,7,8,9}
+	workspace.sh -g {0,1,2,3,4,5,6,7,8}
 
 super + l
 	wrs 10 0 $(pfw)
