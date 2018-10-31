@@ -79,7 +79,7 @@ vbar add-menu --name power-off-icon --text "Shut down" --command "poweroff"
 
 vbar add-block --center --name title --tail-command "xtitle -s"
 
-vbar add-block --right --name screenshot  --text "" --click-command "screenshot"
+vbar add-block --right --name screenshot  --text "" --click-command "flameshot gui"
 
 vbar add-block --right --name volume-icon --command "volume icon" --click-command "volume toggle"
 

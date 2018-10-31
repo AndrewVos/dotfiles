@@ -50,7 +50,7 @@ bindsym XF86MonBrightnessUp exec light -A 4
 bindsym Shift+XF86MonBrightnessDown exec light -U 10
 bindsym XF86MonBrightnessDown exec light -U 4
 
-bindsym --release $mod+Shift+s exec screenshot
+bindsym --release $mod+Shift+s exec flameshot gui
 bindsym --release $mod+Shift+g exec screencast
 bindsym $Mod+Shift+i exec xrandr-invert-colors
 
