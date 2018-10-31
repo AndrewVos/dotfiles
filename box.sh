@@ -205,7 +205,7 @@ section "dotfiles"
 
     # Powertop config
     stow --verbose --target / powertop
-    systemctl status powertop.service || sudo systemctl enable powertop.service
+    systemctl status powertop.service > /dev/null || sudo systemctl enable powertop.service
   fi
 
   sudo stow --verbose --target / X11
