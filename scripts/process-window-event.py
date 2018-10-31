@@ -33,30 +33,44 @@ def unfocus(previous_window_id):
   # windows.remove(previous_window_id)
     focus_window(windows[-1])
 
-def process_window_event(event, last_event, window_id):
-    print('process_window_event:', event, last_event, window_id)
+def process_window_event(event, last_event):
+    print('process_window_event:', event, last_event)
     # XCB_CREATE_NOTIFY ...... 16
     # XCB_DESTROY_NOTIFY ..... 17
     # XCB_UNMAP_NOTIFY ....... 18
     # XCB_MAP_NOTIFY ......... 19
 
-    if event == "16":
+    if event.event_id == 16:
         run(["tile.py"])
     # resize_window(window_id)
-    elif event == "7":
-        focus_window(window_id)
-    elif event == "17":
+    elif event.event_id == 7:
+        focus_window(event.window_id)
+    elif event.event_id == 17:
         run(["tile.py"])
-    elif event == "18":
-        unfocus(window_id)
+    elif event.event_id == 18:
+        unfocus(event.window_id)
         # run(["tile.py"])
-    elif event == "19":
-        if last_event == "16":
-            focus_window(window_id)
+    elif event.event_id == 19:
+        print(event)
+        print(last_event)
+        if last_event and last_event.event_id == 16 and last_event.window_id == event.window_id:
+            focus_window(event.window_id)
             run(["tile.py"])
     # resize_window(window_id)
 
+class WindowEvent:
+    def __init__(self, event_id, window_id):
+        self.event_id = event_id
+        self.window_id = window_id
+
+    @classmethod
+    def from_string(cls, string):
+        if string == '':
+            return None
+
+        event_id, window_id = string.split(":")
+        return cls(int(event_id), window_id)
+
 EVENT = sys.argv[1]
 LAST_EVENT = sys.argv[2]
-WINDOW_ID = sys.argv[3]
-process_window_event(EVENT, LAST_EVENT, WINDOW_ID)
+process_window_event(WindowEvent.from_string(EVENT), WindowEvent.from_string(LAST_EVENT))
