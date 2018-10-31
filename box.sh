@@ -201,10 +201,10 @@ section "dotfiles"
     stow --verbose --target ~ t480
 
     # Trackpoint config
-    stow --verbose --target / hwdb
+    sudo stow --verbose --target / hwdb
 
     # Powertop config
-    stow --verbose --target / powertop
+    sudo stow --verbose --target / powertop
     systemctl status powertop.service > /dev/null || sudo systemctl enable powertop.service
   fi
 
