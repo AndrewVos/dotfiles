@@ -40,6 +40,41 @@ def ignore_window(window_id):
     except subprocess.CalledProcessError:
         return False
 
+def build_layout(window_count):
+    if window_count == 1:
+        return [(0, 0, 1, 1)]
+
+    if window_count == 2:
+        return [(0, 0, 0.5, 1), (0.5, 0, 0.5, 1)]
+
+    if window_count == 3:
+        return [(0, 0, 0.5, 1), (0.5, 0, 0.5, 0.5), (0.5, 0.5, 0.5, 0.5)]
+
+    if window_count == 4:
+        return [(0, 0, 0.5, 0.5), (0.5, 0, 0.5, 0.5), (0, 0.5, 0.5, 0.5), (0.5, 0.5, 0.5, 0.5)]
+
+def tile():
+    windows = output(["lsw"]).splitlines(False)
+
+    layout = build_layout(len(windows))
+
+    root = output(["lsw", "-r"])
+    screen_width = int(output(["wattr", "w", root]))
+    screen_height = int(output(["wattr", "h", root]))
+
+    print(windows)
+
+    for index, window in enumerate(windows):
+        x, y, width, height = layout[index]
+
+        x = x * screen_width
+        y = y * screen_height
+        width = width * screen_width
+        height = height * screen_height
+
+        print(x, y, width, height)
+        run(["wtp", str(x), str(y), str(width), str(height), window])
+
 def process_window_event(event, last_event):
     print('process_window_event:', event, last_event)
 
@@ -52,21 +87,19 @@ def process_window_event(event, last_event):
     # XCB_MAP_NOTIFY ......... 19
 
     if event.event_id == 16:
-        run(["tile.py"])
+        tile()
     # resize_window(window_id)
     elif event.event_id == 7:
         focus_window(event.window_id)
     elif event.event_id == 17:
-        run(["tile.py"])
+        tile()
     elif event.event_id == 18:
         unfocus(event.window_id)
         # run(["tile.py"])
     elif event.event_id == 19:
-        print(event)
-        print(last_event)
         if last_event and last_event.event_id == 16 and last_event.window_id == event.window_id:
             focus_window(event.window_id)
-            run(["tile.py"])
+            tile()
     # resize_window(window_id)
 
 class WindowEvent:
@@ -82,6 +115,7 @@ class WindowEvent:
         event_id, window_id = string.split(":")
         return cls(int(event_id), window_id)
 
-EVENT = sys.argv[1]
-LAST_EVENT = sys.argv[2]
-process_window_event(WindowEvent.from_string(EVENT), WindowEvent.from_string(LAST_EVENT))
+process_window_event(
+    WindowEvent.from_string(sys.argv[1]),
+    WindowEvent.from_string(sys.argv[2])
+)
