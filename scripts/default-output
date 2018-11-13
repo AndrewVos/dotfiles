@@ -1,0 +1,116 @@
+#!/usr/bin/env python
+
+import subprocess
+import re
+import sys
+
+class Card:
+    def __init__(self, id):
+        self.id = id
+        self.name = None
+        self.card_name = None
+        self.default = None
+
+    def set_default(self):
+        subprocess.run(['pacmd', 'set-default-sink', self.id], check=True)
+        for sink_input in self.get_sink_inputs():
+            subprocess.run(['pacmd', 'move-sink-input', sink_input, self.id], check=True)
+        return
+
+    def get_sink_inputs(self):
+        sink_inputs = []
+        output = subprocess.check_output(['pacmd',  'list-sink-inputs']).decode('utf-8')
+        for line in output.splitlines():
+            match = re.search('index: (\d+)$', line)
+            if match:
+                sink_inputs.append(match.group(1))
+        return sink_inputs
+
+
+def get_default_sink():
+    output = subprocess.check_output(['pacmd',  'info']).decode('utf-8')
+    for line in output.splitlines():
+        match = re.search('Default sink name: (.*)$', line)
+        if match:
+            return match.group(1)
+
+def get_cards():
+    cards = []
+    output = subprocess.check_output(['pactl',  'list', 'sinks']).decode('utf-8')
+
+    default_sink = get_default_sink()
+
+    for line in output.splitlines():
+        match = re.search('Sink #(\d+)', line)
+        if match:
+            id = match.group(1)
+            cards.append(Card(id))
+            continue
+
+        match = re.search('Name: (.*)$', line)
+        if match:
+            name = match.group(1)
+            cards[-1].name = name
+            cards[-1].default = (name == default_sink)
+            continue
+
+        match = re.search('alsa\.card_name = "(.*)"', line)
+        if match:
+            card_name = match.group(1)
+            cards[-1].card_name = card_name
+            continue
+
+    return cards
+
+def list():
+    for card in get_cards():
+        print(card.card_name)
+
+def get():
+    for card in get_cards():
+        if card.default:
+            print(card.card_name)
+            return
+    print('Failed to get default sink')
+    sys.exit(1)
+
+def next():
+    cards = get_cards()
+    for index, card in enumerate(cards):
+        if card.default:
+            next_card = cards[(index + 1) % len(cards)]
+            next_card.set_default()
+            print(next_card.card_name)
+            return
+    print('Failed to make next card default')
+    sys.exit(1)
+
+def set(card_name):
+    for card in get_cards():
+        if card.card_name == card_name:
+            card.set_default()
+            return
+    print('Failed to find sink named "' + card_name + '"')
+    sys.exit(1)
+
+def help():
+    print('Usage: [--list] [--get] [--set] [--next] [<args>]')
+
+def run():
+    command = sys.argv[1]
+
+    if len(sys.argv) == 2:
+        if command == '--list':
+            return list()
+        elif command == '--get':
+            return get()
+        elif command == '--next':
+            return next()
+    elif len(sys.argv) == 3:
+        if command == '--set':
+            return set(sys.argv[2])
+
+    help()
+    sys.exit(1)
+
+run()

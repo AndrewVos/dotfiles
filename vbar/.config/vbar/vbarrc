@@ -50,6 +50,11 @@ vbar add-css --class screenshot --css "font-size: 14px;"
 vbar add-css --class screenshot --css "background-color: $ICON_BACKGROUND;"
 vbar add-css --class screenshot --css "margin-right: 2px;"
 
+vbar add-css --class output-icon --css "font-family: \"Font Awesome\";"
+vbar add-css --class output-icon --css "font-size: 14px;"
+vbar add-css --class output-icon --css "background-color: $ICON_BACKGROUND;"
+vbar add-css --class output-icon --css "margin-right: 2px;"
+
 vbar add-css --class volume-icon --css "font-family: \"Font Awesome\";"
 vbar add-css --class volume-icon --css "font-size: 14px;"
 vbar add-css --class volume-icon --css "background-color: $ICON_BACKGROUND;"
@@ -80,6 +85,8 @@ vbar add-menu --name power-off-icon --text "Shut down" --command "poweroff"
 vbar add-block --center --name title --tail-command "xtitle -s"
 
 vbar add-block --right --name screenshot  --text "" --click-command "flameshot gui"
+
+vbar add-block --right --name output-icon --text '' --click-command "default-output --next"
 
 vbar add-block --right --name volume-icon --command "volume icon" --click-command "volume toggle"
 
