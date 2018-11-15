@@ -178,12 +178,19 @@ function! IndigoRun(type, ...)
   execute "!features/run/" . a:type . " " . join(a:000, " ")
 endfunction
 
+function! IndigoRunFast(type, ...)
+  execute "!FAST=yes features/run/" . a:type . " " . join(a:000, " ")
+endfunction
+
 function! IndigoRunWebdriverBrowser(...)
   execute "!HANG=60 HEADLESS=no features/run/webdriver-memory " . join(a:000, " ")
 endfunction
 
 command! -bang -complete=customlist,IndigoCompletion -nargs=* Memory call IndigoRun("memory", <f-args>)
+command! -bang -complete=customlist,IndigoCompletion -nargs=* Database call IndigoRun("database", <f-args>)
 command! -bang -complete=customlist,IndigoCompletion -nargs=* DomMemory call IndigoRun("dom-memory", <f-args>)
+command! -bang -complete=customlist,IndigoCompletion -nargs=* DomHttpMemory call IndigoRunFast("dom-http-memory", <f-args>)
+command! -bang -complete=customlist,IndigoCompletion -nargs=* HttpMemory call IndigoRun("http-memory", <f-args>)
 command! -bang -complete=customlist,IndigoCompletion -nargs=* WebdriverMemory call IndigoRun("webdriver-memory", <f-args>)
 command! -bang -complete=customlist,IndigoCompletion -nargs=* WebdriverMemoryBrowser call IndigoRunWebdriverBrowser(<f-args>)
 " }}}
