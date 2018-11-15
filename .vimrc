@@ -15,7 +15,7 @@ cnoremap <C-A> <Home>
 " }}}
 
 " colour scheme {{{
-  colorscheme flatwhite
+  colorscheme snow
 " }}}
 
 " ale {{{
