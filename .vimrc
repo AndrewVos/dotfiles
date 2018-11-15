@@ -127,6 +127,7 @@ nnoremap <silent> <C-p> :<C-u>Denite
   let g:js_file_import_omit_semicolon = 1
   let g:js_file_import_no_mappings = 1
   let g:js_file_import_sort_after_insert = 1
+  let g:js_file_import_force_require = 1
 " }}}
 
 " rspec {{{
