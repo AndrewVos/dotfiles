@@ -31,7 +31,7 @@ window:
 
   # Window decorations
   # Setting this to false will result in window without borders and title bar.
-  decorations: true
+  decorations: full
 
 scrolling:
   # How many lines of scrollback to keep,
@@ -124,10 +124,6 @@ font:
 # Should display the render timer
 render_timer: false
 
-# Use custom cursor colors. If true, display the cursor in the cursor.foreground
-# and cursor.background colors, otherwise invert the colors of the cursor.
-custom_cursor_colors: false
-
 # Colors (Solarized Light)
 colors:
   # Default colors
@@ -219,7 +215,7 @@ selection:
 
 dynamic_title: true
 
-hide_cursor_when_typing: false
+mouse.hide_when_typing: true
 
 # Style of the cursor
 #
@@ -227,7 +223,7 @@ hide_cursor_when_typing: false
 # - Block
 # - Underline
 # - Beam
-cursor_style: Block
+cursor.style: Block
 
 # Live config reload (changes require restart)
 live_config_reload: true
