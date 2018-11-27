@@ -126,6 +126,7 @@ section "apps"
   satisfy pacman "imagemagick"
   satisfy pacman "unzip"
   satisfy pacman "flameshot"
+  satisfy pacman "dnsutils"
 
   section "vim"
     satisfy pacman "vim"
