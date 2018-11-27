@@ -208,11 +208,6 @@ section "dotfiles"
     systemctl status powertop.service > /dev/null || sudo systemctl enable powertop.service
   fi
 
-  board_name=$(cat /sys/devices/virtual/dmi/id/board_name)
-  if [[ "$board_name" = "STRIX Z270E GAMING" ]]; then
-    sudo stow --verbose --target / desktop-x11
-  fi
-
   sudo stow --verbose --target / X11
 
   section "themes"

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+board_name=$(cat /sys/devices/virtual/dmi/id/board_name)
+if [[ "$board_name" = "STRIX Z270E GAMING" ]]; then
+  xset -dpms
+  xset s off
+fi
