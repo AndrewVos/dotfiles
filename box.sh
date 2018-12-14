@@ -127,6 +127,7 @@ section "apps"
   satisfy pacman "unzip"
   satisfy pacman "flameshot"
   satisfy pacman "dnsutils"
+  satisfy pacman "transset-df"
 
   section "vim"
     satisfy pacman "vim"
