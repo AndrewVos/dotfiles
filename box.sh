@@ -260,15 +260,4 @@ section "fonts"
     sudo ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d
   }
   satisfy file "lcdfilter-default" "/etc/fonts/conf.d/11-lcdfilter-default.conf"
-
-end-section
-
-section "backgrounds"
-  BACKGROUND="$HOME/.background.jpg"
-  #BACKGROUND_URL="https://i.imgur.com/tY3OiJm.jpg"
-  BACKGROUND_URL="https://i.imgur.com/vgqEbKB.jpg"
-
-  [[ -f "$BACKGROUND" ]] || wget "$BACKGROUND_URL" -O "$BACKGROUND"
-
-  feh --no-fehbg --bg-max "$BACKGROUND" || :
 end-section

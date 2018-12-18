@@ -170,7 +170,7 @@ bindsym $mod+r mode "resize"
 
 exec --no-startup-id "xrdb -merge ~/.Xresources"
 exec --no-startup-id "xcalib ~/colours.icm"
-exec --no-startup-id "feh --no-fehbg --bg-max ~/.background.jpg"
+exec --no-startup-id "hsetroot -solid '#fbffff'"
 exec --no-startup-id "vbar start"
 exec --no-startup-id "dunst"
 exec --no-startup-id "unclutter"
