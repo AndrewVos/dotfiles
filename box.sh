@@ -126,7 +126,7 @@ section "apps"
   satisfy pacman "imagemagick"
   satisfy pacman "unzip"
   satisfy pacman "flameshot"
-  satisfy pacman "dnsutils"
+  satisfy pacman "bind-tools"
   satisfy pacman "transset-df"
 
   section "vim"
