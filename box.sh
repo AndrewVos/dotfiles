@@ -127,7 +127,6 @@ section "apps"
   satisfy pacman "unzip"
   satisfy pacman "flameshot"
   satisfy pacman "bind-tools"
-  satisfy pacman "transset-df"
 
   section "vim"
     satisfy pacman "vim"
