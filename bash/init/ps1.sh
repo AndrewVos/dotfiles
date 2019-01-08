@@ -1,5 +1,3 @@
-source /usr/share/git/completion/git-prompt.sh
-
 git_prompt_color () {
   if git rev-parse --git-dir > /dev/null 2>&1; then
     if ! git status | grep "nothing to commit" > /dev/null 2>&1; then
