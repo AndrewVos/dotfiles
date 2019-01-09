@@ -176,7 +176,7 @@ end-section
 section "dotfiles"
   satisfy github "https://github.com/AndrewVos/dotfiles" "$HOME/.dotfiles"
   satisfy apt "stow"
-  stow --verbose --target ~ alacritty bash ctags git ssh
+  stow --verbose --dir "$HOME/.dotfiles" --target ~ alacritty bash ctags git ssh
   satisfy file-line "Source bash init.sh" ~/.bashrc "source ~/.dotfiles/bash/init.sh"
 end-section
 
