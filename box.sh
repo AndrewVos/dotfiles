@@ -74,6 +74,8 @@ section "apps"
   satisfy apt "shellcheck"
   satisfy apt "krita"
 
+  # required for alacritty
+  satisfy apt "xclip"
   function install-alacritty() {
     wget "https://github.com/jwilm/alacritty/releases/download/v0.2.5/Alacritty-v0.2.5_amd64.deb" -O alacritty.deb
     sudo dpkg -i alacritty.deb
