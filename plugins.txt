@@ -22,7 +22,6 @@ dietsche/vim-lastplace
 stefandtw/quickfix-reflector.vim
 AndrewVos/vim-git-navigator
 tpope/vim-haystack
-chriskempson/vim-tomorrow-theme
 ntpeters/vim-better-whitespace
 tpope/vim-eunuch
 tpope/vim-abolish
@@ -41,4 +40,4 @@ tpope/vim-rhubarb
 kopischke/vim-fetch
 kristijanhusak/vim-js-file-import
 Shougo/denite.nvim
-nightsense/snow
+jeffkreeftmeijer/vim-dim
