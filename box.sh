@@ -21,6 +21,7 @@ section "dependencies"
   satisfy apt "git"
   satisfy apt "curl"
   satisfy apt "wget"
+  satisfy apt "make"
 end-section
 
 section "databases"
