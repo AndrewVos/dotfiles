@@ -41,6 +41,15 @@ section "programming languages"
     satisfy file "nvm" "$HOME/.nvm/nvm.sh"
   end-section
 
+  function install-yarn() {
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+    sudo apt-get update -y
+    sudo apt-get install -y yarn
+  }
+  satisfy executable "yarn"
+
   section "ruby"
     function install-ruby-install() {
       wget -O ruby-install-0.7.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.7.0.tar.gz
