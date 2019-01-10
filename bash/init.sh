@@ -9,6 +9,8 @@ export PATH=$PATH:~/.dotfiles/scripts
 alias g=git
 # Setup g to use git completions
 complete -o default -o nospace -F _git g
+# Source git completions
+source /usr/share/bash-completion/completions/git
 
 alias b='bundle exec'
 alias ber='bundle exec rspec spec --color'
