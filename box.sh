@@ -147,7 +147,19 @@ section "apps"
 
   section "vim"
     satisfy apt "vim-gtk3"
-    satisfy apt "exuberant-ctags"
+
+    section "ctags"
+      satisfy apt "autoconf"
+      function install-ctags() {
+        git clone https://github.com/universal-ctags/ctags
+        cd ctags
+        ./autogen.sh
+        ./configure
+        make
+        sudo make install
+      }
+      satisfy executable "ctags"
+    end-section
 
     satisfy github "https://github.com/AndrewVos/vimfiles" "$HOME/.vimfiles"
     satisfy symlink "$HOME/.vimfiles/.vimrc" "$HOME/.vimrc"
