@@ -175,6 +175,16 @@ section "apps"
     }
     satisfy executable "hub"
   end-section
+
+  section "chromedriver"
+    function install-chromedriver () {
+      wget "https://chromedriver.storage.googleapis.com/2.45/chromedriver_linux64.zip"
+      unzip "chromedriver_linux64.zip"
+      sudo mv chromedriver /usr/local/bin/chromedriver
+    }
+    satisfy executable "chromedriver"
+  end-section
+
 end-section
 
 section "dotfiles"
