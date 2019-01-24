@@ -14,8 +14,8 @@ else
   bootstrap-box
 fi
 
-sudo apt update -y
-sudo apt upgrade -y
+sudo apt update -y -qqq
+sudo apt upgrade -y -qqq
 
 section "dependencies"
   satisfy apt "git"
