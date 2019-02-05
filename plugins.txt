@@ -30,7 +30,6 @@ tpope/vim-speeddating
 tpope/vim-cucumber
 w0rp/ale
 arrufat/vala.vim
-junegunn/vim-easy-align
 Chiel92/vim-autoformat
 terryma/vim-multiple-cursors
 ap/vim-css-color
@@ -41,3 +40,4 @@ kristijanhusak/vim-js-file-import
 Shougo/denite.nvim
 jeffkreeftmeijer/vim-dim
 brooth/far.vim
+godlygeek/tabular
