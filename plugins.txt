@@ -9,15 +9,12 @@ tpope/vim-vinegar
 tpope/vim-jdaddy
 pangloss/vim-javascript
 jamessan/vim-gnupg
-kchmck/vim-coffee-script
 mattn/webapi-vim
 vim-scripts/Gist.vim
 AndrewVos/vim-aaa
 AndrewVos/vim-ring
-fatih/vim-go
 FooSoft/vim-argwrap
 airblade/vim-gitgutter
-ekalinin/Dockerfile.vim
 dietsche/vim-lastplace
 stefandtw/quickfix-reflector.vim
 tpope/vim-haystack
@@ -25,11 +22,8 @@ ntpeters/vim-better-whitespace
 tpope/vim-eunuch
 tpope/vim-abolish
 int3/vim-extradite
-vim-ruby/vim-ruby
 tpope/vim-speeddating
-tpope/vim-cucumber
 w0rp/ale
-arrufat/vala.vim
 Chiel92/vim-autoformat
 terryma/vim-multiple-cursors
 ap/vim-css-color
@@ -40,3 +34,4 @@ kristijanhusak/vim-js-file-import
 Shougo/denite.nvim
 jeffkreeftmeijer/vim-dim
 godlygeek/tabular
+sheerun/vim-polyglot
