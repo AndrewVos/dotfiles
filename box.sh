@@ -75,6 +75,7 @@ section "apps"
   satisfy apt "shellcheck"
   satisfy apt "krita"
   satisfy apt "xclip"
+  satisfy apt "tig"
 
   function install-heroku() {
     curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
