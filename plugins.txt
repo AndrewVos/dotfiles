@@ -35,3 +35,4 @@ Shougo/denite.nvim
 jeffkreeftmeijer/vim-dim
 godlygeek/tabular
 sheerun/vim-polyglot
+AndrewRadev/sideways.vim
