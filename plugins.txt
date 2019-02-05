@@ -20,7 +20,6 @@ airblade/vim-gitgutter
 ekalinin/Dockerfile.vim
 dietsche/vim-lastplace
 stefandtw/quickfix-reflector.vim
-AndrewVos/vim-git-navigator
 tpope/vim-haystack
 ntpeters/vim-better-whitespace
 tpope/vim-eunuch
