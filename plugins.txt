@@ -40,3 +40,4 @@ kopischke/vim-fetch
 kristijanhusak/vim-js-file-import
 Shougo/denite.nvim
 jeffkreeftmeijer/vim-dim
+brooth/far.vim
