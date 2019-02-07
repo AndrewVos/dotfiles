@@ -163,7 +163,47 @@ section "apps"
       satisfy executable "ctags"
     end-section
 
-    PLUGINS=$(cat plugins.txt)
+    PLUGINS="
+tpope/vim-pathogen
+tpope/vim-sleuth
+tpope/vim-sensible
+tpope/vim-unimpaired
+tpope/vim-surround
+tpope/vim-commentary
+tpope/vim-fugitive
+tpope/vim-vinegar
+tpope/vim-jdaddy
+pangloss/vim-javascript
+jamessan/vim-gnupg
+mattn/webapi-vim
+vim-scripts/Gist.vim
+AndrewVos/vim-aaa
+AndrewVos/vim-ring
+FooSoft/vim-argwrap
+airblade/vim-gitgutter
+dietsche/vim-lastplace
+stefandtw/quickfix-reflector.vim
+tpope/vim-haystack
+ntpeters/vim-better-whitespace
+tpope/vim-eunuch
+tpope/vim-abolish
+int3/vim-extradite
+tpope/vim-speeddating
+w0rp/ale
+Chiel92/vim-autoformat
+terryma/vim-multiple-cursors
+ap/vim-css-color
+elixir-lang/vim-elixir
+tpope/vim-rhubarb
+kopischke/vim-fetch
+kristijanhusak/vim-js-file-import
+Shougo/denite.nvim
+jeffkreeftmeijer/vim-dim
+godlygeek/tabular
+sheerun/vim-polyglot
+AndrewRadev/sideways.vim
+mhinz/vim-startify
+"
     for PLUGIN in $PLUGINS; do
       PLUGIN_NAME=$(echo "$PLUGIN" | cut -d "/" -f 2)
       satisfy github "https://github.com/$PLUGIN" "$HOME/.vim/bundle/$PLUGIN_NAME"
