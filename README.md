@@ -203,4 +203,3 @@ Then reboot:
 
 ```bash
 bash <(wget -o /dev/null -qO- https://raw.githubusercontent.com/AndrewVos/dotfiles/master/box.sh)
-```
