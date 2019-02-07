@@ -157,6 +157,11 @@ nnoremap <silent> <C-p> :<C-u>Denite
   noremap tF :call RunSingleTest()<cr>
 " }}}
 
+" sideways.vim {{{
+  nnoremap <C-Left> :SidewaysLeft<cr>
+  nnoremap <C-Right> :SidewaysRight<cr>
+" }}}
+
 " Indigo {{{
 function! IndigoCompletion(ArgLead, CmdLine, CursorPos)
   let command="grep \"Scenario:\" -r features/ --line-number| awk '{print $1}' FS=\': \'"
