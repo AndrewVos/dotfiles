@@ -36,3 +36,4 @@ jeffkreeftmeijer/vim-dim
 godlygeek/tabular
 sheerun/vim-polyglot
 AndrewRadev/sideways.vim
+mhinz/vim-startify
