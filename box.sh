@@ -163,10 +163,11 @@ section "apps"
       satisfy executable "ctags"
     end-section
 
-    satisfy github "https://github.com/AndrewVos/vimfiles" "$HOME/.vimfiles"
-    satisfy symlink "$HOME/.vimfiles/.vimrc" "$HOME/.vimrc"
-    satisfy symlink "$HOME/.vimfiles/.vim" "$HOME/.vim"
-    (cd "$HOME/.vimfiles" && ./plugins.sh)
+    PLUGINS=$(cat plugins.txt)
+    for PLUGIN in $PLUGINS; do
+      PLUGIN_NAME=$(echo "$PLUGIN" | cut -d "/" -f 2)
+      satisfy github "https://github.com/$PLUGIN" "$HOME/.vim/bundle/$PLUGIN_NAME"
+    done
   end-section
 
   section "hub"
@@ -182,7 +183,7 @@ end-section
 section "dotfiles"
   satisfy github "https://github.com/AndrewVos/dotfiles" "$HOME/.dotfiles"
   satisfy apt "stow"
-  stow --verbose --dir "$HOME/.dotfiles" --target ~ bash ctags git ssh
+  stow --verbose --dir "$HOME/.dotfiles" --target ~ bash ctags git ssh vim
   satisfy file-line "Source bash init.sh" ~/.bashrc "source ~/.dotfiles/bash/init.sh"
 end-section
 
