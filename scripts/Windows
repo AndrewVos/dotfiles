@@ -1,0 +1,10 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+# Add GRUB_TIMEOUT=0.1 to /etc/default/grub to make the grub menu disappear
+# when dual booting.
+
+WINDOWS_TITLE=$(grep -i 'windows' /boot/grub/grub.cfg|cut -d"'" -f2)
+sudo grub-reboot "$WINDOWS_TITLE"
+sudo reboot
