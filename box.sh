@@ -76,7 +76,13 @@ section "apps"
   satisfy apt "krita"
   satisfy apt "xclip"
   satisfy apt "tig"
-  satisfy apt "hugo"
+
+  function install-hugo() {
+    wget https://github.com/gohugoio/hugo/releases/download/v0.54.0/hugo_0.54.0_Linux-64bit.tar.gz -O hugo.tar.gz
+    tar -xzvf hugo.tar.gz
+    sudo cp hugo /usr/local/bin/hugo
+  }
+  satisfy executable "hugo"
 
   function install-heroku() {
     curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
