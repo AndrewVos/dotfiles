@@ -215,6 +215,9 @@ mhinz/vim-startify
       PLUGIN_NAME=$(echo "$PLUGIN" | cut -d "/" -f 2)
       satisfy github "https://github.com/$PLUGIN" "$HOME/.vim/bundle/$PLUGIN_NAME"
     done
+
+    # generate docs
+    vim -c :silent :Helptags -c :q -c :q
   end-section
 
   section "hub"
