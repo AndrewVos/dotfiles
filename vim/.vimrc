@@ -162,6 +162,18 @@ nnoremap <silent> <C-p> :<C-u>Denite
   nnoremap <C-Right> :SidewaysRight<cr>
 " }}}
 
+" startify {{{
+  let g:startify_custom_header = []
+  let g:startify_change_to_dir = 0
+  let g:startify_lists = [
+        \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+        \ { 'type': 'files',     'header': ['   MRU']            },
+        \ { 'type': 'sessions',  'header': ['   Sessions']       },
+        \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+        \ { 'type': 'commands',  'header': ['   Commands']       },
+        \ ]
+" }}}
+
 " Indigo {{{
 function! IndigoCompletion(ArgLead, CmdLine, CursorPos)
   let command="grep \"Scenario:\" -r features/ --line-number| awk '{print $1}' FS=\': \'"
