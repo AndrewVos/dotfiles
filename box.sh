@@ -154,6 +154,13 @@ section "apps"
 
   satisfy apt "flameshot"
 
+  function install-exa() {
+    wget https://github.com/ogham/exa/releases/download/v0.8.0/exa-linux-x86_64-0.8.0.zip -O exa.zip
+    unzip exa.zip
+    sudo cp exa-linux-x86_64 /usr/local/bin/exa
+  }
+  satisfy executable "exa"
+
   section "vim"
     satisfy apt "vim-gtk3"
 

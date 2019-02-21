@@ -17,8 +17,7 @@ alias ber='bundle exec rspec spec --color'
 alias bec='bundle exec cucumber --color'
 alias irb=pry
 
-alias ls='ls -1 -G --color=auto'
-alias ll='ls -ahlF --color=auto'
+alias ls='exa -la'
 
 source ~/.dotfiles/bash/init/ps1.sh
 source ~/.dotfiles/bash/init/yarn-completion.sh
