@@ -25,6 +25,7 @@ section "dependencies"
 end-section
 
 section "databases"
+  satisfy apt "pgcli"
   section "postgres"
     satisfy apt "postgresql"
     if did-install; then
