@@ -82,6 +82,10 @@ cnoremap <C-A> <Home>
   command! -nargs=0 Revert :GitGutterUndoHunk
 " }}}
 
+" :Usages <tag> to jump to tag usages {{{
+  command! -nargs=1 -complete=tag Usages :Ggrep <f-args>
+" }}}
+
 " format json {{{
   noremap <leader>j :%!python -m json.tool<cr>
 " }}}
