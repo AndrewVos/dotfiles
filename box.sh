@@ -225,7 +225,7 @@ mhinz/vim-startify
     done
 
     # generate docs
-    vim -c :silent :Helptags -c :q -c :q
+    vim -c Helptags -c q
   end-section
 
   section "hub"
