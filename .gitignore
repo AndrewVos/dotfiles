@@ -1,4 +1,5 @@
 fish/fishd.andrewvos
 ssh/.ssh/id_rsa
 ssh/.ssh/id_rsa.pub
+ssh/.ssh/known_hosts
 .vim/
