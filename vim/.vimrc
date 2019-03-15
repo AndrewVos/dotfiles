@@ -90,14 +90,6 @@ cnoremap <C-A> <Home>
   noremap <leader>j :%!python -m json.tool<cr>
 " }}}
 
-" denite ctrl+p {{{
-call denite#custom#alias('source', 'file/rec/git', 'file/rec')
-call denite#custom#var('file/rec/git', 'command',
-      \ ['git', 'ls-files', '-co', '--exclude-standard'])
-nnoremap <silent> <C-p> :<C-u>Denite
-      \ `finddir('.git', ';') != '' ? 'file/rec/git' : 'file/rec'`<CR>
-" }}}
-
 " vim-argwrap {{{
   nnoremap gS :ArgWrap<cr>
   au FileType ruby let b:argwrap_tail_comma=1

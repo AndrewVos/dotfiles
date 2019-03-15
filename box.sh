@@ -212,7 +212,6 @@ elixir-lang/vim-elixir
 tpope/vim-rhubarb
 kopischke/vim-fetch
 kristijanhusak/vim-js-file-import
-Shougo/denite.nvim
 jeffkreeftmeijer/vim-dim
 godlygeek/tabular
 sheerun/vim-polyglot
