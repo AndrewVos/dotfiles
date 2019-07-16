@@ -32,6 +32,7 @@ section "databases"
       sudo su postgres -c "createuser -s $USER"
     fi
   end-section
+  satisfy apt "libpq-dev"
   satisfy apt "redis"
 end-section
 
