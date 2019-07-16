@@ -12,13 +12,6 @@ complete -o default -o nospace -F _git g
 # Source git completions
 source /usr/share/bash-completion/completions/git
 
-alias b='bundle exec'
-alias ber='bundle exec rspec spec --color'
-alias bec='bundle exec cucumber --color'
-alias irb=pry
-
-alias ls='exa -la'
-
 source ~/.dotfiles/bash/init/ps1.sh
 source ~/.dotfiles/bash/init/yarn-completion.sh
 
@@ -33,3 +26,10 @@ source /usr/local/share/chruby/auto.sh
 
 # Golang
 export PATH=$PATH:~/go/bin
+
+alias b='bundle exec'
+alias ber='bundle exec rspec spec --color'
+alias bec='bundle exec cucumber --color'
+alias irb=pry
+
+alias ls='exa -la'
