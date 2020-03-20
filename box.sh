@@ -70,6 +70,16 @@ section "programming languages"
     }
     satisfy file "chruby" "/usr/local/share/chruby/chruby.sh"
   end-section
+
+  section "golang"
+    section "golang"
+      satisfy file-line "Add go binaries to PATH" ~/.bashrc 'export PATH="$PATH:/usr/local/go/bin"'
+      satisfy file-line "Export GOPATH" ~/.bashrc 'export GOPATH="$HOME/gopath"'
+      satisfy file-line "Add go package binaries to PATH" ~/.bashrc 'export PATH="$GOPATH/bin:$PATH"'
+      export PATH="$PATH:/usr/local/go/bin"
+      satisfy golang "go1.14"
+    end-section
+  end-section
 end-section
 
 section "apps"
