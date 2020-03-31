@@ -11,6 +11,10 @@ cnoremap <C-A> <Home>
   colorscheme dim
 " }}}
 
+" tags file location {{{
+  set tags^=./.git/tags;
+" }}}
+
 " ale {{{
   let g:ale_set_highlights=1
   let g:ale_set_signs=0
