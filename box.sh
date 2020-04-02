@@ -209,7 +209,6 @@ FooSoft/vim-argwrap
 airblade/vim-gitgutter
 dietsche/vim-lastplace
 stefandtw/quickfix-reflector.vim
-tpope/vim-haystack
 ntpeters/vim-better-whitespace
 tpope/vim-eunuch
 tpope/vim-abolish
