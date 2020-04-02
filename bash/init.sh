@@ -20,6 +20,9 @@ export PATH="$PATH:node_modules/.bin"
 export PATH="$PATH:$HOME/.yarn/bin"
 export HUSKY_SKIP_INSTALL=yes
 
+# Overcommit gem
+export OVERCOMMIT_DISABLE=1
+
 # Ruby
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
