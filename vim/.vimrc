@@ -70,6 +70,10 @@ cnoremap <C-A> <Home>
   set number
 " }}}
 
+" ctrlp {{{
+  let g:ctrlp_user_command = 'git ls-files --cached --modified | sort | uniq'
+" }}}
+
 " gitgutter {{{
   " Async support breaks vim rendering when you use :make with
   " unsaved changes, and autowrite enabled.
