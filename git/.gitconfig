@@ -14,8 +14,7 @@
   excludesfile = ~/.gitignore
 
 [format]
-  pretty=format:%C(yellow)%h%Creset %s%C(red)%d%Creset %Cgreen(%cr) %C(bold blue)<%an>%Creset
-  ; pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset
+  pretty=format:%C(yellow)%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
 
 [init]
   templatedir = ~/.git-template
