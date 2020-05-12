@@ -166,6 +166,13 @@ section "apps"
 
   satisfy apt "flameshot"
 
+  function install-ngrok() {
+    wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -O ngrok.zip
+    unzip ngrok.zip
+    sudo cp ngrok /usr/local/bin/ngrok
+  }
+  satisfy executable "ngrok"
+
   function install-exa() {
     wget https://github.com/ogham/exa/releases/download/v0.8.0/exa-linux-x86_64-0.8.0.zip -O exa.zip
     unzip exa.zip
