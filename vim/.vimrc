@@ -175,3 +175,10 @@ cnoremap <C-A> <Home>
         \ { 'type': 'commands',  'header': ['   Commands']       },
         \ ]
 " }}}
+
+function! RunRubocop()
+  let errorformat = '%f:%l: %t: %m'
+  set makeprg=rubocop
+  make
+endfunction
+command! -nargs=0 Rubocop call RunRubocop()
