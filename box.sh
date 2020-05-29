@@ -235,6 +235,8 @@ sheerun/vim-polyglot
 AndrewRadev/sideways.vim
 mhinz/vim-startify
 ctrlpvim/ctrlp.vim
+tpope/vim-haystack
+AndrewVos/vim-git-navigator
 "
     for PLUGIN in $PLUGINS; do
       PLUGIN_NAME=$(echo "$PLUGIN" | cut -d "/" -f 2)
