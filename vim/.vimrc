@@ -130,7 +130,7 @@ cnoremap <C-A> <Home>
 " rspec {{{
   function! RunAllTests()
     compiler rspec
-    setlocal makeprg=bundle\ exec\ rspec
+    setlocal makeprg=bundle\ exec\ rspec\ --fail-fast
     make!
   endfunction
   function! RunTests()
