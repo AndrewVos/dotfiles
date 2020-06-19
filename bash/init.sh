@@ -15,6 +15,9 @@ source /usr/share/bash-completion/completions/git
 source ~/.dotfiles/bash/init/ps1.sh
 source ~/.dotfiles/bash/init/yarn-completion.sh
 
+# make CTRL-W kill words up until \
+bind '\C-w:backward-kill-word'
+
 # Nodejs
 export PATH="$PATH:node_modules/.bin"
 export PATH="$PATH:$HOME/.yarn/bin"

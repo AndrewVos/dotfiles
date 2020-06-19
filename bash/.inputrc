@@ -4,3 +4,5 @@ $include /etc/inputrc
 TAB: menu-complete
 # and backwards
 "\e[Z": "\e-1\C-i"
+
+set bind-tty-special-chars Off
