@@ -29,7 +29,6 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 let g:GPGExecutable="gpg2"
 
 " golang
-  " Does that auto import stuff
 let g:go_fmt_command = "goimports"
 
 " vim
@@ -74,7 +73,7 @@ nnoremap gS :ArgWrap<cr>
 au FileType ruby let b:argwrap_tail_comma=1
 
 " set *.es6 to filetype javascript
-  au BufRead,BufNewFile *.es6 set filetype=javascript
+au BufRead,BufNewFile *.es6 set filetype=javascript
 
 " html
 " Before:
