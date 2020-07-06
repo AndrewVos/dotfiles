@@ -180,6 +180,12 @@ section "apps"
   }
   satisfy executable "exa"
 
+  section "hstr"
+    satisfy apt "software-properties-common"
+    satisfy apt-ppa "ppa:ultradvorka/ppa"
+    satisfy apt "hstr"
+  end-section
+
   section "vim"
     satisfy apt "vim-gtk3"
 
