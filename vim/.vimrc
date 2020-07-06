@@ -12,26 +12,14 @@ colorscheme dim
 " tags file location
 set tags^=./.git/tags;
 
-" ale
-let g:ale_set_highlights=1
-let g:ale_set_signs=0
-highlight ALEErrorLine ctermbg=lightred ctermfg=darkgray
-highlight ALEWarningLine ctermbg=lightyellow ctermfg=darkgray
-highlight ALEInfoLine ctermbg=lightblue ctermfg=darkgray
-
 " vim-autoformat
-let g:autoformat_autoindent = 0
-let g:autoformat_retab = 0
-let g:autoformat_remove_trailing_spaces = 0
-let g:formatters_javascript = [
-      \ 'prettier',
-      \ 'eslint_local',
-      \ 'jsbeautify_javascript',
-      \ 'jscs',
-      \ 'standard_javascript',
-      \ 'xo_javascript',
-      \ ]
-au BufWrite * :Autoformat
+function! Format()
+  normal! ix
+  normal! "_x
+  undojoin
+  :Autoformat
+endfunction
+au BufWrite * call Format()
 
 " backup to ~/.tmp
 set backup
