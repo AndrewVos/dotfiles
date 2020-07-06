@@ -237,7 +237,6 @@ kopischke/vim-fetch
 kristijanhusak/vim-js-file-import
 jeffkreeftmeijer/vim-dim
 godlygeek/tabular
-sheerun/vim-polyglot
 AndrewRadev/sideways.vim
 mhinz/vim-startify
 ctrlpvim/ctrlp.vim
