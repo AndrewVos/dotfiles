@@ -22,11 +22,7 @@ endfunction
 au BufWrite * call Format()
 
 " backup to ~/.tmp
-set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set backupskip=/tmp/*,/private/tmp/* 
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set writebackup
 
 " vim-gnupg
 " Use gpg2, because it stores symmetric passphrases in gpg-agent.
