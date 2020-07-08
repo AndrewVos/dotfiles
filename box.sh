@@ -186,19 +186,6 @@ section "apps"
     satisfy apt "hstr"
   end-section
 
-  section 'wmutils'
-    function install-wmutils() {
-      git clone https://github.com/wmutils/core
-      cd core
-      make
-      sudo make install
-    }
-    satisfy apt "wmctrl"
-    satisfy apt "libxcb-util-dev"
-    satisfy apt "libxcb-cursor-dev"
-    satisfy executable "wmutils"
-  end-section
-
   section "fzy"
     satisfy apt "fzy"
   end-section
