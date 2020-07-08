@@ -244,7 +244,6 @@ tpope/vim-eunuch
 tpope/vim-abolish
 int3/vim-extradite
 tpope/vim-speeddating
-w0rp/ale
 Chiel92/vim-autoformat
 terryma/vim-multiple-cursors
 ap/vim-css-color
