@@ -48,8 +48,20 @@ highlight Search cterm=NONE ctermfg=red ctermbg=None
 set nofoldenable
 set number
 
-" ctrlp
+" fzy
 let g:ctrlp_user_command = 'git ls-files --cached --modified | sort | uniq'
+function! FzyCommand(choice_command, vim_command)
+  try
+    let output = system(a:choice_command . " | fzy ")
+  catch /Vim:Interrupt/
+    " Swallow errors from ^C, allow redraw! below
+  endtry
+  redraw!
+  if v:shell_error == 0 && !empty(output)
+    exec a:vim_command . ' ' . output
+  endif
+endfunction
+nnoremap <C-p> :call FzyCommand("git ls-files --cached --modified \| sort \| uniq", ":e")<cr>
 
 " gitgutter
 " Async support breaks vim rendering when you use :make with

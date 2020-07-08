@@ -199,6 +199,10 @@ section "apps"
     satisfy executable "wmutils"
   end-section
 
+  section "fzy"
+    satisfy apt "fzy"
+  end-section
+
   section "vim"
     satisfy apt "vim-gtk3"
 
@@ -252,7 +256,6 @@ jeffkreeftmeijer/vim-dim
 godlygeek/tabular
 AndrewRadev/sideways.vim
 mhinz/vim-startify
-ctrlpvim/ctrlp.vim
 tpope/vim-haystack
 AndrewVos/vim-git-navigator
 "
