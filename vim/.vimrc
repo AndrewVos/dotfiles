@@ -48,6 +48,15 @@ highlight Search cterm=NONE ctermfg=red ctermbg=None
 set nofoldenable
 set number
 
+" templates
+augroup templates
+  function! ReadTemplate(path)
+    execute 'silent 0r ' . a:path
+    execute 'normal! G'
+  endfunction
+  autocmd BufNewFile *.sh call ReadTemplate('~/.vim-templates/template.sh')
+augroup END
+
 " fzy
 let g:ctrlp_user_command = 'git ls-files --cached --modified | sort | uniq'
 function! FzyCommand(choice_command, vim_command)
