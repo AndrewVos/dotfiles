@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# append new history items to .bash_history
+shopt -s histappend
+# ensure synchronization between bash memory and history file
+export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
+
 if [[ $- =~ i ]]; then
   fzy_history() {
     command=$(history -w /dev/stdout | fzy)
