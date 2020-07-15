@@ -103,13 +103,13 @@ section "apps"
 
   function install-google-chrome-stable() {
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O chrome.deb
-    sudo apt install ./chrome.deb
+    sudo apt install -y ./chrome.deb
   }
   satisfy executable "google-chrome-stable"
 
   function install-slack() {
     wget https://downloads.slack-edge.com/linux_releases/slack-desktop-3.3.3-amd64.deb -O slack.deb
-    sudo apt install ./slack.deb
+    sudo apt install -y ./slack.deb
   }
   satisfy executable "slack"
 
@@ -133,7 +133,7 @@ section "apps"
 
   function install-webtorrent-desktop() {
     wget "https://github.com/webtorrent/webtorrent-desktop/releases/download/v0.20.0/webtorrent-desktop_0.20.0-1_amd64.deb" -O webtorrent.deb
-    sudo apt install ./webtorrent.deb
+    sudo apt install -y ./webtorrent.deb
   }
   satisfy executable "webtorrent-desktop"
 
@@ -143,7 +143,7 @@ section "apps"
 
   function install-discord() {
     wget 'https://discordapp.com/api/download?platform=linux&format=deb' -O discord.deb
-    sudo apt install ./discord.deb
+    sudo apt install -y ./discord.deb
   }
   satisfy executable "discord"
 
