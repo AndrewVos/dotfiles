@@ -167,79 +167,79 @@ section "apps"
     satisfy apt "fzy"
   end-section
 
-  section "vim"
-    satisfy apt "vim-gtk3"
+  # section "vim"
+  #   satisfy apt "vim-gtk3"
 
-    section "ctags"
-      satisfy apt "autoconf"
-      satisfy apt "pkg-config"
-      satisfy apt "gcc"
-      satisfy apt "pkg-config"
-      satisfy apt "automake"
-      satisfy apt "python3-docutils"
-      satisfy apt "libseccomp-dev"
-      satisfy apt "libjansson-dev"
-      satisfy apt "libyaml-dev"
-      satisfy apt "libxml2-dev"
+  #   section "ctags"
+  #     satisfy apt "autoconf"
+  #     satisfy apt "pkg-config"
+  #     satisfy apt "gcc"
+  #     satisfy apt "pkg-config"
+  #     satisfy apt "automake"
+  #     satisfy apt "python3-docutils"
+  #     satisfy apt "libseccomp-dev"
+  #     satisfy apt "libjansson-dev"
+  #     satisfy apt "libyaml-dev"
+  #     satisfy apt "libxml2-dev"
 
-      function install-ctags() {
-        git clone https://github.com/universal-ctags/ctags
-        cd ctags
-        ./autogen.sh
-        ./configure
-        make
-        sudo make install
-      }
-      satisfy executable "ctags"
-    end-section
+  #     function install-ctags() {
+  #       git clone https://github.com/universal-ctags/ctags
+  #       cd ctags
+  #       ./autogen.sh
+  #       ./configure
+  #       make
+  #       sudo make install
+  #     }
+  #     satisfy executable "ctags"
+  #   end-section
 
-    PLUGINS="
-tpope/vim-pathogen
-tpope/vim-sleuth
-tpope/vim-sensible
-tpope/vim-unimpaired
-tpope/vim-surround
-tpope/vim-commentary
-tpope/vim-fugitive
-tpope/vim-vinegar
-tpope/vim-jdaddy
-pangloss/vim-javascript
-jamessan/vim-gnupg
-mattn/webapi-vim
-vim-scripts/Gist.vim
-AndrewVos/vim-aaa
-AndrewVos/vim-ring
-FooSoft/vim-argwrap
-airblade/vim-gitgutter
-dietsche/vim-lastplace
-stefandtw/quickfix-reflector.vim
-ntpeters/vim-better-whitespace
-tpope/vim-eunuch
-tpope/vim-abolish
-int3/vim-extradite
-tpope/vim-speeddating
-Chiel92/vim-autoformat
-terryma/vim-multiple-cursors
-ap/vim-css-color
-elixir-lang/vim-elixir
-tpope/vim-rhubarb
-kopischke/vim-fetch
-kristijanhusak/vim-js-file-import
-jeffkreeftmeijer/vim-dim
-godlygeek/tabular
-AndrewRadev/sideways.vim
-mhinz/vim-startify
-tpope/vim-haystack
-AndrewVos/vim-git-navigator
-"
-    for PLUGIN in $PLUGINS; do
-      PLUGIN_NAME=$(echo "$PLUGIN" | cut -d "/" -f 2)
-      satisfy github "https://github.com/$PLUGIN" "$HOME/.vim/bundle/$PLUGIN_NAME"
-    done
+  #   PLUGINS="
+# tpope/vim-pathogen
+# tpope/vim-sleuth
+# tpope/vim-sensible
+# tpope/vim-unimpaired
+# tpope/vim-surround
+# tpope/vim-commentary
+# tpope/vim-fugitive
+# tpope/vim-vinegar
+# tpope/vim-jdaddy
+# pangloss/vim-javascript
+# jamessan/vim-gnupg
+# mattn/webapi-vim
+# vim-scripts/Gist.vim
+# AndrewVos/vim-aaa
+# AndrewVos/vim-ring
+# FooSoft/vim-argwrap
+# airblade/vim-gitgutter
+# dietsche/vim-lastplace
+# stefandtw/quickfix-reflector.vim
+# ntpeters/vim-better-whitespace
+# tpope/vim-eunuch
+# tpope/vim-abolish
+# int3/vim-extradite
+# tpope/vim-speeddating
+# Chiel92/vim-autoformat
+# terryma/vim-multiple-cursors
+# ap/vim-css-color
+# elixir-lang/vim-elixir
+# tpope/vim-rhubarb
+# kopischke/vim-fetch
+# kristijanhusak/vim-js-file-import
+# jeffkreeftmeijer/vim-dim
+# godlygeek/tabular
+# AndrewRadev/sideways.vim
+# mhinz/vim-startify
+# tpope/vim-haystack
+# AndrewVos/vim-git-navigator
+# "
+  #   for PLUGIN in $PLUGINS; do
+  #     PLUGIN_NAME=$(echo "$PLUGIN" | cut -d "/" -f 2)
+  #     satisfy github "https://github.com/$PLUGIN" "$HOME/.vim/bundle/$PLUGIN_NAME"
+  #   done
 
-    # generate docs
-    vim -c Helptags -c q
-  end-section
+  #   # generate docs
+  #   vim -c Helptags -c q
+  # end-section
 
   section "hub"
     function install-hub () {
