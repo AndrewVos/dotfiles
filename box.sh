@@ -101,21 +101,15 @@ section "apps"
   }
   satisfy executable "heroku"
 
-  # reqired for chrome
-  satisfy apt "fonts-liberation"
   function install-google-chrome-stable() {
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O chrome.deb
-    sudo dpkg -i chrome.deb
+    sudo apt install ./chrome.deb
   }
   satisfy executable "google-chrome-stable"
 
-  # required for slack
-  satisfy apt "gconf2"
-  satisfy apt "gconf-service"
-  satisfy apt "libappindicator1"
   function install-slack() {
     wget https://downloads.slack-edge.com/linux_releases/slack-desktop-3.3.3-amd64.deb -O slack.deb
-    sudo dpkg -i slack.deb
+    sudo apt install ./slack.deb
   }
   satisfy executable "slack"
 
@@ -136,7 +130,7 @@ section "apps"
 
   function install-webtorrent-desktop() {
     wget "https://github.com/webtorrent/webtorrent-desktop/releases/download/v0.20.0/webtorrent-desktop_0.20.0-1_amd64.deb" -O webtorrent.deb
-    sudo dpkg -i webtorrent.deb
+    sudo apt install ./webtorrent.deb
   }
   satisfy executable "webtorrent-desktop"
 
@@ -145,9 +139,8 @@ section "apps"
   satisfy apt "jq"
 
   function install-discord() {
-    sudo apt install -y "libc++1"
     wget 'https://discordapp.com/api/download?platform=linux&format=deb' -O discord.deb
-    sudo dpkg -i discord.deb
+    sudo apt install ./discord.deb
   }
   satisfy executable "discord"
 
