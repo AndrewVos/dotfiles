@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # append new history items to .bash_history
 shopt -s histappend
 # ensure synchronization between bash memory and history file

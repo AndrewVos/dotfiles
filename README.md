@@ -1,10 +1,26 @@
 # dotfiles
 
-Uses [box](https://github.com/AndrewVos/box) to build
-my dev machines.
+Some scripts to fully provision ubuntu machines with my dotfiles and applications.
 
-## Provisioning the machine with box
+## Install
 
 ```bash
-bash <(wget -o /dev/null -qO- https://raw.githubusercontent.com/AndrewVos/dotfiles/master/box.sh)
+sudo apt install -y git
+git clone https://github.com/AndrewVos/dotfiles ~/.dotfiles
+cd ~/.dotfiles
+./install.sh
+```
+
+## Upgrade
+
+```bash
+cd ~/.dotfiles
+./upgrade.sh
+```
+
+## Test
+
+```bash
+sudo snap install docker
+./test.sh
 ```

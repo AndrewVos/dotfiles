@@ -2,7 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-export UPGRADE="no"
+export UPGRADE="yes"
 export LOG_FILE=$(mktemp)
 
 function write-log {
@@ -12,10 +12,14 @@ function write-log {
 }
 trap write-log EXIT
 
+echo "Upgrading packages..."
+sudo apt update -y >> "$LOG_FILE" 2>&1
+sudo apt upgrade -y >> "$LOG_FILE" 2>&1
+
 for app in $(ls apps); do
   PREVIOUS_PWD="$(pwd)"
   cd $(mktemp -d)
-  echo "Installing $app..."
+  echo "Upgrading $app..."
   $PREVIOUS_PWD/apps/$app >> "$LOG_FILE" 2>&1
   cd "$PREVIOUS_PWD"
 done
