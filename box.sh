@@ -147,12 +147,6 @@ section "apps"
   }
   satisfy executable "discord"
 
-  satisfy apt "python-pip"
-  function install-cheat() {
-    sudo pip install cheat
-  }
-  satisfy executable "cheat"
-
   satisfy apt "flameshot"
 
   function install-ngrok() {
