@@ -173,6 +173,15 @@ section "apps"
     section "ctags"
       satisfy apt "autoconf"
       satisfy apt "pkg-config"
+      satisfy apt "gcc"
+      satisfy apt "pkg-config"
+      satisfy apt "automake"
+      satisfy apt "python3-docutils"
+      satisfy apt "libseccomp-dev"
+      satisfy apt "libjansson-dev"
+      satisfy apt "libyaml-dev"
+      satisfy apt "libxml2-dev"
+
       function install-ctags() {
         git clone https://github.com/universal-ctags/ctags
         cd ctags
