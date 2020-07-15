@@ -257,20 +257,3 @@ section "dotfiles"
   stow --verbose --dir "$HOME/.dotfiles" --target ~ bash ctags git ssh vim
   satisfy file-line "Source bash init.sh" ~/.bashrc "source ~/.dotfiles/bash/init.sh"
 end-section
-
-section "fonts"
-  FONT_HOME=~/.local/share/fonts
-
-  function install-source-code-pro() {
-    mkdir -p "$FONT_HOME/adobe-fonts/source-code-pro"
-
-    git clone \
-       --branch release \
-       --depth 1 \
-       'https://github.com/adobe-fonts/source-code-pro.git' \
-       "$FONT_HOME/adobe-fonts/source-code-pro"
-
-    fc-cache -f -v "$FONT_HOME/adobe-fonts/source-code-pro"
-  }
-  satisfy file "source-code-pro" "$FONT_HOME/adobe-fonts/source-code-pro/LICENSE.txt"
-end-section
