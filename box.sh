@@ -172,6 +172,7 @@ section "apps"
 
     section "ctags"
       satisfy apt "autoconf"
+      satisfy apt "pkg-config"
       function install-ctags() {
         git clone https://github.com/universal-ctags/ctags
         cd ctags
