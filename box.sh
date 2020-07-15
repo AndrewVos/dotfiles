@@ -173,12 +173,6 @@ section "apps"
   }
   satisfy executable "exa"
 
-  section "hstr"
-    satisfy apt "software-properties-common"
-    satisfy apt-ppa "ppa:ultradvorka/ppa"
-    satisfy apt "hstr"
-  end-section
-
   section "fzy"
     satisfy apt "fzy"
   end-section
