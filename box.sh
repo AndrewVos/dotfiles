@@ -274,5 +274,3 @@ section "fonts"
   }
   satisfy file "source-code-pro" "$FONT_HOME/adobe-fonts/source-code-pro/LICENSE.txt"
 end-section
-
-satisfy apt "elementary-sdk"
