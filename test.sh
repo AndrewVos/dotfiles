@@ -2,10 +2,13 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-set -x
+sudo docker build -t dotfiles-tests .
 
-sudo lxc delete vim-test --force ||:
-sudo lxc launch ubuntu:20.04 vim-test
-sudo lxc file push packs/vim.sh vim-test/
-sleep 5
-sudo lxc exec vim-test -- /vim.sh
+mkdir -p /tmp/dotfiles-test-output
+for file in $(ls packs); do
+  MD5=$(md5sum packs/$file)
+  if [[ "$MD5" != "$(cat /tmp/dotfiles-test-output/$file ||:)" ]]; then
+    sudo docker run --env USER=root -it --rm dotfiles-tests "/app/packs/$file"
+    md5sum "packs/$file" > /tmp/dotfiles-test-output/$file
+  fi
+done

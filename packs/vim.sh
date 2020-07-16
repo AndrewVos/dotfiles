@@ -2,43 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-function git-clone() {
-  URL=$1
-  CLONE_PATH=$2
-
-  if [[ -d "$CLONE_PATH" ]]; then
-    git clone "$URL" "$CLONE_PATH"
-  fi
-}
-
-sudo apt install -y \
-  libncurses5-dev \
-  libatk1.0-dev \
-  libcairo2-dev \
-  libx11-dev \
-  libxpm-dev \
-  libxt-dev \
-  python3-dev \
-  ruby-dev \
-  libperl-dev
-
-CLONE_PATH=$(mktemp -d)
-cd "$CLONE_PATH"
-git clone git@github.com:vim/vim.git "$CLONE_PATH"
-cd "$CLONE_PATH/src"
-./configure --enable-multibyte \
-            --enable-rubyinterp=yes \
-            --enable-pythoninterp=yes \
-            --with-python-config-dir=/usr/lib/python2.7/config \
-            --enable-python3interp=yes \
-            --with-python3-config-dir=/usr/lib/python3.5/config \
-            --enable-perlinterp=yes \
-            --enable-luainterp=yes \
-            --enable-cscope \
-            --prefix=/usr \
-            --enable-gui=auto --enable-gtk2-check --with-x
-make
-sudo make install
+sudo apt install -y vim-gtk3 git
 
 PLUGINS="
 tpope/vim-pathogen
@@ -79,6 +43,15 @@ mhinz/vim-startify
 tpope/vim-haystack
 AndrewVos/vim-git-navigator
 "
+
+function git-clone() {
+  URL=$1
+  CLONE_PATH=$2
+
+  if [[ ! -d "$CLONE_PATH" ]]; then
+    git clone "$URL" "$CLONE_PATH"
+  fi
+}
 
 for PLUGIN in $PLUGINS; do
   PLUGIN_NAME=$(echo "$PLUGIN" | cut -d "/" -f 2)

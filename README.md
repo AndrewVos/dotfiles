@@ -6,5 +6,8 @@ my dev machines.
 ## Provisioning the machine with box
 
 ```bash
-bash <(wget -o /dev/null -qO- https://raw.githubusercontent.com/AndrewVos/dotfiles/master/box.sh)
+sudo apt install -y git
+git clone https://github.com/AndrewVos/dotfiles ~/.dotfiles
+cd ~/.dotfiles
+./install.sh
 ```
