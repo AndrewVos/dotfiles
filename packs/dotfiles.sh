@@ -19,6 +19,6 @@ git-clone "https://github.com/AndrewVos/dotfiles" "$HOME/.dotfiles"
 stow --verbose --dir "$HOME/.dotfiles" --target ~ bash ctags git ssh vim
 
 LINE="source $HOME/.dotfiles/bash/init.sh"
-if ! grep --line-regexp --fixed-strings "$LINE" "~/.bashrc" > /dev/null; then
+if ! grep --line-regexp --fixed-strings "$LINE" "$HOME/.bashrc" > /dev/null; then
   echo "$LINE" >> $HOME/.bashrc
 fi
