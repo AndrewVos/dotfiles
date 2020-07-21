@@ -14,7 +14,6 @@ source /usr/share/bash-completion/completions/git
 
 source ~/.dotfiles/bash/init/ps1.sh
 source ~/.dotfiles/bash/init/yarn-completion.sh
-source ~/.dotfiles/bash/init/fzy.sh
 source ~/.dotfiles/bash/init/golang.sh
 
 # make CTRL-W kill words up until \
