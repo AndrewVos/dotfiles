@@ -7,4 +7,5 @@ if ! command -v "nordvpn" &> /dev/null; then
   sudo apt install -y ./nordvpn.deb
   sudo apt update -y
   sudo apt install -y nordvpn
+  nordvpn whitelist add subnet 192.168.1.1/24
 fi
