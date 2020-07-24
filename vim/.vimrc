@@ -58,7 +58,6 @@ augroup templates
 augroup END
 
 " fzy
-let g:ctrlp_user_command = 'git ls-files --cached --modified | sort | uniq'
 function! FzyCommand(choice_command, vim_command)
   try
     let output = system(a:choice_command . " | fzy ")
