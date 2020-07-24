@@ -9,6 +9,7 @@ git_prompt_color () {
 }
 
 DIR_COLOUR="\033[1;34m"
+HOSTNAME_COLOUR="\033[1;35m"
 RESET_COLOUR="\033[0m"
 
-export PS1="\[$DIR_COLOUR\]\W\[$RESET_COLOUR\]\$(__git_ps1) \[\$(git_prompt_color)\]•\[$RESET_COLOUR\] "
+export PS1="\[$HOSTNAME_COLOUR\]\$(hostname)\[$RESET_COLOUR\]:\[$DIR_COLOUR\]\W\[$RESET_COLOUR\]\$(__git_ps1) \[\$(git_prompt_color)\]•\[$RESET_COLOUR\] "
