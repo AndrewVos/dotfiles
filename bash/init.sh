@@ -28,8 +28,12 @@ export HUSKY_SKIP_INSTALL=yes
 export OVERCOMMIT_DISABLE=1
 
 # Ruby
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
+if [[ -f /usr/local/share/chruby/chruby.sh ]]; then
+  source /usr/local/share/chruby/chruby.sh ||:
+fi
+if [[ -f /usr/local/share/chruby/auto.sh ]]; then
+  source /usr/local/share/chruby/auto.sh ||:
+fi
 
 # Golang
 export PATH=$PATH:~/go/bin
