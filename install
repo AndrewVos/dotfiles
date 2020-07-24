@@ -2,9 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-export UPGRADE="no"
 export LOG_FILE=$(mktemp)
-
 function write-log {
   if [[ $? -gt 0 ]]; then
     echo "Install failed. Logs are here: $LOG_FILE"
@@ -12,10 +10,23 @@ function write-log {
 }
 trap write-log EXIT
 
+export UPGRADE="no"
+set +u
+if [[ "$1" = '--upgrade' ]]; then
+  export UPGRADE="yes"
+fi
+set -u
+
+if [[ "$UPGRADE" = "yes" ]]; then
+  echo "Syncing packages..."
+  sudo apt update -y >> "$LOG_FILE" 2>&1
+  sudo apt upgrade -y >> "$LOG_FILE" 2>&1
+fi
+
 for app in $(ls apps); do
   PREVIOUS_PWD="$(pwd)"
   cd $(mktemp -d)
-  echo "Installing $app..."
+  echo "Syncing $app..."
   $PREVIOUS_PWD/apps/$app >> "$LOG_FILE" 2>&1
   cd "$PREVIOUS_PWD"
 done

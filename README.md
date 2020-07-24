@@ -8,19 +8,19 @@ Some scripts to fully provision ubuntu machines with my dotfiles and application
 sudo apt install -y git
 git clone https://github.com/AndrewVos/dotfiles ~/.dotfiles
 cd ~/.dotfiles
-./install.sh
+./install
 ```
 
 ## Upgrade
 
 ```bash
 cd ~/.dotfiles
-./upgrade.sh
+./install --upgrade
 ```
 
 ## Test
 
 ```bash
 sudo snap install docker
-./test.sh
+./test
 ```
