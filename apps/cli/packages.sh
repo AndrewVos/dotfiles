@@ -3,7 +3,6 @@ set -euo pipefail
 IFS=$'\n\t'
 
 sudo apt install -y \
-  mpv \
   whois \
   jq \
   fzy \
@@ -16,7 +15,4 @@ sudo apt install -y \
   shellcheck \
   exuberant-ctags \
   redis \
-  krita \
-  xclip \
-  tig \
-  flameshot
+  tig

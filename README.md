@@ -8,14 +8,10 @@ Some scripts to fully provision ubuntu machines with my dotfiles and application
 sudo apt install -y git
 git clone https://github.com/AndrewVos/dotfiles ~/.dotfiles
 cd ~/.dotfiles
-./install
-```
 
-## Upgrade
-
-```bash
-cd ~/.dotfiles
-./install --upgrade
+./install # Full desktop install
+./install --server # Lightweight server install
+./install --upgrade # Upgrade all packages
 ```
 
 ## Test

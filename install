@@ -2,20 +2,25 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+export UPGRADE="no"
+export APP_GROUPS=(cli database dev gui)
+
+for var in "$@"
+do
+  if [[ "$var" = "--upgrade" ]]; then
+    export UPGRADE="yes"
+  elif [[ "$var" = "--server" ]]; then
+    APP_GROUPS=(cli)
+  fi
+done
+
 export LOG_FILE=$(mktemp)
 function write-log {
   if [[ $? -gt 0 ]]; then
-    echo "Install failed. Logs are here: $LOG_FILE"
+    cat "$LOG_FILE"
   fi
 }
 trap write-log EXIT
-
-export UPGRADE="no"
-set +u
-if [[ "$1" = '--upgrade' ]]; then
-  export UPGRADE="yes"
-fi
-set -u
 
 if [[ "$UPGRADE" = "yes" ]]; then
   echo "Syncing packages..."
@@ -23,10 +28,13 @@ if [[ "$UPGRADE" = "yes" ]]; then
   sudo apt upgrade -y >> "$LOG_FILE" 2>&1
 fi
 
-for app in $(ls apps); do
-  PREVIOUS_PWD="$(pwd)"
-  cd $(mktemp -d)
-  echo "Syncing $app..."
-  $PREVIOUS_PWD/apps/$app >> "$LOG_FILE" 2>&1
-  cd "$PREVIOUS_PWD"
+PREVIOUS_PWD="$(pwd)"
+
+for APP_GROUP in "${APP_GROUPS[@]}"; do
+  for APP in $(ls "apps/$APP_GROUP/"); do
+    cd $(mktemp -d)
+    echo "Syncing $APP_GROUP/$APP..."
+    $PREVIOUS_PWD/apps/$APP_GROUP/$APP >> "$LOG_FILE" 2>&1
+    cd "$PREVIOUS_PWD"
+  done
 done
