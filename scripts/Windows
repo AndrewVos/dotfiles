@@ -2,6 +2,9 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+# To get this working:
+# sudo os-prober
+# sudo update-grub
 # Add GRUB_TIMEOUT=0.1 to /etc/default/grub to make the grub menu disappear
 # when dual booting.
 
