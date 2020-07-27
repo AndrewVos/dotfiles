@@ -6,4 +6,5 @@ sudo apt install -y \
   mpv \
   krita \
   xclip \
-  flameshot
+  flameshot \
+  gnome-tweak-tool
