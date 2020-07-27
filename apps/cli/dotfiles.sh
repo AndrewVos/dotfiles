@@ -19,7 +19,6 @@ function git-clone() {
   fi
 }
 
-git-clone "https://github.com/AndrewVos/dotfiles" "$HOME/.dotfiles"
 stow --verbose --dir "$HOME/.dotfiles" --target ~ bash ctags git ssh vim
 
 LINE="source $HOME/.dotfiles/bash/init.sh"
