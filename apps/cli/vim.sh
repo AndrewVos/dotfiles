@@ -44,6 +44,7 @@ tpope/vim-haystack
 AndrewVos/vim-git-navigator
 "
 
+UPDATE_VIM_DOCS="no"
 function git-clone() {
   URL=$1
   CLONE_PATH=$2
@@ -51,9 +52,11 @@ function git-clone() {
   if [[ -d "$CLONE_PATH" ]]; then
     if [[ "$UPGRADE" = "yes" ]]; then
       git -C "$CLONE_PATH" pull
+      UPDATE_VIM_DOCS="yes"
     fi
   else
     git clone "$URL" "$CLONE_PATH"
+    UPDATE_VIM_DOCS="yes"
   fi
 }
 
@@ -62,5 +65,6 @@ for PLUGIN in $PLUGINS; do
   git-clone "https://github.com/$PLUGIN" "$HOME/.vim/bundle/$PLUGIN_NAME"
 done
 
-# generate docs
-vim -c Helptags -c q
+if [[ "$UPDATE_VIM_DOCS" = "yes" ]]; then
+  vim -c Helptags -c q
+fi
