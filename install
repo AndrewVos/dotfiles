@@ -2,30 +2,41 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-export UPGRADE="no"
-export APP_GROUPS=(cli database dev gui)
+UPGRADE="no"
+APP_GROUPS=(cli database dev gui)
+VERBOSE="no"
 
 for var in "$@"
 do
   if [[ "$var" = "--upgrade" ]]; then
-    export UPGRADE="yes"
+    UPGRADE="yes"
   elif [[ "$var" = "--server" ]]; then
     APP_GROUPS=(cli)
+  elif [[ "$var" == "--verbose" ]]; then
+    VERBOSE="yes"
   fi
 done
 
 export LOG_FILE=$(mktemp)
-function write-log {
+function write-log-if-error {
   if [[ $? -gt 0 ]]; then
     cat "$LOG_FILE"
   fi
 }
-trap write-log EXIT
+trap write-log-if-error EXIT
+
+function print-log {
+  if [[ "$VERBOSE" = "yes" ]]; then
+    tee -a "$LOG_FILE"
+  else
+    cat >> "$LOG_FILE"
+  fi
+}
 
 if [[ "$UPGRADE" = "yes" ]]; then
   echo "Syncing packages..."
-  sudo apt update -y >> "$LOG_FILE" 2>&1
-  sudo apt upgrade -y >> "$LOG_FILE" 2>&1
+  sudo apt update -y | print-log 2>&1
+  sudo apt upgrade -y | print-log 2>&1
 fi
 
 PREVIOUS_PWD="$(pwd)"
@@ -34,7 +45,8 @@ for APP_GROUP in "${APP_GROUPS[@]}"; do
   for APP in $(ls "apps/$APP_GROUP/"); do
     cd $(mktemp -d)
     echo "Syncing $APP_GROUP/$APP..."
-    $PREVIOUS_PWD/apps/$APP_GROUP/$APP >> "$LOG_FILE" 2>&1
+    UPGRADE=$UPGRADE $PREVIOUS_PWD/apps/$APP_GROUP/$APP 2>&1 | print-log
+
     cd "$PREVIOUS_PWD"
   done
 done
