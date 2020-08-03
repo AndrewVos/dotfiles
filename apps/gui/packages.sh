@@ -8,3 +8,6 @@ sudo apt install -y \
   xclip \
   flameshot \
   gnome-tweak-tool
+
+sudo snap install \
+  pick-colour-picker
