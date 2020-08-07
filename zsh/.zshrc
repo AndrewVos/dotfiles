@@ -8,6 +8,11 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
+# golang
+export PATH="$PATH:/usr/local/go/bin"
+export GOPATH="$HOME/gopath"
+export PATH="$GOPATH/bin:$PATH"
+
 # Use modern completion system
 autoload -Uz compinit
 compinit
