@@ -1,9 +1,3 @@
-# Set up the prompt
-
-autoload -Uz promptinit
-promptinit
-prompt adam1
-
 setopt histignorealldups sharehistory
 
 # Use emacs keybindings even if our EDITOR is set to vi
@@ -35,3 +29,23 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+# Prompt
+autoload -U colors && colors
+autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+precmd() {
+  if git rev-parse --git-dir > /dev/null 2>&1; then
+    if git status | grep "nothing to commit" > /dev/null 2>&1; then
+      zstyle ':vcs_info:git*' formats " %{$reset_color%}(%b)"
+    else
+      zstyle ':vcs_info:git*' formats " %{$reset_color%}(%b)%F{red}"
+    fi
+  fi
+
+  vcs_info
+}
+
+PROMPT='%F{magenta}$(hostname):%F{blue}%1~%{$reset_color%}${vcs_info_msg_0_} • %{$reset_color%}'
