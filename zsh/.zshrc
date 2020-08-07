@@ -8,6 +8,9 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
+# vim
+export EDITOR=vim
+
 # golang
 export PATH="$PATH:/usr/local/go/bin"
 export GOPATH="$HOME/gopath"
