@@ -6,7 +6,7 @@ sudo apt install -y \
   git \
   stow
 
-stow --verbose --dir "$HOME/.dotfiles" --target ~ bash ctags git ssh vim asdf
+stow --verbose --dir "$HOME/.dotfiles" --target ~ bash ctags git ssh vim asdf zsh
 
 LINE="source $HOME/.dotfiles/bash/init.sh"
 if ! grep --line-regexp --fixed-strings "$LINE" "$HOME/.bashrc" > /dev/null; then
