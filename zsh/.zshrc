@@ -13,6 +13,14 @@ export PATH="$PATH:/usr/local/go/bin"
 export GOPATH="$HOME/gopath"
 export PATH="$GOPATH/bin:$PATH"
 
+# aliases
+alias g=git
+alias b='bundle exec'
+alias ber='bundle exec rspec spec --color'
+alias bec='bundle exec cucumber --color'
+alias irb=pry
+alias ls='exa -la'
+
 # Use modern completion system
 autoload -Uz compinit
 compinit
