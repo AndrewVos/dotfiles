@@ -13,6 +13,10 @@ export PATH="$PATH:/usr/local/go/bin"
 export GOPATH="$HOME/gopath"
 export PATH="$GOPATH/bin:$PATH"
 
+# Nodejs
+export PATH="$PATH:node_modules/.bin"
+export PATH="$PATH:$HOME/.yarn/bin"
+
 # aliases
 alias g=git
 alias b='bundle exec'
