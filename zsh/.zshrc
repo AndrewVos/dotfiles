@@ -64,6 +64,10 @@ my-backward-delete-word() {
 zle -N my-backward-delete-word
 bindkey '^W' my-backward-delete-word
 
+# Ctrl-left/right to go back and forward words
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
 # Prompt
 autoload -U colors && colors
 autoload -Uz vcs_info
