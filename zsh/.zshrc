@@ -11,6 +11,9 @@ HISTFILE=~/.zsh_history
 # vim
 export EDITOR=vim
 
+# scripts
+export PATH="$PATH:$HOME/.dotfiles/scripts"
+
 # golang
 export PATH="$PATH:/usr/local/go/bin"
 export GOPATH="$HOME/gopath"
