@@ -24,7 +24,9 @@ export PATH="$PATH:node_modules/.bin"
 export PATH="$PATH:$HOME/.yarn/bin"
 
 # asdf
-. $HOME/.asdf/asdf.sh
+if [[ -f $HOME/.asdf/asdf.sh ]]; then
+  . $HOME/.asdf/asdf.sh
+fi
 
 # aliases
 alias g=git
