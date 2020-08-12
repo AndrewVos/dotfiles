@@ -1,0 +1,10 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+NORDVPN_STATUS=$(nordvpn status | awk '{print $4}')
+if [[ "$NORDVPN_STATUS" = "Disconnected" ]]; then
+  nordvpn connect
+else
+  nordvpn disconnect
+fi
