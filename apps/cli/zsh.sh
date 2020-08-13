@@ -25,4 +25,6 @@ function git-clone() {
 }
 
 mkdir -p "$HOME/.zsh"
+
 git-clone "https://github.com/zsh-users/zsh-autosuggestions" "$HOME/.zsh/zsh-autosuggestions"
+git-clone "https://github.com/hlissner/zsh-autopair" "$HOME/.zsh/zsh-autopair"
