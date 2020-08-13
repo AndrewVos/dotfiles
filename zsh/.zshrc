@@ -28,6 +28,12 @@ if [[ -f $HOME/.asdf/asdf.sh ]]; then
   . $HOME/.asdf/asdf.sh
 fi
 
+# zsh-autosuggestions
+
+if [[ -f "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
+  source "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
+fi
+
 # aliases
 alias g=git
 alias b='bundle exec'
