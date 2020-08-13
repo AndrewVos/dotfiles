@@ -28,6 +28,11 @@ if [[ -f $HOME/.asdf/asdf.sh ]]; then
   . $HOME/.asdf/asdf.sh
 fi
 
+# set prompt
+fpath+=$HOME/.zsh/typewritten
+autoload -U promptinit; promptinit
+prompt typewritten
+
 # zsh-autosuggestions
 
 if [[ -f "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
