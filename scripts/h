@@ -22,3 +22,6 @@ write-command '[m ]m, [M ]M'
 
 write-title 'select inside method body'
 write-command 'vim'
+
+write-title 'select around method body'
+write-command 'vam'
