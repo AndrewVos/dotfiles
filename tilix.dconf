@@ -1,0 +1,36 @@
+[Tilix]
+auto-hide-mouse=true
+enable-wide-handle=true
+prompt-on-delete-profile=true
+quake-specific-monitor=0
+terminal-title-style='none'
+unsafe-paste-alert=false
+window-style='disable-csd-hide-toolbar'
+
+[Tilix/keybindings]
+session-add-down='<Super>Return'
+session-add-right='<Shift><Super>Return'
+
+[Tilix/profiles]
+default='2b7c4080-0ddd-46c5-8f23-563fd3ba789d'
+list=['2b7c4080-0ddd-46c5-8f23-563fd3ba789d']
+
+[Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+background-color='#222222'
+badge-color='#AC7EA8'
+badge-color-set=false
+badge-position='northeast'
+badge-text=''
+bold-color-set=false
+bold-is-bright=true
+cursor-background-color='#A1B0B8'
+cursor-colors-set=false
+cursor-foreground-color='#BDC3C7'
+font='Hack 16'
+foreground-color='#A0A0A0'
+highlight-colors-set=false
+palette=['#383838', '#A95551', '#666666', '#A98051', '#657D3E', '#767676', '#C9C9C9', '#D0B8A3', '#474747', '#A97775', '#8C8C8C', '#A99175', '#98BD5E', '#A3A3A3', '#DCDCDC', '#D8C8BB']
+scrollback-unlimited=true
+use-system-font=false
+use-theme-colors=false
+visible-name='Default'

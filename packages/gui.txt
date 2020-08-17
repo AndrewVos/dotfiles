@@ -4,3 +4,4 @@ xclip
 flameshot
 gnome-tweak-tool
 fonts-hack-ttf
+tilix
