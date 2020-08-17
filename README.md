@@ -9,9 +9,7 @@ sudo apt install -y git
 git clone https://github.com/AndrewVos/dotfiles ~/.dotfiles
 cd ~/.dotfiles
 
-./install # Full desktop install
-./install --server # Lightweight server install
-./install --upgrade # Upgrade all packages
+./install --help
 ```
 
 ## Test

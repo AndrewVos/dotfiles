@@ -3,19 +3,42 @@ set -euo pipefail
 IFS=$'\n\t'
 
 UPGRADE="no"
-SOFTWARE_GROUPS=(cli database dev gui)
 VERBOSE="no"
+SOFTWARE_GROUPS=()
+
+function help() {
+  echo ".dotfiles"
+  echo
+  echo "Usage:"
+  echo "  $0 --server"
+  echo "  $0 --desktop"
+  echo
+  echo "Options:"
+  echo "  --help     Show this screen."
+  echo "  --verbose  Write out install logs."
+  echo "  --upgrade  Upgrade everything."
+}
 
 for var in "$@"
 do
-  if [[ "$var" = "--upgrade" ]]; then
+  if [[ "$var" = "--help" ]]; then
+    help
+    exit
+  elif [[ "$var" = "--upgrade" ]]; then
     UPGRADE="yes"
   elif [[ "$var" = "--server" ]]; then
     SOFTWARE_GROUPS=(cli)
+  elif [[ "$var" = "--desktop" ]]; then
+    SOFTWARE_GROUPS=(cli database dev gui)
   elif [[ "$var" == "--verbose" ]]; then
     VERBOSE="yes"
   fi
 done
+
+if [ ${#SOFTWARE_GROUPS[@]} -eq 0 ]; then
+  help
+  exit 1
+fi
 
 export LOG_FILE=$(mktemp)
 function write-log-if-error {
