@@ -16,7 +16,7 @@ default='2b7c4080-0ddd-46c5-8f23-563fd3ba789d'
 list=['2b7c4080-0ddd-46c5-8f23-563fd3ba789d']
 
 [Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
-background-color='#222222'
+background-color='#282C34'
 badge-color='#AC7EA8'
 badge-color-set=false
 badge-position='northeast'
@@ -27,9 +27,9 @@ cursor-background-color='#A1B0B8'
 cursor-colors-set=false
 cursor-foreground-color='#BDC3C7'
 font='Hack 16'
-foreground-color='#A0A0A0'
+foreground-color='#ABB2BF'
 highlight-colors-set=false
-palette=['#383838', '#A95551', '#666666', '#A98051', '#657D3E', '#767676', '#C9C9C9', '#D0B8A3', '#474747', '#A97775', '#8C8C8C', '#A99175', '#98BD5E', '#A3A3A3', '#DCDCDC', '#D8C8BB']
+palette=['#000000', '#E06C75', '#98C379', '#D19A66', '#61AEEE', '#C678DD', '#56B6C2', '#ABB2BF', '#5C6370', '#E06C75', '#98C379', '#D19A66', '#62AFEE', '#C678DD', '#56B6C2', '#FFFFFF']
 scrollback-unlimited=true
 use-system-font=false
 use-theme-colors=false
