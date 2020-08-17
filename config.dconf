@@ -1,3 +1,40 @@
+[com/gexperts/Tilix]
+auto-hide-mouse=true
+enable-wide-handle=true
+prompt-on-delete-profile=true
+quake-specific-monitor=0
+terminal-title-style='none'
+unsafe-paste-alert=false
+window-style='disable-csd-hide-toolbar'
+
+[com/gexperts/Tilix/keybindings]
+session-add-down='<Super>Return'
+session-add-right='<Shift><Super>Return'
+
+[com/gexperts/Tilix/profiles]
+default='2b7c4080-0ddd-46c5-8f23-563fd3ba789d'
+list=['2b7c4080-0ddd-46c5-8f23-563fd3ba789d']
+
+[com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+background-color='#282C34'
+badge-color='#AC7EA8'
+badge-color-set=false
+badge-position='northeast'
+badge-text=''
+bold-color-set=false
+bold-is-bright=true
+cursor-background-color='#A1B0B8'
+cursor-colors-set=false
+cursor-foreground-color='#BDC3C7'
+font='Hack 16'
+foreground-color='#ABB2BF'
+highlight-colors-set=false
+palette=['#000000', '#E06C75', '#98C379', '#D19A66', '#61AEEE', '#C678DD', '#56B6C2', '#ABB2BF', '#5C6370', '#E06C75', '#98C379', '#D19A66', '#62AFEE', '#C678DD', '#56B6C2', '#FFFFFF']
+scrollback-unlimited=true
+use-system-font=false
+use-theme-colors=false
+visible-name='Default'
+
 [org/gnome/desktop/input-sources]
 xkb-options=['caps:ctrl_modifier']
 
@@ -30,111 +67,3 @@ show-mounts=false
 [org/gnome/shell/extensions/desktop-icons]
 show-home=false
 show-trash=false
-
-[org/gnome/software]
-check-timestamp=int64 1597655102
-
-[org/gnome/terminal/legacy]
-new-terminal-mode='tab'
-theme-variant='system'
-
-[org/gnome/terminal/legacy/profiles:]
-default='525681b3-0bc3-4248-b752-0a41a70fdbe2'
-list=['fc683775-902a-46de-a263-b233c9a746cf', '0fb2cbcc-c6b5-4fce-aa96-b1ca127b5428', '27a51cde-d169-436f-a983-ef33f93c8b47', '525681b3-0bc3-4248-b752-0a41a70fdbe2', '9fa35c84-0f0b-4399-a3b6-45fe6dd10cc8']
-
-[org/gnome/terminal/legacy/profiles:/:0fb2cbcc-c6b5-4fce-aa96-b1ca127b5428]
-audible-bell=false
-background-color='#f3f3f3'
-background-transparency-percent=36
-bold-color='#707070'
-bold-color-same-as-fg=true
-bold-is-bright=false
-default-size-columns=80
-font='Hack 16'
-foreground-color='#707070'
-highlight-colors-set=false
-palette=['#d3d3d3', '#ef6b7b', '#a1d569', '#f59335', '#4ec2e8', '#fec7cd', '#95c1c0', '#707070', '#b3b3b3', '#ed5466', '#afdb80', '#f59335', '#5dc7ea', '#d2a4b4', '#75a1a0', '#909090']
-use-system-font=false
-use-theme-background=false
-use-theme-colors=false
-use-theme-transparency=false
-use-transparent-background=false
-visible-name='mostly-bright'
-
-[org/gnome/terminal/legacy/profiles:/:27a51cde-d169-436f-a983-ef33f93c8b47]
-audible-bell=false
-background-color='#fef9ec'
-background-transparency-percent=36
-bold-color='#6d727e'
-bold-color-same-as-fg=true
-bold-is-bright=false
-default-size-columns=80
-font='Hack 16'
-foreground-color='#6d727e'
-highlight-colors-set=false
-palette=['#c5c1b4', '#e75c58', '#00a250', '#a08a00', '#208ffb', '#d160c4', '#00a4c1', '#3e424d', '#a1a6b2', '#b22b31', '#007427', '#715f00', '#0065ca', '#a03196', '#007693', '#282c36']
-use-system-font=false
-use-theme-background=false
-use-theme-colors=false
-use-theme-transparency=false
-use-transparent-background=false
-visible-name='baskerville-ivorylight'
-
-[org/gnome/terminal/legacy/profiles:/:525681b3-0bc3-4248-b752-0a41a70fdbe2]
-audible-bell=false
-background-color='#575757'
-background-transparency-percent=36
-bold-color='#dcdccc'
-bold-color-same-as-fg=true
-bold-is-bright=false
-default-size-columns=80
-font='Hack 16'
-foreground-color='#dcdccc'
-highlight-colors-set=false
-palette=['#666666', '#ff8278', '#bde077', '#eadc84', '#77bee0', '#dd91f3', '#ffc178', '#dddddd', '#888888', '#ff8278', '#bde077', '#eadc84', '#77bee0', '#dd91f3', '#ffc178', '#cccccc']
-use-system-font=false
-use-theme-background=false
-use-theme-colors=false
-use-theme-transparency=false
-use-transparent-background=false
-visible-name='simple_rainbow'
-
-[org/gnome/terminal/legacy/profiles:/:9fa35c84-0f0b-4399-a3b6-45fe6dd10cc8]
-allow-bold=true
-audible-bell=false
-background-color='#28282a2a3636'
-background-transparency-percent=36
-bold-color='#9494A3A3A5A5'
-bold-color-same-as-fg=true
-bold-is-bright=false
-default-size-columns=80
-font='Hack 16'
-foreground-color='#9494A3A3A5A5'
-highlight-background-color='#'
-highlight-colors-set=true
-highlight-foreground-color='#'
-palette=['#444447475a5a', '#ffff55555555', '#5050fafa7b7b', '#ffffb8b86c6c', '#8b8be9e9fdfd', '#bdbd9393f9f9', '#ffff7979c6c6', '#9494A3A3A5A5', '#000000000000', '#ffff55555555', '#5050fafa7b7b', '#ffffb8b86c6c', '#8b8be9e9fdfd', '#bdbd9393f9f9', '#ffff7979c6c6', '#ffffffffffff']
-use-system-font=false
-use-theme-background=false
-use-theme-colors=false
-use-theme-transparency=false
-use-transparent-background=false
-visible-name='dracula'
-
-[org/gnome/terminal/legacy/profiles:/:fc683775-902a-46de-a263-b233c9a746cf]
-audible-bell=false
-background-color='rgb(253,246,227)'
-background-transparency-percent=36
-bold-color='#58586e6e7575'
-bold-color-same-as-fg=true
-bold-is-bright=false
-default-size-columns=80
-font='Hack 16'
-foreground-color='rgb(101,123,131)'
-highlight-colors-set=false
-palette=['rgb(7,54,66)', 'rgb(220,50,47)', 'rgb(133,153,0)', 'rgb(181,137,0)', 'rgb(38,139,210)', 'rgb(211,54,130)', 'rgb(42,161,152)', 'rgb(163,168,170)', 'rgb(0,43,54)', 'rgb(203,75,22)', 'rgb(88,110,117)', 'rgb(101,123,131)', 'rgb(131,148,150)', 'rgb(108,113,196)', 'rgb(147,161,161)', 'rgb(253,246,227)']
-use-system-font=false
-use-theme-colors=false
-use-theme-transparency=false
-use-transparent-background=false
-visible-name='solarized-light'
