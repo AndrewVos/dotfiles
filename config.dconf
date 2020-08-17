@@ -1,0 +1,51 @@
+[org/gnome/desktop/input-sources]
+xkb-options=['caps:ctrl_modifier']
+
+[org/gnome/desktop/peripherals/touchpad]
+two-finger-scrolling-enabled=true
+
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Shift><Super>s'
+command='flameshot gui'
+name='Screenshot'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
+binding='<Super>Eject'
+command='sh -c "~/.dotfiles/scripts/toggle-vpn"'
+name='Toggle VPN'
+
+[org/gnome/shell/extensions/desktop-icons]
+show-home=false
+show-trash=false
+
+[org/gnome/software]
+check-timestamp=int64 1597655102
+
+[org/gnome/terminal/legacy]
+new-terminal-mode='tab'
+theme-variant='system'
+
+[org/gnome/terminal/legacy/profiles:]
+default='fc683775-902a-46de-a263-b233c9a746cf'
+list=['fc683775-902a-46de-a263-b233c9a746cf']
+
+[org/gnome/terminal/legacy/profiles:/:fc683775-902a-46de-a263-b233c9a746cf]
+audible-bell=false
+background-color='rgb(253,246,227)'
+background-transparency-percent=36
+bold-color='#58586e6e7575'
+bold-color-same-as-fg=true
+bold-is-bright=false
+default-size-columns=80
+font='Monospace 16'
+foreground-color='rgb(101,123,131)'
+highlight-colors-set=false
+palette=['rgb(7,54,66)', 'rgb(220,50,47)', 'rgb(133,153,0)', 'rgb(181,137,0)', 'rgb(38,139,210)', 'rgb(211,54,130)', 'rgb(42,161,152)', 'rgb(163,168,170)', 'rgb(0,43,54)', 'rgb(203,75,22)', 'rgb(88,110,117)', 'rgb(101,123,131)', 'rgb(131,148,150)', 'rgb(108,113,196)', 'rgb(147,161,161)', 'rgb(253,246,227)']
+use-system-font=false
+use-theme-colors=false
+use-theme-transparency=false
+use-transparent-background=false
+visible-name='Light'
