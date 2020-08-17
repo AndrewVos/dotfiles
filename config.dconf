@@ -23,6 +23,10 @@ disabled-extensions=['ubuntu-appindicators@ubuntu.com']
 enabled-extensions=@as []
 favorite-apps=['org.gnome.Terminal.desktop', 'google-chrome.desktop', 'discord.desktop', 'slack.desktop', 'spotify.desktop', 'enpass.desktop']
 
+[org/gnome/shell/extensions/dash-to-dock]
+dock-position='BOTTOM'
+show-mounts=false
+
 [org/gnome/shell/extensions/desktop-icons]
 show-home=false
 show-trash=false
