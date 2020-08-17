@@ -6,12 +6,20 @@ sudo docker build -t dotfiles-tests .
 
 mkdir -p /tmp/dotfiles-test-output
 
-for file in $(ls apps); do
-  MD5=$(md5sum apps/$file)
-  if [[ ! "$MD5" = "$(cat /tmp/dotfiles-test-output/$file ||:)" ]]; then
-    echo "--------------------> $file <--------------------"
-    echo
-    sudo docker run --env USER=root --env UPGRADE=no -it --rm dotfiles-tests "/app/apps/$file"
-    md5sum "apps/$file" > /tmp/dotfiles-test-output/$file
-  fi
+SOFTWARE_GROUPS=(cli database dev gui)
+
+for SOFTWARE_GROUP in $SOFTWARE_GROUPS; do
+  for INSTALLER in $(ls "installers/$SOFTWARE_GROUP/"); do
+    LOCAL_INSTALLER_PATH="installers/$SOFTWARE_GROUP/$INSTALLER"
+    REMOTE_INSTALLER_PATH="/root/.dotfiles/installers/$SOFTWARE_GROUP/$INSTALLER"
+    MD5_PATH="/tmp/dotfiles-test-output/$SOFTWARE_GROUP-$INSTALLER"
+    MD5=$(md5sum "$LOCAL_INSTALLER_PATH")
+
+    if [[ ! "$MD5" = "$(cat $MD5_PATH ||:)" ]]; then
+      echo "--------------------> $SOFTWARE_GROUP/$INSTALLER <--------------------"
+      echo
+      sudo docker run --env USER=root --env UPGRADE=no -it --rm dotfiles-tests "$REMOTE_INSTALLER_PATH"
+      md5sum "$LOCAL_INSTALLER_PATH" > "$MD5_PATH"
+    fi
+  done
 done
