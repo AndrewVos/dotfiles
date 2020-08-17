@@ -7,7 +7,8 @@ sudo apt install -y \
   krita \
   xclip \
   flameshot \
-  gnome-tweak-tool
+  gnome-tweak-tool \
+  fonts-hack-ttf
 
 sudo snap install \
   pick-colour-picker
