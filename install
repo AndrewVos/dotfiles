@@ -57,13 +57,12 @@ function print-log {
 }
 
 if [[ "$UPGRADE" = "yes" ]]; then
-  echo "Syncing packages..."
+  echo "Upgrading packages..."
   sudo apt update -y | print-log 2>&1
   sudo apt upgrade -y | print-log 2>&1
 fi
 
-PREVIOUS_PWD="$(pwd)"
-
+echo "Installing packages and snaps..."
 for SOFTWARE_GROUP in "${SOFTWARE_GROUPS[@]}"; do
   PACKAGES_PATH="packages/$SOFTWARE_GROUP.txt"
   SNAPS_PATH="snaps/$SOFTWARE_GROUP.txt"
@@ -77,10 +76,14 @@ for SOFTWARE_GROUP in "${SOFTWARE_GROUPS[@]}"; do
     SNAPS="$(cat $SNAPS_PATH)"
     sudo snap install $SNAPS 2>&1 | print-log
   fi
+done
 
+PREVIOUS_PWD="$(pwd)"
+
+for SOFTWARE_GROUP in "${SOFTWARE_GROUPS[@]}"; do
   for INSTALLER in $(ls "installers/$SOFTWARE_GROUP/"); do
     cd $(mktemp -d)
-    echo "Syncing $SOFTWARE_GROUP/$INSTALLER..."
+    echo "Installing $SOFTWARE_GROUP/$INSTALLER..."
     UPGRADE=$UPGRADE $PREVIOUS_PWD/installers/$SOFTWARE_GROUP/$INSTALLER 2>&1 | print-log
 
     cd "$PREVIOUS_PWD"
