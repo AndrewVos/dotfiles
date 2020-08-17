@@ -3,7 +3,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 UPGRADE="no"
-APP_GROUPS=(cli database dev gui)
+SOFTWARE_GROUPS=(cli database dev gui)
 VERBOSE="no"
 
 for var in "$@"
@@ -11,7 +11,7 @@ do
   if [[ "$var" = "--upgrade" ]]; then
     UPGRADE="yes"
   elif [[ "$var" = "--server" ]]; then
-    APP_GROUPS=(cli)
+    SOFTWARE_GROUPS=(cli)
   elif [[ "$var" == "--verbose" ]]; then
     VERBOSE="yes"
   fi
@@ -41,11 +41,24 @@ fi
 
 PREVIOUS_PWD="$(pwd)"
 
-for APP_GROUP in "${APP_GROUPS[@]}"; do
-  for APP in $(ls "apps/$APP_GROUP/"); do
+for SOFTWARE_GROUP in "${SOFTWARE_GROUPS[@]}"; do
+  PACKAGES_PATH="packages/$SOFTWARE_GROUP.txt"
+  SNAPS_PATH="snaps/$SOFTWARE_GROUP.txt"
+
+  if [[ -f "$PACKAGES_PATH" ]]; then
+    PACKAGES="$(cat $PACKAGES_PATH)"
+    sudo apt-get install -y $PACKAGES 2>&1 | print-log
+  fi
+
+  if [[ -f "$SNAPS_PATH" ]]; then
+    SNAPS="$(cat $SNAPS_PATH)"
+    sudo snap install $SNAPS 2>&1 | print-log
+  fi
+
+  for INSTALLER in $(ls "installers/$SOFTWARE_GROUP/"); do
     cd $(mktemp -d)
-    echo "Syncing $APP_GROUP/$APP..."
-    UPGRADE=$UPGRADE $PREVIOUS_PWD/apps/$APP_GROUP/$APP 2>&1 | print-log
+    echo "Syncing $SOFTWARE_GROUP/$INSTALLER..."
+    UPGRADE=$UPGRADE $PREVIOUS_PWD/installers/$SOFTWARE_GROUP/$INSTALLER 2>&1 | print-log
 
     cd "$PREVIOUS_PWD"
   done

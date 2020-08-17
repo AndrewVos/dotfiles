@@ -4,9 +4,10 @@ IFS=$'\n\t'
 
 function reinstall-discord() {
   sudo apt update -y
-  sudo DEBIAN_FRONTEND=noninteractive apt install -y -q \
+  sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -q \
     keyboard-configuration \
-    wget
+    wget \
+    curl
 
   wget 'https://discordapp.com/api/download?platform=linux&format=deb' -O /tmp/discord.deb
   sudo apt install -y -q /tmp/discord.deb

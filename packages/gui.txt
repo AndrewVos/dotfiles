@@ -1,0 +1,6 @@
+mpv
+krita
+xclip
+flameshot
+gnome-tweak-tool
+fonts-hack-ttf

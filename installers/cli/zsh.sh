@@ -7,6 +7,10 @@ if ! command -v "zsh" &> /dev/null; then
   sudo apt install -y zsh
 fi
 
+if ! command -v "git" &> /dev/null; then
+  sudo apt install -y git
+fi
+
 if [[ "$SHELL" != "/usr/bin/zsh" ]]; then
   sudo usermod --shell /usr/bin/zsh "$USER"
 fi

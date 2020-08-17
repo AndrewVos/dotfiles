@@ -1,0 +1,13 @@
+whois
+jq
+fzy
+git
+curl
+wget
+make
+pgcli
+htop
+shellcheck
+exuberant-ctags
+redis
+tig
