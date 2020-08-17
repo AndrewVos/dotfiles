@@ -11,3 +11,4 @@ shellcheck
 exuberant-ctags
 redis
 tig
+tree
