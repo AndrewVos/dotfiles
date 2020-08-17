@@ -75,15 +75,10 @@ nnoremap <C-p> :call FzyCommand("git ls-files --cached --modified \| sort \| uni
 " Async support breaks vim rendering when you use :make with
 " unsaved changes, and autowrite enabled.
 let g:gitgutter_async=0
+" Faster sign updates
 set updatetime=100
 let g:gitgutter_sign_removed = '×'
 set signcolumn=yes
-
-highlight GitGutterAdd ctermfg=green
-highlight GitGutterChange ctermfg=yellow
-highlight GitGutterDelete ctermfg=red
-highlight GitGutterChangeDelete ctermfg=red
-
 command! -nargs=0 Revert :GitGutterUndoHunk
 
 " :Usages <tag> to jump to tag usages
