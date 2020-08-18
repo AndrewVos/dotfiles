@@ -40,8 +40,7 @@ if [[ -f "$HOME/.zsh/zsh-autopair/autopair.zsh" ]]; then
 fi
 
 # aliases
-alias g=hub
-alias git=hub
+alias g=git
 alias b='bundle exec'
 alias ber='bundle exec rspec spec --color'
 alias bec='bundle exec cucumber --color'

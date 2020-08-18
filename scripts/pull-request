@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-set -euo pipefail
-IFS=$'\n\t'
-
-BRANCH=$(git rev-parse --abbrev-ref HEAD)
-
-git push -u origin "$BRANCH"
-hub pull-request --browse --copy
