@@ -12,3 +12,4 @@ exuberant-ctags
 redis
 tig
 tree
+nnn

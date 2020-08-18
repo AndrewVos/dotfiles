@@ -46,6 +46,7 @@ alias ber='bundle exec rspec spec --color'
 alias bec='bundle exec cucumber --color'
 alias irb=pry
 alias ls='exa'
+alias nnn='nnn -e'
 
 # Use modern completion system
 autoload -Uz compinit
