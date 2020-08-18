@@ -1,15 +1,20 @@
 [com/gexperts/Tilix]
 auto-hide-mouse=true
-enable-wide-handle=true
+enable-wide-handle=false
+prompt-on-close=false
 prompt-on-delete-profile=true
 quake-specific-monitor=0
+tab-position='top'
 terminal-title-style='none'
 unsafe-paste-alert=false
+use-tabs=true
 window-style='disable-csd-hide-toolbar'
 
 [com/gexperts/Tilix/keybindings]
 session-add-down='<Super>Return'
 session-add-right='<Shift><Super>Return'
+win-switch-to-next-session='<Super>bracketright'
+win-switch-to-previous-session='<Super>bracketleft'
 
 [com/gexperts/Tilix/profiles]
 default='2b7c4080-0ddd-46c5-8f23-563fd3ba789d'
@@ -26,6 +31,7 @@ bold-is-bright=true
 cursor-background-color='#A1B0B8'
 cursor-colors-set=false
 cursor-foreground-color='#BDC3C7'
+dim-transparency-percent=12
 font='Hack 16'
 foreground-color='#ABB2BF'
 highlight-colors-set=false
