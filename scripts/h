@@ -11,17 +11,17 @@ function write-command() {
   echo
 }
 
-write-title 'Flushing DNS'
+write-title 'Flush DNS'
 write-command 'sudo systemd-resolve --flush-caches'
 
-write-title 'Unstaging a file in git'
+write-title 'Unstage a file in git'
 write-command 'git reset HEAD <file>'
 
-write-title 'Jumping between methods in vim'
+write-title 'Jump between methods in vim'
 write-command '[m ]m, [M ]M'
 
-write-title 'select inside method body'
+write-title 'Select inside method body'
 write-command 'vim'
 
-write-title 'select around method body'
+write-title 'Select around method body'
 write-command 'vam'
