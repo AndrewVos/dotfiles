@@ -42,6 +42,7 @@ AndrewRadev/sideways.vim
 mhinz/vim-startify
 tpope/vim-haystack
 AndrewVos/vim-git-navigator
+baskerville/vim-sxhkdrc
 "
 
 UPDATE_VIM_DOCS="no"

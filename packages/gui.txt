@@ -5,3 +5,10 @@ flameshot
 gnome-tweak-tool
 fonts-hack-ttf
 tilix
+bspwm
+sxhkd
+dmenu
+compton
+xbacklight
+feh
+rofi
