@@ -1,2 +1,2 @@
-rofi.theme: /usr/share/rofi/themes/Pop-Dark.rasi
 rofi.terminal: tilix
+rofi.theme: ~/.config/rofi/theme.rasi

@@ -8,10 +8,10 @@ super + Return
 
 # program launcher
 super + @space
-  rofi -show drun -dpi 192
+  rofi -show drun -dpi 144
 
 super+shift+q
-  rofi -show Power -dpi 192 -lines 3 -modi Power:$HOME/.dotfiles/scripts/rofi-power.sh
+  rofi -show Power -dpi 144 -lines 3 -modi Power:$HOME/.dotfiles/scripts/rofi-power.sh
 
 # make sxhkd reload its configuration files:
 super + Escape
