@@ -13,3 +13,4 @@ xbacklight
 feh
 rofi
 dunst
+redshift

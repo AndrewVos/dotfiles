@@ -5,6 +5,7 @@ if laptop-detect; then
 fi
 sxhkd &
 compton &
+redshift &
 
 feh --bg-center $HOME/.wallpapers/Uss9jsw.jpg
 
