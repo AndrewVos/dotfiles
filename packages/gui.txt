@@ -8,7 +8,6 @@ tilix
 bspwm
 sxhkd
 dmenu
-compton
 xbacklight
 feh
 rofi
