@@ -6,6 +6,8 @@ filetype plugin indent on
 " Press C-A to go to beginning of line in command mode
 cnoremap <C-A> <Home>
 
+let g:netrw_banner = 1
+
 " colour scheme
 colorscheme dim
 
