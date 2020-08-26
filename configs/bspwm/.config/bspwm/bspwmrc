@@ -3,9 +3,11 @@
 if laptop-detect; then
   xrdb -merge $HOME/.Xresources.laptop
 fi
+
 sxhkd &
 picom &
 redshift &
+unclutter --timeout 3 &
 
 feh --bg-center $HOME/.wallpapers/Uss9jsw.jpg
 

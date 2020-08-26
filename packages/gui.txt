@@ -13,3 +13,4 @@ feh
 rofi
 dunst
 redshift
+unclutter-xfixes
