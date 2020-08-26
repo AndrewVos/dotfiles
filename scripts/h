@@ -25,3 +25,6 @@ write-command 'vim'
 
 write-title 'Select around method body'
 write-command 'vam'
+
+write-title 'Run a local script on heroku'
+write-command 'cat script.rb | heroku run console --app APP_NAME --no-tty'
