@@ -8,6 +8,7 @@ sxhkd &
 picom &
 redshift &
 unclutter --timeout 3 &
+greenclip daemon &
 
 feh --bg-center $HOME/.wallpapers/Uss9jsw.jpg
 
