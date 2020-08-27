@@ -2,6 +2,18 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-sudo apt-get install -y wget
+function download-file() {
+  FILE_URL="$1"
+  DOWNLOAD_PATH="$2"
+
+  if [[ ! -f "$DOWNLOAD_PATH" ]] ; then
+    wget "$FILE_URL" -O "$DOWNLOAD_PATH"
+  fi
+}
+
+if ! command -v "wget" &> /dev/null; then
+  sudo apt-get install -y wget
+fi
+
 mkdir -p "$HOME/.wallpapers"
-wget https://i.imgur.com/Uss9jsw.jpg -O "$HOME/.wallpapers/Uss9jsw.jpg"
+download-file "https://i.imgur.com/Uss9jsw.jpg" "$HOME/.wallpapers/Uss9jsw.jpg"
