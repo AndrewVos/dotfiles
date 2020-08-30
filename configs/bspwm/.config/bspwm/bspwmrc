@@ -9,7 +9,7 @@ picom &
 redshift &
 greenclip daemon &
 
-feh --bg-center $HOME/.wallpapers/Uss9jsw.jpg
+xwallpaper --center ~/.wallpapers/Uss9jsw.jpg
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 

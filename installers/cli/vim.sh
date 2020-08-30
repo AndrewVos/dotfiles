@@ -2,8 +2,6 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-sudo apt install -y vim-gtk3 git
-
 PLUGINS="
 tpope/vim-pathogen
 tpope/vim-sleuth

@@ -57,24 +57,33 @@ function print-log {
 }
 
 if [[ "$UPGRADE" = "yes" ]]; then
-  echo "Upgrading packages..."
-  sudo apt update -y | print-log 2>&1
-  sudo apt upgrade -y | print-log 2>&1
+  echo "Upgrading system..."
+  sudo pacman -Syu | print-log 2>&1
 fi
 
-echo "Installing packages and snaps..."
+PREVIOUS_PWD="$(pwd)"
+if ! command -v "yay" &> /dev/null; then
+  echo "Installing yay..."
+  cd $(mktemp -d)
+  git clone https://aur.archlinux.org/yay.git
+  cd yay
+  makepkg -si --noconfirm
+  cd "$PREVIOUS_PWD"
+fi
+
+echo "Installing packages..."
 for SOFTWARE_GROUP in "${SOFTWARE_GROUPS[@]}"; do
   PACKAGES_PATH="packages/$SOFTWARE_GROUP.txt"
-  SNAPS_PATH="snaps/$SOFTWARE_GROUP.txt"
+  AUR_PATH="aur-packages/$SOFTWARE_GROUP.txt"
 
   if [[ -f "$PACKAGES_PATH" ]]; then
     PACKAGES="$(cat $PACKAGES_PATH)"
-    sudo apt-get install -y $PACKAGES 2>&1 | print-log
+    sudo pacman -S --needed --noconfirm $PACKAGES 2>&1 | print-log
   fi
 
-  if [[ -f "$SNAPS_PATH" ]]; then
-    SNAPS="$(cat $SNAPS_PATH)"
-    sudo snap install $SNAPS 2>&1 | print-log
+  if [[ -f "$AUR_PATH" ]]; then
+    PACKAGES="$(cat $AUR_PATH)"
+    yay -S --needed --noconfirm $PACKAGES 2>&1 | print-log
   fi
 done
 

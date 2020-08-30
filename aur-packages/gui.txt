@@ -1,0 +1,7 @@
+ly
+yaru-gtk-theme
+enpass-bin
+google-chrome
+slack-desktop
+rofi-greenclip
+pick-colour-picker

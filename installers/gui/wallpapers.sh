@@ -11,9 +11,5 @@ function download-file() {
   fi
 }
 
-if ! command -v "wget" &> /dev/null; then
-  sudo apt-get install -y wget
-fi
-
 mkdir -p "$HOME/.wallpapers"
 download-file "https://i.imgur.com/Uss9jsw.jpg" "$HOME/.wallpapers/Uss9jsw.jpg"

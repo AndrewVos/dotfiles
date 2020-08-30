@@ -40,36 +40,3 @@ scrollback-unlimited=true
 use-system-font=false
 use-theme-colors=false
 visible-name='Default'
-
-[org/gnome/desktop/input-sources]
-xkb-options=['caps:ctrl_modifier']
-
-[org/gnome/desktop/peripherals/touchpad]
-two-finger-scrolling-enabled=true
-
-[org/gnome/settings-daemon/plugins/media-keys]
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
-
-[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
-binding='<Shift><Super>s'
-command='flameshot gui'
-name='Screenshot'
-
-[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
-binding='<Super>Eject'
-command='sh -c "~/.dotfiles/scripts/toggle-vpn"'
-name='Toggle VPN'
-
-[org/gnome/shell]
-app-picker-view=uint32 0
-disabled-extensions=['ubuntu-appindicators@ubuntu.com']
-enabled-extensions=@as []
-favorite-apps=['com.gexperts.Tilix.desktop', 'google-chrome.desktop', 'discord.desktop', 'slack.desktop', 'spotify.desktop', 'enpass.desktop']
-
-[org/gnome/shell/extensions/dash-to-dock]
-dock-position='BOTTOM'
-show-mounts=false
-
-[org/gnome/shell/extensions/desktop-icons]
-show-home=false
-show-trash=false

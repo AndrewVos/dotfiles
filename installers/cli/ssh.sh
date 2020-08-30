@@ -2,9 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-sudo apt install -y openssh-server
-
-if ! systemctl status ssh; then
-  sudo systemctl enable ssh ||:
-  sudo systemctl start ssh ||:
+if ! systemctl status sshd; then
+  sudo systemctl enable sshd ||:
+  sudo systemctl start sshd ||:
 fi
