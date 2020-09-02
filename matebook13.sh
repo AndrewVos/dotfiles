@@ -32,9 +32,9 @@ EOF
 sudo tee <<'EOF' /etc/udev/rules.d/90-backlight.rules 1> /dev/null
 # Allow video group to control backlight and leds
 SUBSYSTEM=="backlight", ACTION=="add", \
-  RUN+="/bin/chgrp video /sys/class/backlight/amdgpu_bl0/brightness", \
-  RUN+="/bin/chmod g+w /sys/class/backlight/amdgpu_bl0/brightness"
+  RUN+="/bin/chgrp video /sys/class/backlight/%k/brightness", \
+  RUN+="/bin/chmod g+w /sys/class/backlight/%k/brightness"
 SUBSYSTEM=="leds", ACTION=="add", KERNEL=="*::kbd_backlight", \
-  RUN+="/bin/chgrp video /sys/class/leds/amdgpu_bl0/brightness", \
-  RUN+="/bin/chmod g+w /sys/class/leds/amdgpu_bl0/brightness"
+  RUN+="/bin/chgrp video /sys/class/leds/%k/brightness", \
+  RUN+="/bin/chmod g+w /sys/class/leds/%k/brightness"
 EOF
