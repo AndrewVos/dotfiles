@@ -72,7 +72,7 @@ echo '127.0.1.1	YOUR_HOST_NAME.localdomain YOUR_HOST_NAME' >> /etc/hosts
 passwd
 
 # Create your user account
-useradd -mg users -G wheel,storage,power -s /bin/bash YOUR_USER_NAME
+useradd -mg users -G wheel,storage,power,video -s /bin/bash YOUR_USER_NAME
 passwd YOUR_USER_NAME
 
 # Allow all users to sudo
