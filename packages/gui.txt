@@ -13,7 +13,6 @@ ttf-hack
 bspwm
 sxhkd
 dmenu
-xorg-xbacklight
 rofi
 dunst
 redshift

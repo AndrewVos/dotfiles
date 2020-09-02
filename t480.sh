@@ -2,6 +2,8 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+sudo pacman -S xorg-xbacklight
+
 sudo mkdir -p /etc/X11/xorg.conf.d
 
 sudo tee <<'EOF' /etc/X11/xorg.conf.d/00-keyboard.conf 1> /dev/null
