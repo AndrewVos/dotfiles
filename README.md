@@ -47,6 +47,9 @@ pacstrap /mnt amd-ucode
 # For Intel GPUs
 pacstrap /mnt xf86-video-intel
 
+# For AMD GPUs
+pacstrap /mnt xf86-video-amdgpu
+
 # Set up fstab:
 genfstab -U /mnt >> /mnt/etc/fstab
 
