@@ -28,3 +28,6 @@ write-command 'vam'
 
 write-title 'Run a local script on heroku'
 write-command 'cat script.rb | heroku run console --app APP_NAME --no-tty'
+
+write-title 'Add a user to a group'
+write-command 'usermod -a -G GROUP_NAME USER'
