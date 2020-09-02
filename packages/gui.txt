@@ -10,7 +10,6 @@ xclip
 flameshot
 gnome-tweak-tool
 ttf-hack
-tilix
 bspwm
 sxhkd
 dmenu
@@ -21,3 +20,4 @@ redshift
 unclutter
 discord
 picom
+alacritty
