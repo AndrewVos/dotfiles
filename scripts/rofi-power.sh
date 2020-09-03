@@ -8,10 +8,10 @@ option=`echo -e $OPTIONS | awk '{print $1}' | tr -d '\r\n\t'`
 if [ "$@" ]; then
   case $@ in
     *Shutdown)
-      shutdown now
+      sudo systemctl poweroff
       ;;
     *Reboot)
-      reboot
+      sudo systemctl reboot
       ;;
     *Logout)
       bspc quit
