@@ -1,3 +1,4 @@
+man-db
 whois
 jq
 fzy
