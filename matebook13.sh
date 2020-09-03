@@ -2,7 +2,11 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-sudo pacman -S acpi acpilight
+sudo pacman -S acpi acpid acpilight
+yay -S laptop-mode-tools
+
+sudo systemctl enable --now acpid.service
+sudo systemctl enable --now laptop-mode.service
 
 sudo mkdir -p /etc/X11/xorg.conf.d
 
