@@ -2,13 +2,15 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+echo '  Help'
+
 function write-title() {
+  echo
   echo "• $1"
 }
 
 function write-command() {
   echo "  > $1"
-  echo
 }
 
 write-title 'Flush DNS'
@@ -31,3 +33,7 @@ write-command 'cat script.rb | heroku run console --app APP_NAME --no-tty'
 
 write-title 'Add a user to a group'
 write-command 'usermod -a -G GROUP_NAME USER'
+
+write-title 'SSH keys permissions'
+write-command 'chmod 600 ~/.ssh/id_rsa'
+write-command 'chmod 644 ~/.ssh/id_rsa.pub'
