@@ -24,8 +24,8 @@ export PATH="$PATH:node_modules/.bin"
 export PATH="$PATH:$HOME/.yarn/bin"
 
 # asdf
-if [[ -f $HOME/.asdf/asdf.sh ]]; then
-  . $HOME/.asdf/asdf.sh
+if [[ -f /opt/asdf-vm/asdf.sh ]]; then
+  . /opt/asdf-vm/asdf.sh
 fi
 
 # zsh-autosuggestions
