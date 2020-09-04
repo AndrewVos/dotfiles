@@ -14,7 +14,7 @@ super+shift+q
   rofi -show Power -dpi 144 -lines 3 -modi Power:$HOME/.dotfiles/scripts/rofi-power.sh
 
 super+v
-  rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+  rofi -modi "clipboard:greenclip print" -dpi 144 -show clipboard -run-command '{cmd}'
 
 # make sxhkd reload its configuration files:
 super + Escape
