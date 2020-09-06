@@ -7,8 +7,8 @@ super + Return
   alacritty
 
 # program launcher
-super + @space
-  rofi -show drun -dpi 144
+super + space
+  rofi -show Menu -dpi 144 -modi Menu:$HOME/.dotfiles/scripts/rofi.sh
 
 super+shift+q
   rofi -show Power -dpi 144 -lines 3 -modi Power:$HOME/.dotfiles/scripts/rofi-power.sh
