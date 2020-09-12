@@ -8,8 +8,8 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-# vim
-export EDITOR=vim
+# kakoune
+export EDITOR=kak
 
 # scripts
 export PATH="$PATH:$HOME/.dotfiles/scripts"
@@ -48,6 +48,9 @@ alias irb=pry
 alias ls='exa'
 alias nnn='nnn -e'
 
+function vim() {
+    echo 'NOPE'
+}
 # Use modern completion system
 autoload -Uz compinit
 compinit
