@@ -8,8 +8,7 @@ sxhkd &
 picom &
 redshift &
 greenclip daemon &
-
-xwallpaper --center ~/.wallpapers/Uss9jsw.jpg
+hsetroot -solid '#1e2127'
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 

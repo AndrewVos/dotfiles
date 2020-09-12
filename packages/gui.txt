@@ -20,3 +20,4 @@ unclutter
 discord
 picom
 alacritty
+hsetroot
