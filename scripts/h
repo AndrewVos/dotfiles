@@ -19,6 +19,9 @@ write-command 'sudo systemd-resolve --flush-caches'
 write-title 'Unstage a file in git'
 write-command 'git reset HEAD <file>'
 
+write-title 'Undo some unstaged changes in git'
+write-command 'git checkout -p'
+
 write-title 'Jump between methods in vim'
 write-command '[m ]m, [M ]M'
 
