@@ -20,3 +20,4 @@ nnn
 playerctl
 zsh
 laptop-detect
+unzip
