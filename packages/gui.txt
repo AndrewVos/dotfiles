@@ -1,5 +1,6 @@
 xorg-server
 xorg-xinit
+xorg-xsetroot
 alsa-utils
 xwallpaper
 ttf-ubuntu-font-family
