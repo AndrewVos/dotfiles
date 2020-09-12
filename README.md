@@ -6,7 +6,7 @@ Some scripts to fully provision my machines with my dotfiles and applications.
 
 First, write the image to a USB stick with Etcher.
 
-Connect to the internet:
+If you're using a wireless device then you need to connect to the internet:
 
 ```
 iwctl station list
@@ -47,6 +47,9 @@ pacstrap /mnt amd-ucode
 # For Intel GPUs
 pacstrap /mnt xf86-video-intel
 
+# For NVIDIA GPUs
+pacstrap /mnt nvidia
+
 # For AMD GPUs
 pacstrap /mnt xf86-video-amdgpu
 
@@ -62,6 +65,7 @@ hwclock --systohc
 
 # Locales
 echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen
+echo 'en_GB.UTF-8 UTF-8' >> /etc/locale.gen
 echo 'LANG=en_GB.UTF-8' > /etc/locale.conf
 locale-gen
 
@@ -99,23 +103,28 @@ echo "options root=/dev/sda3 rw"    >> /boot/loader/entries/arch.conf
 exit
 reboot
 
-# Login and setup wifi
+# Setup wireless
 echo '[Match]'    >> /etc/systemd/network/25-wireless.network
-echo 'Name=wlan0' >> /etc/systemd/network/25-wireless.network
+echo 'Name=<WIRELESS_DEVICE>' >> /etc/systemd/network/25-wireless.network
 echo '[Network]'  >> /etc/systemd/network/25-wireless.network
 echo 'DHCP=yes'   >> /etc/systemd/network/25-wireless.network
-systemctl start systemd-resolved.service
-systemctl enable systemd-resolved.service
-systemctl start systemd-networkd.service
-systemctl enable systemd-networkd.service
-systemctl start iwd.service
-systemctl enable iwd.service
+systemctl enable --now systemd-resolved.service
+systemctl enable --now systemd-networkd.service
+systemctl enable --now iwd.service
+
+# Setup ethernet
+echo '[Match]' >> /etc/systemd/network/20-wired.network
+echo 'Name=<ETHERNET_DEVICE>' >> /etc/systemd/network/20-wired.network
+echo '[Network]' >> /etc/systemd/network/20-wired.network
+echo 'DHCP=yes' >> /etc/systemd/network/20-wired.network
+systemctl enable --now systemd-resolved.service
+systemctl enable --now systemd-networkd.service
 ```
 
 ## Install dotfiles
 
 ```bash
-sudo apt install -y git
+sudo pacman -S git
 git clone https://github.com/AndrewVos/dotfiles ~/.dotfiles
 cd ~/.dotfiles
 
