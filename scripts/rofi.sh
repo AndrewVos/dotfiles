@@ -41,6 +41,8 @@ if [ "$@" ]; then
     run_command krita
   elif [[ "$command" = "Colour Picker" ]]; then
     run_command pick-colour-picker
+  elif [[ "$command" = "Spotify" ]]; then
+    run_command spotify
   elif [[ "$command" = "Connect to VPN" ]]; then
     run_command nordvpn connect
   elif [[ "$command" = "Disconnect from VPN" ]]; then
