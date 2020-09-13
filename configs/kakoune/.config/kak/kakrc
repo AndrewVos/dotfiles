@@ -1,0 +1,3 @@
+colorscheme palenight
+
+add-highlighter global/ number-lines
