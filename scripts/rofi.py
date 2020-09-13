@@ -3,9 +3,10 @@
 import sys
 import subprocess
 
-def is_vpn_connected():
+def vpn_is_connected():
     result = subprocess.run(['nordvpn', 'status'], stdout=subprocess.PIPE)
-    return 'Connected' in result.stdout
+    result = result.stdout.decode('utf-8')
+    return result.find('Status: Connected') != -1
 
 apps =  {
     'Chrome' : ['google-chrome-stable', 'chrome-search://local-ntp/local-ntp.html'],
@@ -18,7 +19,7 @@ apps =  {
     'Spotify': ['spotify']
 }
 
-if is_vpn_connected:
+if vpn_is_connected():
     apps['Disconnect from VPN'] = ['nordvpn', 'disconnect']
 else:
     apps['Connect to VPN'] = ['nordvpn', 'connect']
@@ -27,6 +28,5 @@ if len(sys.argv) == 1:
     for title, command in apps.items():
         print(title)
 else:
-    for title, command in apps.items():
-        if title == sys.argv[1]:
-            subprocess.Popen(command, stdout=subprocess.DEVNULL)
+    command = apps[sys.argv[1]]
+    subprocess.Popen(command, stdout=subprocess.DEVNULL)
