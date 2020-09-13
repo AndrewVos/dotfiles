@@ -3,3 +3,11 @@ colorscheme palenight
 set global grepcmd 'rg --column'
 
 add-highlighter global/ number-lines
+
+hook global KakBegin .* %{
+  evaluate-commands %sh{
+    if [ -e "$PWD/.git/tags" ]; then
+      printf "%s\n" "set-option -add current ctagsfiles %{$PWD/.git/tags}"
+    fi
+  }
+}
