@@ -10,6 +10,7 @@ redshift &
 greenclip daemon &
 hsetroot -solid '#1e2127' &
 xsetroot -cursor_name left_ptr &
+unclutter --timeout 1 &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
