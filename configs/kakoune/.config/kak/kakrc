@@ -11,3 +11,11 @@ hook global KakBegin .* %{
     fi
   }
 }
+
+hook global BufSetOption filetype=ruby %{
+  set-option buffer formatcmd "bundle exec rubocop -x -o /dev/null -s '${kak_buffile}' | sed -n '2,$p'"
+}
+
+hook global BufSetOption filetype=css,scss %{
+  set-option buffer formatcmd "prettier --stdin-filepath=%val{buffile}"
+}
