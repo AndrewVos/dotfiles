@@ -42,6 +42,7 @@ tpope/vim-haystack
 AndrewVos/vim-git-navigator
 baskerville/vim-sxhkdrc
 mattn/emmet-vim
+tpope/vim-repeat
 "
 
 UPDATE_VIM_DOCS="no"
