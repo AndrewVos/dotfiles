@@ -41,6 +41,7 @@ mhinz/vim-startify
 tpope/vim-haystack
 AndrewVos/vim-git-navigator
 baskerville/vim-sxhkdrc
+mattn/emmet-vim
 "
 
 UPDATE_VIM_DOCS="no"
