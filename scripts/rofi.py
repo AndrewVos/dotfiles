@@ -10,7 +10,7 @@ def vpn_is_connected():
 
 apps =  {
     'Chrome' : ['google-chrome-stable', 'chrome-search://local-ntp/local-ntp.html'],
-    'Chrome incognito': ['google-chrome-stable --incognito chrome-search://local-ntp/local-ntp.html'],
+    'Chrome incognito': ['google-chrome-stable', '--incognito', 'chrome-search://local-ntp/local-ntp.html'],
     'Slack': ['slack'],
     'Enpass': ['enpass'],
     'Discord': ['discord'],
