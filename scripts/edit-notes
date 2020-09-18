@@ -1,0 +1,6 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+bspc rule --add Alacritty:dropdownterminal --one-shot sticky=on state=floating rectangle=2550x600+0+0
+alacritty --class dropdownterminal --working-directory ~/.notes -e ./notes
