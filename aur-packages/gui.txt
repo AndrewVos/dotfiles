@@ -5,4 +5,3 @@ google-chrome
 slack-desktop
 rofi-greenclip
 pick-colour-picker
-typora
