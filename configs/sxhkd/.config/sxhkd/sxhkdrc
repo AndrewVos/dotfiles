@@ -8,9 +8,6 @@ super + Return
 super + space
   rofi -show Menu -dpi 144 -modi Menu:$HOME/.dotfiles/scripts/rofi.py
 
-super + n
-  $HOME/.dotfiles/scripts/edit-notes
-
 super+shift+q
   rofi -show Power -dpi 144 -lines 3 -modi Power:$HOME/.dotfiles/scripts/rofi-power.sh
 

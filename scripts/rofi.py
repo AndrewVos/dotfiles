@@ -13,6 +13,7 @@ apps =  {
     'Chrome incognito': ['google-chrome-stable', '--incognito', 'chrome-search://local-ntp/local-ntp.html'],
     'Slack': ['slack'],
     'Enpass': ['enpass'],
+    'Notes': ['typora', '.notes'],
     'Discord': ['discord'],
     'Krita': ['krita'],
     'Colour Picker': ['pick-colour-picker'],
