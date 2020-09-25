@@ -6,3 +6,6 @@ slack-desktop
 rofi-greenclip
 pick-colour-picker
 typora
+tex-gyre-fonts
+otf-libertinus
+noto-fonts-emoji
