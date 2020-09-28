@@ -2,6 +2,8 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+mkdir -p "$HOME/.config/Typora/conf"
+
 stow --verbose --dir "$HOME/.dotfiles/configs" --target ~ $(ls "$HOME/.dotfiles/configs")
 
 LINE="source $HOME/.dotfiles/bash/init.sh"
