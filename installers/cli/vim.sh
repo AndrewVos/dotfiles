@@ -43,7 +43,10 @@ AndrewVos/vim-git-navigator
 baskerville/vim-sxhkdrc
 mattn/emmet-vim
 tpope/vim-repeat
+scolsen/bernhard
+kjssad/quantum.vim
 nightsense/stellarized
+raggi/vim-color-raggi
 "
 
 UPDATE_VIM_DOCS="no"
