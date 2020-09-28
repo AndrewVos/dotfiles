@@ -79,8 +79,16 @@ nnoremap <C-p> :call FzyCommand("git ls-files --cached --modified \| sort \| uni
 let g:gitgutter_async=0
 " Faster sign updates
 set updatetime=100
-let g:gitgutter_sign_removed = '×'
-set signcolumn=yes
+" Theme
+let g:gitgutter_sign_added = '▎'
+let g:gitgutter_sign_modified = '▎'
+let g:gitgutter_sign_removed = '▎'
+let g:gitgutter_sign_removed_first_line = '▎'
+let g:gitgutter_sign_modified_removed = '▎'
+highlight GitGutterAdd    ctermfg=2
+highlight GitGutterChange ctermfg=3
+highlight GitGutterDelete ctermfg=1
+" :Revert command
 command! -nargs=0 Revert :GitGutterUndoHunk
 
 " :Usages <tag> to jump to tag usages
