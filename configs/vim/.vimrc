@@ -9,7 +9,7 @@ cnoremap <C-A> <Home>
 let g:netrw_banner = 1
 
 " colour scheme
-colorscheme dim
+colorscheme stellarized
 
 " tags file location
 set tags^=./.git/tags;

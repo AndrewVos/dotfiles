@@ -8,7 +8,7 @@ sxhkd &
 picom &
 redshift &
 greenclip daemon &
-hsetroot -solid '#1e2127' &
+hsetroot -solid '#F7FAFC' &
 xsetroot -cursor_name left_ptr &
 unclutter --timeout 1 &
 

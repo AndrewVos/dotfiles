@@ -43,6 +43,7 @@ AndrewVos/vim-git-navigator
 baskerville/vim-sxhkdrc
 mattn/emmet-vim
 tpope/vim-repeat
+nightsense/stellarized
 "
 
 UPDATE_VIM_DOCS="no"
