@@ -35,7 +35,6 @@ highlight clear Search
 highlight Search cterm=NONE ctermfg=red ctermbg=None
 
 set nofoldenable
-set number
 
 " templates
 augroup templates
