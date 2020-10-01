@@ -46,6 +46,7 @@ scolsen/bernhard
 kjssad/quantum.vim
 nightsense/stellarized
 raggi/vim-color-raggi
+dense-analysis/ale
 "
 
 UPDATE_VIM_DOCS="no"

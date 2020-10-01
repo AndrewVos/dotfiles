@@ -101,6 +101,14 @@ au BufRead,BufNewFile *.es6 set filetype=javascript
 " </p>
 let g:html_indent_inctags = "p"
 
+" ALE
+let g:ale_fixers = {
+      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \   'javascript': ['eslint'],
+      \   'ruby': ['rubocop']
+      \}
+command! -nargs=0 Fix :ALEFix
+
 " vim-js-file-import
 set wildignore+=*/node_modules/*
 let g:js_file_import_omit_semicolon = 1
