@@ -17,6 +17,10 @@ set tags^=./.git/tags;
 " backup to ~/.tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
+" This is needed for parceljs
+" https://parceljs.org/hmr.html#safe-write
+set backupcopy=yes
+
 " vim-gnupg
 " Use gpg2, because it stores symmetric passphrases in gpg-agent.
 let g:GPGExecutable="gpg2"
