@@ -130,10 +130,3 @@ cd ~/.dotfiles
 
 ./install --help
 ```
-
-## Test
-
-```bash
-sudo snap install docker
-./test
-```

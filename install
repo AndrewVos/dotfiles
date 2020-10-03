@@ -3,8 +3,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 UPGRADE="no"
-VERBOSE="no"
-SOFTWARE_GROUPS=()
+DESKTOP="no"
 
 function help() {
   echo ".dotfiles"
@@ -15,9 +14,9 @@ function help() {
   echo
   echo "Options:"
   echo "  --help     Show this screen."
-  echo "  --verbose  Write out install logs."
   echo "  --upgrade  Upgrade everything."
 }
+
 
 for var in "$@"
 do
@@ -26,75 +25,120 @@ do
     exit
   elif [[ "$var" = "--upgrade" ]]; then
     UPGRADE="yes"
-  elif [[ "$var" = "--server" ]]; then
-    SOFTWARE_GROUPS=(cli)
   elif [[ "$var" = "--desktop" ]]; then
-    SOFTWARE_GROUPS=(cli database dev gui)
-  elif [[ "$var" == "--verbose" ]]; then
-    VERBOSE="yes"
+    DESKTOP='yes'
   fi
 done
 
-if [ ${#SOFTWARE_GROUPS[@]} -eq 0 ]; then
-  help
-  exit 1
-fi
-
-export LOG_FILE=$(mktemp)
-function write-log-if-error {
-  if [[ $? -gt 0 ]]; then
-    cat "$LOG_FILE"
-  fi
-}
-trap write-log-if-error EXIT
-
-function print-log {
-  if [[ "$VERBOSE" = "yes" ]]; then
-    tee -a "$LOG_FILE"
-  else
-    cat >> "$LOG_FILE"
-  fi
-}
-
 if [[ "$UPGRADE" = "yes" ]]; then
   echo "Upgrading system..."
-  sudo pacman -Syu | print-log 2>&1
+  sudo pacman -Syu
+  sudo yay -Syu
+  echo
 fi
 
 PREVIOUS_PWD="$(pwd)"
 if ! command -v "yay" &> /dev/null; then
   echo "Installing yay..."
-  cd $(mktemp -d)
+  cd "$(mktemp -d)"
   git clone https://aur.archlinux.org/yay.git
   cd yay
   makepkg -si --noconfirm
   cd "$PREVIOUS_PWD"
 fi
 
-echo "Installing packages..."
-for SOFTWARE_GROUP in "${SOFTWARE_GROUPS[@]}"; do
-  PACKAGES_PATH="packages/$SOFTWARE_GROUP.txt"
-  AUR_PATH="aur-packages/$SOFTWARE_GROUP.txt"
+sudo pacman -S --needed --noconfirm \
+  man-db \
+  whois \
+  jq \
+  fzy \
+  git \
+  stow \
+  exa \
+  openssh \
+  gvim \
+  curl \
+  wget \
+  make \
+  htop \
+  shellcheck \
+  ctags \
+  redis \
+  tig \
+  tree \
+  nnn \
+  playerctl \
+  zsh \
+  laptop-detect \
+  unzip \
+  kakoune \
+  ripgrep \
+  postgresql \
+  postgresql-libs
 
-  if [[ -f "$PACKAGES_PATH" ]]; then
-    PACKAGES="$(cat $PACKAGES_PATH)"
-    sudo pacman -S --needed --noconfirm $PACKAGES 2>&1 | print-log
-  fi
+yay -S --needed --noconfirm \
+  nordvpn-bin \
+  tldr-sh
 
-  if [[ -f "$AUR_PATH" ]]; then
-    PACKAGES="$(cat $AUR_PATH)"
-    yay -S --needed --noconfirm $PACKAGES 2>&1 | print-log
-  fi
-done
+if [[ "$DESKTOP" = "yes" ]]; then
+  sudo pacman -S --needed --noconfirm \
+    github-cli \
+    xorg-server \
+    xorg-xinit \
+    xorg-xsetroot \
+    alsa-utils \
+    xwallpaper \
+    ttf-ubuntu-font-family \
+    wget \
+    mpv \
+    krita \
+    xclip \
+    flameshot \
+    gnome-tweak-tool \
+    ttf-hack \
+    bspwm \
+    sxhkd \
+    dmenu \
+    rofi \
+    dunst \
+    redshift \
+    unclutter \
+    discord \
+    picom \
+    alacritty \
+    hsetroot \
+    imv
 
-PREVIOUS_PWD="$(pwd)"
+  yay -S --needed --noconfirm \
+    heroku-cli \
+    hugo \
+    asdf-vm \
+    ly \
+    yaru-gtk-theme \
+    enpass-bin \
+    google-chrome \
+    slack-desktop \
+    rofi-greenclip \
+    pick-colour-picker \
+    typora \
+    tex-gyre-fonts \
+    otf-libertinus \
+    noto-fonts-emoji
+fi
 
-for SOFTWARE_GROUP in "${SOFTWARE_GROUPS[@]}"; do
-  for INSTALLER in $(ls "installers/$SOFTWARE_GROUP/"); do
-    cd $(mktemp -d)
-    echo "Installing $SOFTWARE_GROUP/$INSTALLER..."
-    UPGRADE=$UPGRADE $PREVIOUS_PWD/installers/$SOFTWARE_GROUP/$INSTALLER 2>&1 | print-log
+export UPGRADE="$UPGRADE"
 
-    cd "$PREVIOUS_PWD"
-  done
-done
+./installers/dotfiles.sh
+./installers/nordvpn.sh
+./installers/ssh.sh
+./installers/vim.sh
+./installers/zsh.sh
+
+if [[ "$DESKTOP" = "yes" ]]; then
+  ./installers/database
+  ./installers/postgres.sh
+  ./installers/asdf.sh
+  ./installers/fonts.sh
+  ./installers/ly.sh
+  ./installers/spotify.sh
+fi

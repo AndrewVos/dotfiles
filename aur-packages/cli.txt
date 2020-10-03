@@ -1,2 +1,0 @@
-nordvpn-bin
-tldr-sh
