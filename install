@@ -2,40 +2,14 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-UPGRADE="no"
-DESKTOP="no"
-
 function help() {
   echo ".dotfiles"
   echo
   echo "Usage:"
-  echo "  $0 --server"
-  echo "  $0 --desktop"
+  echo "  $0 --tiny"
+  echo "  $0 --full"
   echo
-  echo "Options:"
-  echo "  --help     Show this screen."
-  echo "  --upgrade  Upgrade everything."
 }
-
-
-for var in "$@"
-do
-  if [[ "$var" = "--help" ]]; then
-    help
-    exit
-  elif [[ "$var" = "--upgrade" ]]; then
-    UPGRADE="yes"
-  elif [[ "$var" = "--desktop" ]]; then
-    DESKTOP='yes'
-  fi
-done
-
-if [[ "$UPGRADE" = "yes" ]]; then
-  echo "Upgrading system..."
-  sudo pacman -Syu
-  sudo yay -Syu
-  echo
-fi
 
 PREVIOUS_PWD="$(pwd)"
 if ! command -v "yay" &> /dev/null; then
@@ -47,98 +21,18 @@ if ! command -v "yay" &> /dev/null; then
   cd "$PREVIOUS_PWD"
 fi
 
-sudo pacman -S --needed --noconfirm \
-  man-db \
-  whois \
-  jq \
-  fzy \
-  git \
-  stow \
-  exa \
-  openssh \
-  gvim \
-  curl \
-  wget \
-  make \
-  htop \
-  shellcheck \
-  ctags \
-  redis \
-  tig \
-  tree \
-  nnn \
-  playerctl \
-  zsh \
-  laptop-detect \
-  unzip \
-  kakoune \
-  ripgrep \
-  postgresql \
-  postgresql-libs
+set +u
+COMMAND="$1"
+set -u
 
-yay -S --needed --noconfirm \
-  nordvpn-bin \
-  tldr-sh
-
-if [[ "$DESKTOP" = "yes" ]]; then
-  sudo pacman -S --needed --noconfirm \
-    github-cli \
-    xorg-server \
-    xorg-xinit \
-    xorg-xsetroot \
-    alsa-utils \
-    xwallpaper \
-    ttf-ubuntu-font-family \
-    wget \
-    mpv \
-    krita \
-    xclip \
-    flameshot \
-    gnome-tweak-tool \
-    ttf-hack \
-    bspwm \
-    sxhkd \
-    dmenu \
-    rofi \
-    dunst \
-    redshift \
-    unclutter \
-    discord \
-    picom \
-    alacritty \
-    hsetroot \
-    imv
-
-  yay -S --needed --noconfirm \
-    heroku-cli \
-    hugo \
-    asdf-vm \
-    ly \
-    yaru-gtk-theme \
-    enpass-bin \
-    google-chrome \
-    slack-desktop \
-    rofi-greenclip \
-    pick-colour-picker \
-    typora \
-    tex-gyre-fonts \
-    otf-libertinus \
-    noto-fonts-emoji
+if [[ "$COMMAND" = "--tiny" ]]; then
+  ./tiny
+elif [[ "$COMMAND" = "--full" ]]; then
+  ./tiny
+  ./full
+else
+  help
+  exit 1
 fi
 
-export UPGRADE="$UPGRADE"
-
-./installers/dotfiles.sh
-./installers/nordvpn.sh
-./installers/ssh.sh
-./installers/vim.sh
-./installers/zsh.sh
-
-if [[ "$DESKTOP" = "yes" ]]; then
-  ./installers/database
-  ./installers/postgres.sh
-  ./installers/asdf.sh
-  ./installers/fonts.sh
-  ./installers/ly.sh
-  ./installers/spotify.sh
-fi
+echo "Done!"

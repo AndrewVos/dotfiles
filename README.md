@@ -128,5 +128,9 @@ sudo pacman -S git
 git clone https://github.com/AndrewVos/dotfiles ~/.dotfiles
 cd ~/.dotfiles
 
-./install --help
+# Tiny server install
+./install --tiny
+
+# Full desktop install
+./install --full
 ```

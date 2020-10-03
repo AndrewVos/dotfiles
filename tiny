@@ -1,0 +1,42 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+sudo pacman -S --needed --noconfirm \
+  man-db \
+  whois \
+  jq \
+  fzy \
+  git \
+  stow \
+  exa \
+  openssh \
+  gvim \
+  curl \
+  wget \
+  make \
+  htop \
+  shellcheck \
+  ctags \
+  redis \
+  tig \
+  tree \
+  nnn \
+  playerctl \
+  zsh \
+  laptop-detect \
+  unzip \
+  kakoune \
+  ripgrep \
+  postgresql \
+  postgresql-libs
+
+yay -S --needed --noconfirm \
+  nordvpn-bin \
+  tldr-sh
+
+./installers/dotfiles.sh
+./installers/nordvpn.sh
+./installers/ssh.sh
+./installers/vim.sh
+./installers/zsh.sh

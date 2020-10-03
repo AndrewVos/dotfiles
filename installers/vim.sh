@@ -49,27 +49,11 @@ raggi/vim-color-raggi
 dense-analysis/ale
 "
 
-UPDATE_VIM_DOCS="no"
-function git-clone() {
-  URL=$1
-  CLONE_PATH=$2
-
-  if [[ -d "$CLONE_PATH" ]]; then
-    if [[ "$UPGRADE" = "yes" ]]; then
-      git -C "$CLONE_PATH" pull
-      UPDATE_VIM_DOCS="yes"
-    fi
-  else
-    git clone "$URL" "$CLONE_PATH"
-    UPDATE_VIM_DOCS="yes"
-  fi
-}
-
 for PLUGIN in $PLUGINS; do
   PLUGIN_NAME=$(echo "$PLUGIN" | cut -d "/" -f 2)
-  git-clone "https://github.com/$PLUGIN" "$HOME/.vim/bundle/$PLUGIN_NAME"
+  if [[ ! -d "$HOME/.vim/bundle/$PLUGIN_NAME" ]]; then
+    git -C "$HOME/.vim/bundle" clone "https://github.com/$PLUGIN"
+  fi
 done
 
-if [[ "$UPDATE_VIM_DOCS" = "yes" ]]; then
-  vim -c Helptags -c q
-fi
+vim -c Helptags -c q
