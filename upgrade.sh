@@ -5,7 +5,6 @@ IFS=$'\n\t'
 sudo pacman -Syu
 yay -Syu
 
-asdf update
 asdf plugin update --all
 
 for directory in $(ls "$HOME/.vim/bundle"); do
