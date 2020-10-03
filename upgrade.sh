@@ -3,7 +3,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 sudo pacman -Syu
-sudo yay -Syu
+yay -Syu
 
 asdf update
 asdf plugin update --all
