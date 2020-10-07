@@ -44,7 +44,8 @@ yay -S --needed --noconfirm \
   typora \
   tex-gyre-fonts \
   otf-libertinus \
-  noto-fonts-emoji
+  noto-fonts-emoji \
+  peek
 
 ./installers/postgres.sh
 ./installers/fonts.sh

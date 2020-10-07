@@ -17,7 +17,8 @@ apps =  {
     'Discord': ['discord'],
     'Krita': ['krita'],
     'Colour Picker': ['pick-colour-picker'],
-    'Spotify': ['spotify']
+    'Spotify': ['spotify'],
+    'Record screen': ['peek']
 }
 
 if vpn_is_connected():

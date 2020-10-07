@@ -29,3 +29,4 @@ bspc rule -a Google-chrome desktop='^2'
 bspc rule -a discord desktop='^3'
 bspc rule -a Slack desktop='^4'
 bspc rule -a spotify desktop='^5'
+bspc rule -a Peek state=floating
