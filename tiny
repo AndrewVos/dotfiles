@@ -31,7 +31,15 @@ sudo pacman -S --needed --noconfirm \
   postgresql \
   postgresql-libs
 
-yay -S --needed --noconfirm \
+function yay-install() {
+  for package in $@; do
+    if ! pacman -Qi "$package"; then
+      yay -S --needed --noconfirm
+    fi
+  done
+}
+
+yay-install \
   nordvpn-bin \
   tldr-sh
 

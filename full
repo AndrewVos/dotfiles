@@ -30,7 +30,15 @@ sudo pacman -S --needed --noconfirm \
   hsetroot \
   imv
 
-yay -S --needed --noconfirm \
+function yay-install() {
+  for package in $@; do
+    if ! pacman -Qi "$package"; then
+      yay -S --needed --noconfirm
+    fi
+  done
+}
+
+yay-install \
   heroku-cli \
   hugo \
   asdf-vm \
