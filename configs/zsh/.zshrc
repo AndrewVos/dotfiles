@@ -28,8 +28,16 @@ if [[ -f /opt/asdf-vm/asdf.sh ]]; then
   . /opt/asdf-vm/asdf.sh
 fi
 
-# zsh-autosuggestions
+# aliases
+alias g=git
+alias b='bundle exec'
+alias ber='bundle exec rspec spec --color'
+alias bec='bundle exec cucumber --color'
+alias irb=pry
+alias ls='exa -l'
+alias nnn='nnn -e'
 
+# zsh-autosuggestions
 if [[ -f "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
   source "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 fi
@@ -39,14 +47,10 @@ if [[ -f "$HOME/.zsh/zsh-autopair/autopair.zsh" ]]; then
   source "$HOME/.zsh/zsh-autopair/autopair.zsh"
 fi
 
-# aliases
-alias g=git
-alias b='bundle exec'
-alias ber='bundle exec rspec spec --color'
-alias bec='bundle exec cucumber --color'
-alias irb=pry
-alias ls='exa -l'
-alias nnn='nnn -e'
+# zsh-z
+if [[ -f "$HOME/.zsh/zsh-z/zsh-z.plugin.zsh" ]]; then
+  source "$HOME/.zsh/zsh-z/zsh-z.plugin.zsh"
+fi
 
 # Use modern completion system
 autoload -Uz compinit

@@ -15,3 +15,7 @@ fi
 if [[ ! -d "$HOME/.zsh/zsh-autopair" ]]; then
   git -C "$HOME/.zsh" clone "https://github.com/hlissner/zsh-autopair"
 fi
+
+if [[ ! -d "$HOME/.zsh/zsh-z" ]]; then
+  git -C "$HOME/.zsh" clone "https://github.com/agkozak/zsh-z"
+fi
