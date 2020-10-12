@@ -4,6 +4,10 @@ set global grepcmd 'rg --column'
 
 add-highlighter global/ number-lines
 
+hook global InsertChar \t %{ exec -draft -itersel h@ }
+set global tabstop 2
+set global indentwidth 2
+
 hook global KakBegin .* %{
   evaluate-commands %sh{
     if [ -e "$PWD/.git/tags" ]; then
