@@ -16,14 +16,7 @@ hook global KakBegin .* %{
   }
 }
 
-hook global BufSetOption filetype=ruby %{
-  set-option buffer formatcmd "bundle exec rubocop -x -o /dev/null -s '${kak_buffile}' | sed -n '2,$p'"
-}
-
-hook global BufSetOption filetype=css,scss %{
-  set-option buffer formatcmd "prettier --stdin-filepath=%val{buffile}"
-}
-
-hook global BufSetOption filetype=javascript %{
+# yarn global add prettier @prettier/plugin-ruby
+hook global BufSetOption filetype=(javascript|ruby|css|scss) %{
   set-option buffer formatcmd "prettier --stdin-filepath=%val{buffile}"
 }
