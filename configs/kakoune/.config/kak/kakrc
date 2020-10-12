@@ -20,3 +20,12 @@ hook global KakBegin .* %{
 hook global BufSetOption filetype=(javascript|ruby|css|scss) %{
   set-option buffer formatcmd "prettier --stdin-filepath=%val{buffile}"
 }
+
+# run format on write
+hook global BufWritePre .* %{
+  evaluate-commands %sh{
+    if [ -n "$kak_opt_formatcmd" ]; then
+      echo format
+    fi
+  }
+}
