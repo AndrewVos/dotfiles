@@ -23,3 +23,7 @@ hook global BufSetOption filetype=ruby %{
 hook global BufSetOption filetype=css,scss %{
   set-option buffer formatcmd "prettier --stdin-filepath=%val{buffile}"
 }
+
+hook global BufSetOption filetype=javascript %{
+  set-option buffer formatcmd "prettier --stdin-filepath=%val{buffile}"
+}
