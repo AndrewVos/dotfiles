@@ -9,7 +9,8 @@ git -C "$NOTES_PATH" add .
 if git -C "$NOTES_PATH" commit -m "$(date '+%d-%m-%Y %H:%M:%S')"; then
   git -C "$NOTES_PATH" pull --rebase
   git -C "$NOTES_PATH" push
-  notify-send 'Notes have been synced'
 else
-  notify-send 'Notes are already synced'
+  git -C "$NOTES_PATH" pull --rebase
 fi
+
+notify-send 'Sync complete'
