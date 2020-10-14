@@ -1,4 +1,14 @@
-colorscheme kaleidoscope-light
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
+plug "andreyorst/plug.kak" noload
+
+plug DERPSQUID9/kakoune-cyberpunk-neon theme
+plug yasukotelin/shirotelin theme
+plug evanrelf/primer.kak theme
+plug nesyamun/nord-kakoune theme
+plug Icantjuddle/ayu-kak theme
+plug caksoylar/kakoune-snow theme
+
+colorscheme nord-light
 
 set global grepcmd 'rg --column'
 

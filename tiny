@@ -47,4 +47,5 @@ yay-install \
 ./installers/nordvpn.sh
 ./installers/ssh.sh
 ./installers/vim.sh
+./installers/kakoune.sh
 ./installers/zsh.sh

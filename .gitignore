@@ -2,3 +2,5 @@ fish/fishd.andrewvos
 configs/ssh/.ssh/id_rsa
 configs/ssh/.ssh/id_rsa.pub
 configs/ssh/.ssh/known_hosts
+configs/kakoune/.config/kak/colors
+configs/kakoune/.config/kak/plugins
