@@ -2,19 +2,22 @@
 
 import sys
 import subprocess
+from pathlib import Path
 
 def vpn_is_connected():
     result = subprocess.run(['nordvpn', 'status'], stdout=subprocess.PIPE)
     result = result.stdout.decode('utf-8')
     return result.find('Status: Connected') != -1
 
+home = str(Path.home())
 apps =  {
     'Chrome' : ['google-chrome-stable', 'chrome-search://local-ntp/local-ntp.html'],
     'Chrome incognito': ['google-chrome-stable', '--incognito', 'chrome-search://local-ntp/local-ntp.html'],
     'Slack': ['slack'],
     'Enpass': ['enpass'],
     'Notes': ['typora', '.notes'],
-    'Sync notes': ['sync-notes'],
+    'Sync notes': [home + '/.dotfiles/scripts/sync-notes'],
+
     'Discord': ['discord'],
     'Krita': ['krita'],
     'Colour Picker': ['pick-colour-picker'],
