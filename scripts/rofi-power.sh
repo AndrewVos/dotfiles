@@ -2,21 +2,18 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-OPTIONS="Shutdown\nReboot\nLogout"
+set +u
+CHOICE="$1"
+set -u
 
-option=`echo -e $OPTIONS | awk '{print $1}' | tr -d '\r\n\t'`
-if [ "$@" ]; then
-  case $@ in
-    *Shutdown)
-      sudo systemctl poweroff
-      ;;
-    *Reboot)
-      sudo systemctl reboot
-      ;;
-    *Logout)
-      bspc quit
-      ;;
-  esac
+OPTIONS="Shutdown\nReboot\nLog out"
+
+if [[ "$CHOICE" = "Shutdown" ]]; then
+  sudo systemctl poweroff
+elif [[ "$CHOICE" = "Reboot" ]]; then
+  sudo systemctl reboot
+elif [[ "$CHOICE" = "Log out" ]]; then
+  bspc quit
 else
-  echo -e $OPTIONS
+  echo -e "$OPTIONS"
 fi
