@@ -1,0 +1,9 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+NOTES_PATH="$HOME/.notes"
+git -C "$NOTES_PATH" add .
+git -C "$NOTES_PATH" commit -m "$(date '+%d-%m-%Y %H:%M:%S')"
+git -C "$NOTES_PATH" pull --rebase
+git -C "$NOTES_PATH" push
