@@ -14,6 +14,7 @@ apps =  {
     'Slack': ['slack'],
     'Enpass': ['enpass'],
     'Notes': ['typora', '.notes'],
+    'Sync notes': ['sync-notes'],
     'Discord': ['discord'],
     'Krita': ['krita'],
     'Colour Picker': ['pick-colour-picker'],
