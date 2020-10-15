@@ -48,15 +48,6 @@ hook global BufSetOption filetype=(javascript|ruby|css|scss|json) %{
   set-option buffer formatcmd "prettier --stdin-filepath=%val{buffile}"
 }
 
-# Automatic formatting
-hook global BufWritePre .* %{
-  evaluate-commands %sh{
-    if [ -n "$kak_opt_formatcmd" ]; then
-      echo format
-    fi
-  }
-}
-
 def rspec \
   -override \
   -docstring "Run an rspec spec" \
