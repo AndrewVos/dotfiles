@@ -26,12 +26,26 @@ hook global KakBegin .* %{
   }
 }
 
+# Lint
+hook global WinSetOption filetype=sh %{
+  set-option window lintcmd "shellcheck -fgcc -Cnever"
+}
+hook global WinSetOption filetype=(markdown|plain) %{
+  set-option window lintcmd "proselint"
+}
+
+# Automatic linting
+hook global WinSetOption filetype=(sh|markdown|plain) %{
+  hook buffer BufWritePost "\Q%val{buffile}" lint
+}
+
+# Format
 # yarn global add prettier @prettier/plugin-ruby
 hook global BufSetOption filetype=(javascript|ruby|css|scss|json) %{
   set-option buffer formatcmd "prettier --stdin-filepath=%val{buffile}"
 }
 
-# run format on write
+# Automatic formatting
 hook global BufWritePre .* %{
   evaluate-commands %sh{
     if [ -n "$kak_opt_formatcmd" ]; then

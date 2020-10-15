@@ -29,7 +29,8 @@ sudo pacman -S --needed --noconfirm \
   kakoune \
   ripgrep \
   postgresql \
-  postgresql-libs
+  postgresql-libs \
+  proselint
 
 function yay-install() {
   for package in $@; do
