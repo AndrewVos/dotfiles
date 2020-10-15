@@ -10,6 +10,8 @@ plug caksoylar/kakoune-snow theme
 
 colorscheme nord-light
 
+plug h-youhei/kakoune-surround
+
 set global grepcmd 'rg --column'
 
 add-highlighter global/ number-lines
