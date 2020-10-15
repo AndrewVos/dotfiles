@@ -54,3 +54,12 @@ hook global BufWritePre .* %{
     fi
   }
 }
+
+def rspec \
+  -override \
+  -docstring "Run an rspec spec" \
+  -params 1 \
+  -shell-script-candidates %{ find spec/**/*_spec.rb } \
+  %{
+    terminal  sh -c "bundle exec rspec %arg{@} ;  read -n 1 -s -r -p 'Press any key to continue'"
+  }
