@@ -13,6 +13,7 @@ colorscheme nord-light
 set global grepcmd 'rg --column'
 
 add-highlighter global/ number-lines
+add-highlighter global/ show-matching
 
 hook global InsertChar \t %{ exec -draft -itersel h@ }
 set global tabstop 2
