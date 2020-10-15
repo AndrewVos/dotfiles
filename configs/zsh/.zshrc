@@ -8,8 +8,8 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-# vim
-export EDITOR=vim
+# kakoune
+export EDITOR=kak
 
 # scripts
 export PATH="$PATH:$HOME/.dotfiles/scripts"
