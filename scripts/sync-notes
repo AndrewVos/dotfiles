@@ -13,4 +13,4 @@ else
   git -C "$NOTES_PATH" pull --rebase
 fi
 
-notify-send 'Sync complete'
+notify-send --urgency low 'Sync complete'
