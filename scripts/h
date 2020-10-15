@@ -44,3 +44,6 @@ write-command 'chmod 644 ~/.ssh/id_rsa.pub'
 write-title 'Rails migrations'
 write-command 'rails generate migration AddPartNumberToProducts part_number:string:index'
 
+write-title 'Rails transactions'
+write-command 'ActiveRecord::Base.transaction do; end'
+
