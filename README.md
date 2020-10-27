@@ -73,7 +73,7 @@ locale-gen
 echo 'YOUR_HOST_NAME' > /etc/hostname
 echo '127.0.0.1	localhost' >> /etc/hosts
 echo '::1 localhost' >> /etc/hosts
-echo '127.0.1.1	YOUR_HOST_NAME.localdomain YOUR_HOST_NAME' >> /etc/hosts
+echo '127.0.1.1	YOUR_HOST_NAME.local YOUR_HOST_NAME' >> /etc/hosts
 
 # Set a root password
 passwd
@@ -108,6 +108,8 @@ echo '[Match]'    >> /etc/systemd/network/25-wireless.network
 echo 'Name=<WIRELESS_DEVICE>' >> /etc/systemd/network/25-wireless.network
 echo '[Network]'  >> /etc/systemd/network/25-wireless.network
 echo 'DHCP=yes'   >> /etc/systemd/network/25-wireless.network
+echo 'UseDomains=yes' >> /etc/systemd/network/20-wired.network
+echo 'Domains=homeassistant.local media.local mb13.local desktop.local' >> /etc/systemd/network/20-wired.network
 systemctl enable --now systemd-resolved.service
 systemctl enable --now systemd-networkd.service
 systemctl enable --now iwd.service
@@ -117,6 +119,8 @@ echo '[Match]' >> /etc/systemd/network/20-wired.network
 echo 'Name=<ETHERNET_DEVICE>' >> /etc/systemd/network/20-wired.network
 echo '[Network]' >> /etc/systemd/network/20-wired.network
 echo 'DHCP=yes' >> /etc/systemd/network/20-wired.network
+echo 'UseDomains=yes' >> /etc/systemd/network/20-wired.network
+echo 'Domains=homeassistant.local media.local mb13.local desktop.local' >> /etc/systemd/network/20-wired.network
 systemctl enable --now systemd-resolved.service
 systemctl enable --now systemd-networkd.service
 ```
