@@ -47,3 +47,8 @@ write-command 'rails generate migration AddPartNumberToProducts part_number:stri
 write-title 'Rails transactions'
 write-command 'ActiveRecord::Base.transaction do; end'
 
+write-title 'Flush cache in chrome'
+write-command 'chrome://net-internals/#dns'
+
+write-title 'Flush cache in arch'
+write-command 'sudo systemd-resolve --flush-caches'
