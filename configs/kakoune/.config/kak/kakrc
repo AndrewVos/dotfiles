@@ -14,6 +14,18 @@ plug h-youhei/kakoune-surround
 
 set global grepcmd 'rg --column'
 
+# Disable clippy
+set-option global ui_options ncurses_assistant=off
+
+# keep space around cursor
+set-option global scrolloff 10,10
+
+# save on pressing enter
+hook global NormalKey <ret> w
+
+# search with c tags
+map global goto s -docstring 'search ctags' %{<esc><a-i>w: ctags-search<ret>}
+
 add-highlighter global/ number-lines
 add-highlighter global/ show-matching
 
