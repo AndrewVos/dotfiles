@@ -11,6 +11,9 @@ HISTFILE=~/.zsh_history
 # kakoune
 export EDITOR=kak
 
+# chrome
+export BROWSER=google-chrome-stable
+
 # scripts
 export PATH="$PATH:$HOME/.dotfiles/scripts"
 
