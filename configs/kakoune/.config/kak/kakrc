@@ -37,6 +37,10 @@ hook global WinSetOption filetype=(markdown|plain) %{
   set-option window lintcmd "proselint"
 }
 
+hook global WinSetOption filetype=ruby %{
+  set-option window lintcmd 'rubocop -l --format emacs'
+}
+
 # Automatic linting
 hook global WinSetOption filetype=(sh|markdown|plain) %{
   hook buffer BufWritePost "\Q%val{buffile}" lint
