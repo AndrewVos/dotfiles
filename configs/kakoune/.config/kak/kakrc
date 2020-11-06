@@ -29,6 +29,9 @@ hook global KakBegin .* %{
   }
 }
 
+map global goto n '<esc>: grep-next-match<ret>' -docstring 'next grep match'
+map global goto p '<esc>: grep-previous-match<ret>' -docstring 'previous grep match'
+
 # Lint
 hook global WinSetOption filetype=sh %{
   set-option window lintcmd "shellcheck -fgcc -Cnever"
