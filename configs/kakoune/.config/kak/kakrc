@@ -8,7 +8,7 @@ plug nesyamun/nord-kakoune theme
 plug Icantjuddle/ayu-kak theme
 plug caksoylar/kakoune-snow theme
 
-colorscheme nord-light
+colorscheme reeder
 
 plug h-youhei/kakoune-surround
 
