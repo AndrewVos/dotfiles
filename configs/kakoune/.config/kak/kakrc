@@ -29,6 +29,8 @@ map global goto s -docstring 'search ctags' %{<esc><a-i>w: ctags-search<ret>}
 add-highlighter global/ number-lines
 add-highlighter global/ show-matching
 
+add-highlighter global/show-trailing-whitespaces regex '\h+$' 0:Error
+
 hook global InsertChar \t %{ exec -draft -itersel h@ }
 set global tabstop 2
 set global indentwidth 2
