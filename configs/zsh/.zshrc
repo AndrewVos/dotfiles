@@ -89,6 +89,11 @@ bindkey '^W' my-backward-delete-word
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
+# Move through the completion menu backwards with <s-tab>
+if [[ "${terminfo[kcbt]}" != "" ]]; then
+  bindkey "${terminfo[kcbt]}" reverse-menu-complete
+fi
+
 # Prompt
 autoload -U colors && colors
 autoload -Uz vcs_info
