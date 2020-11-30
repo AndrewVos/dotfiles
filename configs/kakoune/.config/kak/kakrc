@@ -87,3 +87,13 @@ def run-current-spec \
   }
 
 map global normal <c-t> ': run-current-spec<ret>'
+
+def git-open \
+  -override \
+  -docstring "Open git changed files" \
+  -params 1 \
+  -shell-script-completion %{git status --untracked --porcelain | grep -v '^ D ' | awk '{print ( $(NF) )}'} \
+  %{
+    edit %arg{@}
+  }
+alias global g git-open
