@@ -77,3 +77,13 @@ def rspec \
   %{
     terminal sh -c "bundle exec rspec %arg{@} ;  read -n 1 -s -r -p 'Press any key to continue'"
   }
+
+def run-current-spec \
+  -override \
+  -docstring "Run the current spec" \
+  -params 0 \
+  %{
+    terminal sh -c "bundle exec rspec %val{buffile} ;  read -n 1 -s -r -p 'Press any key to continue'"
+  }
+
+map global normal <c-t> ': run-current-spec<ret>'
