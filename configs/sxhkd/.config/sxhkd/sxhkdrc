@@ -11,6 +11,9 @@ super + space
 super+shift+q
   rofi -show Power -dpi 144 -lines 3 -modi Power:$HOME/.dotfiles/scripts/rofi-power.sh
 
+super+n
+  rofi -show Notes -dpi 144 -lines 10 -modi Notes:$HOME/.dotfiles/scripts/rofi-notes.sh
+
 # make sxhkd reload its configuration files:
 super + Escape
   pkill -USR1 -x sxhkd

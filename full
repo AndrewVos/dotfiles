@@ -52,7 +52,8 @@ yay-install \
   tex-gyre-fonts \
   otf-libertinus \
   noto-fonts-emoji \
-  peek
+  peek \
+  abricotine-bin
 
 ./installers/postgres.sh
 ./installers/fonts.sh
