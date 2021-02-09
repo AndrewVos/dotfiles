@@ -12,6 +12,12 @@ hsetroot -solid '#F7FAFC' &
 xsetroot -cursor_name left_ptr &
 unclutter --timeout 1 &
 
+if [[ $(uname -n) = "desktop" ]]; then
+  v4l2-ctl --device /dev/video0 --set-ctrl focus_auto=0 &
+  xset s 3600 3600 &
+  xset -dpms &
+fi
+
 bspc monitor -d I II III IV V VI VII VIII IX X
 
 bspc config border_width        5
