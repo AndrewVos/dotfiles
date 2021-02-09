@@ -7,6 +7,7 @@ fi
 sxhkd &
 picom &
 redshift &
+xmousepasteblock &
 hsetroot -solid '#F7FAFC' &
 xsetroot -cursor_name left_ptr &
 unclutter --timeout 1 &
