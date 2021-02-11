@@ -5,9 +5,9 @@ import subprocess
 from pathlib import Path
 
 def vpn_is_connected():
-    result = subprocess.run(['nordvpn', 'status'], stdout=subprocess.PIPE)
+    result = subprocess.run(['ivpn', 'status'], stdout=subprocess.PIPE)
     result = result.stdout.decode('utf-8')
-    return result.find('Status: Connected') != -1
+    return result.find('DISCONNECT') == -1
 
 home = str(Path.home())
 apps =  {
@@ -25,9 +25,9 @@ apps =  {
 }
 
 if vpn_is_connected():
-    apps['Disconnect from VPN'] = ['nordvpn', 'disconnect']
+    apps['Disconnect from VPN'] = [home + '/.dotfiles/scripts/vpn', 'disconnect']
 else:
-    apps['Connect to VPN'] = ['nordvpn', 'connect']
+    apps['Connect to VPN'] = [home + '/.dotfiles/scripts/vpn', 'connect']
 
 if len(sys.argv) == 1:
     for title, command in apps.items():

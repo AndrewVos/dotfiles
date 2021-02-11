@@ -41,11 +41,10 @@ function yay-install() {
 }
 
 yay-install \
-  nordvpn-bin \
+  ivpn \
   tldr-sh
 
 ./installers/dotfiles.sh
-./installers/nordvpn.sh
 ./installers/ssh.sh
 ./installers/vim.sh
 ./installers/kakoune.sh

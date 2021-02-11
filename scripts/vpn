@@ -1,0 +1,11 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+if [[ "$1" = 'connect' ]]; then
+  ivpn connect -fw_off gb.gw.ivpn.net
+  notify-send --urgency low 'VPN connected'
+else
+  ivpn disconnect
+  notify-send --urgency low 'VPN disconnected'
+fi
