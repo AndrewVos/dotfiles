@@ -12,8 +12,11 @@ hsetroot -solid '#F7FAFC' &
 xsetroot -cursor_name left_ptr &
 unclutter --timeout 1 &
 
-if [[ $(uname -n) = "desktop" ]]; then
-  v4l2-ctl --device /dev/video0 --set-ctrl focus_auto=0 &
+if [[ "$(uname -n)" = "desktop" ]]; then
+  v4l2-ctl \
+    --media-bus-info usb-0000:00:14.0-2.4.1 \
+    --device "HD Pro Webcam C920" \
+    --set-ctrl focus_auto=0 &
   xset s 3600 3600 &
   xset -dpms &
 fi
