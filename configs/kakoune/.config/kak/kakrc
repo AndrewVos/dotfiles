@@ -26,7 +26,14 @@ map -docstring "paste the clipboard" global user p "<a-!> xsel<ret>"
 map -docstring "surround" global user s ": surround<ret>"
 
 # save on pressing enter
-hook global NormalKey <ret> w
+hook global NormalKey <ret> %{
+  evaluate-commands %sh{
+    if [ -n "${kak_opt_formatcmd}" ]; then
+      printf "%s\n" "format"
+    fi
+    printf "%s\n" "write"
+  }
+}
 
 # search with c tags
 map global goto s -docstring 'search ctags' %{<esc><a-i>w: ctags-search<ret>}
