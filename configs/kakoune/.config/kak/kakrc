@@ -23,6 +23,7 @@ set-option global scrolloff 10,10
 # user mappings
 map -docstring "yank the selection into the clipboard" global user y "<a-|> xsel --input --clipboard<ret>"
 map -docstring "paste the clipboard" global user p "<a-!> xsel<ret>"
+map -docstring "surround" global user s ": surround<ret>"
 
 # save on pressing enter
 hook global NormalKey <ret> w
