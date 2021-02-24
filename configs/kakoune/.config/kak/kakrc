@@ -38,6 +38,9 @@ hook global NormalKey <ret> %{
 # search with c tags
 map global goto s -docstring 'search ctags' %{<esc><a-i>w: ctags-search<ret>}
 
+# map # to comment-line
+map global normal "#" ": comment-line<ret>"
+
 add-highlighter global/ number-lines
 add-highlighter global/ show-matching
 
