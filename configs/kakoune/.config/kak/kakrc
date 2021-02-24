@@ -98,12 +98,25 @@ def rspec \
     terminal sh -c "bundle exec rspec %arg{@} ;  read -n 1 -s -r -p 'Press any key to continue'"
   }
 
+declare-option str rspec_current_spec ""
 def run-current-spec \
   -override \
   -docstring "Run the current spec" \
   -params 0 \
   %{
-    terminal sh -c "bundle exec rspec %val{buffile} ;  read -n 1 -s -r -p 'Press any key to continue'"
+    evaluate-commands %sh{
+      current_spec="$kak_opt_rspec_current_spec"
+      current_file="$kak_buffile"
+
+      if [[ "$current_file" == *_spec.rb ]]; then
+        current_spec="$current_file"
+        printf "%s\n" "set-option global rspec_current_spec $current_file"
+      fi
+
+      if [ -n "$current_spec" ]; then
+        printf "%s\n" "terminal sh -c \"bundle exec rspec $current_spec ;  read -n 1 -s -r -p 'Press any key to continue'\""
+      fi
+    }
   }
 
 map global normal <c-t> ': run-current-spec<ret>'
