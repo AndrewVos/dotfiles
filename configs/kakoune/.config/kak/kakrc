@@ -43,6 +43,7 @@ map global normal "#" ": comment-line<ret>"
 
 add-highlighter global/ number-lines
 add-highlighter global/ show-matching
+add-highlighter global/ number-lines -relative -hlcursor
 
 add-highlighter global/show-trailing-whitespaces regex '\h+$' 0:Error
 
