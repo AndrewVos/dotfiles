@@ -35,7 +35,7 @@ sudo pacman -S --needed --noconfirm \
 function yay-install() {
   for package in $@; do
     if ! pacman -Qi "$package"; then
-      yay -S --needed --noconfirm
+      yay -S --needed --noconfirm "$package"
     fi
   done
 }
