@@ -2,11 +2,18 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-HEROKU_HASH=$(heroku releases | grep Deploy |head -n1 |cut -d ' ' -f4)
-LOCAL_HASH=$(git rev-parse HEAD)
+echo "Waiting for Heroku release hash to equal HEAD..."
+echo "Press [CTRL+C] to stop.."
 
-if [[ $LOCAL_HASH = $HEROKU_HASH* ]]; then
-  echo 'Up to date'
-else
-  echo 'Not yet deployed'
-fi
+while :
+do
+  HEROKU_HASH=$(heroku releases | grep Deploy |head -n1 |cut -d ' ' -f4)
+  LOCAL_HASH=$(git rev-parse HEAD)
+
+  if [[ $LOCAL_HASH = $HEROKU_HASH* ]]; then
+    notify-send "Heroku is up to date"
+    break
+  fi
+
+	sleep 5
+done
