@@ -18,6 +18,7 @@
 
 [init]
   templatedir = ~/.git-template
+	defaultBranch = main
 [web]
   browser = chrome
 
