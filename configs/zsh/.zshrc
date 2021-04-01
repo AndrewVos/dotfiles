@@ -24,7 +24,7 @@ export PATH="$GOPATH/bin:$PATH"
 
 # Nodejs
 export PATH="$PATH:node_modules/.bin"
-export PATH="$PATH:$HOME/.yarn/bin"
+export PATH="$(yarn global bin):$PATH"
 
 # asdf
 if [[ -f /opt/asdf-vm/asdf.sh ]]; then
