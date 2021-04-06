@@ -130,3 +130,11 @@ def git-open \
     edit %arg{@}
   }
 alias global g git-open
+
+
+# github
+declare-user-mode git
+map -docstring 'create gist from buffer' global git g '<a-|>gh gist create --web "$kak_buffile"<ret>'
+map -docstring 'create gist from selection' global git s '<a-|>gh gist create --web --filename $(basename "$kak_buffile")<ret>'
+map -docstring 'view repo' global git v '<a-|>gh repo view --web<ret>'
+map -docstring 'git' global user g ':enter-user-mode git<ret>'
