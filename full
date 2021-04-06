@@ -53,6 +53,8 @@ yay-install \
   noto-fonts-emoji \
   peek \
   abricotine-bin \
+  postgresql \
+  postgresql-libs \
   xmousepasteblock-git
 
 ./installers/postgres.sh
