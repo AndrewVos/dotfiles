@@ -52,3 +52,6 @@ write-command 'chrome://net-internals/#dns'
 
 write-title 'Flush cache in arch'
 write-command 'sudo systemd-resolve --flush-caches'
+
+write-title 'Upgrade all packages in yarn'
+write-command 'yarn upgrade-interactive --latest'
