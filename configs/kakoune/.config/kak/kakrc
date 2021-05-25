@@ -1,6 +1,8 @@
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
 plug "andreyorst/plug.kak" noload
 
+plug andreyorst/fzf.kak
+
 plug DERPSQUID9/kakoune-cyberpunk-neon theme
 plug yasukotelin/shirotelin theme
 plug evanrelf/primer.kak theme
@@ -24,6 +26,9 @@ set-option global scrolloff 10,10
 map -docstring "yank the selection into the clipboard" global user y "<a-|> xsel --input --clipboard<ret>"
 map -docstring "paste the clipboard" global user p "<a-!> xsel<ret>"
 map -docstring "surround" global user s ": surround<ret>"
+
+# fzf
+map global normal <c-p> ': fzf-mode<ret>'
 
 # save on pressing enter
 hook global NormalKey <ret> %{
