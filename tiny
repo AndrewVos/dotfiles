@@ -27,8 +27,7 @@ sudo pacman -S --needed --noconfirm \
   laptop-detect \
   unzip \
   kakoune \
-  ripgrep \
-  proselint
+  ripgrep
 
 function yay-install() {
   for package in $@; do
@@ -40,7 +39,8 @@ function yay-install() {
 
 yay-install \
   nordvpn-bin \
-  tldr-sh
+  tldr-sh \
+  proselint
 
 ./installers/dotfiles.sh
 ./installers/nordvpn.sh
