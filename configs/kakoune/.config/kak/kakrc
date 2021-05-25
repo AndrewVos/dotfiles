@@ -91,7 +91,7 @@ hook global WinSetOption filetype=(sh|markdown|plain) %{
 # Format
 # yarn global add prettier @prettier/plugin-ruby
 hook global BufSetOption filetype=(javascript|ruby|css|scss|json) %{
-  set-option buffer formatcmd "prettier --stdin-filepath=%val{buffile}"
+  set-option buffer formatcmd "prettier --arrow-parens avoid --stdin-filepath=%val{buffile}"
 }
 
 def rspec \
