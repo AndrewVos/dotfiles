@@ -2,10 +2,15 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-# Delete any branches that have been merged.
-# git branch --merged main | grep -v -e 'main' -e '\*' | xargs -n 1 git branch -d
+set +u
+MAIN_BRANCH="$1"
+set -u
+if [[ "$MAIN_BRANCH" = "" ]]; then
+  MAIN_BRANCH="main"
+fi
+
 set +e
-LOCAL_BRANCHES=$(git branch --merged main | grep -v -e 'main' -e '\*' | tr -d ' ')
+LOCAL_BRANCHES=$(git branch --merged $MAIN_BRANCH | grep -v -e $MAIN_BRANCH -e '\*' | tr -d ' ')
 set -e
 
 if [[ -n "$LOCAL_BRANCHES" ]]; then
