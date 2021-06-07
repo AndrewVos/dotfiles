@@ -1,8 +1,6 @@
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
 plug "andreyorst/plug.kak" noload
 
-plug andreyorst/fzf.kak
-
 plug DERPSQUID9/kakoune-cyberpunk-neon theme
 plug yasukotelin/shirotelin theme
 plug evanrelf/primer.kak theme
@@ -26,9 +24,6 @@ set-option global scrolloff 10,10
 map -docstring "yank the selection into the clipboard" global user y "<a-|> xsel --input --clipboard<ret>"
 map -docstring "paste the clipboard" global user p "<a-!> xsel<ret>"
 map -docstring "surround" global user s ": surround<ret>"
-
-# fzf
-map global normal <c-p> ': fzf-mode<ret>'
 
 # save on pressing enter
 hook global NormalKey <ret> %{
@@ -143,3 +138,36 @@ map -docstring 'create gist from buffer' global git g '<a-|>gh gist create --web
 map -docstring 'create gist from selection' global git s '<a-|>gh gist create --web --filename $(basename "$kak_buffile")<ret>'
 map -docstring 'view repo' global git v '<a-|>gh repo view --web<ret>'
 map -docstring 'git' global user g ':enter-user-mode git<ret>'
+
+# fzf
+def fzf-open \
+  -override \
+  -docstring "Open a file with fzf" \
+  -params 0 \
+  %{
+    evaluate-commands %sh{
+      rm "/tmp/fzf-output.txt"
+    }
+    terminal sh -c "FILE_PATH=$(git ls-files | fzf); echo $FILE_PATH > /tmp/fzf-output.txt"
+    open-fzf-file
+  }
+
+def open-fzf-file \
+  -override \
+  -hidden \
+  -params 0 \
+  %{
+    evaluate-commands %sh{
+      TMP_PATH="/tmp/fzf-output.txt"
+      while ! [[ -e "$TMP_PATH" ]]; do
+        sleep 0.1
+      done
+
+      FILE_PATH=$(cat "$TMP_PATH")
+      if [[ "$FILE_PATH" != "" ]]; then
+        printf "%s\n" "edit \"$FILE_PATH\""
+      fi
+    }
+  }
+
+map global normal <c-p> ': fzf-open<ret>'
