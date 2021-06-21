@@ -15,7 +15,6 @@ sudo pacman -S --needed --noconfirm \
   krita \
   xclip \
   flameshot \
-  gnome-tweak-tool \
   ttf-hack \
   bspwm \
   sxhkd \
