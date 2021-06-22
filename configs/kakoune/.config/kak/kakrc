@@ -134,10 +134,18 @@ alias global g git-open
 
 # github
 declare-user-mode git
+map -docstring 'git' global user g ':enter-user-mode git<ret>'
 map -docstring 'create gist from buffer' global git g '<a-|>gh gist create --web "$kak_buffile"<ret>'
 map -docstring 'create gist from selection' global git s '<a-|>gh gist create --web --filename $(basename "$kak_buffile")<ret>'
 map -docstring 'view repo' global git v '<a-|>gh repo view --web<ret>'
-map -docstring 'git' global user g ':enter-user-mode git<ret>'
+
+# rails
+declare-user-mode rails
+map -docstring 'db:migrate' global rails m \
+  ': terminal sh -c "rails db:migrate ; echo Press any key to continue; read"<ret>'
+map -docstring 'restart' global rails r \
+  ': terminal sh -c "rails restart ; echo Press any key to continue; read"<ret>'
+map -docstring 'rails' global user r ':enter-user-mode rails<ret>'
 
 # fzf
 def fzf-open \
