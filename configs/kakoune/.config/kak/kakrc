@@ -156,7 +156,7 @@ def fzf-open \
     evaluate-commands %sh{
       rm "/tmp/fzf-output.txt"
     }
-    terminal sh -c "FILE_PATH=$(git ls-files | fzf); echo $FILE_PATH > /tmp/fzf-output.txt"
+    terminal sh -c "FILE_PATH=$(git ls-files --cached --modified --others | fzf); echo $FILE_PATH > /tmp/fzf-output.txt"
     open-fzf-file
   }
 
