@@ -23,11 +23,11 @@ sudo pacman -S --needed --noconfirm \
   tree \
   nnn \
   playerctl \
-  zsh \
   laptop-detect \
   unzip \
   kakoune \
-  ripgrep
+  ripgrep \
+  fish
 
 function yay-install() {
   for package in $@; do
@@ -42,8 +42,8 @@ yay-install \
   tldr-sh
 
 ./installers/dotfiles.sh
+./installers/fish.sh
 ./installers/nordvpn.sh
 ./installers/ssh.sh
 ./installers/vim.sh
 ./installers/kakoune.sh
-./installers/zsh.sh

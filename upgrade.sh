@@ -11,7 +11,3 @@ for directory in $(ls "$HOME/.vim/bundle"); do
   git -C "$HOME/.vim/bundle/$directory" pull
 done
 vim -c Helptags -c q
-
-for directory in $(ls "$HOME/.zsh"); do
-  git -C "$HOME/.zsh/$directory" pull
-done
