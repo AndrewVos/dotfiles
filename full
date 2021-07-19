@@ -27,7 +27,8 @@ sudo pacman -S --needed --noconfirm \
   picom \
   alacritty \
   hsetroot \
-  imv
+  imv \
+  weechat
 
 function yay-install() {
   for package in $@; do
