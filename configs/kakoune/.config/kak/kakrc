@@ -89,6 +89,10 @@ hook global BufSetOption filetype=(javascript|ruby|css|scss|json) %{
   set-option buffer formatcmd "prettier --arrow-parens avoid --stdin-filepath=%val{buffile}"
 }
 
+hook global BufSetOption filetype=(dart) %{
+  set-option buffer formatcmd "dartfmt"
+}
+
 def rspec \
   -override \
   -docstring "Run an rspec spec" \
