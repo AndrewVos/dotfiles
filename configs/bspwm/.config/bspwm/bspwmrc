@@ -45,5 +45,5 @@ bspc rule --add Slack desktop='^4'
 bspc rule --add spotify desktop='^5'
 bspc rule --add Peek state=floating
 
-bspc rule --add Enpass --one-shot desktop='^10' focus=off
+bspc rule --add Enpass --one-shot desktop='^9' focus=off
 enpass &
