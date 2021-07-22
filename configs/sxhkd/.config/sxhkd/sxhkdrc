@@ -84,9 +84,14 @@ super + {o,i}
   bspc node {older,newer} -f; \
   bspc wm -h on
 
-# focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-  bspc {desktop -f,node -d} '^{1-9,10}'
+# switch to a desktop
+# if the desktop is focused switch to the previous desktop
+super + {1-9,0}
+    bspc query -D -d '^{1-9,10}' && bspc desktop -f last || bspc desktop -f "$desktop"
+
+# send to a desktop
+super + shift + {1-9,0}
+  bspc node -d '^{1-9,10}'
 
 #
 # preselect
