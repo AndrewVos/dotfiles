@@ -27,7 +27,8 @@ sudo pacman -S --needed --noconfirm \
   unzip \
   kakoune \
   ripgrep \
-  fish
+  fish \
+  fd
 
 function yay-install() {
   for package in $@; do
