@@ -11,6 +11,7 @@ plug caksoylar/kakoune-snow theme
 colorscheme reeder
 
 plug h-youhei/kakoune-surround
+plug matthias-margush/tug
 
 set global grepcmd 'rg --column'
 
@@ -214,31 +215,3 @@ define-command \
         }
     }
 }
-
-define-command rename -params 1 -file-completion -docstring %{
-    rename <target>: move the current file to the target one
-
-    The target needs not exist prior to calling this command
-} %{ evaluate-commands %sh{
-    TARGET="$1"
-
-    if [ ! -e "${kak_buffile}" ]; then
-        echo 'echo -markup {Error}Cannot move an unsaved buffer'
-        exit 1
-    elif [ -e "${TARGET}" ]; then
-        echo 'echo -markup {Error}The target path exists'
-        exit 2
-    fi
-
-    if ! mkdir -p "$(dirname "${TARGET}")"; then
-        echo 'echo -markup {Error}Permission denied in the target directory'
-        exit 3
-    fi
-
-    if mv "${kak_buffile}" "${TARGET}"; then
-        printf 'delete-buffer! %%{%s}; edit! %%{%s}' "${kak_bufname}" "${TARGET}"
-    else
-        echo 'echo -markup {Error}Unable to move file'
-        exit 4
-    fi
-} }
