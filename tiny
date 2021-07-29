@@ -28,7 +28,8 @@ sudo pacman -S --needed --noconfirm \
   kakoune \
   ripgrep \
   fish \
-  fd
+  fd \
+  git-delta
 
 function yay-install() {
   for package in $@; do

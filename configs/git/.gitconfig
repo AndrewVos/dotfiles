@@ -37,3 +37,12 @@
 	rebase = true
 [commit]
 	gpgsign = true
+
+[pager]
+    diff = delta --light
+    log = delta --light
+    reflog = delta --light
+    show = delta --light
+
+[interactive]
+    diffFilter = delta --light --color-only
