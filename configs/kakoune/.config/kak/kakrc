@@ -13,8 +13,11 @@ colorscheme reeder
 plug h-youhei/kakoune-surround
 plug matthias-margush/tug
 
+# snippets
 plug "occivink/kakoune-snippets" config %{
   set-option global snippets_auto_expand false
+  addhl global/ ranges snippets_placeholders
+
   map global insert '<tab>' "z<a-;>: snippets-expand-or-jump 'tab'<ret>"
   define-command snippets-expand-or-jump -params 1 %{
       execute-keys <backspace>
