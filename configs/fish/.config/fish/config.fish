@@ -40,4 +40,20 @@ set fish_pager_color_description "B3A06D\x1eyellow"
 set fish_pager_color_prefix "normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline"
 set fish_pager_color_progress "brwhite\x1e\x2d\x2dbackground\x3dcyan"
 
+# git prompt
+set __fish_git_prompt_color_branch yellow
+
+set __fish_git_prompt_color_dirtystate red
+set __fish_git_prompt_char_dirtystate '•'
+set __fish_git_prompt_showdirtystate 'yes'
+
+set __fish_git_prompt_showstagedstate 'yes'
+set __fish_git_prompt_char_stagedstate '•'
+set __fish_git_prompt_color_stagedstate red
+
+set __fish_git_prompt_showuntrackedfiles 'yes'
+set __fish_git_prompt_char_untrackedfiles '•'
+set __fish_git_prompt_color_untrackedfiles red
+
+# asdf
 source /opt/asdf-vm/asdf.fish
