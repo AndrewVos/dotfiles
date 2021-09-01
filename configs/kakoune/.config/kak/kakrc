@@ -175,7 +175,7 @@ declare-user-mode rails
 map -docstring 'db:migrate' global rails m \
   ': terminal sh -c "rails db:migrate ; echo Press any key to continue; read"<ret>'
 map -docstring 'restart' global rails r \
-  ': terminal sh -c "rails restart ; echo Press any key to continue; read"<ret>'
+  ': terminal sh -c "rails restart"<ret>'
 map -docstring 'rails' global user r ':enter-user-mode rails<ret>'
 
 # fzf
