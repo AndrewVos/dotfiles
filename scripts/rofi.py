@@ -21,7 +21,8 @@ apps =  {
     'Krita': ['krita'],
     'Colour Picker': ['pick-colour-picker'],
     'Spotify': ['spotify'],
-    'Record screen': ['peek']
+    'Record screen': ['peek'],
+    'Firefox': ['firefox']
 }
 
 if vpn_is_connected():
