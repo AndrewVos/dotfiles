@@ -105,8 +105,12 @@ hook global WinSetOption filetype=(html|erb) %{
   set-option buffer formatcmd "run(){ tidy -q --indent yes --indent-spaces %opt{tabstop}  2>/dev/null || true; } && run"
 }
 
+hook global WinSetOption filetype=javascript %{
+  set-option window lintcmd 'run() { cat "$1" | npx eslint -f unix --stdin --stdin-filename "$kak_buffile";} && run '
+}
+
 # Automatic linting
-hook global WinSetOption filetype=(sh|markdown|plain) %{
+hook global WinSetOption filetype=(sh|markdown|plain|javascript) %{
   hook buffer BufWritePost "\Q%val{buffile}" lint
 }
 
