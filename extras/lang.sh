@@ -8,8 +8,10 @@ asdf global ruby 2.7.1
 
 asdf plugin add nodejs ||:
 NODEJS_CHECK_SIGNATURES=no asdf install nodejs latest ||:
-asdf install nodejs 14.15.0
+NODEJS_CHECK_SIGNATURES=no asdf install nodejs 14.15.0
 asdf global nodejs 14.15.0
+
+asdf reshim
 
 if ! which yarn; then
   npm install -g yarn
