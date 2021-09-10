@@ -6,7 +6,6 @@ sudo pacman -S --needed --noconfirm \
   man-db \
   whois \
   jq \
-  fzy \
   fzf \
   git \
   stow \
