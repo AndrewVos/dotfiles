@@ -114,6 +114,10 @@ hook global WinSetOption filetype=(sh|markdown|plain|javascript) %{
   hook buffer BufWritePost "\Q%val{buffile}" lint
 }
 
+# Automatic git diff
+hook global WinCreate .* %{ git show-diff }
+hook global BufWritePost .* %{ git update-diff }
+
 # Format
 # yarn global add prettier @prettier/plugin-ruby
 hook global BufSetOption filetype=(javascript|ruby|css|scss|json) %{
