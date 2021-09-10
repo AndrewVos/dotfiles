@@ -195,9 +195,11 @@ def fzf-open \
   -params 0 \
   %{
     evaluate-commands %sh{
-      rm "/tmp/fzf-output.txt"
+      if [[ -f '/tmp/fzf-output.txt' ]]; then
+        rm "/tmp/fzf-output.txt"
+      fi
     }
-    terminal sh -c "FILE_PATH=$(git ls-files --cached --modified --others | grep -v node_modules | fzf); echo $FILE_PATH > /tmp/fzf-output.txt"
+    terminal sh -c "FILE_PATH=$(git ls-files --cached --modified --others | grep -v node_modules | uniq | fzf); echo $FILE_PATH > /tmp/fzf-output.txt"
     open-fzf-file
   }
 
