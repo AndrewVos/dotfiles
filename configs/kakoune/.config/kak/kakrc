@@ -186,6 +186,8 @@ map -docstring 'db:rollback' global rails R \
   ': terminal sh -c "rails db:rollback; echo Press any key to continue; read"<ret>'
 map -docstring 'restart' global rails r \
   ': terminal sh -c "rails restart"<ret>'
+map -docstring 'console' global rails c \
+  ': terminal sh -c "rails console"<ret>'
 map -docstring 'rails' global user r ':enter-user-mode rails<ret>'
 
 # fzf
