@@ -3,9 +3,9 @@ scrolling:
 
 font:
   normal:
-    family: Hack
+    family: Sudo
     style: Regular
-  size: 16.0
+  size: 18.0
 
 # Base16 Mexico Light 256 - alacritty color config
 # Sheldon Johnson

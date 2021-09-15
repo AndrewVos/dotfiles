@@ -42,7 +42,8 @@ function yay-install() {
 yay-install \
   nordvpn-bin \
   tldr-sh \
-  proselint
+  proselint \
+  ttf-sudo
 
 ./installers/dotfiles.sh
 ./installers/fish.sh
