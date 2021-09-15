@@ -10,6 +10,9 @@ sudo pacman -S --needed --noconfirm \
   alsa-utils \
   xwallpaper \
   ttf-ubuntu-font-family \
+  ttf-dejavu \
+  ttf-liberation \
+  noto-fonts \
   wget \
   mpv \
   krita \
