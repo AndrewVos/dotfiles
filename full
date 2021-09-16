@@ -59,7 +59,8 @@ yay-install \
   abricotine-bin \
   postgresql \
   postgresql-libs \
-  xmousepasteblock-git
+  xmousepasteblock-git \
+  font-manager
 
 ./installers/postgres.sh
 ./installers/fonts.sh
