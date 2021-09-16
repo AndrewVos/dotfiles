@@ -110,7 +110,7 @@ hook global WinSetOption filetype=javascript %{
 }
 
 # Automatic linting
-hook global WinSetOption filetype=(sh|markdown|plain|javascript) %{
+hook global WinSetOption filetype=(sh|markdown|plain|javascript|ruby) %{
   hook buffer BufWritePost "\Q%val{buffile}" lint
 }
 
