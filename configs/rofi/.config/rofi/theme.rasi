@@ -3,49 +3,55 @@
   background-color: transparent;
   foreground: #777777;
   selected-normal-foreground: #ffffff;
-  normal-foreground: @foreground;
-  alternate-normal-foreground: @foreground;
+  normal-foreground: var(foreground);
+  alternate-normal-foreground: var(foreground);
   spacing: 40px;
-  font: "Hack 16";
-  text-color: @normal-foreground;
+  font: "Sudo 20";
+  text-color: var(normal-foreground);
 }
 
-#window {
+window {
   fullscreen: true;
-  background-color: @background;
+  background-color: var(background);
 }
 
-#scrollbar {
+scrollbar {
   handle-width: 0px;
-  handle-color: @selected-normal-foreground;
+  handle-color: var(selected-normal-foreground);
 }
 
-#prompt {
+prompt {
   enabled: false;
 }
 
-#mainbox {
-  spacing: @spacing;
+mainbox {
+  spacing: var(spacing);
   padding: 30%;
 }
 
-#listview {
+listview {
   scrollbar: false;
   lines: 3;
-  spacing: @spacing;
+  spacing: var(spacing);
   fixed-height: true;
 }
 
-#element.selected.normal {
-  text-color: @selected-normal-foreground;
+element selected.normal {
+  text-color: var(selected-normal-foreground);
 }
 
-#inputbar {
+element-text {
+  text-color:       inherit;
+  highlight:        inherit;
+  cursor:           inherit;
+}
+
+inputbar {
   children:[prompt, textbox-prompt-colon, entry, case-indicator];
   spacing: 2;
 }
 
-#textbox-prompt-colon {
+textbox-prompt-colon {
   expand: false;
   str: ":";
   margin: 0px 0.3em 0em 0em;
