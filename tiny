@@ -11,7 +11,6 @@ sudo pacman -S --needed --noconfirm \
   stow \
   exa \
   openssh \
-  gvim \
   curl \
   wget \
   make \
@@ -49,5 +48,4 @@ yay-install \
 ./installers/fish.sh
 ./installers/nordvpn.sh
 ./installers/ssh.sh
-./installers/vim.sh
 ./installers/kakoune.sh
