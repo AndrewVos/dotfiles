@@ -1,0 +1,11 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+function write-title() {
+  printf '%s\t%s\n' "$1" "$2"
+}
+
+write-title 'imv' 'view images'
+write-title 'fd' 'find files'
+
