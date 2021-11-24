@@ -8,6 +8,7 @@ sudo pacman -S --needed --noconfirm \
   jq \
   fzf \
   git \
+  git-lfs \
   stow \
   exa \
   openssh \
