@@ -47,7 +47,7 @@ bspc config pointer_action1 resize_side
 bspc config pointer_action1 resize_corner
 bspc config pointer_action3 move
 
-bspc rule --add Google-chrome desktop='^2'
+# bspc rule --add Google-chrome desktop='^2'
 bspc rule --add discord desktop='^3'
 bspc rule --add Slack desktop='^4'
 bspc rule --add spotify desktop='^5'
