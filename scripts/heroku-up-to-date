@@ -8,9 +8,14 @@ echo "Press [CTRL+C] to stop.."
 while :
 do
   HEROKU_HASH=$(heroku releases | grep Deploy |head -n1 |cut -d ' ' -f4)
-  LOCAL_HASH=$(git rev-parse HEAD)
+  LOCAL_HASH=$(git rev-parse --short=8 HEAD)
 
-  if [[ $LOCAL_HASH = $HEROKU_HASH* ]]; then
+  echo -n "LOCAL: $LOCAL_HASH"
+  echo -n -e '\t'
+  echo -n "REMOTE: $HEROKU_HASH"
+  echo
+
+  if [[ $LOCAL_HASH = $HEROKU_HASH ]]; then
     notify-send "Heroku is up to date"
     break
   fi
