@@ -7,7 +7,7 @@ CHOICE="$1"
 set -u
 
 if [[ "$CHOICE" != "" ]]; then
-  coproc abricotine "$HOME/.notes/$CHOICE"
+  coproc alacritty -e kak "$HOME/.notes/$CHOICE"
   exec 1>&-
   exit;
  else
