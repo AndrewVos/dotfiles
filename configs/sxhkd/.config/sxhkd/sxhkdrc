@@ -5,6 +5,9 @@
 super + Return
   alacritty
 
+super + shift + Return
+  wm-spawn-terminal-in-cwd
+
 super + space
   rofi -show Menu -dpi 144 -modi Menu:$HOME/.dotfiles/scripts/rofi.py
 

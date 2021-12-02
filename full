@@ -31,7 +31,8 @@ sudo pacman -S --needed --noconfirm \
   alacritty \
   hsetroot \
   imv \
-  weechat
+  weechat \
+  xdotool
 
 function yay-install() {
   for package in $@; do
