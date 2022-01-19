@@ -60,6 +60,7 @@ yay-install \
   postgresql \
   postgresql-libs \
   xmousepasteblock-git \
+  helvetica-neue \
   font-manager
 
 ./installers/postgres.sh

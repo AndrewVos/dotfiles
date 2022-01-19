@@ -10,7 +10,7 @@ sudo tee <<'EOF' /etc/fonts/local.conf 1> /dev/null
 <fontconfig>
    <match>
       <edit mode="prepend" name="family">
-         <string>Noto Sans</string>
+         <string>Helvetica Neue</string>
       </edit>
    </match>
    <match target="pattern">
@@ -26,7 +26,7 @@ sudo tee <<'EOF' /etc/fonts/local.conf 1> /dev/null
          <string>sans-serif</string>
       </test>
       <edit name="family" mode="assign" binding="same">
-         <string>Noto Sans</string>
+         <string>Helvetica Neue</string>
       </edit>
    </match>
    <match target="pattern">
