@@ -125,6 +125,12 @@ systemctl enable --now systemd-resolved.service
 systemctl enable --now systemd-networkd.service
 ```
 
+# Ensure that apps that use /etc/resolv.conf can still use the network
+
+```
+sudo ln -rsf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+```
+
 ## Install dotfiles
 
 ```bash
