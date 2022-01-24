@@ -43,7 +43,8 @@ yay-install \
   nordvpn-bin \
   tldr-sh \
   proselint \
-  ttf-sudo
+  ttf-sudo \
+  flyctl-bin
 
 ./installers/dotfiles.sh
 ./installers/fish.sh
