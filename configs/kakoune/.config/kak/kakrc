@@ -12,6 +12,7 @@ colorscheme reeder
 
 plug h-youhei/kakoune-surround
 plug matthias-margush/tug
+plug "https://gitlab.com/Screwtapello/kakoune-state-save"
 
 # snippets
 plug "occivink/kakoune-snippets" config %{
