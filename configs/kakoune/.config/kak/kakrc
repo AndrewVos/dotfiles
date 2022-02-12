@@ -50,6 +50,7 @@ map -docstring "yank the selection into the clipboard" global user y "<a-|> xsel
 map -docstring "paste the clipboard" global user p "<a-!> xsel --clipboard<ret>"
 map -docstring "surround" global user s ": surround<ret>"
 map -docstring "open the selection" global user o "<a-|> xargs xdg-open<ret>"
+map -docstring "insert the current date" global user d '<!> date "+## %-d %B %Y"<ret>'
 
 # save on pressing enter
 hook global NormalKey <ret> %{
