@@ -22,7 +22,8 @@ apps =  {
     'Colour Picker': ['pick-colour-picker'],
     'Spotify': ['spotify'],
     'Record screen': ['peek'],
-    'Firefox': ['firefox']
+    'Firefox': ['firefox'],
+    'Boxes': ['gnome-boxes']
 }
 
 if vpn_is_connected():

@@ -32,7 +32,10 @@ sudo pacman -S --needed --noconfirm \
   hsetroot \
   imv \
   weechat \
-  xdotool
+  xdotool \
+  qemu \
+  libvirt \
+  gnome-boxes
 
 function yay-install() {
   for package in $@; do
