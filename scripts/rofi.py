@@ -24,7 +24,8 @@ apps =  {
     'Record screen': ['peek'],
     'Firefox': ['firefox'],
     'Boxes': ['gnome-boxes'],
-    'Disk Usage': ['filelight']
+    'Disk Usage': ['filelight'],
+    'Equalizer': ['pulseaudio-equalizer-gtk']
 }
 
 if vpn_is_connected():

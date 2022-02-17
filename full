@@ -36,7 +36,8 @@ sudo pacman -S --needed --noconfirm \
   qemu \
   libvirt \
   gnome-boxes \
-  filelight
+  filelight \
+  pulseaudio-equalizer
 
 function yay-install() {
   for package in $@; do
