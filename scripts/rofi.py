@@ -23,7 +23,8 @@ apps =  {
     'Spotify': ['spotify'],
     'Record screen': ['peek'],
     'Firefox': ['firefox'],
-    'Boxes': ['gnome-boxes']
+    'Boxes': ['gnome-boxes'],
+    'Disk Usage': ['filelight']
 }
 
 if vpn_is_connected():
