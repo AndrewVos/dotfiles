@@ -24,7 +24,7 @@ apps =  {
     'Record screen': ['peek'],
     'Firefox': ['firefox'],
     'Boxes': ['gnome-boxes'],
-    'Disk Usage': ['filelight'],
+    'Disk Usage': ['sudo', 'filelight'],
     'Equalizer': ['pulseaudio-equalizer-gtk']
 }
 
