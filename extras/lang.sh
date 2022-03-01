@@ -7,9 +7,9 @@ asdf install ruby 2.7.1
 asdf global ruby 2.7.1
 
 asdf plugin add nodejs ||:
-NODEJS_CHECK_SIGNATURES=no asdf install nodejs latest ||:
-NODEJS_CHECK_SIGNATURES=no asdf install nodejs 14.15.0
-asdf global nodejs 14.15.0
+asdf install nodejs latest ||:
+asdf install nodejs 14.17.0
+asdf global nodejs 14.17.0
 
 asdf reshim
 
