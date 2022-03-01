@@ -111,14 +111,15 @@ yay-install \
   font-manager \
   spotify
 
+stow --verbose --dir "$HOME/.dotfiles/configs" --target ~ $(ls "$HOME/.dotfiles/configs")
+
 ./installers/groups.sh
-./installers/dotfiles.sh
+./installers/services.sh
+
 ./installers/fish.sh
 ./installers/nordvpn.sh
-./installers/ssh.sh
 ./installers/kakoune.sh
 ./installers/postgres.sh
 ./installers/fonts.sh
-./installers/ly.sh
 
 echo "Done!"
