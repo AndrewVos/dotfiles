@@ -99,7 +99,6 @@ yay-install \
   google-chrome \
   firefox \
   slack-desktop \
-  pick-colour-picker \
   tex-gyre-fonts \
   otf-libertinus \
   noto-fonts-emoji \
@@ -109,7 +108,8 @@ yay-install \
   xmousepasteblock-git \
   helvetica-neue \
   font-manager \
-  spotify
+  spotify \
+  colorpicker
 
 stow --verbose --dir "$HOME/.dotfiles/configs" --target ~ $(ls "$HOME/.dotfiles/configs")
 

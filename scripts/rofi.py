@@ -19,7 +19,7 @@ apps =  {
 
     'Discord': ['discord'],
     'Krita': ['krita'],
-    'Colour Picker': ['pick-colour-picker'],
+    'Colour Picker': ['pick-a-colour'],
     'Spotify': ['spotify'],
     'Record screen': ['peek'],
     'Firefox': ['firefox'],
