@@ -2,7 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-sudo pacman -S acpi acpid acpilight
+sudo pacman -S acpi acpid acpilight xf86-video-amdgpu
 yay -S laptop-mode-tools
 
 sudo systemctl enable --now acpid.service

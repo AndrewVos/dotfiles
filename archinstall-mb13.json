@@ -1,0 +1,42 @@
+{
+    "audio": "pulseaudio",
+    "bootloader": "systemd-bootctl",
+    "dry-run": false,
+    "harddrives": [
+        "/dev/nvme0n1"
+    ],
+    "hostname": "mb13",
+    "kernels": [
+        "linux"
+    ],
+    "keyboard-layout": "uk",
+    "mirror-region": {
+        "United Kingdom": {
+            "http://archlinux.uk.mirror.allworldit.com/archlinux/$repo/os/$arch": true,
+            "http://lon.mirror.rackspace.com/archlinux/$repo/os/$arch": true,
+            "http://mirror.bytemark.co.uk/archlinux/$repo/os/$arch": true,
+            "http://mirror.cov.ukservers.com/archlinux/$repo/os/$arch": true,
+            "http://mirrors.manchester.m247.com/arch-linux/$repo/os/$arch": true,
+            "http://mirrors.melbourne.co.uk/archlinux/$repo/os/$arch": true,
+            "http://www.mirrorservice.org/sites/ftp.archlinux.org/$repo/os/$arch": true,
+            "https://archlinux.uk.mirror.allworldit.com/archlinux/$repo/os/$arch": true,
+            "https://lon.mirror.rackspace.com/archlinux/$repo/os/$arch": true,
+            "https://mirror.bytemark.co.uk/archlinux/$repo/os/$arch": true,
+            "https://mirror.cov.ukservers.com/archlinux/$repo/os/$arch": true,
+            "https://mirrors.melbourne.co.uk/archlinux/$repo/os/$arch": true,
+            "https://www.mirrorservice.org/sites/ftp.archlinux.org/$repo/os/$arch": true
+        }
+    },
+    "nic": "Copy ISO network configuration to installation",
+    "ntp": true,
+    "packages": [
+        "git"
+    ],
+    "profile": null,
+    "script": "guided",
+    "swap": true,
+    "sys-encoding": "utf-8",
+    "sys-language": "en_US",
+    "timezone": "Europe/London",
+    "version": "2.3.1"
+}
