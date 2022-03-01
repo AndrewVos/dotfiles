@@ -18,6 +18,8 @@ iwctl station <DEVICE> connect <SSID>
 Then install:
 
 ```
+# matebook13
+
 python -m archinstall --config https://raw.githubusercontent.com/AndrewVos/dotfiles/master/README.md
 ```
 
