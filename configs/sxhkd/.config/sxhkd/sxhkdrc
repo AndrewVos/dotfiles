@@ -137,10 +137,10 @@ XF86MonBrightness{Up,Down}
 
 # audio
 XF86AudioMute
- amixer -q -D pulse sset Master toggle &
+ pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 XF86Audio{Lower,Raise}Volume
- amixer -q -D pulse sset Master 5%{-,+} unmute &
+ pactl set-sink-volume @DEFAULT_SINK@ {-,+}5%
 
 XF86Audio{Play,Prev,Next,Stop}
  playerctl {play-pause,previous,next,stop} &
