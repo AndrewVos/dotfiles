@@ -1,0 +1,12 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+SCRIPT_PATH=$1
+
+touch "$SCRIPT_PATH"
+chmod +x "$SCRIPT_PATH"
+
+echo "#!/bin/bash" >> "$SCRIPT_PATH"
+echo "set -euo pipefail" >> "$SCRIPT_PATH"
+echo "IFS=$'\n\t'" >> "$SCRIPT_PATH"
