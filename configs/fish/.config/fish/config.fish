@@ -8,8 +8,9 @@ set -Ux _JAVA_AWT_WM_NONREPARENTING 1
 fish_add_path $HOME/.dotfiles/scripts
 fish_add_path /usr/local/go/bin
 fish_add_path "$GOPATH/bin"
-fish_add_path "./node_modules/.bin"
 fish_add_path "(yarn global bin)"
+
+# set --export PATH $PATH ./node_modules/.bin
 
 # ayu light
 set fish_color_normal "575F66"
