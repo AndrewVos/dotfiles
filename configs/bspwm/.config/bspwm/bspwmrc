@@ -6,7 +6,7 @@ fi
 
 sxhkd &
 picom &
-redshift -l "50.41549699999999:-5.073718999999983" &
+redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq -r '"\(.location.lat):\(.location.lng)"') &
 xmousepasteblock &
 hsetroot -solid '#F7FAFC' &
 xsetroot -cursor_name left_ptr &
