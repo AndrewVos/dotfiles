@@ -20,7 +20,7 @@ Then install:
 ```
 # matebook13
 
-python -m archinstall --config https://raw.githubusercontent.com/AndrewVos/dotfiles/master/README.md
+python -m archinstall --config https://raw.githubusercontent.com/AndrewVos/dotfiles/master/archinstall-mb13.json
 ```
 
 ## Reboot
