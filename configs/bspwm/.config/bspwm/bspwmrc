@@ -6,7 +6,7 @@ fi
 
 sxhkd &
 picom &
-redshift &
+redshift -l "50.41549699999999:-5.073718999999983" &
 xmousepasteblock &
 hsetroot -solid '#F7FAFC' &
 xsetroot -cursor_name left_ptr &
