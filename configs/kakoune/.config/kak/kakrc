@@ -121,7 +121,7 @@ hook global BufWritePost .* %{ git update-diff }
 # Format
 # yarn global add prettier @prettier/plugin-ruby
 hook global BufSetOption filetype=(javascript|ruby|css|scss|json) %{
-  set-option buffer formatcmd ". /opt/asdf-vm/asdf.sh && asdf shell nodejs 14.15.0 && prettier --stdin-filepath=%val{buffile}"
+  set-option buffer formatcmd ". /opt/asdf-vm/asdf.sh && asdf shell nodejs 16.14.0 && prettier --stdin-filepath=%val{buffile}"
 }
 
 hook global BufSetOption filetype=(xml) %{
