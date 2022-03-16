@@ -86,7 +86,6 @@ sudo pacman -S --needed --noconfirm \
 
 yay-install \
   nordvpn-bin \
-  tldr-sh \
   proselint \
   ttf-sudo \
   flyctl-bin \
