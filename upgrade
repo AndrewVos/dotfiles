@@ -3,7 +3,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 sudo pacman -Sy archlinux-keyring
-sudo pacman -Syu
+
 yay -Syu
 
 asdf plugin update --all

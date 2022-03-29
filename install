@@ -13,102 +13,14 @@ if ! command -v "yay" &> /dev/null; then
 fi
 
 function yay-install() {
-  for package in $@; do
-    if ! pacman -Qi "$package"; then
+  for package in "$@"; do
+    if ! pacman -Qi "$package" > /dev/null; then
       yay -S --needed --noconfirm "$package"
     fi
   done
 }
 
-sudo pacman -S --needed --noconfirm \
-  man-db \
-  whois \
-  jq \
-  fzf \
-  git \
-  git-lfs \
-  stow \
-  exa \
-  openssh \
-  curl \
-  wget \
-  make \
-  htop \
-  shellcheck \
-  ctags \
-  redis \
-  tig \
-  tree \
-  nnn \
-  playerctl \
-  laptop-detect \
-  unzip \
-  kakoune \
-  ripgrep \
-  fish \
-  fd \
-  git-delta \
-  github-cli \
-  xorg-server \
-  xorg-xinit \
-  xorg-xsetroot \
-  alsa-utils \
-  xwallpaper \
-  ttf-ubuntu-font-family \
-  ttf-dejavu \
-  ttf-liberation \
-  noto-fonts \
-  wget \
-  mpv \
-  krita \
-  xclip \
-  flameshot \
-  ttf-hack \
-  bspwm \
-  sxhkd \
-  dmenu \
-  rofi \
-  dunst \
-  redshift \
-  unclutter \
-  discord \
-  picom \
-  alacritty \
-  hsetroot \
-  imv \
-  weechat \
-  xdotool \
-  qemu \
-  libvirt \
-  gnome-boxes \
-  filelight \
-  pulseaudio-equalizer
-
-yay-install \
-  nordvpn-bin \
-  proselint \
-  ttf-sudo \
-  flyctl-bin \
-  heroku-cli-bin \
-  hugo \
-  asdf-vm \
-  ly \
-  yaru-gtk-theme \
-  enpass-bin \
-  google-chrome \
-  firefox \
-  slack-desktop \
-  tex-gyre-fonts \
-  otf-libertinus \
-  noto-fonts-emoji \
-  peek \
-  postgresql \
-  postgresql-libs \
-  xmousepasteblock-git \
-  helvetica-neue \
-  font-manager \
-  spotify \
-  colorpicker
+yay-install $(cat packages.txt)
 
 stow --verbose --dir "$HOME/.dotfiles/configs" --target ~ $(ls "$HOME/.dotfiles/configs")
 
