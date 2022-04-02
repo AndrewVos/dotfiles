@@ -132,6 +132,13 @@ hook global BufSetOption filetype=(dart) %{
   set-option buffer formatcmd "dartfmt"
 }
 
+hook global BufCreate .*\.txt %{
+  set-option buffer filetype txt
+}
+hook global BufSetOption filetype=(txt) %{
+  set-option buffer formatcmd "fmt"
+}
+
 def rspec \
   -override \
   -docstring "Run an rspec spec" \
