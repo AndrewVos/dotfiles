@@ -20,7 +20,12 @@ function yay-install() {
   done
 }
 
-yay-install $(cat packages.txt)
+function pacman-install() {
+  sudo pacman -S --needed --noconfirm "$@"
+}
+
+pacman-install $(cat packages.txt)
+yay-install $(cat aur-packages.txt)
 
 stow --verbose --dir "$HOME/.dotfiles/configs" --target ~ $(ls "$HOME/.dotfiles/configs")
 

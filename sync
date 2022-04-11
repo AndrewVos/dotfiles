@@ -1,0 +1,13 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+function check() {
+  for package in $(pacman -Qeq); do
+    if [[ $@ != *"$package"* ]]; then
+      echo "Don't need $package"
+    fi
+  done
+}
+
+check $(cat aur-packages.txt) $(cat packages.txt)
