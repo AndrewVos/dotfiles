@@ -1,13 +1,34 @@
-#!/bin/bash
-set -euo pipefail
-IFS=$'\n\t'
+#!/usr/bin/python
 
-function check() {
-  for package in $(pacman -Qeq); do
-    if [[ $@ != *"$package"* ]]; then
-      echo "Don't need $package"
-    fi
-  done
-}
+import subprocess
+import os
 
-check $(cat aur-packages.txt) $(cat packages.txt)
+base_packages = ["base", "nvidia", "yay", "intel-ucode", "iwd", "vi"]
+
+def retrieve_explicitly_installed_packages():
+  result = subprocess.run(['pacman', '-Qeqt'], stdout=subprocess.PIPE)
+  result = result.stdout.decode('utf-8')
+  return result.splitlines()
+
+def retrieve_packages():
+  packages = open("packages.txt","r").read().splitlines()
+  aur_packages = open("aur-packages.txt", "r").read().splitlines()
+  return packages + aur_packages
+
+def retrieve_packages_to_remove():
+  packages = retrieve_packages()
+  packages_to_remove = []
+
+  for explicitly_installed_package in retrieve_explicitly_installed_packages():
+    if explicitly_installed_package not in base_packages and explicitly_installed_package not in packages:
+      packages_to_remove.append(explicitly_installed_package)
+
+  return packages_to_remove
+
+def execute(command):
+  print(command)
+  return os.system(command)
+
+if retrieve_packages_to_remove():
+  exit_code = execute(" \\\n  ".join(["sudo pacman -R"] + retrieve_packages_to_remove()))
+  exit(exit_code)
