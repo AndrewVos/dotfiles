@@ -27,6 +27,7 @@
 
 [diff]
   algorithm = patience
+	external = difft
 
 [push]
   default = simple
