@@ -3,32 +3,106 @@
 import subprocess
 import os
 
-base_packages = ["base", "nvidia", "yay", "intel-ucode", "iwd", "vi"]
+BASE_PACKAGES = [
+  "base",
+  "linux",
+  "linux-firmware",
+  "btrfs-progs",
+  "efibootmgr",
+  "zram-generator",
+
+  "nvidia",
+  "xf86-video-amdgpu",
+
+  "amd-ucode",
+  "intel-ucode",
+
+  "laptop-mode-tools",
+
+  "iwd",
+
+  "pulseaudio",
+
+  "acpi",
+  "acpid",
+  "acpilight",
+
+  "vi",
+  "yay",
+]
+
+PACKAGES = open("packages.txt","r").read().splitlines()
+AUR_PACKAGES = open("aur-packages.txt", "r").read().splitlines()
+
+def retrieve_commonly_installed_packages():
+  result = subprocess.run(['pacman', '-Qq', '-g', 'base-devel'], stdout=subprocess.PIPE)
+  result = result.stdout.decode('utf-8')
+  result = result.splitlines()
+  return result
+
+def retrieve_installed_packages():
+  result = subprocess.run(['pacman', '-Qq'], stdout=subprocess.PIPE)
+  result = result.stdout.decode('utf-8')
+  result = result.splitlines()
+  return result
 
 def retrieve_explicitly_installed_packages():
-  result = subprocess.run(['pacman', '-Qeqt'], stdout=subprocess.PIPE)
+  result = subprocess.run(['pacman', '-Qeq'], stdout=subprocess.PIPE)
   result = result.stdout.decode('utf-8')
-  return result.splitlines()
+  result = result.splitlines()
 
-def retrieve_packages():
-  packages = open("packages.txt","r").read().splitlines()
-  aur_packages = open("aur-packages.txt", "r").read().splitlines()
-  return packages + aur_packages
+  commonly_installed_packages = retrieve_commonly_installed_packages()
+  trimmed = []
+
+  for package in result:
+    if package not in BASE_PACKAGES and package not in commonly_installed_packages:
+      trimmed.append(package)
+
+  return trimmed
 
 def retrieve_packages_to_remove():
-  packages = retrieve_packages()
+  all_packages = PACKAGES + AUR_PACKAGES
   packages_to_remove = []
 
   for explicitly_installed_package in retrieve_explicitly_installed_packages():
-    if explicitly_installed_package not in base_packages and explicitly_installed_package not in packages:
+    if explicitly_installed_package not in all_packages:
       packages_to_remove.append(explicitly_installed_package)
 
   return packages_to_remove
+
+def retrieve_packages_to_add():
+  result = []
+  installed = retrieve_installed_packages()
+  for package in PACKAGES:
+    if package not in installed:
+      result.append(package)
+  return result
+
+
+def retrieve_aur_packages_to_add():
+  result = []
+  installed = retrieve_installed_packages()
+  for package in AUR_PACKAGES:
+    if package not in installed:
+      result.append(package)
+  return result
 
 def execute(command):
   print(command)
   return os.system(command)
 
-if retrieve_packages_to_remove():
-  exit_code = execute(" \\\n  ".join(["sudo pacman -R"] + retrieve_packages_to_remove()))
+def main():
+  exit_code = 0
+
+  if retrieve_packages_to_remove():
+    exit_code += execute(" \\\n  ".join(["sudo pacman -R"] + retrieve_packages_to_remove()))
+
+  if retrieve_packages_to_add():
+    exit_code += execute(" \\\n  ".join(["sudo pacman -S"] + retrieve_packages_to_add()))
+
+  if retrieve_aur_packages_to_add():
+    exit_code += execute(" \\\n  ".join(["yay -S"] + retrieve_aur_packages_to_add()))
+
   exit(exit_code)
+
+main()
