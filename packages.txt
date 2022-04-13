@@ -66,11 +66,11 @@ peek
 postgresql
 postgresql-libs
 hugo
-firefox
 tex-gyre-fonts
-otf-libertinus
+libertinus-font
 peek
 font-manager
 xsel
 sed
 difftastic
+encfs
