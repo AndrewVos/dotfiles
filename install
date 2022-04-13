@@ -12,20 +12,8 @@ if ! command -v "yay" &> /dev/null; then
   cd "$PREVIOUS_PWD"
 fi
 
-function yay-install() {
-  for package in "$@"; do
-    if ! pacman -Qi "$package" > /dev/null; then
-      yay -S --needed --noconfirm "$package"
-    fi
-  done
-}
-
-function pacman-install() {
-  sudo pacman -S --needed --noconfirm "$@"
-}
-
-pacman-install $(cat packages.txt)
-yay-install $(cat aur-packages.txt)
+echo "Synchronising packages..."
+./sync
 
 stow --verbose --dir "$HOME/.dotfiles/configs" --target ~ $(ls "$HOME/.dotfiles/configs")
 
