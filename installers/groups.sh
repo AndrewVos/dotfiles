@@ -6,4 +6,17 @@ IFS=$'\n\t'
 # video: control screen brightness
 # nordvpn: control nordvpn
 
-sudo usermod -a -G power,video,nordvpn "$USER"
+function ensure_user_is_in_group() {
+  GROUP=$1
+
+  if id --name --groups --zero "$USER" | grep --quiet --null-data --line-regexp --fixed-strings "$GROUP"; then
+      echo User \`$USER\' belongs to group \`$GROUP\'
+  else
+      echo User \`$USER\' does not belong to group \`$GROUP\'
+      sudo usermod -a -G "$GROUP" "$USER"
+  fi
+}
+
+ensure_user_is_in_group power
+ensure_user_is_in_group video
+ensure_user_is_in_group nordvpn
