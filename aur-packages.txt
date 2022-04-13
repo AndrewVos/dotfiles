@@ -13,3 +13,4 @@ helvetica-neue
 spotify
 colorpicker
 slack-desktop
+difftastic
