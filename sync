@@ -3,36 +3,9 @@
 import subprocess
 import os
 
-BASE_PACKAGES = [
-  "base",
-  "linux",
-  "linux-firmware",
-  "btrfs-progs",
-  "efibootmgr",
-  "zram-generator",
-
-  "nvidia",
-  "xf86-video-amdgpu",
-
-  "amd-ucode",
-  "intel-ucode",
-
-  "laptop-mode-tools",
-
-  "iwd",
-
-  "pulseaudio",
-
-  "acpi",
-  "acpid",
-  "acpilight",
-
-  "vi",
-  "yay",
-]
-
-PACKAGES = open("packages.txt","r").read().splitlines()
-AUR_PACKAGES = open("aur-packages.txt", "r").read().splitlines()
+IGNORE_PACKAGES = open("packages/ignore.txt", "r").read().splitlines()
+PACMAN_PACKAGES = open("packages/pacman.txt","r").read().splitlines()
+AUR_PACKAGES = open("packages/aur.txt", "r").read().splitlines()
 
 def retrieve_commonly_installed_packages():
   result = subprocess.run(['pacman', '-Qq', '-g', 'base-devel'], stdout=subprocess.PIPE)
@@ -55,13 +28,13 @@ def retrieve_explicitly_installed_packages():
   trimmed = []
 
   for package in result:
-    if package not in BASE_PACKAGES and package not in commonly_installed_packages:
+    if package not in IGNORE_PACKAGES and package not in commonly_installed_packages:
       trimmed.append(package)
 
   return trimmed
 
 def retrieve_packages_to_remove():
-  all_packages = PACKAGES + AUR_PACKAGES
+  all_packages = PACMAN_PACKAGES + AUR_PACKAGES
   packages_to_remove = []
 
   for explicitly_installed_package in retrieve_explicitly_installed_packages():
@@ -73,7 +46,7 @@ def retrieve_packages_to_remove():
 def retrieve_packages_to_add():
   result = []
   installed = retrieve_installed_packages()
-  for package in PACKAGES:
+  for package in PACMAN_PACKAGES:
     if package not in installed:
       result.append(package)
   return result
