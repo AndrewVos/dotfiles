@@ -47,7 +47,7 @@ def retrieve_installed_packages():
   return result
 
 def retrieve_explicitly_installed_packages():
-  result = subprocess.run(['pacman', '-Qeq'], stdout=subprocess.PIPE)
+  result = subprocess.run(['pacman', '-Qeqt'], stdout=subprocess.PIPE)
   result = result.stdout.decode('utf-8')
   result = result.splitlines()
 
