@@ -78,7 +78,6 @@ def retrieve_packages_to_add():
       result.append(package)
   return result
 
-
 def retrieve_aur_packages_to_add():
   result = []
   installed = retrieve_installed_packages()
@@ -89,20 +88,16 @@ def retrieve_aur_packages_to_add():
 
 def execute(command):
   print(command)
-  return os.system(command)
+  exit_code = os.system(command)
+  if exit_code > 0:
+    exit(exit_code)
 
 def main():
-  exit_code = 0
-
   if retrieve_packages_to_remove():
-    exit_code += execute(" \\\n  ".join(["sudo pacman -R"] + retrieve_packages_to_remove()))
-
+    execute(" \\\n  ".join(["sudo pacman -R"] + retrieve_packages_to_remove()))
   if retrieve_packages_to_add():
-    exit_code += execute(" \\\n  ".join(["sudo pacman -S"] + retrieve_packages_to_add()))
-
+    execute(" \\\n  ".join(["sudo pacman -S"] + retrieve_packages_to_add()))
   if retrieve_aur_packages_to_add():
-    exit_code += execute(" \\\n  ".join(["yay -S"] + retrieve_aur_packages_to_add()))
-
-  exit(exit_code)
+    execute(" \\\n  ".join(["yay -S"] + retrieve_aur_packages_to_add()))
 
 main()
