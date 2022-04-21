@@ -139,6 +139,13 @@ hook global BufSetOption filetype=(txt) %{
   set-option buffer formatcmd "fmt"
 }
 
+hook global BufCreate .*\.v %{
+  set-option buffer filetype vlang
+}
+hook global BufSetOption filetype=(vlang) %{
+  set-option buffer formatcmd "v fmt"
+}
+
 def rspec \
   -override \
   -docstring "Run an rspec spec" \
