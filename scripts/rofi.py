@@ -15,7 +15,7 @@ apps =  {
     'Chrome incognito': ['google-chrome-stable', '--incognito', 'chrome-search://local-ntp/local-ntp.html'],
     'Slack': ['slack'],
     'Enpass': ['enpass'],
-    'Sync notes': [home + '/.dotfiles/scripts/sync-notes'],
+    'Sync': [home + '/.dotfiles/scripts/sync'],
 
     'Discord': ['discord'],
     'Krita': ['krita'],

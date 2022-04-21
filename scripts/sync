@@ -1,0 +1,34 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+function sync-notes() {
+  REPO_PATH="$HOME/.notes"
+
+  git -C "$REPO_PATH" add .
+
+  if git -C "$REPO_PATH" commit -m "$(date '+%d-%m-%Y %H:%M:%S')"; then
+    git -C "$REPO_PATH" pull --rebase
+    git -C "$REPO_PATH" push
+  else
+    git -C "$REPO_PATH" pull --rebase
+  fi
+}
+
+function sync-projects() {
+  REPO_PATH="$HOME/.projects"
+
+  git -C "$REPO_PATH" add .
+
+  if git -C "$REPO_PATH" commit -m "$(date '+%d-%m-%Y %H:%M:%S')"; then
+    git -C "$REPO_PATH" pull --rebase
+    git -C "$REPO_PATH" push
+  else
+    git -C "$REPO_PATH" pull --rebase
+  fi
+}
+
+sync-notes
+sync-projects
+
+notify-send --urgency low 'Sync complete'
