@@ -4,11 +4,6 @@ import sys
 import subprocess
 from pathlib import Path
 
-def vpn_is_connected():
-    result = subprocess.run(['nordvpn', 'status'], stdout=subprocess.PIPE)
-    result = result.stdout.decode('utf-8')
-    return result.find('Status: Connected') != -1
-
 home = str(Path.home())
 apps =  {
     'Chrome' : ['google-chrome-stable', 'chrome-search://local-ntp/local-ntp.html'],
@@ -27,11 +22,6 @@ apps =  {
     'Disk Usage': ['filelight'],
     'Equalizer': ['pulseaudio-equalizer-gtk']
 }
-
-if vpn_is_connected():
-    apps['Disconnect from VPN'] = ['nordvpn', 'disconnect']
-else:
-    apps['Connect to VPN'] = ['nordvpn', 'connect']
 
 if len(sys.argv) == 1:
     for title, command in apps.items():
