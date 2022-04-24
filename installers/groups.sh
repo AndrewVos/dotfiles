@@ -4,7 +4,6 @@ IFS=$'\n\t'
 
 # power: shutdown and reboot
 # video: control screen brightness
-# nordvpn: control nordvpn
 
 function ensure_user_is_in_group() {
   GROUP=$1
@@ -19,4 +18,3 @@ function ensure_user_is_in_group() {
 
 ensure_user_is_in_group power
 ensure_user_is_in_group video
-ensure_user_is_in_group nordvpn

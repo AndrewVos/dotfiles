@@ -1,4 +1,3 @@
-nordvpn-bin
 xmousepasteblock-git
 proselint
 ttf-sudo
@@ -14,3 +13,4 @@ spotify
 colorpicker
 slack-desktop
 difftastic
+mullvad-vpn-bin

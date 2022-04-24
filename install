@@ -21,10 +21,10 @@ stow --verbose --dir "$HOME/.dotfiles/configs" --target ~ $(ls "$HOME/.dotfiles/
 ./installers/services.sh
 
 ./installers/fish.sh
-./installers/nordvpn.sh
 ./installers/kakoune.sh
 ./installers/postgres.sh
 ./installers/fonts.sh
+./installers/mullvad.sh
 
 # ASDF
 asdf plugin add ruby ||:
