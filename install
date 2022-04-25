@@ -26,4 +26,8 @@ stow --verbose --dir "$HOME/.dotfiles/configs" --target ~ $(ls "$HOME/.dotfiles/
 ./installers/postgres.sh
 ./installers/fonts.sh
 
+# ASDF
+asdf plugin add ruby ||:
+asdf plugin add nodejs ||:
+
 echo "Done!"
