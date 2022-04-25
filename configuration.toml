@@ -1,0 +1,195 @@
+[packages]
+pacman = [
+  "man-db",
+  "whois",
+  "jq",
+  "fzf",
+  "git",
+  "git-lfs",
+  "stow",
+  "exa",
+  "openssh",
+  "curl",
+  "wget",
+  "make",
+  "htop",
+  "shellcheck",
+  "ctags",
+  "redis",
+  "tig",
+  "tree",
+  "nnn",
+  "playerctl",
+  "laptop-detect",
+  "unzip",
+  "kakoune",
+  "ripgrep",
+  "fish",
+  "fd",
+  "git-delta",
+  "github-cli",
+  "xorg-server",
+  "xorg-xinit",
+  "xorg-xsetroot",
+  "alsa-utils",
+  "xwallpaper",
+  "ttf-ubuntu-font-family",
+  "ttf-dejavu",
+  "ttf-liberation",
+  "noto-fonts",
+  "wget",
+  "mpv",
+  "krita",
+  "xclip",
+  "flameshot",
+  "ttf-hack",
+  "terminus-font",
+  "bspwm",
+  "sxhkd",
+  "dmenu",
+  "rofi",
+  "dunst",
+  "redshift",
+  "unclutter",
+  "discord",
+  "picom",
+  "alacritty",
+  "hsetroot",
+  "imv",
+  "weechat",
+  "xdotool",
+  "qemu",
+  "libvirt",
+  "gnome-boxes",
+  "filelight",
+  "firefox",
+  "noto-fonts-emoji",
+  "peek",
+  "postgresql",
+  "postgresql-libs",
+  "hugo",
+  "tex-gyre-fonts",
+  "libertinus-font",
+  "peek",
+  "font-manager",
+  "xsel",
+  "sed",
+  "difftastic",
+  "encfs",
+  "pulseaudio-equalizer-ladspa"
+]
+aur = [
+  "xmousepasteblock-git",
+  "proselint",
+  "ttf-sudo",
+  "flyctl-bin",
+  "heroku-cli-bin",
+  "asdf-vm",
+  "ly",
+  "yaru-gtk-theme",
+  "enpass-bin",
+  "google-chrome",
+  "helvetica-neue",
+  "spotify",
+  "colorpicker",
+  "slack-desktop",
+  "difftastic",
+  "mullvad-vpn-bin"
+]
+
+[symlinks]
+from = "./configs/alacritty"
+to = "~/.config/alacritty"
+
+from = "./configs/asdf/.asdfrc"
+to = "~/.asdfrc"
+
+from = "./configs/asdf/.default-gems"
+to = "~/.default-gems"
+
+from = "./configs/asdf/.default-npm-packages"
+to = "~/.default-npm-packages"
+
+from = "./configs/bspwm"
+to = "~/.config/bspwm"
+
+from = "./configs/.ctags.d"
+to = "~/.ctags.d"
+
+from = "./configs/dunst"
+to = "~/.config/dunst"
+
+from = "./configs/fish"
+to = "~/.config/fish"
+
+from = "./configs/git/.git-template"
+to = "~/.git-template"
+
+from = "./configs/git/.gitignore"
+to = "~/.gitignore"
+
+from = "./configs/git/.gitconfig"
+to = "~/.gitconfig"
+
+from = "./configs/.gtkrc-2.0"
+to = "~/.gtkrc-2.0"
+
+from = "/configs/gtk-3.0"
+to = "~/.config/gtk-3.0"
+
+from = "./configs/kak"
+to = "~/.config/kak"
+
+from = "./configs/picom"
+to = "~/.config/picom"
+
+from = "./configs/rofi"
+to = "~/.config/rofi"
+
+from = "./configs/ssh/.ssh"
+to = "~/.ssh"
+
+from = "./configs/sxhkd"
+to = "~/.config/sxhkd"
+
+from = "./configs/xresources/.Xresources.laptop"
+to = "~/.Xresources.laptop"
+
+[groups.add]
+groups = ["power", "video"]
+
+[services]
+[services.ly]
+enable = true
+start = false
+
+[services.postgresql]
+enable = true
+start = true
+
+[services.sshd]
+enable = true
+start = true
+
+[services.shell]
+shell = "/usr/bin/fish"
+
+[dir]
+path = "~/.config/kak/plugins"
+
+[git.repo]
+repo = "https://github.com/robertmeta/plug.kak.git"
+destination = "~/.config/kak/plugins/plug.kak"
+
+# INITIALIZED_POSTGRES="$HOME/.initialized-postgres"
+
+# if [[ ! -f "$INITIALIZED_POSTGRES" ]]; then
+#   sudo su postgres -c "initdb --locale $LANG -E UTF8 -D /var/lib/postgres/data"
+#   sudo su postgres -c "createuser -s $USER"
+#   echo "timezone='UTC'" | sudo tee -a /var/lib/postgres/data/postgresql.conf
+#   touch "$INITIALIZED_POSTGRES"
+# fi
+
+./installers/fonts.sh
+./installers/mullvad.sh
+
