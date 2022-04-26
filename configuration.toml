@@ -97,10 +97,11 @@ aur = [
   "mullvad-vpn-bin"
 ]
 
-[symlinks]
+[symlink]
 from = "./configs/alacritty"
 to = "~/.config/alacritty"
 
+[symlink]
 from = "./configs/asdf/.asdfrc"
 to = "~/.asdfrc"
 
@@ -158,23 +159,24 @@ to = "~/.Xresources.laptop"
 [groups.add]
 groups = ["power", "video"]
 
-[services]
 [services.ly]
 enable = true
 start = false
 
-[services.postgresql]
+[services]
+name = postgresql
 enable = true
 start = true
 
-[services.sshd]
+[service]
+name = sshd
 enable = true
 start = true
 
-[services.shell]
+[shell]
 shell = "/usr/bin/fish"
 
-[dir]
+[directory]
 path = "~/.config/kak/plugins"
 
 [git.repo]
