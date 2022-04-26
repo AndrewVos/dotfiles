@@ -1,0 +1,18 @@
+aur:
+  name:
+    - kakoune-git
+pacman:
+  name:
+    - shellcheck
+    - ripgrep
+
+symlink:
+  - from: "~/.config/kak"
+    to: "kak"
+
+directory:
+  - path: "~/.config/kak/plugins"
+
+repository:
+  - repository: "https://github.com/robertmeta/plug.kak.git"
+    destination: "~/.config/kak/plugins/plug.kak"

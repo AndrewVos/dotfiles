@@ -1,0 +1,7 @@
+pacman:
+  name:
+    - sxhkd
+
+symlink:
+  - from: "~/.config/sxhkd"
+    to: "sxhkd"

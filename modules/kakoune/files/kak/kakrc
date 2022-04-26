@@ -1,0 +1,276 @@
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
+plug "andreyorst/plug.kak" noload
+
+plug DERPSQUID9/kakoune-cyberpunk-neon theme
+plug yasukotelin/shirotelin theme
+plug evanrelf/primer.kak theme
+plug nesyamun/nord-kakoune theme
+plug Icantjuddle/ayu-kak theme
+plug caksoylar/kakoune-snow theme
+
+colorscheme reeder
+
+plug h-youhei/kakoune-surround
+plug matthias-margush/tug
+plug "https://gitlab.com/Screwtapello/kakoune-state-save"
+plug AndrewVos/kakoune-vlang
+
+# snippets
+plug "occivink/kakoune-snippets" config %{
+  set-option global snippets_auto_expand false
+  addhl global/ ranges snippets_placeholders
+
+  map global insert '<tab>' "z<a-;>: snippets-expand-or-jump 'tab'<ret>"
+  define-command snippets-expand-or-jump -params 1 %{
+      execute-keys <backspace>
+      try %{
+          snippets-expand-trigger %{
+              set-register / "%opt{snippets_triggers_regex}\z"
+              execute-keys 'hGhs<ret>'
+          }
+      } catch %{
+          snippets-select-next-placeholders
+      } catch %sh{
+          case $1 in
+              ret|tab)
+                  printf "%s\n" "execute-keys -with-hooks <$1>" ;;
+              *)
+                  printf "%s\n" "execute-keys -with-hooks $1" ;;
+          esac
+      }
+  }
+}
+
+set global grepcmd 'rg --column'
+
+# Disable clippy
+set-option global ui_options ncurses_assistant=off
+
+# user mappings
+map -docstring "yank the selection into the clipboard" global user y "<a-|> xsel --input --clipboard<ret>"
+map -docstring "paste the clipboard" global user p "<a-!> xsel --clipboard<ret>"
+map -docstring "surround" global user s ": surround<ret>"
+map -docstring "open the current url in browser" global user o "<a-i><a-w><a-|> xargs xdg-open<ret>"
+map -docstring "insert the current date" global user d '<a-o>j<!> date "+## %-d %B %Y"<ret>'
+
+# save on pressing enter
+hook global NormalKey <ret> %{
+  evaluate-commands %sh{
+    if [ -n "${kak_opt_formatcmd}" ]; then
+      printf "%s\n" "format"
+    fi
+    printf "%s\n" "write"
+  }
+}
+
+# search with c tags
+map global goto s -docstring 'search ctags' %{<esc><a-i>w: ctags-search<ret>}
+
+# map # to comment-line
+map global normal "#" ": comment-line<ret>"
+
+add-highlighter global/ number-lines
+add-highlighter global/ show-matching
+add-highlighter global/ number-lines -relative -hlcursor
+
+add-highlighter global/show-trailing-whitespaces regex '\h+$' 0:Error
+
+hook global InsertChar \t %{ exec -draft -itersel h@ }
+set global tabstop 2
+set global indentwidth 2
+
+hook global KakBegin .* %{
+  evaluate-commands %sh{
+    if [ -e "$PWD/.git/tags" ]; then
+      printf "%s\n" "set-option -add current ctagsfiles %{$PWD/.git/tags}"
+    fi
+  }
+}
+
+map global goto n '<esc>: grep-next-match<ret>' -docstring 'next grep match'
+map global goto p '<esc>: grep-previous-match<ret>' -docstring 'previous grep match'
+
+# Lint
+hook global WinSetOption filetype=sh %{
+  set-option window lintcmd "shellcheck -fgcc -Cnever"
+}
+hook global WinSetOption filetype=(markdown|plain) %{
+  set-option window lintcmd "proselint"
+}
+
+hook global WinSetOption filetype=ruby %{
+  set-option window lintcmd 'rubocop -l --format emacs'
+}
+
+hook global WinSetOption filetype=(html|erb) %{
+  set-option buffer formatcmd "run(){ tidy -q --indent yes --indent-spaces %opt{tabstop}  2>/dev/null || true; } && run"
+}
+
+hook global WinSetOption filetype=javascript %{
+  set-option window lintcmd 'run() { cat "$1" | npx eslint -f unix --stdin --stdin-filename "$kak_buffile";} && run '
+}
+
+# Automatic linting
+hook global WinSetOption filetype=(sh|markdown|plain|javascript|ruby) %{
+  hook buffer BufWritePost "\Q%val{buffile}" lint
+}
+
+# Automatic git diff
+hook global WinCreate .* %{ git show-diff }
+hook global BufWritePost .* %{ git update-diff }
+
+# Format
+# yarn global add prettier @prettier/plugin-ruby
+hook global BufSetOption filetype=(javascript|ruby|css|scss|json) %{
+  set-option buffer formatcmd ". /opt/asdf-vm/asdf.sh && asdf shell nodejs 16.14.0 && prettier --stdin-filepath=%val{buffile}"
+}
+
+hook global BufSetOption filetype=(xml) %{
+  set-option buffer formatcmd "xmllint --format -"
+}
+
+hook global BufSetOption filetype=(dart) %{
+  set-option buffer formatcmd "dartfmt"
+}
+
+hook global BufCreate .*\.txt %{
+  set-option buffer filetype txt
+}
+hook global BufSetOption filetype=(txt) %{
+  set-option buffer formatcmd "fmt"
+}
+
+hook global BufCreate .*\.v %{
+  set-option buffer filetype vlang
+}
+hook global BufSetOption filetype=(vlang) %{
+  set-option buffer formatcmd "v fmt"
+}
+
+def rspec \
+  -override \
+  -docstring "Run an rspec spec" \
+  -params 1 \
+  -file-completion \
+  %{
+    terminal sh -c "bundle exec rspec %arg{@} ;  read -n 1 -s -r -p 'Press any key to continue'"
+  }
+
+declare-option str rspec_current_spec ""
+def run-current-spec \
+  -override \
+  -docstring "Run the current spec" \
+  -params 0 \
+  %{
+    evaluate-commands %sh{
+      current_spec="$kak_opt_rspec_current_spec"
+      current_file="$kak_buffile"
+
+      if [[ "$current_file" == *_spec.rb ]]; then
+        current_spec="$current_file"
+        printf "%s\n" "set-option global rspec_current_spec $current_file"
+      fi
+
+      if [ -n "$current_spec" ]; then
+        printf "%s\n" "terminal sh -c \"bundle exec rspec $current_spec ;  read -n 1 -s -r -p 'Press any key to continue'\""
+      fi
+    }
+  }
+
+map global normal <c-t> ': run-current-spec<ret>'
+
+def git-open \
+  -override \
+  -docstring "Open git changed files" \
+  -params 1 \
+  %{
+    edit %arg{@}
+  }
+alias global g git-open
+complete-command git-open shell-script-candidates %{git status --untracked --porcelain | grep -v '^ D ' | awk '{print ( $(NF) )}'} \
+
+
+# github
+declare-user-mode git
+map -docstring 'git' global user g ':enter-user-mode git<ret>'
+map -docstring 'create gist from buffer' global git g '<a-|>gh gist create --web "$kak_buffile"<ret>'
+map -docstring 'create gist from selection' global git s '<a-|>gh gist create --web --filename $(basename "$kak_buffile")<ret>'
+map -docstring 'view repo' global git v '<a-|>gh repo view --web<ret>'
+
+# rails
+declare-user-mode rails
+map -docstring 'db:migrate' global rails m \
+  ': terminal sh -c "rails db:migrate ; echo Press any key to continue; read"<ret>'
+map -docstring 'db:rollback' global rails R \
+  ': terminal sh -c "rails db:rollback; echo Press any key to continue; read"<ret>'
+map -docstring 'restart' global rails r \
+  ': terminal sh -c "rails restart"<ret>'
+map -docstring 'console' global rails c \
+  ': terminal sh -c "rails console"<ret>'
+map -docstring 'rails' global user r ':enter-user-mode rails<ret>'
+
+# fzf
+def fzf-open \
+  -override \
+  -docstring "Open a file with fzf" \
+  -params 0 \
+  %{
+    evaluate-commands %sh{
+      if [[ -f '/tmp/fzf-output.txt' ]]; then
+        rm "/tmp/fzf-output.txt"
+      fi
+    }
+    terminal sh -c "FILE_PATH=$(git ls-files --cached --modified --others --exclude-standard | uniq | fzf); echo $FILE_PATH > /tmp/fzf-output.txt"
+    open-fzf-file
+  }
+
+def open-fzf-file \
+  -override \
+  -hidden \
+  -params 0 \
+  %{
+    evaluate-commands %sh{
+      TMP_PATH="/tmp/fzf-output.txt"
+      while ! [[ -e "$TMP_PATH" ]]; do
+        sleep 0.1
+      done
+
+      FILE_PATH=$(cat "$TMP_PATH")
+      if [[ "$FILE_PATH" != "" ]]; then
+        printf "%s\n" "edit \"$FILE_PATH\""
+      fi
+    }
+  }
+
+map global normal <c-p> ': fzf-open<ret>'
+
+define-command \
+    -params 2 \
+    -docstring "
+        inc-dec-modify-numbers OP NUM
+
+        Apply the given operator (usually + or -) and NUM to each selected
+        number. For example, 'inc-dec-modify-numbers + 3' adds 3 to all selected
+        numbers. If NUM is 0, it is replaced with 1 since adding or subtracting
+        0 is not useful.
+        " \
+    inc-dec-modify-numbers \
+%{
+    evaluate-commands -save-regs 'c' %{
+        # "c" stores the count we want to use (in decimal)
+        set-register c %sh{ echo $(( $2 == 0 ? 1 : $2 )) }
+
+        try %{
+            # Search for tokens that look like zero-padded decimal numbers.
+            execute-keys s [+-]?\b0[0-9]*\b <ret>
+            # Apply our operator with shell arithmetic.
+            execute-keys | "read val; printf '%%0*d\n' ${#val} $(($(echo ""$val"" | sed -E 's/^([-+])?0+/\1/') %arg{1} %reg{c}))" <ret>
+
+        } catch %{
+            # Search for tokens that look like unpadded decimal numbers.
+            execute-keys s [+-]?\b[1-9][0-9]*\b <ret>
+            # Apply our operator with shell arithmetic.
+            execute-keys | "read val; printf '%%d\n' $(($val %arg{1} %reg{c}))" <ret>
+        }
+    }
+}

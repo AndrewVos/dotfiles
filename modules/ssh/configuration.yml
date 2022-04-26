@@ -1,0 +1,12 @@
+pacman:
+  name:
+    - openssh
+
+symlink:
+  - from: "~/.ssh"
+    to: ".ssh"
+
+service:
+  - name: "sshd"
+    enable: true
+    start: true

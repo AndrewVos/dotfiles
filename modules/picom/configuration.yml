@@ -1,0 +1,7 @@
+pacman:
+  name:
+    - picom
+
+symlink:
+  - from: "~/.config/picom"
+    to: "picom"

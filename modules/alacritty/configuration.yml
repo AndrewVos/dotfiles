@@ -1,0 +1,7 @@
+pacman:
+  name:
+    - alacritty
+
+symlink:
+  - from: "~/.config/alacritty"
+    to: "alacritty"

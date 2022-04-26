@@ -1,0 +1,7 @@
+pacman:
+  name:
+    - rofi
+
+symlink:
+  - from: "~/.config/rofi"
+    to: "rofi"

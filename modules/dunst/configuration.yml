@@ -1,0 +1,7 @@
+pacman:
+  name:
+    - dunst
+
+symlink:
+  - from: "~/.config/dunst"
+    to: "dunst"

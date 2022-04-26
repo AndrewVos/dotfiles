@@ -1,0 +1,10 @@
+pacman:
+  name:
+    - "fish"
+
+symlink:
+  - from: "~/.config/fish"
+    to: "fish"
+
+script:
+  - command: '[[ "$SHELL" = /usr/bin/fish ]] || sudo usermod --shell /usr/bin/fish "$USER"'

@@ -1,0 +1,8 @@
+pacman:
+  name:
+    - ly
+
+service:
+  - name: "ly"
+    enable: true
+    start: false

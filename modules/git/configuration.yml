@@ -1,0 +1,15 @@
+pacman:
+  name:
+    - git
+    - git-lfs
+    - git-delta
+    - difftastic
+    - tig
+
+symlink:
+- from: "~/.gitconfig"
+  to: ".gitconfig"
+- from: "~/.gitignore"
+  to: ".gitignore"
+- from: "~/.git-template"
+  to: ".git-template"
