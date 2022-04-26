@@ -5,3 +5,10 @@ configs/ssh/.ssh/known_hosts
 configs/kakoune/.config/kak/colors
 configs/kakoune/.config/kak/plugins
 configs/fish/.config/fish/fish_variables
+
+modules/ssh/files/id_rsa
+modules/ssh/files/id_rsa.pub
+modules/ssh/files/known_hosts
+modules/kakoune/files/kak/colors
+modules/kakoune/files/kak/plugins
+modules/fish/files/fish/fish_variables

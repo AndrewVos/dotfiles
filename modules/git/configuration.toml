@@ -1,0 +1,14 @@
+[package.git]
+name=["git", "git-lfs", "git-delta", "difftastic", "tig"]
+
+[symlink.gitconfig]
+from = "~/.gitconfig"
+to = ".gitconfig"
+
+[symlink.gitignore]
+from = "~/.gitignore"
+to = ".gitignore"
+
+[symlink.git-template]
+from = "~/.git-template"
+to = ".git-template"

@@ -1,0 +1,10 @@
+[package.gtk]
+name = "yaru-gtk-theme"
+
+[symlink.gtk2]
+from = "~/.gtkrc-2.0"
+to = ".gtkrc-2.0"
+
+[symlink.gtk3]
+from = "~/.config/gtk-3.0"
+to = "gtk-3.0"

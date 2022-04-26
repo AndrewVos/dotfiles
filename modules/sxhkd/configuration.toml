@@ -1,0 +1,6 @@
+[package.sxhkd]
+name = "sxhkd"
+
+[symlink.sxhkd]
+from = "~/.config/sxhkd"
+to = "sxhkd"

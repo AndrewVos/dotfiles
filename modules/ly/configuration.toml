@@ -1,0 +1,7 @@
+[aur.ly]
+name = "ly"
+
+[service.ly]
+name = "ly"
+enable = true
+start = false

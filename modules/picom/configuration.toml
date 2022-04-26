@@ -1,0 +1,6 @@
+[package.picom]
+name = "picom"
+
+[symlink.picom]
+from = "~/.config/picom"
+to = "picom"

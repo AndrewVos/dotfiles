@@ -1,0 +1,9 @@
+[package.fish]
+name = "fish"
+
+[symlink.fish]
+from = "~/.config/fish"
+to = "fish"
+
+[shell.fish]
+shell = "/usr/bin/fish"

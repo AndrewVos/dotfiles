@@ -1,0 +1,17 @@
+[package.kakoune]
+name = [
+  "kakoune",
+  "shellcheck",
+  "ripgrep",
+]
+
+[symlink.kakoune]
+from = "~/.config/kak"
+to = "kak"
+
+[directory.kak-plugins]
+path = "~/.config/kak/plugins"
+
+[repository.plug.kak]
+repository = "https://github.com/robertmeta/plug.kak.git"
+destination = "~/.config/kak/plugins/plug.kak"

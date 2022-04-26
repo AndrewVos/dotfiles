@@ -74,3 +74,4 @@ sed
 difftastic
 encfs
 pulseaudio-equalizer-ladspa
+terminus-font

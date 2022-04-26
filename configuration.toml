@@ -1,0 +1,212 @@
+[groups]
+user = "vos"
+groups = ["power", "video"]
+
+[packages]
+pacman = [
+  "man-db",
+  "whois",
+  "jq",
+  "fzf",
+  "git",
+  "git-lfs",
+  "stow",
+  "exa",
+  "openssh",
+  "curl",
+  "wget",
+  "make",
+  "htop",
+  "shellcheck",
+  "ctags",
+  "redis",
+  "tig",
+  "tree",
+  "nnn",
+  "playerctl",
+  "laptop-detect",
+  "unzip",
+  "kakoune",
+  "ripgrep",
+  "fish",
+  "fd",
+  "git-delta",
+  "github-cli",
+  "xorg-server",
+  "xorg-xinit",
+  "xorg-xsetroot",
+  "alsa-utils",
+  "xwallpaper",
+  "ttf-ubuntu-font-family",
+  "ttf-dejavu",
+  "ttf-liberation",
+  "noto-fonts",
+  "wget",
+  "mpv",
+  "krita",
+  "xclip",
+  "flameshot",
+  "ttf-hack",
+  "terminus-font",
+  "bspwm",
+  "sxhkd",
+  "dmenu",
+  "rofi",
+  "dunst",
+  "redshift",
+  "unclutter",
+  "discord",
+  "picom",
+  "alacritty",
+  "hsetroot",
+  "imv",
+  "weechat",
+  "xdotool",
+  "qemu",
+  "libvirt",
+  "gnome-boxes",
+  "filelight",
+  "firefox",
+  "noto-fonts-emoji",
+  "peek",
+  "postgresql",
+  "postgresql-libs",
+  "hugo",
+  "tex-gyre-fonts",
+  "libertinus-font",
+  "peek",
+  "font-manager",
+  "xsel",
+  "sed",
+  "difftastic",
+  "encfs",
+  "pulseaudio-equalizer-ladspa"
+]
+aur = [
+  "xmousepasteblock-git",
+  "proselint",
+  "ttf-sudo",
+  "flyctl-bin",
+  "heroku-cli-bin",
+  "asdf-vm",
+  "ly",
+  "yaru-gtk-theme",
+  "enpass-bin",
+  "google-chrome",
+  "helvetica-neue",
+  "spotify",
+  "colorpicker",
+  "slack-desktop",
+  "difftastic",
+  "mullvad-vpn-bin"
+]
+
+[symlink.alacritty]
+from = "./config/alacritty"
+to = "~/.config/alacritty"
+
+[symlink.asdf]
+from = "./config/asdf/.asdfrc"
+to = "~/.asdfrc"
+
+[symlink.default-gems]
+from = "./config/asdf/.default-gems"
+to = "~/.default-gems"
+
+[symlinks.default-npm-packages]
+from = "./config/asdf/.default-npm-packages"
+to = "~/.default-npm-packages"
+
+[symlink.bspwm]
+from = "./config/bspwm"
+to = "~/.config/bspwm"
+
+[symlink.ctags]
+from = "./config/.ctags.d"
+to = "~/.ctags.d"
+
+[symlink.dunst]
+from = "./config/dunst"
+to = "~/.config/dunst"
+
+[symlink.fish]
+from = "./config/fish"
+to = "~/.config/fish"
+
+[symlink.git-template]
+from = "./config/git/.git-template"
+to = "~/.git-template"
+
+[symlink.gitignore]
+from = "./config/git/.gitignore"
+to = "~/.gitignore"
+
+[symlink.gitconfig]
+from = "./config/git/.gitconfig"
+to = "~/.gitconfig"
+
+[symlink.gtk2]
+from = "./config/.gtkrc-2.0"
+to = "~/.gtkrc-2.0"
+
+[symlink.gtk3]
+from = "/config/gtk-3.0"
+to = "~/.config/gtk-3.0"
+
+[symlink.kak]
+from = "./config/kak"
+to = "~/.config/kak"
+
+[symlink.picom]
+from = "./config/picom"
+to = "~/.config/picom"
+
+[symlink.rofi]
+from = "./config/rofi"
+to = "~/.config/rofi"
+
+[symlink.ssh]
+from = "./config/ssh/.ssh"
+to = "~/.ssh"
+
+[symlink.sxhkd]
+from = "./config/sxhkd"
+to = "~/.config/sxhkd"
+
+[symlink.xresources]
+from = "./config/xresources/.Xresources.laptop"
+to = "~/.Xresources.laptop"
+
+[service.ly]
+enable = true
+start = false
+
+[service.postgresql]
+enable = true
+start = true
+
+[service.sshd]
+enable = true
+start = true
+
+[shell.fish]
+shell = "/usr/bin/fish"
+
+[directory.kak-plugins]
+path = "~/.config/kak/plugins"
+
+[repository.plug.kak]
+repository = "https://github.com/robertmeta/plug.kak.git"
+destination = "~/.config/kak/plugins/plug.kak"
+
+# INITIALIZED_POSTGRES="$HOME/.initialized-postgres"
+
+# if [[ ! -f "$INITIALIZED_POSTGRES" ]]; then
+#   sudo su postgres -c "initdb --locale $LANG -E UTF8 -D /var/lib/postgres/data"
+#   sudo su postgres -c "createuser -s $USER"
+#   echo "timezone='UTC'" | sudo tee -a /var/lib/postgres/data/postgresql.conf
+#   touch "$INITIALIZED_POSTGRES"
+# fi
+
+# ./installers/fonts.sh
+# ./installers/mullvad.sh

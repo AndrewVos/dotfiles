@@ -1,0 +1,5 @@
+[aur.mullvad]
+name = "mullvad-vpn-bin"
+
+[script.mullvad-allow-lan-access]
+name = "init.sh"

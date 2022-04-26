@@ -1,0 +1,6 @@
+[package.ctags]
+name = "ctags"
+
+[symlink.ctags]
+from = "~/.ctags.d"
+to = ".ctags.d"

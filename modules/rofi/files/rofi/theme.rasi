@@ -1,0 +1,58 @@
+* {
+  background: rgba (0, 0, 0, 70%);
+  background-color: transparent;
+  foreground: #777777;
+  selected-normal-foreground: #ffffff;
+  normal-foreground: var(foreground);
+  alternate-normal-foreground: var(foreground);
+  spacing: 40px;
+  font: "Sudo 20";
+  text-color: var(normal-foreground);
+}
+
+window {
+  fullscreen: true;
+  background-color: var(background);
+}
+
+scrollbar {
+  handle-width: 0px;
+  handle-color: var(selected-normal-foreground);
+}
+
+prompt {
+  enabled: false;
+}
+
+mainbox {
+  spacing: var(spacing);
+  padding: 30%;
+}
+
+listview {
+  scrollbar: false;
+  lines: 3;
+  spacing: var(spacing);
+  fixed-height: true;
+}
+
+element selected.normal {
+  text-color: var(selected-normal-foreground);
+}
+
+element-text {
+  text-color:       inherit;
+  highlight:        inherit;
+  cursor:           inherit;
+}
+
+inputbar {
+  children:[prompt, textbox-prompt-colon, entry, case-indicator];
+  spacing: 2;
+}
+
+textbox-prompt-colon {
+  expand: false;
+  str: ":";
+  margin: 0px 0.3em 0em 0em;
+}

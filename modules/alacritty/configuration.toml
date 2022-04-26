@@ -1,0 +1,6 @@
+[package.alacritty]
+name = "alacritty"
+
+[symlink.alacritty]
+from = "~/.config/alacritty"
+to = "alacritty"

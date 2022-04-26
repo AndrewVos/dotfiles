@@ -1,0 +1,54 @@
+[user]
+  name = Andrew Vos
+  email = andrew.vos@gmail.com
+  signingkey = EAEE27C95790CBBE
+
+[color]
+  ui = true
+[alias]
+  st = status
+  br = branch
+  cm = checkout master
+  wip = commit -m 'wip [ci skip]'
+[core]
+  excludesfile = ~/.gitignore
+
+[format]
+  pretty=format:%C(yellow)%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
+
+[init]
+  templatedir = ~/.git-template
+	defaultBranch = main
+[web]
+  browser = chrome
+
+[github]
+  user = AndrewVos
+
+[diff]
+  algorithm = patience
+	external = difft
+
+[push]
+  default = simple
+
+[credential]
+	helper = store
+[pull]
+	rebase = true
+[commit]
+	gpgsign = true
+
+[pager]
+    diff = delta --light
+    log = delta --light
+    reflog = delta --light
+    show = delta --light
+
+[interactive]
+    diffFilter = delta --light --color-only
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

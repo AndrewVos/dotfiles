@@ -1,0 +1,45 @@
+# https://gist.github.com/YoEight/d19112db56cd8f93835bf2d009d617f7
+
+[package.fonts]
+name = [
+  "font-manager",
+  "ttf-ubuntu-font-family",
+  "ttf-dejavu",
+  "ttf-liberation",
+  "noto-fonts",
+  "noto-fonts-emoji",
+  "tex-gyre-fonts",
+  "libertinus-font",
+  "terminus-font",
+  "ttf-hack",
+]
+
+[aur.fonts]
+name = [
+  "ttf-sudo",
+  "helvetica-neue",
+]
+
+[symlink.local-conf]
+become = true
+from = "/etc/fonts/local.conf"
+to = "local.conf"
+
+[symlink.no-bitmaps]
+become = true
+from = "/etc/fonts/conf.d/70-no-bitmaps.conf"
+to = "/usr/share/fontconfig/conf.avail/70-no-bitmaps.conf"
+
+[symlink.sub-pixel-rgb]
+become = true
+from = "/etc/fonts/conf.d/10-sub-pixel-rgb.conf"
+to = "/usr/share/fontconfig/conf.avail/10-sub-pixel-rgb.conf"
+
+[symlink.lcdfilter]
+become = true
+from = "/etc/fonts/conf.d/11-lcdfilter-default.conf"
+to = "/usr/share/fontconfig/conf.avail/11-lcdfilter-default.conf"
+
+[line.freetype2]
+path = "/etc/profile.d/freetype2.sh"
+line = 'export FREETYPE_PROPERTIES="truetype:interpreter-version=40"'

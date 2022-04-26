@@ -1,0 +1,20 @@
+[aur.asdf]
+name = "asdf-vm"
+
+[symlink.asdf]
+to = ".asdfrc"
+from = "~/.asdfrc"
+
+[symlink.default-gems]
+to = ".default-gems"
+from = "~/.default-gems"
+
+[symlink.default-npm-packages]
+to = ".default-npm-packages"
+from = "~/.default-npm-packages"
+
+[script.asdf-plugin-ruby]
+command = "asdf plugin add ruby"
+
+[script.asdf-plugin-node]
+command = "asdf plugin add nodejs"

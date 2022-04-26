@@ -1,0 +1,13 @@
+[package.postgresql]
+name = [
+  "postgresql",
+  "postgresql-libs",
+]
+
+[service.postgresql]
+name = "postgresql"
+enable = true
+start = true
+
+[script.initialize-postgresql]
+name = "init.sh"

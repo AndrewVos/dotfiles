@@ -1,0 +1,11 @@
+[package.ssh]
+name = "openssh"
+
+[symlink.ssh]
+from = "~/.ssh"
+to = ".ssh"
+
+[service.sshd]
+name = "sshd"
+enable = true
+start = true

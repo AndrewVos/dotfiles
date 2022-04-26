@@ -1,0 +1,6 @@
+[package.rofi]
+name = "rofi"
+
+[symlink.rofi]
+from = "~/.config/rofi"
+to = "rofi"

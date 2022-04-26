@@ -1,0 +1,6 @@
+[package.dunst]
+name = "dunst"
+
+[symlink.dunst]
+from = "~/.config/dunst"
+to = "dunst"

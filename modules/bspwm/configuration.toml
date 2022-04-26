@@ -1,0 +1,6 @@
+[package.bspwm]
+name = "bspwm"
+
+[symlink.bspwm]
+from = "~/.config/bspwm"
+to = "bspwm"
