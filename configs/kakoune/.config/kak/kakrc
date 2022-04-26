@@ -147,6 +147,11 @@ hook global BufSetOption filetype=(vlang) %{
   set-option buffer formatcmd "v fmt"
 }
 
+hook global BufSetOption filetype=zig %{
+  set-option buffer formatcmd 'zig fmt --stdin'
+}
+
+
 def rspec \
   -override \
   -docstring "Run an rspec spec" \
