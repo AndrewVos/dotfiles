@@ -9,9 +9,9 @@ set -u
 OPTIONS="Shutdown\nReboot\nLog out"
 
 if [[ "$CHOICE" = "Shutdown" ]]; then
-  sudo systemctl poweroff
+  systemctl poweroff
 elif [[ "$CHOICE" = "Reboot" ]]; then
-  sudo systemctl reboot
+  systemctl reboot
 elif [[ "$CHOICE" = "Log out" ]]; then
   bspc quit
 else
