@@ -1,0 +1,3 @@
+symlink:
+  - from: ~/.Xresources.laptop
+    to: .Xresources.laptop
