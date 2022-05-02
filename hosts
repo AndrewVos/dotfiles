@@ -1,0 +1,3 @@
+desktop ansible_user=vos ansible_host=192.168.1.206
+media ansible_user=media ansible_host=192.168.1.176
+mb13 ansible_user=vos ansible_host=192.168.1.253

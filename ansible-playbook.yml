@@ -1,0 +1,57 @@
+# ansible-galaxy collection install community.general
+# ansible-playbook ansible-playbook.yml -K -i hosts
+
+- hosts: all
+  become: true
+  tasks:
+  - name: Install miscellaneous packages
+    community.general.pacman:
+      state: present
+      name:
+        - man-db
+        - whois
+        - jq
+        - fzf
+        - exa
+        - curl
+        - wget
+        - make
+        - htop
+        - redis
+        - tree
+        - nnn
+        - playerctl
+        - laptop-detect
+        - unzip
+        - fd
+        - github-cli
+        - xorg-server
+        - xorg-xinit
+        - xorg-xsetroot
+        - alsa-utils
+        - xwallpaper
+        - wget
+        - mpv
+        - krita
+        - xclip
+        - flameshot
+        - dmenu
+        - redshift
+        - unclutter
+        - discord
+        - hsetroot
+        - imv
+        - weechat
+        - xdotool
+        - qemu
+        - libvirt
+        - gnome-boxes
+        - filelight
+        - firefox
+        - peek
+        - hugo
+        - peek
+        - xsel
+        - sed
+        - encfs
+        - pulseaudio-equalizer-ladspa
