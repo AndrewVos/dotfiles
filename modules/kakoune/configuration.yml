@@ -1,6 +1,7 @@
 aur:
   name:
     - kakoune-git
+
 pacman:
   name:
     - shellcheck
@@ -10,9 +11,5 @@ symlink:
   - from: "~/.config/kak"
     to: "kak"
 
-directory:
-  - path: "~/.config/kak/plugins"
-
-repository:
-  - repository: "https://github.com/robertmeta/plug.kak.git"
-    destination: "~/.config/kak/plugins/plug.kak"
+script:
+  - command: 'mkdir -p ~/.config/kak/plugins && [[ -d ~/.config/kak/plugins/plug.kak ]] || git clone https://github.com/robertmeta/plug.kak ~/.config/kak/plugins/plug.kak'
