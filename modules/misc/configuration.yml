@@ -45,7 +45,6 @@ pacman:
     - libvirt
     - gnome-boxes
     - filelight
-    - firefox
     - peek
     - hugo
     - peek

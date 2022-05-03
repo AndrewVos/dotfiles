@@ -17,7 +17,6 @@ apps =  {
     'Colour Picker': ['pick-a-colour'],
     'Spotify': ['spotify'],
     'Record screen': ['peek'],
-    'Firefox': ['firefox'],
     'Boxes': ['gnome-boxes'],
     'Disk Usage': ['filelight'],
     'Equalizer': ['pulseaudio-equalizer-gtk']
