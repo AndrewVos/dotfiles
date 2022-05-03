@@ -53,6 +53,7 @@ pacman:
     - sed
     - encfs
     - pulseaudio-equalizer-ladspa
+    - trash-cli
 
 aur:
   name:
