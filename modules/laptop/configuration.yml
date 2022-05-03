@@ -1,3 +1,3 @@
-symlink:
-  - from: ~/.Xresources.laptop
+- symlink:
+    from: ~/.Xresources.laptop
     to: .Xresources.laptop

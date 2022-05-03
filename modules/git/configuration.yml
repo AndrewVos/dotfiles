@@ -1,15 +1,19 @@
-pacman:
-  name:
-    - git
-    - git-lfs
-    - git-delta
-    - difftastic
-    - tig
+- pacman:
+    name:
+      - git
+      - git-lfs
+      - git-delta
+      - difftastic
+      - tig
 
-symlink:
-- from: "~/.gitconfig"
-  to: ".gitconfig"
-- from: "~/.gitignore"
-  to: ".gitignore"
-- from: "~/.git-template"
-  to: ".git-template"
+- symlink:
+    from: "~/.gitconfig"
+    to: ".gitconfig"
+
+- symlink:
+    from: "~/.gitignore"
+    to: ".gitignore"
+
+- symlink:
+    from: "~/.git-template"
+    to: ".git-template"

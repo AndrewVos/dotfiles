@@ -1,15 +1,15 @@
-pacman:
-  name:
-  - postgresql
-  - postgresql-libs
+- pacman:
+    name:
+      - postgresql
+      - postgresql-libs
 
-service:
-  - name: postgresql
+- service:
+    name: postgresql
     enable: true
     start: true
 
-script:
-  - command: |
+- script:
+    command: |
       INITIALIZED_POSTGRES="$HOME/.initialized-postgres"
       if [[ ! -f "$INITIALIZED_POSTGRES" ]]; then
         sudo su postgres -c "initdb --locale $LANG -E UTF8 -D /var/lib/postgres/data"

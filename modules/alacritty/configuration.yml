@@ -1,7 +1,6 @@
-pacman:
-  name:
-    - alacritty
+- pacman:
+    name: alacritty
 
-symlink:
-  - from: "~/.config/alacritty"
+- symlink:
+    from: "~/.config/alacritty"
     to: "alacritty"

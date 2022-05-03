@@ -1,7 +1,7 @@
-pacman:
-  name:
-    - rofi
+- pacman:
+    name:
+      - rofi
 
-symlink:
-  - from: "~/.config/rofi"
+- symlink:
+    from: "~/.config/rofi"
     to: "rofi"

@@ -1,16 +1,24 @@
-aur:
-  name:
-    - asdf-vm
+- aur:
+    name:
+      - asdf-vm
 
-symlink:
-  - from: "~/.asdfrc"
+- symlink:
+    from: "~/.asdfrc"
     to: ".asdfrc"
-  - from: "~/.default-gems"
+
+- symlink:
+    from: "~/.default-gems"
     to: ".default-gems"
-  - from: "~/.default-npm-packages"
+
+- symlink:
+    from: "~/.default-npm-packages"
     to: ".default-npm-packages"
 
-script:
-  - command: "asdf plugin list | grep --quiet ruby || asdf plugin install golang"
-  - command: "asdf plugin list | grep --quiet nodejs || asdf plugin install golang"
-  - command: "asdf plugin list | grep --quiet golang || asdf plugin install golang"
+- script:
+    command: "asdf plugin list | grep --quiet ruby || asdf plugin install golang"
+
+- script:
+    command: "asdf plugin list | grep --quiet nodejs || asdf plugin install golang"
+
+- script:
+    command: "asdf plugin list | grep --quiet golang || asdf plugin install golang"

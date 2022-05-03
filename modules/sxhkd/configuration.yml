@@ -1,7 +1,6 @@
-pacman:
-  name:
-    - sxhkd
+- pacman:
+    name: sxhkd
 
-symlink:
-  - from: "~/.config/sxhkd"
+- symlink:
+    from: "~/.config/sxhkd"
     to: "sxhkd"

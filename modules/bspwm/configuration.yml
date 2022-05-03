@@ -1,7 +1,7 @@
-pacman:
-  name:
-    - "bspwm"
+- pacman:
+    name:
+      - "bspwm"
 
-symlink:
-  - from: "~/.config/bspwm"
+- symlink:
+    from: "~/.config/bspwm"
     to: "bspwm"

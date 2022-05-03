@@ -1,6 +1,5 @@
-aur:
-  name:
-    - mullvad-vpn-bin
+- aur:
+    name: mullvad-vpn-bin
 
-script:
-  - command: "mullvad lan get | grep --quiet allow || mullvad lan set allow"
+- script:
+    command: "mullvad lan get | grep --quiet allow || mullvad lan set allow"

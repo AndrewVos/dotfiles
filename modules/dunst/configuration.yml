@@ -1,7 +1,6 @@
-pacman:
-  name:
-    - dunst
+- pacman:
+    name: dunst
 
-symlink:
-  - from: "~/.config/dunst"
+- symlink:
+    from: "~/.config/dunst"
     to: "dunst"

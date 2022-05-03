@@ -1,7 +1,6 @@
-pacman:
-  name:
-    - "ctags"
+- pacman:
+    name: ctags
 
-symlink:
-- from: "~/.ctags.d"
-  to: ".ctags.d"
+- symlink:
+    from: "~/.ctags.d"
+    to: ".ctags.d"

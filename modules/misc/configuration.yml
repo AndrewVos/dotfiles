@@ -1,67 +1,69 @@
-group:
-  - user: "vos"
+- group:
+    user: "vos"
     name: power
-  - user: "vos"
+
+- group:
+    user: "vos"
     name: video
 
-pacman:
-  name:
-    - man-db
-    - whois
-    - jq
-    - fzf
-    - exa
-    - curl
-    - wget
-    - make
-    - htop
-    - redis
-    - tree
-    - nnn
-    - playerctl
-    - laptop-detect
-    - unzip
-    - fd
-    - github-cli
-    - xorg-server
-    - xorg-xinit
-    - xorg-xsetroot
-    - alsa-utils
-    - xwallpaper
-    - wget
-    - mpv
-    - krita
-    - xclip
-    - flameshot
-    - dmenu
-    - redshift
-    - unclutter
-    - discord
-    - hsetroot
-    - imv
-    - weechat
-    - xdotool
-    - qemu
-    - libvirt
-    - gnome-boxes
-    - filelight
-    - peek
-    - hugo
-    - peek
-    - xsel
-    - sed
-    - encfs
-    - pulseaudio-equalizer-ladspa
-    - trash-cli
+- pacman:
+    name:
+      - man-db
+      - whois
+      - jq
+      - fzf
+      - exa
+      - curl
+      - wget
+      - make
+      - htop
+      - redis
+      - tree
+      - nnn
+      - playerctl
+      - laptop-detect
+      - unzip
+      - fd
+      - github-cli
+      - xorg-server
+      - xorg-xinit
+      - xorg-xsetroot
+      - alsa-utils
+      - xwallpaper
+      - wget
+      - mpv
+      - krita
+      - xclip
+      - flameshot
+      - dmenu
+      - redshift
+      - unclutter
+      - discord
+      - hsetroot
+      - imv
+      - weechat
+      - xdotool
+      - qemu
+      - libvirt
+      - gnome-boxes
+      - filelight
+      - peek
+      - hugo
+      - peek
+      - xsel
+      - sed
+      - encfs
+      - pulseaudio-equalizer-ladspa
+      - trash-cli
 
-aur:
-  name:
-    - xmousepasteblock-git
-    - proselint
-    - flyctl-bin
-    - heroku-cli-bin
-    - enpass-bin
-    - google-chrome
-    - spotify
-    - colorpicker
-    - slack-desktop
+- aur:
+    name:
+      - xmousepasteblock-git
+      - proselint
+      - flyctl-bin
+      - heroku-cli-bin
+      - enpass-bin
+      - google-chrome
+      - spotify
+      - colorpicker
+      - slack-desktop
