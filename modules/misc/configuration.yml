@@ -30,7 +30,6 @@
       - xorg-xsetroot
       - alsa-utils
       - xwallpaper
-      - wget
       - mpv
       - krita
       - xclip
@@ -50,8 +49,6 @@
       - peek
       - hugo
       - peek
-      - xsel
-      - sed
       - encfs
       - pulseaudio-equalizer-ladspa
       - trash-cli
@@ -59,7 +56,6 @@
 - aur:
     name:
       - xmousepasteblock-git
-      - proselint
       - flyctl-bin
       - heroku-cli-bin
       - enpass-bin

@@ -1,14 +1,21 @@
 - aur:
-    name: kakoune-git
+    name:
+      - kakoune-git
+      - proselint
 
 - pacman:
     name:
       - shellcheck
       - ripgrep
+      - sed
+      - xsel
 
 - symlink:
     from: "~/.config/kak"
     to: "kak"
 
+- directory:
+    path: "~/.config/kak/plugins"
+
 - script:
-    command: 'mkdir -p ~/.config/kak/plugins && [[ -d ~/.config/kak/plugins/plug.kak ]] || git clone https://github.com/robertmeta/plug.kak ~/.config/kak/plugins/plug.kak'
+    command: '[[ -d ~/.config/kak/plugins/plug.kak ]] || git clone https://github.com/robertmeta/plug.kak ~/.config/kak/plugins/plug.kak'
