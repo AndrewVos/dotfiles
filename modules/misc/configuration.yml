@@ -29,7 +29,6 @@
       - xorg-xinit
       - xorg-xsetroot
       - alsa-utils
-      - xwallpaper
       - mpv
       - krita
       - xclip

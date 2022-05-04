@@ -1,0 +1,28 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+# From https://gist.github.com/monkeywithacupcake/9e0092733302668b2a4adbbfb1d35748
+
+FONT="Hack-Regular" # convert -list font
+SIZE="3440x1440"
+PHRASE="Waste no more time arguing what a good man should be.\n\nBe one."
+TEXT_SIZE="2000x1000"
+BG="#f3f4f6"
+FG="#374151"
+OUTPUT_PATH="$(mktemp --suffix .png)"
+
+convert \
+  -size "$SIZE" \
+  "xc:$BG" \
+  -size "$TEXT_SIZE" \
+  -fill "$FG" \
+  -background None \
+  -font "$FONT" \
+  -gravity center caption:"$PHRASE" \
+  -strip \
+  -composite \
+  "$OUTPUT_PATH"
+
+echo "$OUTPUT_PATH"
+xwallpaper --center "$OUTPUT_PATH"

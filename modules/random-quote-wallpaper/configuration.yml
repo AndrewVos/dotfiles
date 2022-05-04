@@ -1,0 +1,9 @@
+- pacman:
+    name:
+      - imagemagick
+      - ttf-hack
+
+- symlink:
+    sudo: true
+    from: "/usr/local/bin/random-quote-wallpaper"
+    to: "random-quote-wallpaper"
