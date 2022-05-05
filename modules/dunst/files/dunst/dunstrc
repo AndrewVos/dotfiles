@@ -40,7 +40,7 @@ background = "#141c21"
 foreground = "#93a1a1"
 
 [urgency_normal]
-timeout = 0
+timeout = 10
 background = "#141c21"
 foreground = "#93a1a1"
 
