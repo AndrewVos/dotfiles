@@ -5,6 +5,7 @@
       - git-delta
       - difftastic
       - tig
+      - github-cli
 
 - symlink:
     from: "~/.gitconfig"

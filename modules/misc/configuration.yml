@@ -24,7 +24,6 @@
       - laptop-detect
       - unzip
       - fd
-      - github-cli
       - xorg-server
       - xorg-xinit
       - xorg-xsetroot
