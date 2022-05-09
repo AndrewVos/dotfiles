@@ -27,7 +27,7 @@
 
 [diff]
   algorithm = patience
-	external = difft
+	external = difft --display inline
 
 [push]
   default = simple
