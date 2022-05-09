@@ -278,3 +278,20 @@ define-command \
         }
     }
 }
+
+define-command toggle_checkbox \
+-docstring "Toggle markdown checkbox in current line" %{
+    try %{
+        try %{
+            execute-keys -draft %{
+                <esc><space>;xs-\s\[\s\]<ret><a-i>[rx
+        }} catch %{
+            execute-keys -draft %{
+                <esc><space>;xs-\s\[x\]<ret><a-i>[r<space>
+    }}}
+}
+
+# Toggle checkboxes in markdown with <space>
+hook global WinSetOption filetype=markdown %{
+  map buffer normal <space> ":toggle_checkbox<ret>"
+}
