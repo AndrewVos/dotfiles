@@ -125,6 +125,10 @@ hook global BufSetOption filetype=(javascript|ruby|css|scss|json) %{
   set-option buffer formatcmd ". /opt/asdf-vm/asdf.sh && asdf shell nodejs 16.14.0 && prettier --stdin-filepath=%val{buffile}"
 }
 
+hook global BufSetOption filetype=(svg) %{
+  set-option buffer formatcmd "xmllint --format -"
+}
+
 hook global BufSetOption filetype=(xml) %{
   set-option buffer formatcmd "xmllint --format -"
 }
