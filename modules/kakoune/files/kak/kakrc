@@ -297,5 +297,5 @@ define-command toggle_checkbox \
 
 # Toggle checkboxes in markdown with <space>
 hook global WinSetOption filetype=markdown %{
-  map buffer normal <space> ":toggle_checkbox<ret>"
+  map -docstring "toggle the current checkbox line" global user t " :toggle_checkbox<ret>"
 }
