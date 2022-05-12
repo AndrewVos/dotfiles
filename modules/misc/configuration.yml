@@ -51,6 +51,7 @@
       - pulseaudio-equalizer-ladspa
       - trash-cli
       - calc
+      - fm-bin
 
 - aur:
     name:
