@@ -8,4 +8,5 @@ function write-title() {
 
 write-title 'imv' 'view images'
 write-title 'fd' 'find files'
-
+write-title 'fm' 'file manager'
+write-title 'calc' 'calculator'
