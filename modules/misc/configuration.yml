@@ -50,6 +50,7 @@
       - encfs
       - pulseaudio-equalizer-ladspa
       - trash-cli
+      - calc
 
 - aur:
     name:
