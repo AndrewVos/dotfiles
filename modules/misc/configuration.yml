@@ -51,7 +51,6 @@
       - pulseaudio-equalizer-ladspa
       - trash-cli
       - calc
-      - fm-bin
 
 - aur:
     name:
@@ -63,3 +62,4 @@
       - spotify
       - colorpicker
       - slack-desktop
+      - fm-bin
