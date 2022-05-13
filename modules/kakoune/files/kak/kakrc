@@ -46,6 +46,7 @@ set global grepcmd 'rg --column'
 
 # Disable clippy
 set-option global ui_options ncurses_assistant=off
+set-option global startup_info_version 99999999
 
 # user mappings
 map -docstring "yank the selection into the clipboard" global user y "<a-|> xsel --input --clipboard<ret>"
