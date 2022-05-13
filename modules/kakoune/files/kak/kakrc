@@ -11,33 +11,6 @@ bundle https://github.com/matthias-margush/tug
 bundle https://gitlab.com/Screwtapello/kakoune-state-save
 bundle https://github.com/AndrewVos/kakoune-vlang
 
-# snippets
-bundle https://github.com/occivink/kakoune-snippets
-bundle-config kakoune-snippets %{
-    set-option global snippets_auto_expand false
-    addhl global/ ranges snippets_placeholders
-
-    map global insert '<tab>' "z<a-;>: snippets-expand-or-jump 'tab'<ret>"
-    define-command snippets-expand-or-jump -params 1 %{
-        execute-keys <backspace>
-        try %{
-            snippets-expand-trigger %{
-                set-register / "%opt{snippets_triggers_regex}\z"
-                execute-keys 'hGhs<ret>'
-            }
-        } catch %{
-            snippets-select-next-placeholders
-        } catch %sh{
-            case $1 in
-                ret|tab)
-                    printf "%s\n" "execute-keys -with-hooks <$1>" ;;
-                *)
-                    printf "%s\n" "execute-keys -with-hooks $1" ;;
-            esac
-        }
-    }
-}
-
 bundle-load
 
 colorscheme reeder
