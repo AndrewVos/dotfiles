@@ -1,6 +1,8 @@
 - pacman:
     name:
-      - "bspwm"
+      - bspwm
+      - xorg-xdpyinfo
+      - gawk
 
 - symlink:
     from: "~/.config/bspwm"

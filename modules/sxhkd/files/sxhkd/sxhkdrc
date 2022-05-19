@@ -5,8 +5,14 @@
 super + Return
   alacritty
 
+# super + shift + Return
+#   wm-spawn-terminal-in-cwd
+
+# drop down terminal
 super + shift + Return
-  wm-spawn-terminal-in-cwd
+  xdotool search --onlyvisible --classname Quake windowunmap \
+    || xdotool search --classname Quake windowmap \
+    || alacritty --class Quake
 
 super + space
   rofi -show Menu -dpi 144 -modi Menu:$HOME/.dotfiles/scripts/rofi.py

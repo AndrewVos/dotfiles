@@ -49,5 +49,13 @@ bspc rule --add Slack desktop='^4'
 bspc rule --add spotify desktop='^5'
 bspc rule --add Peek state=floating
 
+SCREEN_WIDTH=$(xdpyinfo | awk '/dimensions/ {print $2}' | cut -d "x" -f 1)
+HALF_SCREEN_WIDTH=$((SCREEN_WIDTH / 2))
+QUAKE_WIDTH=$((SCREEN_WIDTH / 3))
+HALF_QUAKE_WIDTH=$((QUAKE_WIDTH / 2))
+QUAKE_X=$((HALF_SCREEN_WIDTH - HALF_QUAKE_WIDTH))
+
+bspc rule -a Alacritty:Quake sticky=on state=floating rectangle="$QUAKE_WIDTH"x400+"$QUAKE_X"+0
+
 bspc rule --add Enpass --one-shot desktop='^9' focus=off
 enpass &
