@@ -3,7 +3,6 @@
       - git
       - git-lfs
       - git-delta
-      - difftastic
       - tig
       - github-cli
 
