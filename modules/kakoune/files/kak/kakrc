@@ -177,16 +177,13 @@ def run-current-spec \
 
 map global normal <c-t> ': run-current-spec<ret>'
 
-def git-open \
-  -override \
-  -docstring "Open git changed files" \
-  -params 1 \
-  %{
-    edit %arg{@}
-  }
+def git-open -override -docstring "Open git changed files" -params 1 %{ edit %arg{@} }
 alias global g git-open
-complete-command git-open shell-script-candidates %{git status --untracked --porcelain | grep -v '^ D ' | awk '{print ( $(NF) )}'} \
+complete-command git-open shell-script-candidates %{git status --untracked --porcelain | grep -v '^ D ' | awk '{print ( $(NF) )}'}
 
+def git-open-all -override -docstring "Open all git files" -params 1 %{ edit %arg{@} }
+alias global z git-open-all
+complete-command git-open-all shell-script-candidates %{git ls-files --cached --modified | sort | uniq}
 
 # github
 declare-user-mode git
