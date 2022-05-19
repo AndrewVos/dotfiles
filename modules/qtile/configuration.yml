@@ -5,4 +5,3 @@
 - symlink:
     from: "~/.config/qtile"
     to: "qtile"
-
