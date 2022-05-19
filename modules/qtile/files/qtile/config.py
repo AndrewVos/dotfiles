@@ -77,8 +77,7 @@ keys = [
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    Key([mod, "shift"], "q", lazy.spawn("rofi -show Power -dpi 144 -lines 3 -modi Power:~/.dotfiles/scripts/rofi-power.sh"), desc="Shutdown Qtile"),
 ]
 
 groups = [Group(i) for i in "123456789"]
