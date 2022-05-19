@@ -57,6 +57,9 @@ set __fish_git_prompt_color_untrackedfiles red
 # asdf
 source /opt/asdf-vm/asdf.fish
 
+# proj
+~/projects/proj/proj completion fish | source
+
 # ssh-agent
 if test -z (pgrep ssh-agent)
   eval (ssh-agent -c)
