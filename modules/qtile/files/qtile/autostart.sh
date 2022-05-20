@@ -12,6 +12,7 @@ xmousepasteblock &
 hsetroot -solid '#F7FAFC' &
 xsetroot -cursor_name left_ptr &
 unclutter --timeout 1 &
+enpass &
 
 if [[ $(hostnamectl hostname) = "desktop" ]]; then
   # stop autofocusing the camera

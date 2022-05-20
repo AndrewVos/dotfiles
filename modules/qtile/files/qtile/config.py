@@ -93,6 +93,9 @@ keys = [
 
 groups = [Group(i) for i in "123456789"]
 
+# move enpass to group 9
+groups[8].matches = [Match(wm_class='Enpass')]
+
 for i in groups:
     keys.extend(
         [
