@@ -79,6 +79,7 @@ keys = [
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "shift"], "q", lazy.spawn("rofi -show Power -dpi 144 -lines 3 -modi Power:~/.dotfiles/scripts/rofi-power.sh"), desc="Shutdown Qtile"),
+    Key([mod], "n", lazy.spawn("rofi -show Notes -dpi 144 -lines 10 -modi Notes:~/.dotfiles/scripts/rofi-notes.sh")),
     Key([mod, "shift"], "s", lazy.spawn("flameshot gui")),
     Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 5")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 5")),
