@@ -48,7 +48,7 @@ keys = [
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.spawn("rofi -show Menu -dpi 144 -modi Menu:~/.dotfiles/scripts/rofi.py"), desc="Move window focus to other window"),
+    Key([mod], "space", lazy.spawn("rofi -show Menu -modi Menu:~/.dotfiles/scripts/rofi.py"), desc="Move window focus to other window"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
@@ -78,8 +78,8 @@ keys = [
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "shift"], "q", lazy.spawn("rofi -show Power -dpi 144 -lines 3 -modi Power:~/.dotfiles/scripts/rofi-power.sh"), desc="Shutdown Qtile"),
-    Key([mod], "n", lazy.spawn("rofi -show Notes -dpi 144 -lines 10 -modi Notes:~/.dotfiles/scripts/rofi-notes.sh")),
+    Key([mod, "shift"], "q", lazy.spawn("rofi -show Power -lines 3 -modi Power:~/.dotfiles/scripts/rofi-power.sh"), desc="Shutdown Qtile"),
+    Key([mod], "n", lazy.spawn("rofi -show Notes -lines 10 -modi Notes:~/.dotfiles/scripts/rofi-notes.sh")),
     Key([mod, "shift"], "s", lazy.spawn("flameshot gui")),
     Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 5")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 5")),
