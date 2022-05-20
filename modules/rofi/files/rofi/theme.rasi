@@ -1,58 +1,61 @@
 * {
-  background: rgba (0, 0, 0, 70%);
-  background-color: transparent;
-  foreground: #777777;
-  selected-normal-foreground: #ffffff;
-  normal-foreground: var(foreground);
-  alternate-normal-foreground: var(foreground);
-  spacing: 40px;
-  font: "Sudo 20";
-  text-color: var(normal-foreground);
+  font: "Helvetica Neue Regular 20";
+
+  text-color: #242424;
+
+  margin: 0;
+  padding: 0;
+  spacing: 0;
 }
 
 window {
-  fullscreen: true;
-  background-color: var(background);
-}
+  background-color: #F5F5F5;
 
-scrollbar {
-  handle-width: 0px;
-  handle-color: var(selected-normal-foreground);
-}
-
-prompt {
-  enabled: false;
-}
-
-mainbox {
-  spacing: var(spacing);
-  padding: 30%;
-}
-
-listview {
-  scrollbar: false;
-  lines: 3;
-  spacing: var(spacing);
-  fixed-height: true;
-}
-
-element selected.normal {
-  text-color: var(selected-normal-foreground);
-}
-
-element-text {
-  text-color:       inherit;
-  highlight:        inherit;
-  cursor:           inherit;
+  location: center;
+  width: 640;
+  y-offset: -200;
+  border-radius: 8;
+  border: 5px solid;
+  border-color: #61afef;
 }
 
 inputbar {
-  children:[prompt, textbox-prompt-colon, entry, case-indicator];
-  spacing: 2;
+  padding: 12px;
+  spacing: 12px;
+  children: [ entry ];
 }
 
-textbox-prompt-colon {
-  expand: false;
-  str: ":";
-  margin: 0px 0.3em 0em 0em;
+entry, element-text {
+  vertical-align: 0.5;
+}
+
+textbox {
+  padding: 8px 24px;
+}
+
+listview {
+  lines: 10;
+  columns: 1;
+
+  fixed-height: false;
+  border: 1px 0 0;
+}
+
+element {
+  padding: 8px 16px;
+  spacing: 16px;
+}
+
+element selected normal, element selected active {
+  background-color: #0860F2;
+  text-color: #FFFFFF;
+}
+
+element-icon {
+  size: 1em;
+}
+
+element-text {
+  background-color: transparent;
+  text-color: inherit;
 }
