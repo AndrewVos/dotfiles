@@ -108,10 +108,14 @@ for i in groups:
 
 layouts = [
   layout.Columns(
+    wrap_focus_columns = False,
+    wrap_focus_rows = False,
+    wrap_focus_stacks = False,
+    border_on_single = True,
     border_width = 5,
     border_focus = '#61afef',
     border_normal = '#1E2127',
-    margin = 10,
+    margin = 5,
     ),
   layout.Max()
 ]
@@ -124,7 +128,12 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 screens = [
-    Screen( ),
+    Screen(
+      top=bar.Gap(5),
+      bottom=bar.Gap(5),
+      left=bar.Gap(5),
+      right=bar.Gap(5),
+    ),
 ]
 
 # Drag floating layouts.
