@@ -112,6 +112,7 @@ layouts = [
     wrap_focus_rows = False,
     wrap_focus_stacks = False,
     border_on_single = True,
+    insert_position = 1,
     border_width = 5,
     border_focus = '#61afef',
     border_normal = '#1E2127',
