@@ -92,7 +92,7 @@ keys = [
     Key([], "XF86AudioStop", lazy.spawn("playerctl stop")),
 ]
 
-groups = [Group(i) for i in "123456789"]
+groups = [Group(i) for i in "1234567890"]
 
 # move enpass to group 9
 groups[8].matches = [Match(wm_class='Enpass')]
