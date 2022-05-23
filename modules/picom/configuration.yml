@@ -1,5 +1,5 @@
-- pacman:
-    name: picom
+- aur:
+    name: picom-jonaburg-git
 
 - symlink:
     from: "~/.config/picom"
