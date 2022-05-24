@@ -2,8 +2,8 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/vos/.gtkrc-2.0.mine"
-gtk-theme-name="Yaru-light"
-gtk-icon-theme-name="Yaru"
+gtk-theme-name="Nordic"
+gtk-icon-theme-name="Nordic"
 gtk-font-name="Helvetica Neue 12"
 gtk-cursor-theme-name="Yaru"
 gtk-cursor-theme-size=0

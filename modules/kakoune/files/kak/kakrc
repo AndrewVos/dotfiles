@@ -5,6 +5,8 @@ bundle https://codeberg.org/jdugan6240/kak-bundle
 # bundle https://github.com/nesyamun/nord-kakoune
 # bundle https://github.com/Icantjuddle/ayu-kak
 # bundle https://github.com/caksoylar/kakoune-snow
+# bundle https://github.com/luther7/nord-kakoune
+bundle https://github.com/HeavyRain266/tokyonight.kak
 
 bundle https://github.com/h-youhei/kakoune-surround
 bundle https://github.com/matthias-margush/tug
@@ -13,7 +15,7 @@ bundle https://github.com/AndrewVos/kakoune-vlang
 
 bundle-load
 
-colorscheme reeder
+colorscheme tokyonight-storm
 
 set global grepcmd 'rg --column'
 

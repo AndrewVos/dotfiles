@@ -9,7 +9,7 @@ fi
 picom &
 redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq -r '"\(.location.lat):\(.location.lng)"') &
 xmousepasteblock &
-hsetroot -solid '#F7FAFC' &
+hsetroot -solid '#24283b' &
 xsetroot -cursor_name left_ptr &
 unclutter --timeout 1 &
 enpass &
