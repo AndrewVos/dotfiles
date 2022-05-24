@@ -7,6 +7,7 @@ if laptop-detect; then
 fi
 
 picom &
+conky &
 redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq -r '"\(.location.lat):\(.location.lng)"') &
 xmousepasteblock &
 hsetroot -solid '#24283b' &

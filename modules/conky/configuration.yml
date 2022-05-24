@@ -1,0 +1,6 @@
+- pacman:
+    name: conky
+
+- symlink:
+    from: "~/.config/conky"
+    to: "conky"
