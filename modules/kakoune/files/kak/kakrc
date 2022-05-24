@@ -31,6 +31,7 @@ map -docstring "insert the current date" global user d '<a-o>j<!> date "+## %-d 
 # save on pressing enter
 hook global NormalKey <ret> %{
   evaluate-commands %sh{
+    printf "%s\n" "write"
     if [ -n "${kak_opt_formatcmd}" ]; then
       printf "%s\n" "format"
     fi
