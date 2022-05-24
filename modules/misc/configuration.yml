@@ -40,7 +40,7 @@
       - imv
       - weechat
       - xdotool
-      - qemu
+      - qemu-desktop
       - libvirt
       - gnome-boxes
       - filelight
