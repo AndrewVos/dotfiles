@@ -2,6 +2,6 @@ modules/ssh/files/.ssh/id_*
 modules/ssh/files/.ssh/known_hosts*
 modules/ssh/files/.ssh/authorized_keys
 modules/kakoune/files/kak/colors
+modules/kakoune/files/kak/plugins
 modules/fish/files/fish/fish_variables
-modules/kakoune/files/kak/bundle
 modules/qtile/files/qtile/__pycache__/
