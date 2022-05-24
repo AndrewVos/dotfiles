@@ -1,21 +1,19 @@
-source "%val{config}/bundle/plugins/kak-bundle/rc/kak-bundle.kak"
-bundle https://codeberg.org/jdugan6240/kak-bundle
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
+plug "andreyorst/plug.kak" noload
 
-# bundle https://github.com/evanrelf/primer.kak
-# bundle https://github.com/nesyamun/nord-kakoune
-# bundle https://github.com/Icantjuddle/ayu-kak
-# bundle https://github.com/caksoylar/kakoune-snow
-# bundle https://github.com/luther7/nord-kakoune
-bundle https://github.com/HeavyRain266/tokyonight.kak
+plug "evanrelf/primer.kak" theme
+plug "nesyamun/nord-kakoune" theme
+plug "Icantjuddle/ayu-kak" theme
+plug "caksoylar/kakoune-snow" theme
+plug "luther7/nord-kakoune" theme
+plug "HeavyRain266/tokyonight.kak" theme config %{
+    colorscheme tokyonight-storm
+}
 
-bundle https://github.com/h-youhei/kakoune-surround
-bundle https://github.com/matthias-margush/tug
-bundle https://gitlab.com/Screwtapello/kakoune-state-save
-bundle https://github.com/AndrewVos/kakoune-vlang
-
-bundle-load
-
-colorscheme tokyonight-storm
+plug "h-youhei/kakoune-surround"
+plug "matthias-margush/tug"
+plug "https://gitlab.com/Screwtapello/kakoune-state-save.git"
+plug "AndrewVos/kakoune-vlang"
 
 set global grepcmd 'rg --column'
 

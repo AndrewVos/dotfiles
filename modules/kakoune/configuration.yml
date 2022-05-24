@@ -15,10 +15,7 @@
     to: "kak"
 
 - directory:
-    path: "~/.config/kak/bundle"
-
-- directory:
-    path: "~/.config/kak/bundle/plugins"
+    path: "~/.config/kak/plugins"
 
 - script:
-    command: '[[ -d ~/.config/kak/bundle/plugins/kak-bundle ]] || git clone https://codeberg.org/jdugan6240/kak-bundle ~/.config/kak/bundle/plugins/kak-bundle'
+    command: '[[ -d ~/.config/kak/plugins/plug.kak ]] || git clone https://github.com/andreyorst/plug.kak ~/.config/kak/plugins/plug.kak'
