@@ -1,7 +1,8 @@
 * {
   font: "Helvetica Neue Regular 20";
 
-  text-color: #242424;
+  text-color: #a9b1d6;
+  background-color: #24283b;
 
   margin: 0;
   padding: 0;
@@ -9,12 +10,10 @@
 }
 
 window {
-  background-color: #F5F5F5;
-
   location: center;
   width: 640;
   y-offset: -200;
-  border-radius: 8;
+  border-radius: 5;
   border: 5px solid;
   border-color: #61afef;
 }
@@ -47,8 +46,8 @@ element {
 }
 
 element selected normal, element selected active {
-  background-color: #0860F2;
-  text-color: #FFFFFF;
+  background-color: #bb9af728;
+  text-color: #a9b1d6;
 }
 
 element-icon {
