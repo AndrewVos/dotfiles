@@ -1,7 +1,9 @@
 [global]
 monitor = 0
 follow = mouse
-geometry = "500x70-48+48"
+origin = top-right
+offset = 30x30
+frame_width = 5
 indicate_hidden = yes
 shrink = no
 separator_height = 0
@@ -23,28 +25,24 @@ show_indicators = no
 icon_position = off
 sticky_history = yes
 history_length = 20
-browser = /usr/bin/google-chrome -new-tab
+browser = /usr/bin/google-chrome-stable -new-tab
 always_run_script = true
 title = Dunst
 class = Dunst
 
-[shortcuts]
-close = ctrl+space
-close_all = ctrl+shift+space
-history = ctrl+grave
-context = ctrl+shift+period
-
 [urgency_low]
 timeout = 4
-background = "#141c21"
-foreground = "#93a1a1"
+background = "#24283b"
+foreground = "#a9b1d6"
+frame_color =  "#7aa2f7"
 
 [urgency_normal]
 timeout = 10
-background = "#141c21"
-foreground = "#93a1a1"
+background = "#24283b"
+foreground = "#a9b1d6"
+frame_color =  "#7aa2f7"
 
 [urgency_critical]
 timeout = 0
-background = "#141c21"
-foreground = "#93a1a1"
+background = "#BF616A"
+foreground = "#E5E9F0"
