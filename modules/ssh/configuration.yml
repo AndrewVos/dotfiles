@@ -12,7 +12,10 @@
 
 - script:
     command: |
-      INCLUDE_LINE=$(curl --silent https://github.com/AndrewVos.keys)
       FILE_PATH="$HOME/.ssh/authorized_keys"
-      [[ -f "$FILE_PATH" ]] || touch "$FILE_PATH"
-      grep -qxF "$INCLUDE_LINE" "$FILE_PATH" || echo "$INCLUDE_LINE" >> "$FILE_PATH"
+      if [[ ! -f "$FILE_PATH" ]]; then
+        touch "$FILE_PATH"
+
+        INCLUDE_LINE=$(curl --silent https://github.com/AndrewVos.keys)
+        grep -qxF "$INCLUDE_LINE" "$FILE_PATH" || echo "$INCLUDE_LINE" >> "$FILE_PATH"
+      fi
