@@ -39,6 +39,20 @@ hook global NormalKey <ret> %{
   }
 }
 
+# save command state
+hook global KakBegin .* %{
+  state-save-reg-load colon
+  state-save-reg-load pipe
+  state-save-reg-load slash
+}
+
+hook global KakEnd .* %{
+  state-save-reg-save colon
+  state-save-reg-save pipe
+  state-save-reg-save slash
+}
+
+
 # search with c tags
 map global goto s -docstring 'search ctags' %{<esc><a-i>w: ctags-search<ret>}
 
