@@ -3,11 +3,6 @@
       - postgresql
       - postgresql-libs
 
-- service:
-    name: postgresql
-    enable: true
-    start: true
-
 - script:
     command: |
       INITIALIZED_POSTGRES="$HOME/.initialized-postgres"
@@ -20,3 +15,8 @@
         echo "timezone='UTC'" | sudo tee -a /var/lib/postgres/data/postgresql.conf
         touch "$INITIALIZED_POSTGRES"
       fi
+
+- service:
+    name: postgresql
+    enable: true
+    start: true
