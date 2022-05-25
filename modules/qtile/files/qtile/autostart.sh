@@ -7,8 +7,14 @@ if laptop-detect; then
 fi
 
 picom &
-conky &
+
+conky --config ~/.config/conky/time.conf &
+if laptop-detect; then
+  conky --pause 5 --config ~/.config/conky/battery.conf &
+fi
+
 redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq -r '"\(.location.lat):\(.location.lng)"') &
+
 xmousepasteblock &
 hsetroot -solid '#24283b' &
 xsetroot -cursor_name left_ptr &
