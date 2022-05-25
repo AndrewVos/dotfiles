@@ -1,0 +1,18 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+if [ "$#" -eq 0 ]; then
+  echo "Again runs your commands again and again"
+  echo
+  echo "Usage:"
+    echo "  again [command] [arguments...]"
+  exit 1
+fi
+
+while true; do
+  "$@" ||:
+
+  echo "Press any key to run again or [CTRL-c] to quit..."
+  read -n 1 key
+done
