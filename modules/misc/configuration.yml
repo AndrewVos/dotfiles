@@ -25,7 +25,6 @@
       - unzip
       - fd
       - xorg-server
-      - xorg-xinit
       - xorg-xsetroot
       - alsa-utils
       - mpv

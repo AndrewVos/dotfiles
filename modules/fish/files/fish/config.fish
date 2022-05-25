@@ -67,3 +67,10 @@ if test -z (pgrep ssh-agent)
   set -Ux SSH_AGENT_PID $SSH_AGENT_PID
   set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
 end
+
+# startx
+if status is-login
+  if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
+    exec startx -- -keeptty
+  end
+end
