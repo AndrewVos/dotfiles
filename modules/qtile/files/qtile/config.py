@@ -80,7 +80,7 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "shift"], "q", lazy.spawn("rofi -show Power -lines 3 -modi Power:~/.dotfiles/scripts/rofi-power.sh"), desc="Shutdown Qtile"),
     Key([mod], "n", lazy.spawn("rofi -show Notes -lines 10 -modi Notes:~/.dotfiles/scripts/rofi-notes.sh")),
-    Key([mod, "shift"], "s", lazy.spawn("flameshot gui")),
+    Key([mod, "shift"], "s", lazy.spawn("scrot --select --line mode=edge,style=solid,width=5,opacity=255 --freeze --exec 'xclip -selection clipboard -t image/png -i $f && rm $f'")),
     Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 5")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 5")),
     Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
