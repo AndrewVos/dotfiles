@@ -20,6 +20,7 @@ hsetroot -solid '#24283b' &
 xsetroot -cursor_name left_ptr &
 unclutter --timeout 1 &
 enpass &
+dunst &
 
 if [[ $(hostnamectl hostname) = "desktop" ]]; then
   # stop autofocusing the camera
