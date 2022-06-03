@@ -219,6 +219,14 @@ map -docstring 'console' global rails c \
   ': terminal sh -c "rails console"<ret>'
 map -docstring 'rails' global user r ':enter-user-mode rails<ret>'
 
+# https://github.com/alexherbo2/alacritty.kak/blob/master/rc/alacritty.kak
+define-command -override alacritty-terminal-popup -params .. -docstring 'alacritty-terminal-popup [<program>] [<arguments>]: Creates a new terminal as an Alacritty window (class: AlacrittyPopup).' %{
+  nop %sh{
+    alacritty --title=AlacrittyPopup --working-directory "$PWD" --command sh -c 'export KAKOUNE_SESSION=$1 KAKOUNE_CLIENT=$2 && shift 2 && exec "$@"' -- "$kak_session" "$kak_client" "${@:-$SHELL}"
+  }
+}
+complete-command alacritty-terminal-popup shell
+
 # fzf
 def fzf-open \
   -override \
@@ -230,7 +238,7 @@ def fzf-open \
         rm "/tmp/fzf-output.txt"
       fi
     }
-    terminal sh -c "FILE_PATH=$(git ls-files --cached --modified --others --exclude-standard | uniq | fzf); echo $FILE_PATH > /tmp/fzf-output.txt"
+    alacritty-terminal-popup sh -c "FILE_PATH=$(git ls-files --cached --modified --others --exclude-standard | uniq | fzf); echo $FILE_PATH > /tmp/fzf-output.txt" --title "Hello"
     open-fzf-file
   }
 

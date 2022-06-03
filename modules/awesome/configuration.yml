@@ -1,0 +1,14 @@
+- pacman:
+    name:
+      - awesome
+
+- directory:
+    path: ~/.config/awesome
+
+- symlink:
+    from: ~/.config/awesome/rc.lua
+    to: rc.lua
+
+- symlink:
+    from: ~/.config/awesome/autostart.sh
+    to: autostart.sh
