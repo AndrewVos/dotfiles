@@ -501,6 +501,9 @@ awful.rules.rules = {
 
     { rule = { name = "Enpass Assistant" },
       properties = { floating = true, placement = awful.placement.centered } },
+
+    { rule = { class = "Conky" },
+      properties = { border_width = 0 } },
 }
 -- }}}
 
