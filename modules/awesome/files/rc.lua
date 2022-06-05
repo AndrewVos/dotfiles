@@ -301,7 +301,7 @@ awful.rules.rules = {
         instance = {
           "pinentry",
         },
-        class = { }, 
+        class = { },
         -- Note that the name property shown in xprop might be set slightly after creation of the client
         -- and the name shown there might not match defined rules here.
         name = {
@@ -323,6 +323,18 @@ awful.rules.rules = {
 
     { rule = { class = "Conky" },
       properties = { border_width = 0 } },
+
+    {
+       rule_any = {role = {"GtkFileChooserDialog"}},
+       properties = {
+         floating = true,
+         placement = awful.placement.centered,
+         width = awful.screen.focused().geometry.width * 0.55,
+         height = awful.screen.focused().geometry.height * 0.65,
+         x = (awful.screen.focused().geometry.width / 2) - (awful.screen.focused().geometry.width * 0.55) / 2,
+         y = (awful.screen.focused().geometry.height/ 2) - (awful.screen.focused().geometry.height * 0.65) / 2,
+       }
+    }
 }
 
 -- Signal function to execute when a new client appears.
