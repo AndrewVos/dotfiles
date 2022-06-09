@@ -1,0 +1,9 @@
+- pacman:
+    name: flameshot
+
+- directory:
+    path: "~/.config/flameshot"
+
+- symlink:
+    from: "~/.config/flameshot/flameshot.ini"
+    to: "flameshot.ini"

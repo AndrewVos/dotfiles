@@ -51,7 +51,7 @@ editor_cmd = terminal .. " -e " .. editor
 rofi_launch = "rofi -show Menu -modi Menu:~/.dotfiles/scripts/rofi.py"
 rofi_power = "rofi -show Power -lines 3 -modi Power:~/.dotfiles/scripts/rofi-power.sh"
 rofi_notes = "rofi -show Notes -lines 10 -modi Notes:~/.dotfiles/scripts/rofi-notes.sh"
-screenshot = "scrot --select --line mode=edge,style=solid,width=5,opacity=255 --freeze --exec 'xclip -selection clipboard -t image/png -i $f && rm $f'"
+screenshot = "take-screenshot"
 
 modkey = "Mod4"
 
