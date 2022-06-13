@@ -356,3 +356,9 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 awful.spawn.with_shell("~/.config/awesome/autostart.sh")
 awful.spawn.once("enpass")
+
+client.connect_signal("property::urgent", function(c)
+  if c.class == "Google-chrome" then
+    awful.client.urgent.jumpto(false)
+  end
+end)
