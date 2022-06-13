@@ -12,6 +12,7 @@ apps =  {
     'Teams': ['teams'],
     'Enpass': ['enpass'],
     'Sync': [home + '/.dotfiles/scripts/sync'],
+    'Pulls': ['xdg-open', 'https://github.com/pulls'],
 
     'Discord': ['discord'],
     'Krita': ['krita'],
