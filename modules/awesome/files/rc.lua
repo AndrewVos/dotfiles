@@ -307,7 +307,7 @@ awful.rules.rules = {
         name = {
         },
         role = {
-          "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
+          -- "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
       }, properties = { floating = true }},
 
