@@ -49,3 +49,8 @@ write-command 'yarn upgrade-interactive --latest'
 
 write-title 'List installed packages'
 write-command 'pacman -Qqe'
+
+write-title 'Create an alias in fish'
+write-command 'alias g="git"'
+write-command 'funcsave g'
+
