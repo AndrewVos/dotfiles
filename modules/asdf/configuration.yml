@@ -15,10 +15,10 @@
     to: ".default-npm-packages"
 
 - script:
-    command: "asdf plugin list | grep --quiet ruby || asdf plugin install golang"
+    command: "asdf plugin list | grep --quiet ruby || asdf plugin add ruby"
 
 - script:
-    command: "asdf plugin list | grep --quiet nodejs || asdf plugin install golang"
+    command: "asdf plugin list | grep --quiet nodejs || asdf plugin add nodejs"
 
 - script:
-    command: "asdf plugin list | grep --quiet golang || asdf plugin install golang"
+    command: "asdf plugin list | grep --quiet golang || asdf plugin add golang"
