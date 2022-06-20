@@ -4,4 +4,6 @@ IFS=$'\n\t'
 
 killall conky ||:
 conky --config /home/vos/.config/conky/time.conf &
-conky --config /home/vos/.config/conky/battery.conf &
+if laptop-detect; then
+  conky --config /home/vos/.config/conky/battery.conf &
+fi
