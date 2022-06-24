@@ -1,0 +1,7 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+LOCAL_PORT=$1
+
+ssh -R 80:localhost:$LOCAL_PORT nokey@localhost.run
