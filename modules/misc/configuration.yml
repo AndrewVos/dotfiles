@@ -45,7 +45,6 @@
       - filelight
       - peek
       - hugo
-      - peek
       - encfs
       - pulseaudio-equalizer-ladspa
       - trash-cli
