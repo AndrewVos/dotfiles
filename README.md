@@ -38,17 +38,18 @@ Add this to your network config in `/etc/systemd/network/20-{wlan,ethernet}.netw
 MulticastDNS=yes
 ```
 
+## Install pj
+
+https://github.com/AndrewVos/pj
+
 ## Install dotfiles
 
 ```bash
 git clone https://github.com/AndrewVos/dotfiles ~/.dotfiles
 cd ~/.dotfiles
-./install
+
+pj apply
 ```
-
-## Install extras
-
-Check in `./extras` for any per-machine stuff you might need.
 
 ## Upgrading packages
 
