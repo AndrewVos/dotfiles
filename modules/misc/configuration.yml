@@ -32,7 +32,6 @@
       - krita
       - xclip
       - flameshot
-      - dmenu
       - redshift
       - unclutter
       - discord
@@ -45,7 +44,6 @@
       - gnome-boxes
       - filelight
       - peek
-      - hugo
       - encfs
       - pulseaudio-equalizer-ladspa
       - trash-cli
