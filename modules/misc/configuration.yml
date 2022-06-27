@@ -1,10 +1,7 @@
+# Allow user to shutdown/reboot
 - group:
     user: "vos"
     name: power
-
-- group:
-    user: "vos"
-    name: video
 
 - pacman:
     name:
