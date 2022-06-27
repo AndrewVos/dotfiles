@@ -42,7 +42,6 @@
       - qemu-desktop
       - libvirt
       - gnome-boxes
-      - filelight
       - peek
       - encfs
       - pulseaudio-equalizer-ladspa

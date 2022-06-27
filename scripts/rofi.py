@@ -20,7 +20,6 @@ apps =  {
     'Spotify': ['spotify'],
     'Record screen': ['peek'],
     'Boxes': ['gnome-boxes'],
-    'Disk Usage': ['filelight'],
     'Equalizer': ['pulseaudio-equalizer-gtk']
 }
 
