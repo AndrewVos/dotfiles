@@ -318,6 +318,12 @@ awful.rules.rules = {
       except = { name = "Enpass Assistant" },
       properties = { tag = "8" } },
 
+    { rule = { instance = "microsoft teams - preview" },
+      properties = { tag = "4" } },
+
+    { rule = { instance = "slack" },
+      properties = { tag = "4" } },
+
     { rule = { name = "Enpass Assistant" },
       properties = { floating = true, placement = awful.placement.centered } },
 
