@@ -1,7 +1,0 @@
-- pacman:
-    name:
-      - qtile
-
-- symlink:
-    from: "~/.config/qtile"
-    to: "qtile"
