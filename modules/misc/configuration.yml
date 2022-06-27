@@ -14,6 +14,7 @@
       - fzf
       - exa
       - curl
+      - fx
       - wget
       - make
       - htop
