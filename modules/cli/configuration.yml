@@ -1,0 +1,34 @@
+- pacman:
+    name:
+      - man-db
+      - whois
+      - jq
+      - fzf
+      - exa
+      - curl
+      - fx
+      - wget
+      - make
+      - htop
+      - tree
+      - nnn
+      - playerctl
+      - laptop-detect
+      - unzip
+      - fd
+      - xclip
+      - redshift
+      - unclutter
+      - hsetroot
+      - imv
+      - encfs
+      - trash-cli
+      - calc
+
+- aur:
+    name:
+      - xmousepasteblock-git
+      - flyctl-bin
+      - heroku-cli-bin
+      - fm-bin
+      - ngrok
