@@ -16,6 +16,7 @@ apps =  {
 
     'Discord': ['discord'],
     'Krita': ['krita'],
+    'Inkscape': ['inkscape'],
     'Colour Picker': ['pick-a-colour'],
     'Spotify': ['spotify'],
     'Record screen': ['peek'],
