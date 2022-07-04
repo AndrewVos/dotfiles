@@ -175,8 +175,8 @@ globalkeys = gears.table.join(
     awful.key({ }, "XF86AudioStop",        function () os.execute("playerctl stop") end),
 
     -- Display
-    awful.key({ }, "XF86MonBrightnessUp",  function () os.execute("xbacklight -inc 5") end),
-    awful.key({ }, "XF86MonBrightnessDown",function () os.execute("xbacklight -dec 5") end)
+    awful.key({ }, "XF86MonBrightnessUp",  function () os.execute("brightnessctl set 5+") end),
+    awful.key({ }, "XF86MonBrightnessDown",function () os.execute("brightnessctl set 5-") end)
 )
 
 clientkeys = gears.table.join(

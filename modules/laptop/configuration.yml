@@ -1,3 +1,6 @@
+- aur:
+    name: brightnessctl
+
 - symlink:
     from: ~/.Xresources.laptop
     to: .Xresources.laptop
@@ -5,10 +8,6 @@
 - directory:
     sudo: true
     path: /etc/X11/xorg.conf.d
-
-- group:
-    user: "vos"
-    name: video
 
 # Miscellaneous touchpad settings
 - symlink:
@@ -21,9 +20,3 @@
     sudo: true
     from: "/etc/X11/xorg.conf.d/00-keyboard.conf"
     to: "00-keyboard.conf"
-
-# Allow video group to control backlight
-- symlink:
-    sudo: true
-    from: "/etc/udev/rules.d/90-backlight.rules"
-    to: "90-backlight.rules"
