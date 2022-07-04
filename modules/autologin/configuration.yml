@@ -1,3 +1,4 @@
+tasks:
 - directory:
     sudo: true
     path: /etc/systemd/system/getty@tty1.service.d

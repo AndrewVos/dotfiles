@@ -1,3 +1,4 @@
+tasks:
 # Allow user to shutdown/reboot
 - group:
     user: "vos"

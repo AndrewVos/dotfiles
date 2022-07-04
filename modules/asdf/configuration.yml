@@ -1,3 +1,4 @@
+tasks:
 - aur:
     name:
       - asdf-vm
