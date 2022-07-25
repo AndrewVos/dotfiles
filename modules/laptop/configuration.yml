@@ -15,9 +15,3 @@ tasks:
     sudo: true
     from: "/etc/X11/xorg.conf.d/90-touchpad.conf"
     to: "90-touchpad.conf"
-
-# Switch capslock with ctrl
-- symlink:
-    sudo: true
-    from: "/etc/X11/xorg.conf.d/00-keyboard.conf"
-    to: "00-keyboard.conf"
