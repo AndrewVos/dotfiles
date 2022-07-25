@@ -76,3 +76,4 @@ if status is-login
 end
 
 pj completion fish | source
+p list
