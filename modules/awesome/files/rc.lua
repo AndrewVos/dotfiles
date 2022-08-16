@@ -327,6 +327,9 @@ awful.rules.rules = {
     { rule = { name = "Enpass Assistant" },
       properties = { floating = true, placement = awful.placement.centered } },
 
+    { rule = { name = "Microsoft Teams Notification" },
+      properties = { floating = true, placement = awful.placement.bottom_right } },
+
     { rule = { class = "Conky" },
       properties = { border_width = 0 } },
 
