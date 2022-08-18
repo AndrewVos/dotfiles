@@ -19,7 +19,6 @@ tasks:
       - qemu-desktop
       - libvirt
       - gnome-boxes
-      - peek
       - pulseaudio-equalizer-ladspa
       - inkscape
 

@@ -19,7 +19,7 @@ apps =  {
     'Inkscape': ['inkscape'],
     'Colour Picker': ['pick-a-colour'],
     'Spotify': ['spotify'],
-    'Record screen': ['peek'],
+    'Record screen': ['record-screen'],
     'Boxes': ['gnome-boxes'],
     'Equalizer': ['pulseaudio-equalizer-gtk']
 }

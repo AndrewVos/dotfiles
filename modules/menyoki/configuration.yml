@@ -1,0 +1,5 @@
+tasks:
+- pacman:
+    name:
+    - menyoki
+    - slop
