@@ -317,18 +317,17 @@ awful.rules.rules = {
     { rule = { class = "Enpass" },
       except = { name = "Enpass Assistant" },
       properties = { tag = "8" } },
-
-    { rule = { instance = "microsoft teams - preview" },
-      properties = { tag = "5" } },
-
-    { rule = { instance = "slack" },
-      properties = { tag = "5" } },
-
     { rule = { name = "Enpass Assistant" },
       properties = { floating = true, placement = awful.placement.centered } },
 
+    { rule = { instance = "microsoft teams - preview" },
+      except = { name = "Microsoft Teams Notification" },
+      properties = { tag = "5" } },
     { rule = { name = "Microsoft Teams Notification" },
       properties = { floating = true, placement = awful.placement.bottom_right } },
+
+    { rule = { instance = "slack" },
+      properties = { tag = "5" } },
 
     { rule = { class = "Conky" },
       properties = { border_width = 0 } },
