@@ -17,7 +17,7 @@ tasks:
 - aur:
     name:
       - ttf-sudo
-      - helvetica-neue
+      - otf-helvetica-neue
 
 - symlink:
     sudo: true
