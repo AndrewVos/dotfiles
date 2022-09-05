@@ -84,9 +84,6 @@ map global goto p '<esc>: grep-previous-match<ret>' -docstring 'previous grep ma
 hook global WinSetOption filetype=sh %{
   set-option window lintcmd "shellcheck -fgcc -Cnever"
 }
-hook global WinSetOption filetype=(markdown|plain) %{
-  set-option window lintcmd "proselint"
-}
 
 hook global WinSetOption filetype=ruby %{
   set-option window lintcmd 'rubocop -l --format emacs'

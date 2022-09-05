@@ -2,7 +2,6 @@ tasks:
 - aur:
     name:
       - kakoune-git
-      - proselint
 
 - pacman:
     name:
