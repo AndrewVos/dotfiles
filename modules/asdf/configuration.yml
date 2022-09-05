@@ -1,7 +1,7 @@
 tasks:
 - aur:
     name:
-      - asdf-vm
+      - asdf-vm-git
 
 - symlink:
     from: "~/.asdfrc"
