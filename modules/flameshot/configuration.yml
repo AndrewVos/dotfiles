@@ -1,10 +1,10 @@
 tasks:
 - pacman:
     name: flameshot
-
 - directory:
-    path: "~/.config/flameshot"
-
+    path: ~/.config
+- directory:
+    path: ~/.config/flameshot
 - symlink:
-    from: "~/.config/flameshot/flameshot.ini"
-    to: "flameshot.ini"
+    from: ~/.config/flameshot/flameshot.ini
+    to: flameshot.ini

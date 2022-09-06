@@ -1,7 +1,8 @@
 tasks:
 - pacman:
     name: alacritty
-
+- directory:
+    path: ~/.config
 - symlink:
-    from: "~/.config/alacritty"
-    to: "alacritty"
+    from: ~/.config/alacritty
+    to: alacritty

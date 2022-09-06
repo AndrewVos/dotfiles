@@ -1,21 +1,20 @@
 tasks:
 - aur:
     name:
-      - kakoune-git
-
+    - kakoune-git
 - pacman:
     name:
-      - shellcheck
-      - ripgrep
-      - sed
-      - xsel
-
-- symlink:
-    from: "~/.config/kak"
-    to: "kak"
-
+    - shellcheck
+    - ripgrep
+    - sed
+    - xsel
 - directory:
-    path: "~/.config/kak/plugins"
-
+    path: ~/.config
+- symlink:
+    from: ~/.config/kak
+    to: kak
+- directory:
+    path: ~/.config/kak/plugins
 - script:
-    command: '[[ -d ~/.config/kak/plugins/plug.kak ]] || git clone https://github.com/andreyorst/plug.kak ~/.config/kak/plugins/plug.kak'
+    command: '[[ -d ~/.config/kak/plugins/plug.kak ]] || git clone https://github.com/andreyorst/plug.kak
+      ~/.config/kak/plugins/plug.kak'

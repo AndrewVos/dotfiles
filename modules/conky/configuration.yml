@@ -1,7 +1,8 @@
 tasks:
 - pacman:
     name: conky
-
+- directory:
+    path: ~/.config
 - symlink:
-    from: "~/.config/conky"
-    to: "conky"
+    from: ~/.config/conky
+    to: conky

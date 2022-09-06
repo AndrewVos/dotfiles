@@ -1,10 +1,11 @@
 tasks:
 - pacman:
     name: fish
-
+- directory:
+    path: ~/.config
 - symlink:
-    from: "~/.config/fish"
-    to: "fish"
-
+    from: ~/.config/fish
+    to: fish
 - script:
-    command: '[[ "$SHELL" = /usr/bin/fish ]] || sudo usermod --shell /usr/bin/fish "$USER"'
+    command: '[[ "$SHELL" = /usr/bin/fish ]] || sudo usermod --shell /usr/bin/fish
+      "$USER"'
