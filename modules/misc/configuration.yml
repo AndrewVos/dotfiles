@@ -21,6 +21,7 @@ tasks:
       - gnome-boxes
       - pulseaudio-equalizer-ladspa
       - inkscape
+      - pavucontrol
 
 - aur:
     name:
