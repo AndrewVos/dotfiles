@@ -23,3 +23,11 @@ tasks:
 
 - script:
     command: "asdf plugin list | grep --quiet golang || asdf plugin add golang"
+
+# install a default nodejs
+- script:
+    command: "VERSION=18.8.0; asdf list nodejs | grep --quiet $VERSION || asdf install nodejs $VERSION"
+
+# install a default ruby
+- script:
+    command: "VERSION=3.1.2; asdf list ruby | grep --quiet $VERSION || asdf install ruby $VERSION"
