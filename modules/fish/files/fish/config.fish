@@ -1,8 +1,8 @@
 set fish_greeting
 
-set -Ux EDITOR kak
-set -Ux BROWSER google-chrome-stable
-set -Ux _JAVA_AWT_WM_NONREPARENTING 1
+set -gx EDITOR helix
+set -gx BROWSER google-chrome-stable
+set -gx _JAVA_AWT_WM_NONREPARENTING 1
 
 fish_add_path $HOME/.dotfiles/scripts
 fish_add_path /usr/local/go/bin
