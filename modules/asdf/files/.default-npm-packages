@@ -1,6 +1,4 @@
 yarn
-eslint
-prettier
 typescript
 typescript-language-server
 vscode-langservers-extracted
