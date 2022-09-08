@@ -1,0 +1,15 @@
+tasks:
+- pacman:
+    name: helix
+
+- directory:
+    path: /home/vos/.config
+- directory:
+    path: /home/vos/.config/helix/
+
+- symlink:
+    from: /home/vos/.config/helix/config.toml
+    to: config.toml
+- symlink:
+    from: /home/vos/.config/helix/languages.toml
+    to: languages.toml
