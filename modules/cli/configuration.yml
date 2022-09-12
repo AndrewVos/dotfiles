@@ -25,6 +25,7 @@ tasks:
       - encfs
       - trash-cli
       - calc
+      - glow
 
 - aur:
     name:
