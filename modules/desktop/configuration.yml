@@ -1,0 +1,4 @@
+tasks:
+- symlink:
+    from: ~/.Xresources.desktop
+    to: .Xresources.desktop

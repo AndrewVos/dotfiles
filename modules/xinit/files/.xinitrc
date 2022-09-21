@@ -14,6 +14,8 @@ if [[ $(hostnamectl hostname) = "desktop" ]]; then
   # delay shutting down the monitor
   xset s 3600 3600
   xset -dpms
+  
+  xrdb -merge "$HOME/.Xresources.desktop"
 fi
 
 redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq -r '"\(.location.lat):\(.location.lng)"') &
