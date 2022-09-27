@@ -54,3 +54,5 @@ write-title 'Create an alias in fish'
 write-command 'alias g="git"'
 write-command 'funcsave g'
 
+write-title 'Open a url in alacritty'
+write-command 'ctrl+shift+space and then jk to select an link and <return> to open'
