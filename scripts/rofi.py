@@ -11,7 +11,7 @@ apps =  {
     'Slack': ['slack'],
     'Teams': ['teams'],
     'Enpass': ['enpass'],
-    'Sync': [home + '/.dotfiles/scripts/sync'],
+    'Sync': [home + '/.dotfiles/scripts/sync-documents'],
     'Pulls': ['xdg-open', 'https://github.com/pulls'],
 
     'Discord': ['discord'],
