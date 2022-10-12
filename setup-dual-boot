@@ -6,11 +6,5 @@ if [[ ! -d /boot/EFI/Microsoft ]]; then
   sudo mount /dev/sdb2 /mnt
   sudo cp -r /mnt/EFI/Microsoft/ /boot/EFI/Microsoft
   sudo umount /mnt
-
-  if [[ ! -f /boot/loader/entries/windows.conf ]]; then
-    echo "title Windows" | sudo tee -a /boot/loader/entries/windows.conf
-    echo "efi /EFI/Microsoft/Boot/bootmgfw.efi" | sudo tee -a /boot/loader/entries/windows.conf
-  fi
-
   sudo bootctl update
 fi
