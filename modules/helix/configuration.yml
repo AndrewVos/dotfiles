@@ -2,6 +2,9 @@ tasks:
 - pacman:
     name: helix
 
+- aur:
+    name: marksman-bin
+
 - directory:
     path: /home/vos/.config
 - directory:
