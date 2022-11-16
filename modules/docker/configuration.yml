@@ -1,0 +1,11 @@
+tasks:
+- pacman:
+    name:
+    - docker
+- group:
+    name: docker
+    user: vos
+- service:
+    enable: true
+    name: docker.service
+    start: true
