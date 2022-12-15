@@ -320,6 +320,9 @@ awful.rules.rules = {
     { rule = { name = "Enpass Assistant" },
       properties = { floating = true, placement = awful.placement.centered } },
 
+    { rule = { name = "video0 - mpv" },
+      properties = { floating = true, placement = awful.placement.centered, ontop = true } },
+
     { rule = { instance = "microsoft teams - preview" },
       except = { name = "Microsoft Teams Notification" },
       properties = { tag = "5" } },
