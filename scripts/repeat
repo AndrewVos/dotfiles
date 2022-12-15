@@ -5,4 +5,5 @@ IFS=$'\n\t'
 while :
 do
   "$@"
+  sleep 1
 done
