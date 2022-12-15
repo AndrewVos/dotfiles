@@ -21,6 +21,7 @@ apps =  {
     'Spotify': ['spotify'],
     'Record screen': ['record-screen'],
     'Boxes': ['gnome-boxes'],
+    'Mirror': ['mirror'],
     'Equalizer': ['pulseaudio-equalizer-gtk']
 }
 

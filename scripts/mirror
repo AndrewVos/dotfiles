@@ -1,0 +1,5 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+mpv --x11-name=mpv-floating /dev/video0
