@@ -1,8 +1,0 @@
-tasks:
-- pacman:
-    name:
-    - shairport-sync
-- service:
-    name: shairport-sync.service
-    enable: true
-    start: true
