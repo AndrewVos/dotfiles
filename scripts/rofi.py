@@ -19,6 +19,7 @@ apps =  {
     'Inkscape': ['inkscape'],
     'Colour Picker': ['pick-a-colour'],
     'Spotify': ['spotify'],
+    'Cider': ['cider'],
     'Record screen': ['record-screen'],
     'Boxes': ['gnome-boxes'],
     'Mirror': ['mirror'],
