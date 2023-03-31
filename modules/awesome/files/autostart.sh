@@ -9,6 +9,6 @@ if laptop-detect; then
 fi
 
 if [[ $(hostnamectl hostname) = "desktop" ]]; then
-  teams &
-  slack &
+  # teams &
+  # slack &
 fi
