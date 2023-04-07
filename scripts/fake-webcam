@@ -1,6 +1,0 @@
-#!/bin/bash
-set -euo pipefail
-IFS=$'\n\t'
-
-sudo modprobe v4l2loopback devices=1 max_buffers=2 exclusive_caps=1 card_label="VirtualCam #0"
-ffmpeg -re -i  ~/movie.mp4 -f v4l2 /dev/video4

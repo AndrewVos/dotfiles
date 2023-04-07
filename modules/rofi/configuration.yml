@@ -1,9 +1,0 @@
-tasks:
-- pacman:
-    name:
-    - rofi
-- directory:
-    path: ~/.config
-- symlink:
-    from: ~/.config/rofi
-    to: rofi

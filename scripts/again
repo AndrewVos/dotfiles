@@ -6,7 +6,7 @@ if [ "$#" -eq 0 ]; then
   echo "Again runs your commands again and again"
   echo
   echo "Usage:"
-    echo "  again [command] [arguments...]"
+  echo "  again [command] [arguments...]"
   exit 1
 fi
 
@@ -18,7 +18,7 @@ function wait-for-key() {
 }
 
 while true; do
-  "$@" ||:
+  "$@" || :
 
   echo "Press <Enter> to go again or [CTRL-c] to quit..."
   wait-for-key

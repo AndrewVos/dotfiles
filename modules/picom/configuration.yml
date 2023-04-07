@@ -1,8 +1,0 @@
-tasks:
-- aur:
-    name: picom-jonaburg-git
-- directory:
-    path: ~/.config
-- symlink:
-    from: ~/.config/picom
-    to: picom

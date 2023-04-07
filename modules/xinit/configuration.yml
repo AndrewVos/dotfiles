@@ -1,8 +1,0 @@
-tasks:
-- pacman:
-    name:
-      - xorg-xinit
-
-- symlink:
-    from: "~/.xinitrc"
-    to: ".xinitrc"

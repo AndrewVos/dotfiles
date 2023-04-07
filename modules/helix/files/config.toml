@@ -1,5 +1,0 @@
-theme = "boo_berry"
-
-[editor.cursor-shape]
-insert = "bar"
-normal = "block"

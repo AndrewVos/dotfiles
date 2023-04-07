@@ -1,8 +1,0 @@
-tasks:
-- pacman:
-    name: syncthing
-
-- service:
-    name: syncthing@vos
-    start: true
-    enable: true

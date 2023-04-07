@@ -1,4 +1,0 @@
-tasks:
-- pacman:
-    name:
-    - nvidia

@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-set -euo pipefail
-IFS=$'\n\t'
-
-# List files that have the most changes.
-# These files usually are wanting some sort of refactoring.
-git log --pretty=format: --name-only | sort | uniq -c | sort -rg | head -30

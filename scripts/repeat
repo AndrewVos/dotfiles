@@ -1,9 +1,0 @@
-#!/bin/bash
-set -euo pipefail
-IFS=$'\n\t'
-
-while :
-do
-  "$@"
-  sleep 1
-done

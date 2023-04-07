@@ -1,8 +1,0 @@
-tasks:
-- pacman:
-    name: dunst
-- directory:
-    path: ~/.config
-- symlink:
-    from: ~/.config/dunst
-    to: dunst

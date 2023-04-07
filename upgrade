@@ -1,9 +1,0 @@
-#!/bin/bash
-set -euo pipefail
-IFS=$'\n\t'
-
-sudo pacman -Sy archlinux-keyring
-
-yay -Syu
-
-asdf plugin update --all

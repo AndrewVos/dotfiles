@@ -1,5 +1,0 @@
-configuration {
-  terminal: "alacritty";
-}
-
-@theme "theme"
