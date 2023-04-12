@@ -53,6 +53,20 @@ function apt-uninstall() {
     fi
 }
 
+function file-has-line() {
+    FILE="$1"
+    LINE="$2"
+
+    grep -qxF "$LINE" "$FILE"
+}
+
+function sudo-add-line-to-file() {
+    FILE="$1"
+    LINE="$2"
+
+    file-has-line "$FILE" "$LINE" || echo "$LINE" | sudo tee -a "$FILE"
+}
+
 apt-install git
 apt-install curl
 apt-install snapd
@@ -62,4 +76,12 @@ snap-install-classic code
 apt-install fonts-liberation
 apt-install-deb "google-chrome-stable" "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 snap-install discord
-snap-install enpass
+
+if ! apt-installed "enpass"; then
+    sudo-add-line-to-file "/etc/apt/sources.list.d/enpass.list" "deb https://apt.enpass.io/ stable main"
+    if [[ ! -f " /etc/apt/trusted.gpg.d/enpass.asc" ]]; then
+        wget -O - https://apt.enpass.io/keys/enpass-linux.key | sudo tee /etc/apt/trusted.gpg.d/enpass.asc
+    fi
+    sudo apt update -y
+    apt-install enpass
+fi
