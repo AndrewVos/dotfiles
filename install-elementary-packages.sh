@@ -1,6 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 IFS=$'\n\t'
+source ./helpers.sh
 
 apt-install git
 apt-install curl

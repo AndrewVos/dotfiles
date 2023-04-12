@@ -1,7 +1,6 @@
 #!/bin/bash
 set -euo pipefail
 IFS=$'\n\t'
-
 source ./helpers.sh
 
 if [[ "$SHELL" = "/bin/bash" ]]; then
