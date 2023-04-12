@@ -12,4 +12,3 @@ stow git
 stow asdf
 
 ./install-asdf.sh
-./install-scripts.sh
