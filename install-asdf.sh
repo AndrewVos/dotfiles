@@ -2,13 +2,6 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-function add-line-to-file() {
-    FILE="$1"
-    LINE="$2"
-
-    grep -qxF "$LINE" "$FILE" || echo "$LINE" >>"$FILE"
-}
-
 if [ ! -d "$HOME/.asdf" ]; then
     git clone "https://github.com/asdf-vm/asdf.git" "$HOME/.asdf" --branch v0.11.3
 fi

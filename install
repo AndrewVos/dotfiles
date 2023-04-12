@@ -2,6 +2,8 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+source ./helpers.sh
+
 if [[ $OSTYPE == 'darwin'* ]]; then
     ./install-osx-packages.sh
 elif lsb_release --description | grep "elementary OS" --silent; then
