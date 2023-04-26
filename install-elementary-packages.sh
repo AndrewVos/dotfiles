@@ -7,6 +7,7 @@ apt-install git
 apt-install curl
 apt-install snapd
 apt-install stow
+apt-install fonts-hack-ttf
 apt-uninstall io.elementary.code
 snap-install-classic code
 apt-install fonts-liberation
