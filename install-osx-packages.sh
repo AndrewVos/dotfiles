@@ -9,7 +9,7 @@ brew-install font-hack
 
 brew-install-cask discord
 brew-install-cask visual-studio-code
-brew install-cask tomatobar
+brew-install-cask tomatobar
 
 brew-tap homebrew/cask-drivers
 brew-install-cask cameracontroller
