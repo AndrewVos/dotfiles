@@ -12,3 +12,4 @@ stow git
 stow asdf
 
 ./install-asdf.sh
+./install-postgres.sh
