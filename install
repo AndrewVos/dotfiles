@@ -6,6 +6,11 @@ if [[ $OSTYPE == 'darwin'* ]]; then
     ./install-osx-packages.sh
 elif lsb_release --description | grep "elementary OS" --silent; then
     ./install-elementary-packages.sh
+elif lsb_release --description | grep "Ubuntu 24.04" --silent; then
+    ./install-ubuntu-packages.sh
+else
+    echo "This OS is not supported"
+    exit 1
 fi
 
 stow git
