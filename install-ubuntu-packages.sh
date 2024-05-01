@@ -9,6 +9,7 @@ apt-install stow
 apt-install fonts-hack-ttf
 apt-install gnome-tweaks
 snap-install-classic code
+snap-install discord
 
 if ! apt-installed "enpass"; then
     sudo-add-line-to-file "/etc/apt/sources.list.d/enpass.list" "deb https://apt.enpass.io/ stable main"
