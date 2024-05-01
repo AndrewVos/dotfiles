@@ -7,5 +7,6 @@ apt-install git
 apt-install curl
 apt-install stow
 apt-install fonts-hack-ttf
+apt-install gnome-tweaks
 snap-install-classic code
 snap-install enpass
