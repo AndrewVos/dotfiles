@@ -17,6 +17,7 @@ elif [[ "$SHELL" = "/bin/zsh" ]]; then
     . "$HOME/.asdf/asdf.sh"
 fi
 
+# nodejs
 asdf plugin list | grep --quiet nodejs || asdf plugin add nodejs
 NODEJS_VERSION="19.8.1"
 asdf list nodejs | grep --quiet "$NODEJS_VERSION" || asdf install nodejs "$NODEJS_VERSION"
@@ -38,6 +39,28 @@ apt-install libgdbm-dev
 apt-install libdb-dev
 apt-install uuid-dev
 
+# ruby
 asdf plugin list | grep --quiet ruby || asdf plugin add ruby
 RUBY_VERSION="3.3.0"
 asdf list ruby | grep --quiet "$RUBY_VERSION" || asdf install ruby "$RUBY_VERSION"
+
+# python requirements
+apt-install build-essential
+apt-install libssl-dev
+apt-install zlib1g-dev
+apt-install libbz2-dev
+apt-install libreadline-dev
+apt-install libsqlite3-dev
+apt-install curl
+apt-install libncurses-dev
+apt-install xz-utils
+apt-install tk-dev
+apt-install libxml2-dev
+apt-install libxmlsec1-dev
+apt-install libffi-dev
+apt-install liblzma-dev
+
+# python
+asdf plugin list | grep --quiet python || asdf plugin add python
+PYTHON_VERSION="3.12.3"
+asdf list python | grep --quiet "$PYTHON_VERSION" || asdf install python "$PYTHON_VERSION"
