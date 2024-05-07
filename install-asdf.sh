@@ -28,12 +28,12 @@ apt-install build-essential
 apt-install rustc
 apt-install libssl-dev
 apt-install libyaml-dev
-apt-install libreadline6-dev
+apt-install libreadline-dev
 apt-install zlib1g-dev
 apt-install libgmp-dev
-apt-install libncurses5-dev
+apt-install libncurses-dev
 apt-install libffi-dev
-apt-install libgdbm6
+apt-install libgdbm6t64
 apt-install libgdbm-dev
 apt-install libdb-dev
 apt-install uuid-dev
