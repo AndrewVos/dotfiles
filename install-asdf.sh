@@ -64,3 +64,12 @@ apt-install liblzma-dev
 asdf plugin list | grep --quiet python || asdf plugin add python
 PYTHON_VERSION="3.12.3"
 asdf list python | grep --quiet "$PYTHON_VERSION" || asdf install python "$PYTHON_VERSION"
+
+# golang
+asdf plugin list | grep --quiet golang || asdf plugin add golang
+GOLANG_VERSION="1.19"
+asdf list golang | grep --quiet "$GOLANG_VERSION" || asdf install golang "$GOLANG_VERSION"
+if [[ "$SHELL" = "/bin/zsh" ]]; then
+    add-line-to-file "$HOME/.zshrc" '. "$HOME/.asdf/plugins/golang/set-env.zsh"'
+    . "$HOME/.asdf/plugins/golang/set-env.zsh"
+fi
