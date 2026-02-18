@@ -2,3 +2,12 @@
 
 [aws]
 disabled = true
+
+[nodejs]
+disabled = true
+
+[package]
+disabled = true
+
+[ruby]
+disabled = true
