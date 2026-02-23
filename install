@@ -72,5 +72,6 @@ stow git
 stow starship
 stow ghostty
 stow nvim
+stow aerospace
 
 # mise install
