@@ -2,6 +2,11 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+BREW_FORMULAE_CACHE=""
+BREW_CASKS_CACHE=""
+BREW_FORMULAE_CACHE_LOADED=0
+BREW_CASKS_CACHE_LOADED=0
+
 function file-has-line() {
     FILE="$1"
     LINE="$2"
@@ -28,6 +33,28 @@ function brew-installed() {
     brew list "$PACKAGE" >/dev/null 2>&1
 }
 
+function brew-formula-installed() {
+    PACKAGE="$1"
+
+    if [ "$BREW_FORMULAE_CACHE_LOADED" -eq 0 ]; then
+        BREW_FORMULAE_CACHE="$(brew list --formula 2>/dev/null || true)"
+        BREW_FORMULAE_CACHE_LOADED=1
+    fi
+
+    grep -qxF "$PACKAGE" <<<"$BREW_FORMULAE_CACHE"
+}
+
+function brew-cask-installed() {
+    PACKAGE="$1"
+
+    if [ "$BREW_CASKS_CACHE_LOADED" -eq 0 ]; then
+        BREW_CASKS_CACHE="$(brew list --cask 2>/dev/null || true)"
+        BREW_CASKS_CACHE_LOADED=1
+    fi
+
+    grep -qxF "$PACKAGE" <<<"$BREW_CASKS_CACHE"
+}
+
 function brew-tapped() {
     TAP="$1"
     brew tap | grep -qxF "$TAP"
@@ -39,11 +66,29 @@ function brew-tap() {
 }
 
 function brew-install() {
-    PACKAGE="$1"
-    brew-installed "$PACKAGE" || brew install "$PACKAGE"
+    PACKAGES=("$@")
+    MISSING=()
+
+    for PACKAGE in "${PACKAGES[@]}"; do
+        brew-formula-installed "$PACKAGE" || MISSING+=("$PACKAGE")
+    done
+
+    if [ "${#MISSING[@]}" -gt 0 ]; then
+        brew install "${MISSING[@]}"
+        BREW_FORMULAE_CACHE_LOADED=0
+    fi
 }
 
 function brew-install-cask() {
-    PACKAGE="$1"
-    brew-installed "$PACKAGE" || brew install --cask "$PACKAGE"
+    PACKAGES=("$@")
+    MISSING=()
+
+    for PACKAGE in "${PACKAGES[@]}"; do
+        brew-cask-installed "$PACKAGE" || MISSING+=("$PACKAGE")
+    done
+
+    if [ "${#MISSING[@]}" -gt 0 ]; then
+        brew install --cask "${MISSING[@]}"
+        BREW_CASKS_CACHE_LOADED=0
+    fi
 }
