@@ -7,7 +7,9 @@ brew-install stow
 brew-install mas
 brew-install wget
 brew-tap gildas/tap
+brew-tap atlassian/homebrew-acli
 brew-install bitbucket-cli
+brew-install acli
 
 # brew-install mise
 # add-line-to-file ~/.zshrc 'eval "$(/opt/homebrew/bin/mise activate zsh)"'
