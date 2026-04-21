@@ -37,6 +37,7 @@ brew-install fzf
 brew-install nvim
 brew-install ripgrep
 brew-install fd
+brew-install jd
 brew-install lnav
 
 brew-install-cask ghostty@tip
