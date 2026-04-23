@@ -47,9 +47,6 @@
 [include]
 	path = ~/.gitconfig-work
 
-[core]
-  editor = code --wait
-
 [url "git@bitbucket.org:"]
 insteadOf = https://bitbucket.org/
 [gpg]
