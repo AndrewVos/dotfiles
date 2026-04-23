@@ -50,6 +50,7 @@ brew-install-cask claude-code
 add-line-to-file ~/.zshrc 'eval "$(starship init zsh)"'
 
 brew-install gnupg
+brew-install pinentry-mac
 
 brew-install MonitorControl
 brew-install-cask discord
@@ -72,6 +73,8 @@ add-line-to-file ~/.zprofile 'export PATH=$PATH:/Applications/Postgres.app/Conte
 # mas install 1284863847
 
 mkdir -p ~/.config
+mkdir -p ~/.gnupg
+chmod 700 ~/.gnupg
 
 # stow mise
 stow git
@@ -79,5 +82,6 @@ stow starship
 stow ghostty
 stow nvim
 stow aerospace
+stow gnupg
 
 # mise install
