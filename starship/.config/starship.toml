@@ -3,11 +3,20 @@
 [aws]
 disabled = true
 
+[bun]
+format = 'via [$symbol]($style) '
+
+[golang]
+format = 'via [$symbol]($style) '
+
 [nodejs]
 disabled = true
 
 [package]
 disabled = true
+
+[python]
+format = 'via [$symbol]($style) '
 
 [ruby]
 disabled = true

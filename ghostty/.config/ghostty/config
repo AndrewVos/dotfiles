@@ -6,3 +6,4 @@ mouse-hide-while-typing = true
 macos-icon = custom
 macos-custom-icon = "/System/Applications/Utilities/Terminal.app/Contents/Resources/Terminal.icns"
 theme = One Double Dark
+scrollback-limit = 30000000
