@@ -1,87 +1,37 @@
 #!/bin/bash
 set -euo pipefail
 IFS=$'\n\t'
-source ./helpers.sh
 
-brew-install stow
-brew-install mas
-brew-install wget
-brew-tap gildas/tap
-brew-tap atlassian/homebrew-acli
-brew-install bitbucket-cli
-brew-install acli
+brew trust "andrewvos/tap"
+brew trust "atlassian-labs/acli"
+brew trust "avivsinai/tap"
+brew trust "hashicorp/tap"
+brew trust "oven-sh/bun"
 
-# brew-install mise
-# add-line-to-file ~/.zshrc 'eval "$(/opt/homebrew/bin/mise activate zsh)"'
-# add-line-to-file ~/.zprofile 'eval "$(mise activate zsh --shims)"'
+brew bundle install
 
-brew-install asdf
+function add-line-to-file() {
+    FILE="$1"
+    LINE="$2"
+
+    grep -qxF "$LINE" "$FILE" || echo "$LINE" >>"$FILE"
+}
+
 add-line-to-file ~/.zshrc 'export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"'
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git || :
 asdf plugin add golang https://github.com/asdf-community/asdf-golang.git || :
 asdf plugin add ruby || :
-asdf plugin add bun || :
 asdf install nodejs 22.4.0
-# asdf install ruby 3.3.0
-# asdf install python 3.12.3
 asdf install golang 1.19
 
-# ruby dependencies
-brew-install openssl@3
-brew-install readline
-brew-install libyaml
-brew-install gmp
-brew-install kubectx
-brew-install fzf
-
-brew-install nvim
-brew-install ripgrep
-brew-install fd
-brew-install jd
-brew-install lnav
-
-brew-install-cask ghostty@tip
-brew-install-cask warp
-brew-install-cask nikitabobko/tap/aerospace
-brew-install starship
-brew-install-cask font-fira-code-nerd-font
-brew-install font-fira-code
-brew-install-cask claude-code
 add-line-to-file ~/.zshrc 'eval "$(starship init zsh)"'
-
-brew-install gnupg
-brew-install pinentry-mac
-
-brew-install MonitorControl
-brew-install-cask discord
-brew-install-cask slack
-brew-install-cask visual-studio-code
-brew-install-cask microsoft-teams
-brew-install-cask docker
-brew-install-cask pinta
-
-brew-install-cask openclaw
-
-brew-install-cask postgres-unofficial
 add-line-to-file ~/.zprofile 'export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin'
-
-# Home Assistant
-# mas install 1099568401
-# Xcode
-# mas install 497799835
-# Unsplash Wallpapers
-# mas install 1284863847
 
 mkdir -p ~/.config
 mkdir -p ~/.gnupg
 chmod 700 ~/.gnupg
 
-# stow mise
 stow git
 stow starship
 stow ghostty
-stow nvim
-stow aerospace
 stow gnupg
-
-# mise install

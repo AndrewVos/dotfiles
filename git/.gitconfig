@@ -48,6 +48,6 @@
 	path = ~/.gitconfig-work
 
 [url "git@bitbucket.org:"]
-insteadOf = https://bitbucket.org/
+	insteadOf = https://bitbucket.org/
 [gpg]
 	program = /opt/homebrew/bin/gpg
